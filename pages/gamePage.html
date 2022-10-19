@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../css/gamePage.css" />
     <title>Marcel Roquette</title>
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
 </head>
@@ -53,15 +53,20 @@ readable content of a page when looking at its layout. The point of using Lorem 
         </aside>
     </section>
     
+   
     <section id="commentsSection">
-        <input type="text" id="commentInput" placeholder="Ajouter un avis">
-        <button id="submitComment">Soumettre</button>
+        <button class="connexionButton">Connexion</button>
+        <div id="inputCommentArea">
+            <textarea type="textarea" id="commentInput" placeholder="Ajouter un avis..."></textarea>
+            <button id="submitComment">Soumettre</button>
         
+        </div>
+
         <ul id="comments">
             
         </ul>
-        
-        <script src="../scripts/comments.js"></script>
+        <script src="../scripts/commentsReader.js"></script>
+        <script src="../scripts/commentsHandler.js"></script>
     </section>
 </body>
 </html>
