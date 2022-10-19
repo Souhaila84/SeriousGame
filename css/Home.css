@@ -114,22 +114,17 @@ BEGINNING OF FOOTER STYLING
 
 #legals_terms {
     display: flex;
-    margin: 0;
-    padding: 0;
-    text-align: left;
-    list-style: none;
+    list-style-type: none;
+    padding: 1.5vw;
     background-color: #5f687c;
-}
-
-#legals_terms {
-    text-align: left;
 }
 
 #legals_terms a {
     text-decoration: none;
     color: #fff;
-    margin-left: 1vw;
-    margin-bottom: 20px;
+    margin-left: 3vw;
+    margin-bottom: 1vw;
+    font-size: 1.3vw;
 }
 
 /*
