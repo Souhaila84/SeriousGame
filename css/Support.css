@@ -1,0 +1,96 @@
+header{
+    border-bottom: 1px solid #5f687c;
+    background-color: #5f687c;
+}
+
+header li{
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+header li a{
+    display: block;
+    padding: 20px;
+}
+
+header li a:hover {
+    background-color: white;
+    color : black;
+}
+
+header li:hover .sub-menu{
+    display: block;
+}
+
+.sub-menu{
+    display: none;
+    position: absolute;
+    background-color: grey;
+    width: 600px;
+}
+
+.wrapper{
+    text-align: center;
+}
+
+footer{
+    border-top: 1px solid #5f687c;
+    background-color: #5f687c;
+}
+
+.bsupp{
+    text-align: center;
+}
+
+.C{
+    text-align: center;
+}
+
+.button{
+    background-color: #5f687c;
+    border: none;
+    
+}
+
+
+.profilG{
+    width: 125px;
+    border: 1px solid black;
+    border-radius: 100px;
+    float: left;
+    margin: 5px 15px 0 400px;
+
+}
+
+.profilD{
+    width: 125px;
+    border: 1px solid black;
+    border-radius: 100px;
+    float: right;
+    margin: 5px 400px 0 15px;
+
+}
+
+.texteD{
+    text-align: right;
+    margin: 30px 400px 0 400px;
+}
+
+.texteG{
+    text-align: left;
+    margin: 30px 400px 0 400px;
+}
+
+.encadrement{
+    border: 1px solid black;
+    padding: 5px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+
+
+
+
+
