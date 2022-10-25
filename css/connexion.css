@@ -1,3 +1,11 @@
+/* 
+IMPORTING NAVBAR STYLE
+*/
+
+@import url("navBar.css");
+
+
+
 *{
     margin: 50px;
     padding: 0;

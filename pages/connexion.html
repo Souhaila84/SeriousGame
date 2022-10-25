@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<link href="/css/connexionstyle.css" rel="stylesheet">
+<link href="/css/connexion.css" rel="stylesheet">
 
 <html lang="en">
  <head>
@@ -10,20 +10,29 @@
    <title>Marcel Roquette</title>
  </head>
  <body>
-  <div class="connect">
-   <h3>Se connecter</h3> <!--Connexion-->
-   <input type="email" placeholder="E-MAIL">
-   <input type="password" placeholder="MOT DE PASSE">
-   <button class="boutonlog" type="submit">CONNEXION</button>
-   <p>SI VOUS N'AVEZ PAS ENCORE DE COMPTE, VOUS POUVEZ EN CREER UN CI-DESSOUS. <!--texte listant raisons de s'inscrire-->
-    <br>EN VOUS INSCRIVANT, VOUS POUVEZ SAUVEGARDER VOTRE 
-    <br>PROGESSION ET ACCEDER AU MODE MULTI-JOUEURS</p>
-   <h3>S'inscrire</h3> <!--Inscription-->
-   <input type="email" placeholder="E-MAIL">
-   <input type="password" placeholder="MOT DE PASSE">
-   <input type="password" placeholder="CONFIRMER MOT DE PASSE">
-   <input type="text" placeholder="PSEUDO">
-   <button class="boutonlog" type="submit">S'INSCRIRE</button>
+    <nav class="sticky">
+       <ul id="nav">
+       <li><a id="home" href="/Home.html">Accueil</a></li>
+       <li><a id="play" href="/pages/gamePage.html">Jouer</a></li>
+       <li><a id="support" href="/pages/Support.html">Support</a></li>
+       <li><a id="about us" href="/pages/About_us.html">A propos</a></li>
+       <button class="loginbutton" role="button">CONNEXION</button>
+       </ul>   
+    </nav>
+    <div class="connect">
+        <h3>Se connecter</h3> <!--Connexion-->
+        <input type="email" placeholder="E-MAIL">
+        <input type="password" placeholder="MOT DE PASSE">
+        <button class="boutonlog" type="submit">CONNEXION</button>
+        <p>SI VOUS N'AVEZ PAS ENCORE DE COMPTE, VOUS POUVEZ EN CREER UN CI-DESSOUS. <!--texte listant raisons de s'inscrire-->
+        <br>EN VOUS INSCRIVANT, VOUS POUVEZ SAUVEGARDER VOTRE 
+        <br>PROGESSION ET ACCEDER AU MODE MULTI-JOUEURS</p>
+        <h3>S'inscrire</h3> <!--Inscription-->
+        <input type="email" placeholder="E-MAIL">
+        <input type="password" placeholder="MOT DE PASSE">
+        <input type="password" placeholder="CONFIRMER MOT DE PASSE">
+        <input type="text" placeholder="PSEUDO">
+        <button class="boutonlog" type="submit">S'INSCRIRE</button>
   </div>
  </body>
 </html>
