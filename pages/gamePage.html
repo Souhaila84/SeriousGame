@@ -9,33 +9,15 @@
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
 </head>
 <body>
-    <nav id="navbar">
-     <!-- LOGO -->
-     <div class="logo">Yo Début du site</div>
-     <!-- NAVIGATION MENU -->
-     <ul class="nav-links">
-       <!-- USING CHECKBOX HACK -->
-       <input type="checkbox" id="checkbox_toggle" />
-       <label for="checkbox_toggle" class="hamburger">&#9776;</label>
-       <!-- NAVIGATION MENUS -->
-       <div class="menu">
-         <li><a href="/">Accueil</a></li>
-         <li><a href="/">A propos</a></li>
-         <li class="support">
-           <a href="/">Support</a>
-           <!-- DROPDOWN MENU -->
-           <ul class="dropdown">
-             <li><a href="/">Dropdown 1 </a></li>
-             <li><a href="/">Dropdown 2</a></li>
-             <li><a href="/">Dropdown 2</a></li>
-             <li><a href="/">Dropdown 3</a></li>
-             <li><a href="/">Dropdown 4</a></li>
-           </ul>
-         </li>
-         <li><a href="/">Nous Contacter</a></li>
-       </div>
-     </ul>
-    </nav>
+       <nav class="sticky">
+           <ul id="nav">
+          <li><a id="home" href="/Home.html">Accueil</a></li>
+          <li><a id="play" href="/pages/gamePage.html">Jouer</a></li>
+          <li><a id="support" href="/pages/Support.html">Support</a></li>
+          <li><a id="about us" href="/pages/About_us.html">A propos</a></li>
+          <button class="loginbutto n" role="button">CONNEXION</button>
+           </ul>   
+       </nav>
     <section id="gameSection">
         
         <article id="game">
