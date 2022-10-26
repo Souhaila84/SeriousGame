@@ -14,9 +14,9 @@ class translateGame extends Phaser.Scene {
         
         var cont = this.add.container(config.width/2,config.height/2,[rect,text]);
         
-        rect.setInteractive();
+        cont.setInteractive(new Phaser.Geom.Rectangle(0,0,400,70), Phaser.Geom.Rectangle.Contains);
         
-        rect.on('pointerover', function() {
+        cont.on('pointerover', function() {
             rect.setFillStyle(0x00ff00)
         });
         
