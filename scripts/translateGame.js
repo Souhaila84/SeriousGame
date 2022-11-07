@@ -21,6 +21,8 @@ class translateGame extends Phaser.Scene {
         cont.on('pointerout', function() {
             rect.setFillStyle(0xff0000)
         });
+        
+        cont.on('pointerup',this.clearScene, this);
     }
     
     /*
@@ -29,18 +31,29 @@ class translateGame extends Phaser.Scene {
     
     addProposals(rigthProposal,secondProposal,thirdProposal,fourthProposal){
         var proposals = [rigthProposal,secondProposal,thirdProposal,fourthProposal];
-        
-        var shuffledProposals = proposals => {
-            for (let i = proposals.length - 1; i > 0; i--) {
+        //shuffling proposals
+        for (let i = proposals.length - 1; i > 0; i--) {
                 var j = Math.floor(Math.random() * (i + 1));
                 var temp = proposals[i];
                 proposals[i] = proposals[j];
                 proposals[j] = temp;
-            }
         }
         
-        this.addProposals(200,50,shuffledProposals[0],25)
-        this.addProposals(50,200,shuffledProposals[1],25)
+        this.addTranslateProposal(200,200,proposals[0],25);
+        this.addTranslateProposal(200,400,proposals[1],25);
+        this.addTranslateProposal(600,200,proposals[2],25);
+        this.addTranslateProposal(600,400,proposals[3],25);
+    }
+    
+    clearScene(){
+        let allObjects = this.children.list.filter(gameObject => gameObject instanceof Phaser.GameObjects.Container); //find all containers in the scene
+        allObjects.forEach(object => object.destroy());
+    }
+    
+    onRightProposalClick(){
+        this.clearScene();
+        
+        
     }
     
     
@@ -50,15 +63,14 @@ class translateGame extends Phaser.Scene {
     
     create(){
         this.add.image(400, 300, 'bg');
-        this.addProposals("o","e","i","y");
+        this.addProposals("oll","ell","ill","ylll");
         
-        //var proposal = this.addTranslateProposal(200,50,"Le tueur",25);
         
         this.input.on('pointerdown', function(){
             console.log("x : " + game.input.mousePointer.x);
             console.log("y : " + game.input.mousePointer.y);
+            
         });
-        
         
     }
     
