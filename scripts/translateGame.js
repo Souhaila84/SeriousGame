@@ -2,24 +2,67 @@
 class translateGame extends Phaser.Scene {
     //ussing super constructor
     
-    preload(){
-        this.load.image("bg","../images/game/background/translateBackground.jpg")
-    }
     
-    create(){
-        this.add.image(0, 0, 'bg');
+    /*
+    This fuction create a buton for proposal
+    */
+    addTranslateProposal(x, y, text, font){
+        var rect = this.add.rectangle(0,0,200,35,0xff0000);
+        var text = this.add.text(-2*font*(text.length/8),-font/2, text,{ fontSize : font , fontFamily: 'Georgia, Times, serif' });
         
-        var rect = this.add.rectangle(0,0,400,70,0xff0000);
-        var text = this.add.text(-100,-30,"hello word",{ fontSize : 50 , fontFamily: 'Georgia, Times, serif' });
+        var cont = this.add.container(x, y,[rect,text]);
         
-        var cont = this.add.container(config.width/2,config.height/2,[rect,text]);
-        
-        cont.setInteractive(new Phaser.Geom.Rectangle(0,0,400,70), Phaser.Geom.Rectangle.Contains);
+        cont.setInteractive(new Phaser.Geom.Rectangle(-100,-17,200,35), Phaser.Geom.Rectangle.Contains);
         
         cont.on('pointerover', function() {
             rect.setFillStyle(0x00ff00)
         });
         
+        cont.on('pointerout', function() {
+            rect.setFillStyle(0xff0000)
+        });
+    }
+    
+    /*
+    This function create 4 proposal in random order, the rigth proposal is the first given
+    */
+    
+    addProposals(rigthProposal,secondProposal,thirdProposal,fourthProposal){
+        var proposals = [rigthProposal,secondProposal,thirdProposal,fourthProposal];
+        
+        var shuffledProposals = proposals => {
+            for (let i = proposals.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = proposals[i];
+                proposals[i] = proposals[j];
+                proposals[j] = temp;
+            }
+        }
+        
+        this.addProposals(200,50,shuffledProposals[0],25)
+        this.addProposals(50,200,shuffledProposals[1],25)
+    }
+    
+    
+    preload(){
+        this.load.image("bg","../images/game/background/translateBackground.jpg")
+    }
+    
+    create(){
+        this.add.image(400, 300, 'bg');
+        this.addProposals("o","e","i","y");
+        
+        //var proposal = this.addTranslateProposal(200,50,"Le tueur",25);
+        
+        this.input.on('pointerdown', function(){
+            console.log("x : " + game.input.mousePointer.x);
+            console.log("y : " + game.input.mousePointer.y);
+        });
+        
+        
+    }
+    
+    update(){
         
     }
 }
