@@ -202,7 +202,7 @@ rules
         });
         
         //adding the rules in the rules screen
-        var rulesText = this.add.text(-190,-90, "For this game, you have to chose the most\napropriated traduction among the 4 proposed\n\nGood Luck !",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif' });
+        var rulesText = this.add.text(-190,-90, "For this game, you have to chose the most\napropriated traduction among the 4 proposed\nThere are 3 traductions to do.\n\nGood Luck !",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif' });
         var rulesRect = this.add.rectangle(0,0,400,200,0x7b6c4f, 0.8);
         rulesRect.setName("rulesRect");
         rulesText.setTint(0xc2baac);
