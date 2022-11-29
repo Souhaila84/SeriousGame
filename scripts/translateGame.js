@@ -11,7 +11,9 @@ function sleep(ms) {
 
 class translateGame extends Phaser.Scene {
     
-    
+    constructor () {
+        super('translateGame');
+    }
     /*
     This fuction create a buton for proposal
     */
@@ -22,22 +24,24 @@ class translateGame extends Phaser.Scene {
         var rect = this.add.rectangle(0,0,280,115,0xa38c6c,0.5);
         var textGameObject = this.add.text(-130,-50, justifyText,{ fontSize : font , fontFamily: 'Georgia, Times, serif' });
         
-        var cont = this.add.container(x, y,[rect,textGameObject]);
-
+        var r2 = this.add.rectangle(0,0, 280, 115);
+        r2.setStrokeStyle(2, 0x0000,0.3);
+        
+        var cont = this.add.container(x, y,[rect,textGameObject,r2]);
         cont.setInteractive(new Phaser.Geom.Rectangle(-140,-57,280,115), Phaser.Geom.Rectangle.Contains);
         
         cont.on('pointerover', function() {
-            rect.setFillStyle(0x00ff00,0.5)
+            rect.setFillStyle(0x28942a,0.5)
         });
         
         cont.on('pointerout', function() {
             rect.setFillStyle(0xa38c6c,0.5)
         });
         if (isRigth){
-            cont.on('pointerup',this.onRightProposalClick, this);    
+            cont.on('pointerdown',this.onRightProposalClick, this);    
         }
         else{
-            cont.on('pointerup',this.onFalseProposalClick, this);
+            cont.on('pointerdown',this.onFalseProposalClick, this);
         }
     }
     
@@ -82,7 +86,7 @@ class translateGame extends Phaser.Scene {
         this.addTranslateProposal(570,250,proposalsBool[2][0],25,proposalsBool[2][1]);
         this.addTranslateProposal(570,450,proposalsBool[3][0],25,proposalsBool[3][1]);
         
-        var title = this.add.text(50, 30, this.justify(proposals[0],45),{ fontSize : 30 , fontFamily: 'Times, Georgia, serif' });
+        var title = this.add.text(50, 25, this.justify(proposals[0],45),{ fontSize : 30 , fontFamily: 'Times, Georgia, serif' });
         title.setTintFill(0xe5e8d9);
         title.setName("proposalTilte");
     }
@@ -128,7 +132,7 @@ class translateGame extends Phaser.Scene {
     }
     
     preload(){
-        this.load.image("bg","../images/game/background/translateBackground.jpg")
+        this.load.image("bg","../images/game/background/translateBackground.jpg");
     }
     
     create(){
@@ -157,12 +161,71 @@ class translateGame extends Phaser.Scene {
     }
 }
 
+class rules extends Phaser.Scene {
+
+    constructor () {
+        super('rules');
+    }
+
+    preload() {
+        this.load.image("Rulesbackground","../images/game/background/rulesBackground.jpg");
+    }
+rules
+    create() {
+        
+        //Rules Part 
+        //adding the rules background
+        var rulesBackground = this.add.image(400,300, 'Rulesbackground');
+        
+        //adding start container to the rules screen
+        
+        var startText = this.add.text(-39,-17, "Start !",{ fontSize : 32 , fontFamily: 'Georgia, Times, serif' });
+        var startRect = this.add.rectangle(0,0,200,50,0x7b6c4f, 0.8);
+        startText.setTint(0xc2baac);
+        startRect.setName("startRect");
+        var startRectStyle = this.add.rectangle(0,0,200,50);
+        startRectStyle.setStrokeStyle(2,0x000000);
+        
+        var startContainer = this.add.container(400,450,[startRect ,startText,startRectStyle]);
+        startContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
+        startContainer.setName("startContainer");
+        startContainer.on("pointerdown", function(){
+            this.scene.scene.start('translateGame');
+        });
+        
+        startContainer.on('pointerover', function() {
+            startRect.setFillStyle(0xa88c6c,0.8)
+        });
+        
+        startContainer.on('pointerout', function() {
+            startRect.setFillStyle(0x7b6c4f,0.8)
+        });
+        
+        //adding the rules in the rules screen
+        var rulesText = this.add.text(-190,-90, "For this game, you have to chose the most\napropriated traduction among the 4 proposed\n\nGood Luck !",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif' });
+        var rulesRect = this.add.rectangle(0,0,400,200,0x7b6c4f, 0.8);
+        rulesRect.setName("rulesRect");
+        rulesText.setTint(0xc2baac);
+        var rulesRectStyle = this.add.rectangle(0,0,400,200);
+        rulesRectStyle.setStrokeStyle(2,0x000000);
+        
+        var rulesContainer = this.add.container(400,200,[rulesRect ,rulesText,rulesRectStyle]);
+        rulesContainer.setInteractive(new Phaser.Geom.Rectangle(-200,-100,400,200), Phaser.Geom.Rectangle.Contains);
+        rulesContainer.setName("rulesContainer");
+    }
+
+    update() {
+        // Used to update your game. This function runs constantly
+    }
+    
+}
+
 const config = {
     type: Phaser.AUTO,
     parent: 'game',
     width: 800,
     height: 600,
-    scene: [ translateGame ]
+    scene: [ rules, translateGame]
 };
 
 const game = new Phaser.Game(config);
