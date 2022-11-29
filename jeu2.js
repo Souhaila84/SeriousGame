@@ -1,28 +1,34 @@
-
-
 class jeu2 extends Phaser.Scene {
-     preload ()
-    {
-    this.load.image('bg', '../site_sae/images/scene.jpg');
+    //ussing super constructor
+    
+    preload(){
+        this.load.image("bg","site_sae/images/scene.jpg")
+    }
+    
+    create(){
+        this.add.image(0, 0, 'bg');
+        
+        var rect = this.add.rectangle(0,0,400,70,0xff0000);
+        var text = this.add.text(-100,-30,"hello word",{ fontSize : 50 , fontFamily: 'Georgia, Times, serif' });
+        
+        var cont = this.add.container(config.width/2,config.height/2,[rect,text]);
+        
+        cont.setInteractive(new Phaser.Geom.Rectangle(0,0,400,70), Phaser.Geom.Rectangle.Contains);
+        
+        cont.on('pointerover', function() {
+            rect.setFillStyle(0x00ff00)
+        });
+        
+        
+    }
 }
 
-    create ()
-{
-    this.add.image(0, 0, 'bg');
-}
-
-    update ()
-{
-}
-
-}
-
-var config = {
+const config = {
     type: Phaser.AUTO,
     parent: 'jeu',
     width: 800,
     height: 600,
-    scene: [jeu2]
+    scene: [ translateGame ]
 };
 
-var game = new Phaser.Game(config);
+const game = new Phaser.Game(config);
