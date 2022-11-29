@@ -222,7 +222,7 @@ rules
 
 const config = {
     type: Phaser.AUTO,
-    parent: 'game',
+    parent: 'jeu',
     width: 800,
     height: 600,
     scene: [ rules, translateGame]
