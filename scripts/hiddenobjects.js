@@ -1,6 +1,10 @@
+export {hiddenObjects};
 
-class translateGame extends Phaser.Scene {
-    //ussing super constructor
+class hiddenObjects extends Phaser.Scene {
+    
+    constructor () {
+        super('hiddenObjects');   // construct with a name to call this scene after
+    }
     
     preload(){
         this.load.image("bg","../images/game/background/scene+.jpg") //scene
@@ -132,13 +136,3 @@ class translateGame extends Phaser.Scene {
     }
     
 }
-
-const config = {
-    type: Phaser.AUTO,
-    parent: 'jeu',
-    width: 800,
-    height: 600,
-    scene: [ translateGame ]
-};
-
-const game = new Phaser.Game(config);

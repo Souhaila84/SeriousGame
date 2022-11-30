@@ -43,6 +43,12 @@ IMPORTING NAVBAR STYLE
     height: 5vh;
 }
 
+canvas {
+    display : block;   
+    margin : auto;
+    margin-top: 5vh;
+}
+
 .commentTexts{
     font-size: 5 px;
     text-align: left;

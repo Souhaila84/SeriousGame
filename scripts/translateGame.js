@@ -1,3 +1,6 @@
+export {translateGame, translateGameRules};
+
+
 var countOfVictory = 0;
 var allProposals =[["There was a murder last night","Il y a eu un meurtre hier soir","Il y avais eu un meurtre hier soir","Il y a eu un menteur hier soir","il y a des meurtriers dans la nuit derniére"],
                    ["Bonjour, je cherche un homme de petite taille avec un sourire narquois et une calvitie avancée.","Hello, I am looking for a short and smirk man with a advanced baldness.","Hello, I am looking for a short and sly man with a advanced baldness.","Hello, I am looking for a short man with a sly and advanced bat.","Hello, I am looking for a tall man with a smirk."],
@@ -12,8 +15,9 @@ function sleep(ms) {
 class translateGame extends Phaser.Scene {
     
     constructor () {
-        super('translateGame');
+        super('translateGame');  // construct with a name to call this scene after
     }
+    
     /*
     This fuction create a buton for proposal
     */
@@ -45,28 +49,6 @@ class translateGame extends Phaser.Scene {
         }
     }
     
-    justify(text,n){
-        var justifyText = new String();
-        var textArray = text.split(' ');
-        var lineLength = 0;
-        
-        for (let i =0; i < textArray.length; ++i){
-            lineLength += textArray[i].length + 1;
-            
-            if (lineLength > n){
-                textArray[i] = textArray[i] +'\n';
-                lineLength = 0;
-            }
-            else{
-                textArray[i] += ' ';
-            }
-        }
-        
-        textArray.forEach(element => justifyText += element);  
-        
-        return justifyText;
-    }
-    
     /*
     This function create 4 proposal in random order, the rigth proposal is the first given
     */
@@ -91,10 +73,26 @@ class translateGame extends Phaser.Scene {
         title.setName("proposalTilte");
     }
     
-    clearScene(){
-        let allObjects = this.children.list.filter(gameObject => gameObject instanceof Phaser.GameObjects.Container); //find all containers in the scene
-        allObjects.forEach(object => object.destroy());
-        this.children.getByName("proposalTilte").destroy();
+    justify(text,n){
+        var justifyText = new String();
+        var textArray = text.split(' ');
+        var lineLength = 0;
+        
+        for (let i =0; i < textArray.length; ++i){
+            lineLength += textArray[i].length + 1;
+            
+            if (lineLength > n){
+                textArray[i] = textArray[i] +'\n';
+                lineLength = 0;
+            }
+            else{
+                textArray[i] += ' ';
+            }
+        }
+        
+        textArray.forEach(element => justifyText += element);  
+        
+        return justifyText;
     }
     
     onRightProposalClick(){
@@ -113,11 +111,6 @@ class translateGame extends Phaser.Scene {
         this.addProposals(actualProposal);
         
     }
-    restartThisGame(thisScene){
-        thisScene.children.getByName("textBA").destroy();
-        
-        this.addProposals(actualProposal);
-    }
     
     nextPlay(){
         this.clearScene();
@@ -130,6 +123,13 @@ class translateGame extends Phaser.Scene {
             var textBA = this.add.text(50, 40, "You Won",{ fontSize : 40 , fontFamily: 'Times, Georgia, serif' });
         }
     }
+    
+    clearScene(){
+        let allObjects = this.children.list.filter(gameObject => gameObject instanceof Phaser.GameObjects.Container); //find all containers in the scene
+        allObjects.forEach(object => object.destroy());
+        this.children.getByName("proposalTilte").destroy();
+    }
+    
     
     preload(){
         this.load.image("bg","../images/game/background/translateBackground.jpg");
@@ -161,10 +161,10 @@ class translateGame extends Phaser.Scene {
     }
 }
 
-class rules extends Phaser.Scene {
+class translateGameRules extends Phaser.Scene {
 
     constructor () {
-        super('rules');
+        super('translateGameRules');
     }
 
     preload() {
@@ -220,12 +220,3 @@ rules
     
 }
 
-const config = {
-    type: Phaser.AUTO,
-    parent: 'jeu',
-    width: 800,
-    height: 600,
-    scene: [ rules, translateGame]
-};
-
-const game = new Phaser.Game(config);
