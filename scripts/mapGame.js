@@ -232,7 +232,7 @@ class mapGame extends Phaser.Scene
     
     preload () 
     {
-        this.load.image('Map', '../images/mapformapgame.png')
+        this.load.image('Map', '../images/mapformapgame.PNG')
         this.load.image('Greenping','../images/mappinggreen.png')
         this.load.image('Redping', '../images/mappingred.png')
         this.load.image('Start', '../images/mapstart.png')
