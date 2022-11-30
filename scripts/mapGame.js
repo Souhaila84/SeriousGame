@@ -35,7 +35,7 @@ rules
         startContainer.setName("startContainer");   
         
         //adding the rules in the rules screen
-        var rulesText = this.add.text(-190,-90, "In this game you have to find the right path \nwith the help of instructions that will be \ndisplayed on the right of your screen. After \nthat, click on the location you think right \nand submit your choice, you only have one \npossible location. \n\nGood luck !",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif' });
+        var rulesText = this.add.text(-190,-90, "In this game you have to find the \nright path with the help of \ninstructions that will be displayed\non the right of your screen. After \nthat, click on the location you \nthink right and submit your choice, \nyou only have one right location \nper try. \n\nGood luck !",{ fontSize : 18 });
         rulesText.setTint(0xc2baac);
         var rulesRect = this.add.rectangle(0,0,400,200,0x7b6c4f, 0.8);
         rulesRect.setName("rulesRect");
@@ -377,7 +377,8 @@ class mapGame extends Phaser.Scene
                          "- First, turn left \n  when you exit \n  my office\n\n- Then go straight \n  past the church \n  and turn left \n  in King Street \n\n- Then turn right \n\n- Go straight past \n  the first road \n  on your right \n\n- After that, turn \n  right to Old Jewry \n\n- Then turn left, \n  and left again, \n  and you should \n  be in front of \n  the building we \n  are looking for !"];
         
         proposalNumber = Math.floor(Math.random() * 3);
-        var instructionsText = this.add.text(605,150, proposals[proposalNumber]);
+        var instructionsText = this.add.text(605,150, proposals[proposalNumber], {fontSize: 14});
+        
         
         
         redping.setInteractive();
