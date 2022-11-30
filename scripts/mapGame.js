@@ -1,3 +1,5 @@
+export {rulesMap, victoryScreenMap, tryAgainScreenMap, mapGame};
+
 var proposalNumber = 0;
 
 function sleep(ms) {
@@ -5,10 +7,10 @@ function sleep(ms) {
 }
 
 //Rules screen 
-class rules extends Phaser.Scene {
+class rulesMap extends Phaser.Scene {
 
     constructor () {
-        super('rules');
+        super('rulesMap');
     }
 
     preload() {
@@ -67,10 +69,10 @@ rules
 
 
 //Victory Screen Scene 
-class victoryScreen extends Phaser.Scene {
+class victoryScreenMap extends Phaser.Scene {
 
     constructor () {
-        super('victoryScreen');     
+        super('victoryScreenMap');     
     }
 
     preload() {
@@ -107,9 +109,9 @@ class victoryScreen extends Phaser.Scene {
         enterContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
         enterContainer.setName("enterContainer");  
         
-        /*enterContainer.on("pointerup", function(){
-            this.scene.scene.start('Inserer le niveau FindObjects ici');   AJOUTER LE NIVEAU JUSTE LA !!!!
-        });*/
+        enterContainer.on("pointerup", function(){
+            this.scene.scene.start('hiddenObjects');  
+        });
         
         enterContainer.on('pointerover', function() {
             enterRect.setFillStyle(0x356c18,0.85)
@@ -130,10 +132,10 @@ class victoryScreen extends Phaser.Scene {
 
 
 //Try again screen
-class tryAgainScreen extends Phaser.Scene {
+class tryAgainScreenMap extends Phaser.Scene {
 
     constructor () {
-        super('tryAgainScreen');
+        super('tryAgainScreenMap');
     }
 
     preload() {
@@ -447,9 +449,9 @@ class mapGame extends Phaser.Scene
         
          yesContainer.on('pointerup', function(){
              if(greenping2.visible && proposalNumber == 0 || greenping3.visible && proposalNumber == 0 || greenping.visible && proposalNumber == 1 || greenping3.visible && proposalNumber == 1 || greenping.visible && proposalNumber == 2 || greenping2.visible && proposalNumber == 2)
-                 this.scene.scene.start('tryAgainScreen');
+                 this.scene.scene.start('tryAgainScreenMap');
              else 
-                 this.scene.scene.start('victoryScreen');
+                 this.scene.scene.start('victoryScreenMap');
         });
         
         
@@ -512,14 +514,3 @@ class mapGame extends Phaser.Scene
     }
         
 }
-
-
-const config = {
-    type: Phaser.AUTO,
-    parent: 'game',
-    width: 800,
-    height: 600,
-    scene: [ rules,mapGame,tryAgainScreen,victoryScreen]
-};
-
-const game = new Phaser.Game(config);
