@@ -1,4 +1,6 @@
-export {rulesHiddenObjects,hiddenObjects,victoryScreenHiddenObjects};
+export {rulesHiddenObjects,hiddenObjects, victoryScreenHiddenObjects};
+
+var count = 0;
 
 var count = 0;
 
@@ -32,6 +34,7 @@ class rulesHiddenObjects extends Phaser.Scene {
         startContainer.setName("startContainer");   
         
         //adding the rules in the rules screen
+
         var rulesText = this.add.text(-190,-90, "In this game you have to find all \nthe proofs (objects) that will be \ndisplayed in the manuscript on your left\nAfter you found all the proofs, you will\nbe able to play the next game !\n\nGood luck !",{ fontSize : 16 });
         var rulesText = this.add.text(-190,-90, "In this game you have to find all \nthe proofs (objects) that will be \ndisplayed in the manuscript on your left\nAfter you found all the proofs, you will\nbe able to play the next game !\n\nGood luck !",{ fontSize : 16 });
         rulesText.setTint(0xc2baac);
@@ -71,7 +74,7 @@ class hiddenObjects extends Phaser.Scene {
     }
     
     preload(){
-        this.load.image("bg","../images/game/background/scene+.jpg") //scene
+        this.load.image("backgroundHidenObjects","../images/game/background/scene+.jpg") //scene
         this.load.image("wine", "../images/game/items/wine_2.png") //wine
         this.load.image("gloves", "../images/game/items/gloves3.png") //gloves
         this.load.image("necklace", "../images/game/items/necklacee.png") //necklace
@@ -99,7 +102,7 @@ class hiddenObjects extends Phaser.Scene {
     
     create(){
         //ajout de scène et images 
-        this.add.image(400, 300, 'bg'); //scene
+        this.add.image(400, 300, 'backgroundHidenObjects'); //scene
         var wine = this.add.image(400, 300, 'wine').setInteractive();//wine
         var gloves = this.add.image(700, 550, 'gloves').setInteractive(); //gloves
         var necklace = this.add.image(100, 550, 'necklace').setInteractive(); //necklace
@@ -120,6 +123,7 @@ class hiddenObjects extends Phaser.Scene {
         this.add.image(300, 120, 'blood'); //blood
         this.add.image(430, 550, 'flowers'); //flowers
         var music = this.sound.add('theme'); //musique
+        music.setVolume(0.5);
         music.play
         ({
             loop: true

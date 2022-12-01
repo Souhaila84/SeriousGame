@@ -1,6 +1,67 @@
-export {gapFill};
+export {rulesGapFill,gapFill};
 
 var score = 0;
+
+class rulesGapFill extends Phaser.Scene {
+
+    constructor () {
+        super('rulesGapFill');
+    }
+
+    preload() {
+        this.load.image("Rulesbackground","../images/game/background/rulesBackground.jpg");
+    }
+rules
+    create() {
+        
+        //Rules Part 
+        //adding the rules background
+        var rulesBackground = this.add.image(400,300, 'Rulesbackground');
+        
+        //adding start container to the rules screen
+        
+        var startText = this.add.text(-38,-18, "Start !",{ fontSize : 32 , fontFamily: 'Georgia, Times, serif'});
+        var startRect = this.add.rectangle(0,0,200,50,0x7b6c4f, 0.8);
+        startText.setTint(0xc2baac);
+        startRect.setName("startRect");
+        var startRectStyle = this.add.rectangle(0,0,200,50);
+        startRectStyle.setStrokeStyle(2,0x000000);
+        
+        var startContainer = this.add.container(400,450,[startRect ,startText,startRectStyle]);
+        startContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
+        startContainer.setName("startContainer");   
+        
+        //adding the rules in the rules screen
+        var rulesText = this.add.text(-190,-90, "In this game you have to fill the gaps \nin the discussion that Mr.Roquette heard. \nWhen all the gaps will be filled with \nthe correct answers, you'll be able to \nplay the next game !\n\nGood luck !",{ fontSize : 16 });
+        rulesText.setTint(0xc2baac);
+        var rulesRect = this.add.rectangle(0,0,400,200,0x7b6c4f, 0.8);
+        rulesRect.setName("rulesRect");
+        var rulesRectStyle = this.add.rectangle(0,0,400,200);
+        rulesRectStyle.setStrokeStyle(2,0x000000);
+        
+        var rulesContainer = this.add.container(400,200,[rulesRect ,rulesText,rulesRectStyle]);
+        rulesContainer.setInteractive(new Phaser.Geom.Rectangle(-200,-100,400,200), Phaser.Geom.Rectangle.Contains);
+        rulesContainer.setName("rulesContainer");
+        
+        startContainer.on("pointerup", function(){
+            this.scene.scene.start('gapFill');
+        });
+        
+        startContainer.on('pointerover', function() {
+            startRect.setFillStyle(0xa88c6c,0.8)
+        });
+        
+        startContainer.on('pointerout', function() {
+            startRect.setFillStyle(0x7b6c4f,0.8)
+        });
+    }
+
+    update() {
+        // Used to update your game. This function runs constantly
+    }
+}
+
+
 
 class gapFill extends Phaser.Scene {
     constructor () {
@@ -10,7 +71,7 @@ class gapFill extends Phaser.Scene {
     preload(){
         this.load.image('living', '../images/game/background/gapFillBackground.jpg');
         this.load.image('detec', '../images/game/detective1.png');
-        this.load.image('sprite', '../image/game/_.png');
+        this.load.image('sprite', '../images/game/_.png');
     }
 
     create(){
@@ -29,7 +90,7 @@ class gapFill extends Phaser.Scene {
             color: "white",  
         });
 
-        var text3 = this.add.text(200,90, "-ruckus -know -bullet -decided -eyes -flat \n         -safety -dead -mess",{
+        var text3 = this.add.text(200,90, "-ruckus -known -bullet -decided -eyes -flat \n         -safety -dead -mess",{
             color: "white",   
         });
 
@@ -49,6 +110,7 @@ class gapFill extends Phaser.Scene {
         sprite.on('pointerdown', function(pointer){
             console.log(this);
             let person = prompt("entre le mot", "");
+            
             if (person == "dead") {
                 var textSprite1 = this.scene.add.text(440,175,person,{
                     color: "white",
@@ -56,7 +118,8 @@ class gapFill extends Phaser.Scene {
                 });
                 score +=1;
                 this.setVisible(false);
-                textSprite12.setVisible(false);
+                if (isFalse)
+                    textSprite12.setVisible(false);
             }
             else {
                 if (isFalse){
@@ -97,7 +160,8 @@ class gapFill extends Phaser.Scene {
                 });
                 score +=1;
                 this.setVisible(false);
-                textSprite22.setVisible(false);
+                if (isFalse2)
+                    textSprite22.setVisible(false);
             }
             else {
                 if (isFalse2){
@@ -134,7 +198,8 @@ class gapFill extends Phaser.Scene {
                 });
                 score +=1;
                 this.setVisible(false);
-                textSprite32.setVisible(false);
+                if(isFalse3)
+                    textSprite32.setVisible(false);
             }
             else {
                 if (isFalse3){
@@ -171,7 +236,8 @@ class gapFill extends Phaser.Scene {
                 });
                 score +=1;
                 this.setVisible(false);
-                textSprite42.setVisible(false);
+                if(isFalse4)
+                    textSprite42.setVisible(false);
             }
             else {
                 if (isFalse4){
@@ -208,7 +274,8 @@ class gapFill extends Phaser.Scene {
                 });
                 score +=1;
                 this.setVisible(false);
-                textSprite52.setVisible(false);
+                if(isFalse5)
+                    textSprite52.setVisible(false);
             }
             else {
                 if (isFalse5){
@@ -245,7 +312,8 @@ class gapFill extends Phaser.Scene {
                 });
                 score +=1;
                 this.setVisible(false);
-                textSprite62.setVisible(false);
+                if(isFalse6)
+                    textSprite62.setVisible(false);
             }
             else {
                 if (isFalse6){
@@ -282,7 +350,8 @@ class gapFill extends Phaser.Scene {
                 });
                 score +=1;
                 this.setVisible(false);
-                textSprite72.setVisible(false);
+                if(isFalse7)
+                    textSprite72.setVisible(false);
             }
             else {
                 if (isFalse7){
@@ -319,6 +388,7 @@ class gapFill extends Phaser.Scene {
                 });
                 score +=1;
                 this.setVisible(false);
+                if(isFalse8)
                 textSprite82.setVisible(false);
             }
             else {
@@ -350,14 +420,15 @@ class gapFill extends Phaser.Scene {
         sprite9.on('pointerdown', function(pointer){
             console.log(this);
             let person = prompt("entre le mot", "");
-            if (person == "know") {
+            if (person == "known") {
                 var textSprite9 = this.scene.add.text(530,358,person,{
                     color: "white",
                     fontStyle: "bold",  
                 });
                 score +=1;
                 this.setVisible(false);
-                textSprite92.destroy();
+                if(isFalse9)
+                    textSprite92.destroy();
             }
             else {
                 if (isFalse9){
@@ -382,13 +453,13 @@ class gapFill extends Phaser.Scene {
     }
     
     update(){
-        if (score > 8) {
+        if (score > 0) {
             var text = this.add.text(350,550, "Let's go to the crime scene !",{
                 color: "white",
             });
             this.children.getByName("text1").setVisible(false);
             
-            this.scene.scene.start('rulesMap');
+            this.scene.start('rulesMap');
         } 
     }
 }
