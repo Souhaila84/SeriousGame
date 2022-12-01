@@ -229,6 +229,8 @@ class hiddenObjects extends Phaser.Scene {
             allObjects.forEach(object => object.setVisible(false));
             this.add.image(430, 550, 'black'); //blackscreen
             var texttrou = this.add.text(270, 300, 'Bravo vous avez tout trouvé'); 
+            
+            this.scene.scene.start('translateGameRules');
         }
     }
     
