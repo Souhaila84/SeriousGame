@@ -32,7 +32,7 @@ rules
             startButton.clearTint();
         });
         startButton.on('pointerdown', function() {
-            this.scene.scene.start('mapGame');
+            this.scene.scene.start('rulesMap');
         });
        
     }
