@@ -11,7 +11,7 @@ class rulesGapFill extends Phaser.Scene {
     preload() {
         this.load.image("Rulesbackground","../images/game/background/rulesBackground.jpg");
     }
-rules
+
     create() {
         
         //Rules Part 
@@ -64,7 +64,10 @@ rules
 
 
 class gapFill extends Phaser.Scene {
-    constructor () {
+    
+    constructor () 
+    
+    {
         super('gapFill');  // construct with a name to call this scene after
     }
     
@@ -74,7 +77,8 @@ class gapFill extends Phaser.Scene {
         this.load.image('sprite', '../images/game/_.png');
     }
 
-    create(){
+    create()
+    {
         this.add.image(400, 300, 'living')
         this.add.image(300,420, 'detec')
 
