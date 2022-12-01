@@ -90,7 +90,7 @@ class gapFill extends Phaser.Scene {
             color: "white",  
         });
 
-        var text3 = this.add.text(200,90, "-ruckus -know -bullet -decided -eyes -flat \n         -safety -dead -mess",{
+        var text3 = this.add.text(200,90, "-ruckus -known -bullet -decided -eyes -flat \n         -safety -dead -mess",{
             color: "white",   
         });
 
@@ -420,7 +420,7 @@ class gapFill extends Phaser.Scene {
         sprite9.on('pointerdown', function(pointer){
             console.log(this);
             let person = prompt("entre le mot", "");
-            if (person == "know") {
+            if (person == "known") {
                 var textSprite9 = this.scene.add.text(530,358,person,{
                     color: "white",
                     fontStyle: "bold",  
