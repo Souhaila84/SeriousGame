@@ -122,7 +122,7 @@ class hiddenObjects extends Phaser.Scene {
         this.add.image(300, 120, 'blood'); //blood
         this.add.image(430, 550, 'flowers'); //flowers
         var music = this.sound.add('theme'); //musique
-        music.setVolume(0.15);
+        music.setVolume(0.5);
         music.play
         ({
             loop: true
