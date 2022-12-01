@@ -149,11 +149,6 @@ class translateGame extends Phaser.Scene {
         actualProposal = allProposals.shift(); //update actual proposal
         this.addProposals(actualProposal); //add firsts proposals to scene
         
-        this.input.on('pointerdown', function(){
-            console.log("x : " + game.input.mousePointer.x);
-            console.log("y : " + game.input.mousePointer.y);
-        });
-        
     }
     
     update(){
@@ -170,7 +165,7 @@ class translateGameRules extends Phaser.Scene {
     preload() {
         this.load.image("Rulesbackground","../images/game/background/rulesBackground.jpg");
     }
-rules
+    
     create() {
         
         //Rules Part 

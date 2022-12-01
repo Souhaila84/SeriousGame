@@ -16,7 +16,7 @@ class rulesMap extends Phaser.Scene {
     preload() {
         this.load.image("Rulesbackground","../images/game/background/rulesBackground.jpg");
     }
-rules
+    
     create() {
         
         //Rules Part 
@@ -48,7 +48,7 @@ rules
         rulesContainer.setInteractive(new Phaser.Geom.Rectangle(-200,-100,400,200), Phaser.Geom.Rectangle.Contains);
         rulesContainer.setName("rulesContainer");
         
-        startContainer.on("pointerup", function(){
+        startContainer.on("pointerdown", function(){
             this.scene.scene.start('mapGame');
         });
         
@@ -201,9 +201,9 @@ class tryAgainScreenMap extends Phaser.Scene {
 
         //styling the returnToMenuContainer 
         
-       /* returnToMenuContainer.on("pointerup", function(){
-            this.scene.scene.start();       AJOUTER LE MENU ICI QUAND ON POURRA !!!!!!!!
-        });*/
+        returnToMenuContainer.on("pointerup", function(){
+            this.scene.scene.start("startMenu");
+        });
         
         returnToMenuContainer.on('pointerover', function() {
             returnToMenuRect.setFillStyle(0x5d4a3d,0.85)
