@@ -4,6 +4,13 @@ IMPORTING NAVBAR STYLE
 
 @import url("navBar.css");
 
+body {
+    margin: 0;
+    padding: 0;
+    text-align: justify;
+    font-size: 13px;
+    background-color:#fff;
+}
 
 
 
