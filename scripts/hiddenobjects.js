@@ -30,7 +30,7 @@ rules
         startContainer.setName("startContainer");   
         
         //adding the rules in the rules screen
-        var rulesText = this.add.text(-190,-90, "In this game you have to find the \nright path with the help of \ninstructions that will be displayed\non the right of your screen. After \nthat, click on the location you \nthink right and submit your choice, \nyou only have one right location \nper try. \n\nGood luck !",{ fontSize : 16 });
+        var rulesText = this.add.text(-190,-90, "In this game you have to find all \nthe proofs (objects) that will be \ndisplayed in the manuscript on your left\nAfter you found all the proofs, you will\nbe able to play the next game !\n\nGood luck !",{ fontSize : 16 });
         rulesText.setTint(0xc2baac);
         var rulesRect = this.add.rectangle(0,0,400,200,0x7b6c4f, 0.8);
         rulesRect.setName("rulesRect");
@@ -42,7 +42,7 @@ rules
         rulesContainer.setName("rulesContainer");
         
         startContainer.on("pointerup", function(){
-            this.scene.scene.start('mapGame');
+            this.scene.scene.start('hiddenObjects');
         });
         
         startContainer.on('pointerover', function() {
