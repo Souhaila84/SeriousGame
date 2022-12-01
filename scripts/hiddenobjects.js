@@ -35,7 +35,7 @@ rules
         startContainer.setName("startContainer");   
         
         //adding the rules in the rules screen
-        var rulesText = this.add.text(-190,-90, "In this game you have to find the \nright path with the help of \ninstructions that will be displayed\non the right of your screen. After \nthat, click on the location you \nthink right and submit your choice, \nyou only have one right location \nper try. \n\nGood luck !",{ fontSize : 16 });
+        var rulesText = this.add.text(-190,-90, "In this game you have to find all \nthe proofs (objects) that will be \ndisplayed in the manuscript on your left\nAfter you found all the proofs, you will\nbe able to play the next game !\n\nGood luck !",{ fontSize : 16 });
         rulesText.setTint(0xc2baac);
         var rulesRect = this.add.rectangle(0,0,400,200,0x7b6c4f, 0.8);
         rulesRect.setName("rulesRect");
@@ -47,7 +47,7 @@ rules
         rulesContainer.setName("rulesContainer");
         
         startContainer.on("pointerup", function(){
-            this.scene.scene.start('mapGame');
+            this.scene.scene.start('hiddenObjects');
         });
         
         startContainer.on('pointerover', function() {
@@ -75,6 +75,7 @@ class hiddenObjects extends Phaser.Scene {
     
     preload(){
         this.load.image("bg","../images/game/background/scene+.jpg") //scene
+<<<<<<< HEAD
         this.load.image("wine", "../images/game/objets/wine_2.png") //wine
         this.load.image("gloves", "../images/game/objets/gloves3.png") //gloves
         this.load.image("necklace", "../images/game/objets/necklacee.png") //necklace
@@ -95,6 +96,27 @@ class hiddenObjects extends Phaser.Scene {
         this.load.image("blood", "../images/game/objets/sang.png") //blood
         this.load.image("flowers", "../images/game/objets/flowers2.png") //flowers
         this.load.image("black", "../images/game/objets/black.png") //blackscreen
+=======
+        this.load.image("wine", "../images/game/items/wine_2.png") //wine
+        this.load.image("gloves", "../images/game/items/gloves3.png") //gloves
+        this.load.image("necklace", "../images/game/items/necklacee.png") //necklace
+        this.load.image("cuestick", "../images/game/items/cuestick2bg.png") //cuestick
+        this.load.image("sunglasses", "../images/game/items/sunglasses2.png") //sunglasses
+        this.load.image("gun", "../images/game/items/gun2.png") //gun
+        this.load.image("parchemin", "../images/game/items/parchemin2.png") //parchemin
+        this.load.image("rope", "../images/game/items/rope2.png") //rope
+        this.load.image("violon", "../images/game/items/violon2.png") //newspaper
+        this.load.image("blanket", "../images/game/items/blanket.png") //blanket
+        this.load.image("drink", "../images/game/items/drink.png") //drink
+        this.load.image("hat", "../images/game/items/hat.png") //hat
+        this.load.image("briefcase", "../images/game/items/bri4.png") //briefcase
+        this.load.image("cat", "../images/game/items/cat2.png") //cat
+        this.load.image("books", "../images/game/items/books.png") //books
+        this.load.image("doll", "../images/game/items/doll3.png") //dolls
+        this.load.image("painting", "../images/game/items/painting.png") //painting
+        this.load.image("blood", "../images/game/items/sang.png") //blood
+        this.load.image("flowers", "../images/game/items/flowers2.png") //flowers
+>>>>>>> b63d67391f79493174e4a5bbff30428a18dceeee
         this.load.audio("theme", 
                         ["../audio/hidden_objects.ogg",
                          "../audio/hidden_objects.mp3"]);//theme song
@@ -239,6 +261,7 @@ class hiddenObjects extends Phaser.Scene {
     }
     
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 
        
@@ -255,3 +278,6 @@ const game = new Phaser.Game(config);
 =======
 }
 >>>>>>> c099c76b00a7483ea0c3ef1b3dfe3ed8f8d7f092
+=======
+}
+>>>>>>> b63d67391f79493174e4a5bbff30428a18dceeee

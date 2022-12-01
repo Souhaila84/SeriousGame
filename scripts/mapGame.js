@@ -110,7 +110,7 @@ class victoryScreenMap extends Phaser.Scene {
         enterContainer.setName("enterContainer");  
         
         enterContainer.on("pointerup", function(){
-            this.scene.scene.start('hiddenObjects');  
+            this.scene.scene.start('rulesHiddenObjects');  
         });
         
         enterContainer.on('pointerover', function() {

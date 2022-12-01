@@ -15,9 +15,8 @@ body {
 }
 
 /*2e image avec présentation du jeu */
-.gamePreview{ 
-    
-}
+
+
 
 /*texte de présentation du jeu */
 .textPreview{
@@ -39,7 +38,6 @@ body {
     width: 180px; 
     height: 60px;
     color: white;
-    a:hover:
 }
 
 /*rectangles avec icones pour expliquer les buts du jeu*/
