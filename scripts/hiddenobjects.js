@@ -30,7 +30,9 @@ rules
         startContainer.setName("startContainer");   
         
         //adding the rules in the rules screen
-        var rulesText = this.add.text(-190,-90, "In this game you have to evidences all \nthe proofs (objects) that will be \ndisplayed in the manuscript on your left\nAfter you found all the proofs, you will\nbe able to play the next game !\n\nGood luck !",{ fontSize : 16 });
+
+        var rulesText = this.add.text(-190,-90, "In this game you have to find all \nthe proofs (objects) that will be \ndisplayed in the manuscript on your left\nAfter you found all the proofs, you will\nbe able to play the next game !\n\nGood luck !",{ fontSize : 16 });
+        var rulesText = this.add.text(-190,-90, "In this game you have to find all \nthe proofs (objects) that will be \ndisplayed in the manuscript on your left\nAfter you found all the proofs, you will\nbe able to play the next game !\n\nGood luck !",{ fontSize : 16 });
         rulesText.setTint(0xc2baac);
         var rulesRect = this.add.rectangle(0,0,400,200,0x7b6c4f, 0.8);
         rulesRect.setName("rulesRect");
@@ -88,6 +90,7 @@ class hiddenObjects extends Phaser.Scene {
         this.load.image("painting", "../images/game/items/painting.png") //painting
         this.load.image("blood", "../images/game/items/sang.png") //blood
         this.load.image("flowers", "../images/game/items/flowers2.png") //flowers
+        this.load.image("black", "../images/game/items/black.png") //black
         this.load.audio("theme", 
                         ["../audio/hidden_objects.ogg",
                          "../audio/hidden_objects.mp3"]);//theme song
@@ -125,7 +128,7 @@ class hiddenObjects extends Phaser.Scene {
        
                 
         //liste d'objets à trouver
-        var textw = this.add.text(60, 140, 'wine', '#ffff00').setInteractive(); //liste_wine
+        var textw = this.add.text(60, 140, 'wine').setInteractive(); //liste_wine
         var textg = this.add.text(50, 160, 'gloves').setInteractive(); //liste_gloves
         var textn = this.add.text(40, 180, 'necklace').setInteractive(); //liste_necklace
         var textc = this.add.text(30, 200, 'cue stick').setInteractive(); //liste_cue_stick
@@ -134,11 +137,16 @@ class hiddenObjects extends Phaser.Scene {
         var textsc = this.add.text(30, 260, 'spilled cup').setInteractive(); //liste_knife
         var textr = this.add.text(55, 280, 'rope').setInteractive(); //liste_rope
         
+        
+        
         //  quand on clique dessus, l'objet(image et texte) disparait 
         wine.on('pointerdown', function (pointer) { 
 
         this.setVisible(false);
         textw.setVisible(false);
+        count += 1;
+                        console.log(count);
+
 
     });
         
@@ -146,6 +154,9 @@ class hiddenObjects extends Phaser.Scene {
 
          this.setVisible(false);
          textg.setVisible(false);
+         count += 1;
+                         console.log(count);
+
 
     });
         
@@ -154,6 +165,9 @@ class hiddenObjects extends Phaser.Scene {
 
          this.setVisible(false);
          textn.setVisible(false);
+         count += 1;
+                         console.log(count);
+
 
     });
         
@@ -161,6 +175,9 @@ class hiddenObjects extends Phaser.Scene {
 
             this.setVisible(false);
             textc.setVisible(false);
+            count += 1;
+                            console.log(count);
+
 
     });
         
@@ -168,6 +185,9 @@ class hiddenObjects extends Phaser.Scene {
 
             this.setVisible(false);
             texts.setVisible(false);
+            count += 1;
+                            console.log(count);
+
 
     });
         
@@ -175,6 +195,9 @@ class hiddenObjects extends Phaser.Scene {
 
             this.setVisible(false);
             textgu.setVisible(false);
+            count += 1;
+                            console.log(count);
+
 
     });
         
@@ -183,6 +206,9 @@ class hiddenObjects extends Phaser.Scene {
 
             this.setVisible(false);
             textsc.setVisible(false);
+            count += 1;
+                            console.log(count);
+
 
     });
         
@@ -190,10 +216,22 @@ class hiddenObjects extends Phaser.Scene {
 
             this.setVisible(false);
             textr.setVisible(false);
+            count += 1;
+                           console.log(count);
+ 
 
     });    
         
-   
+                
+        
+    }
+    update() {
+        if(count == 8){ 
+            this.add.image(430, 550, 'black'); //blackscreen
+            var texttrou = this.add.text(270, 300, 'Bravo vous avez tout trouvé'); 
+        }
     }
     
 }
+
+       
