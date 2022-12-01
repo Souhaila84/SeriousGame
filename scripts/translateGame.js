@@ -132,11 +132,11 @@ class translateGame extends Phaser.Scene {
     
     
     preload(){
-        this.load.image("bg","../images/game/background/translateBackground.jpg");
+        this.load.image("backgroundTranslateGame","../images/game/background/translateBackground.jpg");
     }
     
     create(){
-        this.add.image(400, 300, 'bg'); //add the backgroud to scene
+        this.add.image(400, 300, 'backgroundTranslateGame'); //add the backgroud to scene
         
         //shuffling proposals
         for (let i = allProposals.length - 1; i > 0; i--) {
@@ -148,11 +148,6 @@ class translateGame extends Phaser.Scene {
         
         actualProposal = allProposals.shift(); //update actual proposal
         this.addProposals(actualProposal); //add firsts proposals to scene
-        
-        this.input.on('pointerdown', function(){
-            console.log("x : " + game.input.mousePointer.x);
-            console.log("y : " + game.input.mousePointer.y);
-        });
         
     }
     
@@ -170,7 +165,7 @@ class translateGameRules extends Phaser.Scene {
     preload() {
         this.load.image("Rulesbackground","../images/game/background/rulesBackground.jpg");
     }
-rules
+    
     create() {
         
         //Rules Part 

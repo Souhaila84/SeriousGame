@@ -457,7 +457,7 @@ class gapFill extends Phaser.Scene {
     }
     
     update(){
-        if (score > 8) {
+        if (score > 0) {
             var text = this.add.text(350,550, "Let's go to the crime scene !",{
                 color: "white",
             });
