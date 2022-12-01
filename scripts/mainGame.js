@@ -2,6 +2,7 @@ import {translateGame, translateGameRules} from "./translateGame.js"
 import {rulesHiddenObjects,hiddenObjects} from "./hiddenobjects.js"
 import {rulesMap, victoryScreenMap, tryAgainScreenMap, mapGame} from "./mapGame.js"
 import {startMenu} from "./startMenu.js"
+import {gapFill,rulesGapFill} from "./gapFill.js"
 
 const config = {
     type: Phaser.AUTO,
