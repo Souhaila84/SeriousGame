@@ -3,7 +3,7 @@ IMPORTING NAVBAR STYLE
 */
 
 @import url("navBar.css");
-
+@import url("footer.css");
 
 
 body {
@@ -65,6 +65,7 @@ body {
 .iconeLoupe{ /*container icone loupe*/
     display: flex;
     width: 90px;
+    height: 80px;
 }
 
 .iconeInspector{ /*container icone inspecteur*/
@@ -76,75 +77,6 @@ body {
     display: flex;
     width: 90px;
 }
-
-/*
-BEGINNING OF FOOTER STYLING
-*/
-
-#footer {
-    display: flex;
-    justify-content: space-around;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    list-style: none;
-    background-color: #5f687c;
-}
-
-#footer li {
-    display: inline-block;
-    text-align: center;
-}
-
-#footer li a {
-    display: flex;
-    padding: 1.2vw 1.3vw;
-    text-decoration: none;
-    text-align: center;
-    font-family: ;
-    font-size: 1.5vw;
-    color: #fff;
-}
-
-#footer li a:hover {
-    color: #5f687c;
-    text-align: center;
-    background-color: #fff;
-    text-shadow: none;
-}
-
-#footer li p {
-    display: flex;
-    text-decoration: none;
-    text-align: center;
-    font-family: ;
-    margin-left: 0.5vw;
-    margin-right: 0.5vw;
-    font-size: 1.3vw;
-    color: #fff;
-}
-
-/*FOOTER'S END*/
-
-#legals_terms {
-    display: flex;
-    list-style-type: none;
-    padding: 1.5vw;
-    background-color: #5f687c;
-}
-
-#legals_terms a {
-    text-decoration: none;
-    color: #fff;
-    margin-left: 3vw;
-    margin-bottom: 1vw;
-    font-size: 1.3vw;
-}
-
-/*
-END OF FOOTER STYLING
-*/
-
 
 
 

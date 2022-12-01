@@ -3,7 +3,16 @@ IMPORTING NAVBAR STYLE
 */
 
 @import url("navBar.css");
+@import url("footer.css");
 
+body {
+    margin: 0;
+    padding: 0;
+    text-align: justify;
+    font-size: 13px;
+    background-color:#fff;
+    min-height: 100vh;
+}
 
 
 /* DROPDOWN MENU */
@@ -41,6 +50,12 @@ IMPORTING NAVBAR STYLE
 .profilePicture {
     width: 5 vw;
     height: 5vh;
+}
+
+canvas {
+    display : block;   
+    margin : auto;
+    margin-top: 5vh;
 }
 
 .commentTexts{
