@@ -1,4 +1,65 @@
-export {hiddenObjects};
+export {rulesHiddenObjects,hiddenObjects};
+
+class rulesHiddenObjects extends Phaser.Scene {
+
+    constructor () {
+        super('rulesHiddenObjects');
+    }
+
+    preload() {
+        this.load.image("Rulesbackground","../images/game/background/rulesBackground.jpg");
+    }
+rules
+    create() {
+        
+        //Rules Part 
+        //adding the rules background
+        var rulesBackground = this.add.image(400,300, 'Rulesbackground');
+        
+        //adding start container to the rules screen
+        
+        var startText = this.add.text(-38,-18, "Start !",{ fontSize : 32 , fontFamily: 'Georgia, Times, serif'});
+        var startRect = this.add.rectangle(0,0,200,50,0x7b6c4f, 0.8);
+        startText.setTint(0xc2baac);
+        startRect.setName("startRect");
+        var startRectStyle = this.add.rectangle(0,0,200,50);
+        startRectStyle.setStrokeStyle(2,0x000000);
+        
+        var startContainer = this.add.container(400,450,[startRect ,startText,startRectStyle]);
+        startContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
+        startContainer.setName("startContainer");   
+        
+        //adding the rules in the rules screen
+        var rulesText = this.add.text(-190,-90, "In this game you have to find the \nright path with the help of \ninstructions that will be displayed\non the right of your screen. After \nthat, click on the location you \nthink right and submit your choice, \nyou only have one right location \nper try. \n\nGood luck !",{ fontSize : 16 });
+        rulesText.setTint(0xc2baac);
+        var rulesRect = this.add.rectangle(0,0,400,200,0x7b6c4f, 0.8);
+        rulesRect.setName("rulesRect");
+        var rulesRectStyle = this.add.rectangle(0,0,400,200);
+        rulesRectStyle.setStrokeStyle(2,0x000000);
+        
+        var rulesContainer = this.add.container(400,200,[rulesRect ,rulesText,rulesRectStyle]);
+        rulesContainer.setInteractive(new Phaser.Geom.Rectangle(-200,-100,400,200), Phaser.Geom.Rectangle.Contains);
+        rulesContainer.setName("rulesContainer");
+        
+        startContainer.on("pointerup", function(){
+            this.scene.scene.start('mapGame');
+        });
+        
+        startContainer.on('pointerover', function() {
+            startRect.setFillStyle(0xa88c6c,0.8)
+        });
+        
+        startContainer.on('pointerout', function() {
+            startRect.setFillStyle(0x7b6c4f,0.8)
+        });
+    }
+
+    update() {
+        // Used to update your game. This function runs constantly
+    }
+}
+
+
 
 class hiddenObjects extends Phaser.Scene {
     

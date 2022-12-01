@@ -62,7 +62,6 @@ BEGINNING OF BUTTONS STYLING
 /*Buttons Style*/
 .loginbutton {
   align-items: center;
-  appearance: none;
   background-color: #c4cbd8;
   border-radius: 100px;
   border-width: 0;
@@ -70,7 +69,6 @@ BEGINNING OF BUTTONS STYLING
   color: #fff;
   cursor: pointer;
   display: inline-flex;
-  font-family: CircularStd,sans-serif;
   font-size: 1vw;
   height: auto;
   justify-content: center;
@@ -78,15 +76,18 @@ BEGINNING OF BUTTONS STYLING
   padding: 0.5vw 0.8vw;
   position: relative;
   text-align: center;
-  text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
-  touch-action: manipulation;
   vertical-align: top;
   margin-left: auto;
   margin-right: 1vw;
-  margin-top: 0.7vw;
+  margin-top: 0.8vw;
   margin-bottom: 0.7vw;
+}
+
+.loginbutton a {
+    text-decoration: none;
+    color: aliceblue;
 }
 
 .loginbutton:hover {
