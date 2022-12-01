@@ -30,6 +30,7 @@ rules
         startContainer.setName("startContainer");   
         
         //adding the rules in the rules screen
+
         var rulesText = this.add.text(-190,-90, "In this game you have to find all \nthe proofs (objects) that will be \ndisplayed in the manuscript on your left\nAfter you found all the proofs, you will\nbe able to play the next game !\n\nGood luck !",{ fontSize : 16 });
         var rulesText = this.add.text(-190,-90, "In this game you have to find all \nthe proofs (objects) that will be \ndisplayed in the manuscript on your left\nAfter you found all the proofs, you will\nbe able to play the next game !\n\nGood luck !",{ fontSize : 16 });
         rulesText.setTint(0xc2baac);

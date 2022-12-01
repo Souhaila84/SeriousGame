@@ -374,7 +374,7 @@ class mapGame extends Phaser.Scene
         
         //Instructions text
         
-        var proposals = ["- First, turn left \n  when you exit \n  my office\n\n- Then turn left \n  to Wood Street \n\n- Continue straight \n  forward trough \n  Gresham Street \n\n- Then turn right \n\n- And finally, \n  on your left you \n  should see the \n  building we are \n  looking for !",
+        var proposals = ["- First, turn left \n  when you exit \n  my office\n\n- Then turn left \n  to Wood Street \n\n- Continue straight \n  forward through \n  Gresham Street \n\n- Then turn right \n\n- And finally, \n  on your left you \n  should see the \n  building we are \n  looking for !",
                          "- First, turn left \n  when you exit \n  my office\n\n- Then turn left, \n  and turn right \n  into the alley, \n  and take it \n\n- When you get out \n  of the alley, \n  turn left to \n  Milk Street \n\n- Then turn right, \n  and right again \n  into the next \n  avenue, it should \n  be King Street \n\n- Turn right and \n  right again in the \n  alley, and you \n  should see the \n  right house !" ,
                          "- First, turn left \n  when you exit \n  my office\n\n- Then go straight \n  past the church \n  and turn left \n  in King Street \n\n- Then turn right \n\n- Go straight past \n  the first road \n  on your right \n\n- After that, turn \n  right to Old Jewry \n\n- Then turn left, \n  and left again, \n  and you should \n  be in front of \n  the building we \n  are looking for !"];
         
