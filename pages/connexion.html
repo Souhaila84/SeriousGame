@@ -9,13 +9,14 @@
    <title>Marcel Roquette</title>
  </head>
  <body>
+  <form action="../php/connexionn.php" method="post" class="inscription">
     <nav class="sticky">
            <ul id="nav">
-          <li><a id="home" href="/Home.html">Accueil</a></li>
-          <li><a id="play" href="/pages/gamePage.html">Jouer</a></li>
-          <li><a id="support" href="/pages/Support.html">Support</a></li>
-          <li><a id="about us" href="/pages/About_us.html">A propos</a></li>
-          <button class="loginbutto n" role="button">CONNEXION</button>
+          <li><a id="home" href="../index.html">Accueil</a></li>
+          <li><a id="play" href="gamePage.html">Jouer</a></li>
+          <li><a id="support" href="Support.html">Support</a></li>
+          <li><a id="about us" href="About_us.html">A propos</a></li>
+          <button class="loginbutton" role="button"> <a href="connexion.html">CONNEXION </a></button>
            </ul>   
        </nav>
     <div id="connect">
@@ -27,11 +28,12 @@
         <br>EN VOUS INSCRIVANT, VOUS POUVEZ SAUVEGARDER VOTRE 
         <br>PROGESSION ET AJOUTER DES COMMENTAIRES</p>
         <h3>S'inscrire</h3> <!--Inscription-->
-        <input type="email" placeholder="E-MAIL">
-        <input type="password" placeholder="MOT DE PASSE">
-        <input type="password" placeholder="CONFIRMER MOT DE PASSE">
-        <input type="text" placeholder="PSEUDO">
+        <input type="email" id="email" placeholder="E-MAIL">
+        <input type="password" id="password" placeholder="MOT DE PASSE">
+        <input type="password" id="confirm_password" placeholder="CONFIRMER MOT DE PASSE">
+        <input type="text" id="pseudo" placeholder="PSEUDO">
         <button class="boutonlog" type="submit">S'INSCRIRE</button>
   </div>
+</form>
  </body>
 </html>

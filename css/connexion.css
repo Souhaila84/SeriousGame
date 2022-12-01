@@ -13,23 +13,26 @@ IMPORTING NAVBAR STYLE
     text-align: center;
 }
 
-.connect input[type="text"], input[type="email"], input[type="password"]  {  /*formulaire avec tous les inputs*/
+input[type="email"], input[type="password"], input[type="text"]  {  /*formulaire avec tous les inputs*/
     box-sizing: border-box;
     display: block;
     position: inherit;
     margin: 5px auto;
-    font-size: 10px;
+    font-size: 12px;
     border: none;
     border-bottom: 1px solid rgb(0, 0, 0); 
     background: transparent;
     outline: none;
     height: 40px;
     width: 220px;
+    
 }
 
-.connect p {
+p {
+    font-size: 13px;
     color:grey;
     letter-spacing: 1px;
+    margin: 20px;
 }
 
 .boutonlog{ /*bouton se connecter et s'inscrire*/

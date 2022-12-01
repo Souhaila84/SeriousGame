@@ -1,5 +1,5 @@
-
-class translateGame extends Phaser.Scene {
+var count = 0;
+class hiddenobjects extends Phaser.Scene {
     //ussing super constructor
     
     preload(){
@@ -23,6 +23,7 @@ class translateGame extends Phaser.Scene {
         this.load.image("painting", "../images/game/objets/painting.png") //painting
         this.load.image("blood", "../images/game/objets/sang.png") //blood
         this.load.image("flowers", "../images/game/objets/flowers2.png") //flowers
+        this.load.image("black", "../images/game/objets/black.png") //blackscreen
         this.load.audio("theme", 
                         ["../audio/hidden_objects.ogg",
                          "../audio/hidden_objects.mp3"]);//theme song
@@ -60,7 +61,7 @@ class translateGame extends Phaser.Scene {
        
                 
         //liste d'objets à trouver
-        var textw = this.add.text(60, 140, 'wine', '#ffff00').setInteractive(); //liste_wine
+        var textw = this.add.text(60, 140, 'wine').setInteractive(); //liste_wine
         var textg = this.add.text(50, 160, 'gloves').setInteractive(); //liste_gloves
         var textn = this.add.text(40, 180, 'necklace').setInteractive(); //liste_necklace
         var textc = this.add.text(30, 200, 'cue stick').setInteractive(); //liste_cue_stick
@@ -69,11 +70,16 @@ class translateGame extends Phaser.Scene {
         var textsc = this.add.text(30, 260, 'spilled cup').setInteractive(); //liste_knife
         var textr = this.add.text(55, 280, 'rope').setInteractive(); //liste_rope
         
+        
+        
         //  quand on clique dessus, l'objet(image et texte) disparait 
         wine.on('pointerdown', function (pointer) { 
 
         this.setVisible(false);
         textw.setVisible(false);
+        count += 1;
+                        console.log(count);
+
 
     });
         
@@ -81,6 +87,9 @@ class translateGame extends Phaser.Scene {
 
          this.setVisible(false);
          textg.setVisible(false);
+         count += 1;
+                         console.log(count);
+
 
     });
         
@@ -89,6 +98,9 @@ class translateGame extends Phaser.Scene {
 
          this.setVisible(false);
          textn.setVisible(false);
+         count += 1;
+                         console.log(count);
+
 
     });
         
@@ -96,6 +108,9 @@ class translateGame extends Phaser.Scene {
 
             this.setVisible(false);
             textc.setVisible(false);
+            count += 1;
+                            console.log(count);
+
 
     });
         
@@ -103,6 +118,9 @@ class translateGame extends Phaser.Scene {
 
             this.setVisible(false);
             texts.setVisible(false);
+            count += 1;
+                            console.log(count);
+
 
     });
         
@@ -110,6 +128,9 @@ class translateGame extends Phaser.Scene {
 
             this.setVisible(false);
             textgu.setVisible(false);
+            count += 1;
+                            console.log(count);
+
 
     });
         
@@ -118,6 +139,9 @@ class translateGame extends Phaser.Scene {
 
             this.setVisible(false);
             textsc.setVisible(false);
+            count += 1;
+                            console.log(count);
+
 
     });
         
@@ -125,20 +149,34 @@ class translateGame extends Phaser.Scene {
 
             this.setVisible(false);
             textr.setVisible(false);
+            count += 1;
+                           console.log(count);
+ 
 
     });    
         
-   
+                
+        
+    }
+    update() {
+        if(count == 8){ 
+            let allObjects = this.children.list(image => image instanceof Phaser.GameObjects.Container); //find all containers in the scene
+            allObjects.forEach(object => object.setVisible(false));
+            this.add.image(430, 550, 'black'); //blackscreen
+            var texttrou = this.add.text(270, 300, 'Bravo vous avez tout trouvé'); 
+        }
     }
     
 }
+
+       
 
 const config = {
     type: Phaser.AUTO,
     parent: 'jeu',
     width: 800,
     height: 600,
-    scene: [ translateGame ]
+    scene: [ hiddenobjects ]
 };
 
 const game = new Phaser.Game(config);
