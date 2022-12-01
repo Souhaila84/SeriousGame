@@ -3,6 +3,7 @@ IMPORTING NAVBAR STYLE
 */
 
 @import url("navBar.css");
+@import url("footer.css");
 
 body {
     margin: 0;
