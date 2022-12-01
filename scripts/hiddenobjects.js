@@ -89,6 +89,7 @@ class hiddenObjects extends Phaser.Scene {
         this.load.image("painting", "../images/game/items/painting.png") //painting
         this.load.image("blood", "../images/game/items/sang.png") //blood
         this.load.image("flowers", "../images/game/items/flowers2.png") //flowers
+        this.load.image("black", "../images/game/items/black.png") //black
         this.load.audio("theme", 
                         ["../audio/hidden_objects.ogg",
                          "../audio/hidden_objects.mp3"]);//theme song
@@ -225,8 +226,6 @@ class hiddenObjects extends Phaser.Scene {
     }
     update() {
         if(count == 8){ 
-            let allObjects = this.children.list(image => image instanceof Phaser.GameObjects.Container); //find all containers in the scene
-            allObjects.forEach(object => object.setVisible(false));
             this.add.image(430, 550, 'black'); //blackscreen
             var texttrou = this.add.text(270, 300, 'Bravo vous avez tout trouvé'); 
         }
