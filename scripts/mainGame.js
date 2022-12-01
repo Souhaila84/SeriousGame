@@ -9,7 +9,7 @@ const config = {
     parent: 'game',
     width: 800,
     height: 600,
-    scene: [startMenu,rulesMap,mapGame,tryAgainScreenMap,victoryScreenMap, rulesHiddenObjects, hiddenObjects ,translateGameRules, translateGame]
+    scene: [startMenu,,rulesGapFill,gapFill,rulesMap,mapGame,tryAgainScreenMap,victoryScreenMap, rulesHiddenObjects, hiddenObjects ,translateGameRules, translateGame]
 };
 
 const game = new Phaser.Game(config);
