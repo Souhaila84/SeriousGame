@@ -42,7 +42,7 @@ class rulesFindTheMurderer extends Phaser.Scene {
         rulesContainer.setInteractive(new Phaser.Geom.Rectangle(-200,-100,400,200), Phaser.Geom.Rectangle.Contains);
         rulesContainer.setName("rulesContainer");
         
-        startContainer.on("pointerup", function(){
+        startContainer.on("pointerdown", function(){
             this.scene.scene.start('findTheMurdererGame');
         });
         

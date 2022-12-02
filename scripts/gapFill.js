@@ -43,7 +43,7 @@ class rulesGapFill extends Phaser.Scene {
         rulesContainer.setInteractive(new Phaser.Geom.Rectangle(-210,-100,400,200), Phaser.Geom.Rectangle.Contains);
         rulesContainer.setName("rulesContainer");
         
-        startContainer.on("pointerup", function(){
+        startContainer.on("pointerdown", function(){
             this.scene.scene.start('gapFill'); 
         });
         
@@ -145,7 +145,7 @@ class gapFill extends Phaser.Scene {
         sprite.on('pointerout', function (pointer) {
             this.clearTint();
         });
-        sprite.on('pointerup', function (pointer) {
+        sprite.on('pointerdown', function (pointer) {
             this.clearTint();
 
         });
@@ -185,7 +185,7 @@ class gapFill extends Phaser.Scene {
         sprite2.on('pointerout', function (pointer) {
             this.clearTint();
         });
-        sprite2.on('pointerup', function (pointer) {
+        sprite2.on('pointerdown', function (pointer) {
             this.clearTint();
         });
 
@@ -223,7 +223,7 @@ class gapFill extends Phaser.Scene {
         sprite3.on('pointerout', function (pointer) {
             this.clearTint();
         });
-        sprite3.on('pointerup', function (pointer) {
+        sprite3.on('pointerdown', function (pointer) {
             this.clearTint();
         });
 
@@ -261,7 +261,7 @@ class gapFill extends Phaser.Scene {
         sprite4.on('pointerout', function (pointer) {
             this.clearTint();
         });
-        sprite4.on('pointerup', function (pointer) {
+        sprite4.on('pointerdown', function (pointer) {
             this.clearTint();
         });
 
@@ -299,7 +299,7 @@ class gapFill extends Phaser.Scene {
         sprite5.on('pointerout', function (pointer) {
             this.clearTint();
         });
-        sprite5.on('pointerup', function (pointer) {
+        sprite5.on('pointerdown', function (pointer) {
             this.clearTint();
         });
 
@@ -337,7 +337,7 @@ class gapFill extends Phaser.Scene {
         sprite6.on('pointerout', function (pointer) {
             this.clearTint();
         });
-        sprite6.on('pointerup', function (pointer) {
+        sprite6.on('pointerdown', function (pointer) {
             this.clearTint();
         });
 
@@ -375,7 +375,7 @@ class gapFill extends Phaser.Scene {
         sprite7.on('pointerout', function (pointer) {
             this.clearTint();
         });
-        sprite7.on('pointerup', function (pointer) {
+        sprite7.on('pointerdown', function (pointer) {
             this.clearTint();
         });
 
@@ -413,7 +413,7 @@ class gapFill extends Phaser.Scene {
         sprite8.on('pointerout', function (pointer) {
             this.clearTint();
         });
-        sprite8.on('pointerup', function (pointer) {
+        sprite8.on('pointerdown', function (pointer) {
             this.clearTint();
         });
 
@@ -452,7 +452,7 @@ class gapFill extends Phaser.Scene {
         sprite9.on('pointerout', function (pointer) {
             this.clearTint();
         });
-        sprite9.on('pointerup', function (pointer) {
+        sprite9.on('pointerdown', function (pointer) {
             this.clearTint();
         });
         

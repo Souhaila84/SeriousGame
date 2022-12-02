@@ -109,7 +109,7 @@ class victoryScreenMap extends Phaser.Scene {
         enterContainer.setInteractive(new Phaser.Geom.Rectangle(-115,-25,236,50), Phaser.Geom.Rectangle.Contains);
 
         
-        enterContainer.on("pointerup", function(){
+        enterContainer.on("pointerdown", function(){
             this.scene.scene.start('rulesHiddenObjects');  
         });
         
@@ -171,7 +171,7 @@ class tryAgainScreenMap extends Phaser.Scene {
         
         //styling tryAgainContainer 
              
-        tryAgainContainer.on("pointerup", function(){
+        tryAgainContainer.on("pointerdown", function(){
             this.scene.scene.start('mapGame');
         });
         
@@ -197,7 +197,7 @@ class tryAgainScreenMap extends Phaser.Scene {
 
         //styling the returnToMenuContainer 
         
-        returnToMenuContainer.on("pointerup", function(){
+        returnToMenuContainer.on("pointerdown", function(){
             this.scene.scene.start("startMenu");
         });
         
@@ -443,7 +443,7 @@ class mapGame extends Phaser.Scene
             this.scene.children.getByName("popupContainer").getByName("yesContainer").getByName("yesRect").setFillStyle(0x1b499b);
         });
         
-         yesContainer.on('pointerup', function(){
+         yesContainer.on('pointerdown', function(){
              if(greenping2.visible && proposalNumber == 0 || greenping3.visible && proposalNumber == 0 || greenping.visible && proposalNumber == 1 || greenping3.visible && proposalNumber == 1 || greenping.visible && proposalNumber == 2 || greenping2.visible && proposalNumber == 2)
                  this.scene.scene.start('tryAgainScreenMap');
              else 
