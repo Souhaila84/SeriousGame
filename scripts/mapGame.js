@@ -25,7 +25,7 @@ class rulesMap extends Phaser.Scene {
         
         //adding start container to the rules screen
         
-        var startText = this.add.text(-38,-18, "Start !",{ fontSize : 32 , fontFamily: 'Georgia, Times, serif'});
+        var startText = this.add.text(-38,-18, "Start !",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
         var startRect = this.add.rectangle(0,0,200,50,0x7b6c4f, 0.8);
         startText.setTint(0xc2baac);
         startRect.setName("startRect");
@@ -38,7 +38,7 @@ class rulesMap extends Phaser.Scene {
         
         //adding the rules in the rules screen
         var rulesText = this.add.text(-190,-110, "In this game you have to find the \nright path with the help of \ninstructions that will be displayed\non the right of your screen. After \nthat, click on the location you \nthink right and submit your choice, \nyou only have one right location per try. \n\nGood luck !",
-        { fontSize : 24, fontFamily: 'Georgia, Times, serif'});
+        { fontSize : 20, fontFamily: 'Georgia, Times, serif'});
         
         rulesText.setTint(0xc2baac);
         var rulesRect = this.add.rectangle(0,0,400,250,0x7b6c4f, 0.8);
@@ -87,7 +87,7 @@ class victoryScreenMap extends Phaser.Scene {
         var victoryScreen = this.add.image(400,300, 'victoryScreen');
         
         //adding the victory container
-        var victoryText = this.add.text(-220,-40, "Incredible ! You found the correct house !\n\n   We need to investigate the inside now.",{ fontSize : 24 , fontFamily: 'Georgia, Times, serif'});
+        var victoryText = this.add.text(-220,-40, "Incredible ! You found the correct house !\n\n   We need to investigate the inside now.",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
         var victoryRect = this.add.rectangle(0,0,500,150,0x032d3d, 0.85);
         victoryText.setTint(0xc2baac);
 
@@ -98,7 +98,7 @@ class victoryScreenMap extends Phaser.Scene {
 
         
         //adding the enter container 
-        var enterText = this.add.text(-97,-15, "Enter the house",{ fontSize : 32 , fontFamily: 'Georgia, Times, serif'});
+        var enterText = this.add.text(-97,-15, "Enter the house",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
         var enterRect = this.add.rectangle(0,0,236,50,0x032d3d, 0.85);
         enterText.setTint(0xc2baac);
 
@@ -148,7 +148,7 @@ class tryAgainScreenMap extends Phaser.Scene {
         var tryAgainBackground = this.add.image(400,300, 'tryAgainBackground');
         
         //adding "you loose" container
-        var youlooseText = this.add.text(-225,-15, "Oops... Seems like it wasn't the right path...",{ fontSize : 24 , fontFamily: 'Georgia, Times, serif'});
+        var youlooseText = this.add.text(-225,-15, "Oops... Seems like it wasn't the right path...",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
         var youlooseRect = this.add.rectangle(0,0,500,150,0x351d0d, 0.85);
         youlooseText.setTint(0xc2baac);
 

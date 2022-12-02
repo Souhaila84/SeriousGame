@@ -177,7 +177,7 @@ class translateGameRules extends Phaser.Scene {
         
         //adding start container to the rules screen
         
-        var startText = this.add.text(-44,-17, "Start !",{ fontSize : 32 , fontFamily: 'Georgia, Times, serif' });
+        var startText = this.add.text(-44,-17, "Start !",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif' });
         var startRect = this.add.rectangle(0,0,215,50,0x7b6c4f, 0.8);
         startText.setTint(0xc2baac);
         var startRectStyle = this.add.rectangle(0,0,215,50);
@@ -199,7 +199,7 @@ class translateGameRules extends Phaser.Scene {
         });
         
         //adding the rules in the rules screen
-        var rulesText = this.add.text(-195,-75, "For this game, you have to chose \nthe most apropriated traduction \namong the 4 proposed. \nThere are 3 traductions to do.\n\nGood Luck !",{ fontSize : 24 , fontFamily: 'Georgia, Times, serif' });
+        var rulesText = this.add.text(-195,-75, "For this game, you have to chose \nthe most apropriated traduction \namong the 4 proposed. \nThere are 3 traductions to do.\n\nGood Luck !",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif' });
         var rulesRect = this.add.rectangle(0,0,420,170,0x7b6c4f, 0.8);
         
         rulesText.setTint(0xc2baac);
@@ -238,7 +238,7 @@ class victoryScreentranslateGame extends Phaser.Scene {
         
         //adding start container to the rules screen
         
-        var startText = this.add.text(-147,-17, "Question the witness !",{ fontSize : 32 , fontFamily: 'Georgia, Times, serif' });
+        var startText = this.add.text(-147,-17, "Question the witness !",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif' });
         var startRect = this.add.rectangle(0,0,340,50,0x7b6c4f, 0.8);
         startText.setTint(0xc2baac);
 
@@ -261,7 +261,7 @@ class victoryScreentranslateGame extends Phaser.Scene {
         });
         
         //adding the rules in the rules screen
-        var winText = this.add.text(-200,-90, "Merci pour les traductions, mais \nil est 16 h 45 et nous devons interroger un \ntémoin, ce qui nous apportera sûrement \nles derniers indices dont nous \navons besoin pour trouver le meurtrier.",{ fontSize : 24 , fontFamily: 'Georgia, Times, serif' });
+        var winText = this.add.text(-200,-90, "Merci pour les traductions, mais \nil est 16 h 45 et nous devons interroger un \ntémoin, ce qui nous apportera sûrement \nles derniers indices dont nous \navons besoin pour trouver le meurtrier.",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif' });
         var winRect = this.add.rectangle(0,0,420,200,0x7b6c4f, 0.8);
         winText.setTint(0xc2baac);
         var winRectStyle = this.add.rectangle(0,0,420,200);
