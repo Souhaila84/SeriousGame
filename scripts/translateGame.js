@@ -174,15 +174,15 @@ class translateGameRules extends Phaser.Scene {
         
         //adding start container to the rules screen
         
-        var startText = this.add.text(-39,-17, "Start !",{ fontSize : 32 , fontFamily: 'Georgia, Times, serif' });
-        var startRect = this.add.rectangle(0,0,200,50,0x7b6c4f, 0.8);
+        var startText = this.add.text(-44,-17, "Start !",{ fontSize : 32 , fontFamily: 'Georgia, Times, serif' });
+        var startRect = this.add.rectangle(0,0,215,50,0x7b6c4f, 0.8);
         startText.setTint(0xc2baac);
         startRect.setName("startRect");
-        var startRectStyle = this.add.rectangle(0,0,200,50);
+        var startRectStyle = this.add.rectangle(0,0,215,50);
         startRectStyle.setStrokeStyle(2,0x000000);
         
         var startContainer = this.add.container(400,450,[startRect ,startText,startRectStyle]);
-        startContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
+        startContainer.setInteractive(new Phaser.Geom.Rectangle(-107,-25,215,50), Phaser.Geom.Rectangle.Contains);
         startContainer.setName("startContainer");
         startContainer.on("pointerdown", function(){
             this.scene.scene.start('translateGame');
@@ -238,16 +238,16 @@ class victoryScreentranslateGame extends Phaser.Scene {
         
         //adding start container to the rules screen
         
-        var startText = this.add.text(-145,-17, "Question the witness !",{ fontSize : 32 , fontFamily: 'Georgia, Times, serif' });
-        var startRect = this.add.rectangle(0,0,320,50,0x7b6c4f, 0.8);
+        var startText = this.add.text(-147,-17, "Question the witness !",{ fontSize : 32 , fontFamily: 'Georgia, Times, serif' });
+        var startRect = this.add.rectangle(0,0,340,50,0x7b6c4f, 0.8);
         startText.setTint(0xc2baac);
-        startRect.setName("startRect");
-        var startRectStyle = this.add.rectangle(0,0,320,50);
+
+        var startRectStyle = this.add.rectangle(0,0,340,50);
         startRectStyle.setStrokeStyle(2,0x000000);
         
         var startContainer = this.add.container(400,450,[startRect ,startText,startRectStyle]);
-        startContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
-        startContainer.setName("startContainer");
+        startContainer.setInteractive(new Phaser.Geom.Rectangle(-170,-25,340,50), Phaser.Geom.Rectangle.Contains);
+        
         startContainer.on("pointerdown", function(){
             this.scene.scene.start('startGame');
         }); 
@@ -261,16 +261,13 @@ class victoryScreentranslateGame extends Phaser.Scene {
         });
         
         //adding the rules in the rules screen
-        var rulesText = this.add.text(-190,-90, "Merci pour les traductions, mais il est 16 h 45 \net nous devons interroger un témoin, ce qui \nnous apportera sûrement les derniers indices \ndont nous avons besoin pour trouver le \nmeurtrier.",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif' });
-        var rulesRect = this.add.rectangle(0,0,400,200,0x7b6c4f, 0.8);
-        rulesRect.setName("rulesRect");
-        rulesText.setTint(0xc2baac);
-        var rulesRectStyle = this.add.rectangle(0,0,400,200);
-        rulesRectStyle.setStrokeStyle(2,0x000000);
+        var winText = this.add.text(-200,-90, "Merci pour les traductions, mais il est 16 h 45 \net nous devons interroger un témoin, ce qui \nnous apportera sûrement les derniers indices \ndont nous avons besoin pour trouver le \nmeurtrier.",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif' });
+        var winRect = this.add.rectangle(0,0,420,200,0x7b6c4f, 0.8);
+        winText.setTint(0xc2baac);
+        var winRectStyle = this.add.rectangle(0,0,420,200);
+        winRectStyle.setStrokeStyle(2,0x000000);
         
-        var rulesContainer = this.add.container(400,200,[rulesRect ,rulesText,rulesRectStyle]);
-        rulesContainer.setInteractive(new Phaser.Geom.Rectangle(-200,-100,400,200), Phaser.Geom.Rectangle.Contains);
-        rulesContainer.setName("rulesContainer");
+        var winContainer = this.add.container(400,200,[winRect, winText, winRectStyle]);
     }
 
     update() {

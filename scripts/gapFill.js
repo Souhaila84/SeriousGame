@@ -32,15 +32,15 @@ class rulesGapFill extends Phaser.Scene {
         startContainer.setName("startContainer");   
         
         //adding the rules in the rules screen
-        var rulesText = this.add.text(-190,-90, "In this game you have to fill the gaps \nin the discussion that Mr.Roquette heard. \nWhen all the gaps will be filled with \nthe correct answers, you'll be able to \nplay the next game !\n\nGood luck !",{ fontSize : 16 });
+        var rulesText = this.add.text(-200,-90, "In this game you have to fill the gaps \nin the discussion that Mr.Roquette heard. \nWhen all the gaps will be filled with \nthe correct answers, you'll be able to \nplay the next game !\n\nGood luck !",{ fontSize : 16 });
         rulesText.setTint(0xc2baac);
-        var rulesRect = this.add.rectangle(0,0,400,200,0x7b6c4f, 0.8);
+        var rulesRect = this.add.rectangle(0,0,420,200,0x7b6c4f, 0.8);
         rulesRect.setName("rulesRect");
-        var rulesRectStyle = this.add.rectangle(0,0,400,200);
+        var rulesRectStyle = this.add.rectangle(0,0,420,200);
         rulesRectStyle.setStrokeStyle(2,0x000000);
         
         var rulesContainer = this.add.container(400,200,[rulesRect ,rulesText,rulesRectStyle]);
-        rulesContainer.setInteractive(new Phaser.Geom.Rectangle(-200,-100,400,200), Phaser.Geom.Rectangle.Contains);
+        rulesContainer.setInteractive(new Phaser.Geom.Rectangle(-210,-100,400,200), Phaser.Geom.Rectangle.Contains);
         rulesContainer.setName("rulesContainer");
         
         startContainer.on("pointerup", function(){
