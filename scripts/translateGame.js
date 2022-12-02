@@ -25,7 +25,7 @@ class translateGame extends Phaser.Scene {
         
         var justifyText = this.justify(text,17);
         
-        var rect = this.add.rectangle(0,0,280,115,0xa38c6c,0.5);
+        var rect = this.add.rectangle(0,0,280,115,0x767575,0.5);
         var textGameObject = this.add.text(-130,-50, justifyText,{ fontSize : font , fontFamily: 'Georgia, Times, serif' });
         
         var r2 = this.add.rectangle(0,0, 280, 115);
@@ -119,8 +119,10 @@ class translateGame extends Phaser.Scene {
             actualProposal = allProposals.shift(); //update actual proposal
             this.addProposals(actualProposal); //add firsts proposals to scene
             }
-        else{
+        else
+        {
             var textBA = this.add.text(50, 40, "You Won",{ fontSize : 40 , fontFamily: 'Times, Georgia, serif' });
+            this.scene.start("rulesFindTheMurderer");
         }
     }
     

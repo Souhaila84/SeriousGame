@@ -44,7 +44,7 @@ class rulesGapFill extends Phaser.Scene {
         rulesContainer.setName("rulesContainer");
         
         startContainer.on("pointerup", function(){
-            this.scene.scene.start('gapFill');
+            this.scene.scene.start('gapFill'); 
         });
         
         startContainer.on('pointerover', function() {

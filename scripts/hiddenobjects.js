@@ -231,7 +231,6 @@ class hiddenObjects extends Phaser.Scene {
     }
     update() {
         if(count == 8){  
-            
             this.scene.start('victoryScreenHiddenObjects');
         }
     }
