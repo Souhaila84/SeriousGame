@@ -19,7 +19,7 @@ class rulesFindTheMurderer extends Phaser.Scene {
         
         //adding start container to the rules screen
         
-        var startText = this.add.text(-38,-18, "Start !",{ fontSize : 32 , fontFamily: 'Georgia, Times, serif'});
+        var startText = this.add.text(-38,-18, "Start !",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
         var startRect = this.add.rectangle(0,0,200,50,0x7b6c4f, 0.8);
         startText.setTint(0xc2baac);
 
@@ -30,7 +30,7 @@ class rulesFindTheMurderer extends Phaser.Scene {
         startContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);   
         
         //adding the rules in the rules screen
-        var rulesText = this.add.text(-190,-90, "In this game you have listen to \nthe person speaking and find \nwho is the murderer between all the\ncharacters that will be displayed \non your screen, then click on the \nsuspect and finish the investigation !\n\nGood luck !",{ fontSize : 24, fontFamily: 'Georgia, Times, serif' });
+        var rulesText = this.add.text(-190,-90, "In this game you have listen to \nthe person speaking and find \nwho is the murderer between all the\ncharacters that will be displayed \non your screen, then click on the \nsuspect and finish the investigation !\n\nGood luck !",{ fontSize : 20, fontFamily: 'Georgia, Times, serif' });
         rulesText.setTint(0xc2baac);
         var rulesRect = this.add.rectangle(0,0,400,200,0x7b6c4f, 0.8);
         
@@ -86,8 +86,8 @@ class instructionsForTheMurdererGame extends Phaser.Scene {
         playButtonContainer.setInteractive(new Phaser.Geom.Circle(400,450,23), Phaser.Geom.Circle.Contains);
         playButtonContainer.setName("playButtonContainer");   
         
-        var instructionsText = this.add.text(-240 ,-110, "Now we need to listen what the witness \nhave to tell us ! \nShe/He is going to describe the murderer \nand we will need to find him/her \nbetween four suspects according to the \ndescription that the witness gave us.",{ fontSize : 24 , fontFamily: 'Georgia, Times, serif'});
-        var instructionsText2 = this.add.text(-240, 50, "Listen what does she/he have to \nsay by clicking the play button.", { fontSize : 24 , fontFamily: 'Georgia, Times, serif'});
+        var instructionsText = this.add.text(-240 ,-110, "Now we need to listen what the witness \nhave to tell us ! \nShe/He is going to describe the murderer \nand we will need to find him/her \nbetween four suspects according to the \ndescription that the witness gave us.",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
+        var instructionsText2 = this.add.text(-240, 50, "Listen what does she/he have to \nsay by clicking the play button.", { fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
         
         var instructionsRect = this.add.rectangle(0,0,525,250,0x032d3d, 0.85);
         instructionsText.setTint(0xc2baac);
@@ -101,7 +101,7 @@ class instructionsForTheMurdererGame extends Phaser.Scene {
         instructionsContainer.setName("instructionsContainer");   
         
         //creating the IGotIt container 
-        var iGotItText = this.add.text(-43,-18, "Got it !",{ fontSize : 32 , fontFamily: 'Georgia, Times, serif'});
+        var iGotItText = this.add.text(-43,-18, "Got it !",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
         var iGotItRect = this.add.rectangle(0,0,200,50,0x032d3d, 0.8);
         iGotItText.setTint(0xc2baac);
         iGotItRect.setName("iGotItRect");
