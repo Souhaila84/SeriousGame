@@ -25,7 +25,7 @@ class translateGame extends Phaser.Scene {
         
         var justifyText = this.justify(text,17);
         
-        var rect = this.add.rectangle(0,0,280,115,0x767575,0.5);
+        var rect = this.add.rectangle(0,0,280,115,0xa38c6c,0.5);
         var textGameObject = this.add.text(-130,-50, justifyText,{ fontSize : font , fontFamily: 'Georgia, Times, serif' });
         
         var r2 = this.add.rectangle(0,0, 280, 115);
@@ -252,7 +252,7 @@ class victoryScreentranslateGame extends Phaser.Scene {
         startContainer.setInteractive(new Phaser.Geom.Rectangle(-170,-25,340,50), Phaser.Geom.Rectangle.Contains);
         
         startContainer.on("pointerdown", function(){
-            this.scene.scene.start('startGame');
+            this.scene.scene.start('rulesFindTheMurderer');
         }); 
         
         startContainer.on('pointerover', function() {

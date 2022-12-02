@@ -276,7 +276,7 @@ class victoryScreenHiddenObjects extends Phaser.Scene {
         enterContainer.setInteractive(new Phaser.Geom.Rectangle(-105,-25,210,50), Phaser.Geom.Rectangle.Contains);
         enterContainer.setName("enterContainer");  
         
-        enterContainer.on("pointerup", function(){
+        enterContainer.on("pointerdown", function(){
             this.scene.scene.start('translateGameRules');  
         });
         

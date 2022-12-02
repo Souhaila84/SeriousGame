@@ -31,7 +31,7 @@ rules
         startButton.on('pointerout', function() {
             startButton.clearTint();
         });
-        startButton.on('pointerup', function() {
+        startButton.on('pointerdown', function() {
             this.scene.scene.start('rulesGapFill');
         });
        
