@@ -180,13 +180,12 @@ class translateGameRules extends Phaser.Scene {
         var startText = this.add.text(-44,-17, "Start !",{ fontSize : 32 , fontFamily: 'Georgia, Times, serif' });
         var startRect = this.add.rectangle(0,0,215,50,0x7b6c4f, 0.8);
         startText.setTint(0xc2baac);
-        startRect.setName("startRect");
         var startRectStyle = this.add.rectangle(0,0,215,50);
         startRectStyle.setStrokeStyle(2,0x000000);
         
         var startContainer = this.add.container(400,450,[startRect ,startText,startRectStyle]);
         startContainer.setInteractive(new Phaser.Geom.Rectangle(-107,-25,215,50), Phaser.Geom.Rectangle.Contains);
-        startContainer.setName("startContainer");
+
         startContainer.on("pointerdown", function(){
             this.scene.scene.start('translateGame');
         });
@@ -200,16 +199,14 @@ class translateGameRules extends Phaser.Scene {
         });
         
         //adding the rules in the rules screen
-        var rulesText = this.add.text(-190,-90, "For this game, you have to chose the most\napropriated traduction among the 4 proposed\nThere are 3 traductions to do.\n\nGood Luck !",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif' });
-        var rulesRect = this.add.rectangle(0,0,400,200,0x7b6c4f, 0.8);
-        rulesRect.setName("rulesRect");
+        var rulesText = this.add.text(-195,-90, "For this game, you have to chose \nthe most apropriated traduction \namong the 4 proposed. \nThere are 3 traductions to do.\n\nGood Luck !",{ fontSize : 24 , fontFamily: 'Georgia, Times, serif' });
+        var rulesRect = this.add.rectangle(0,0,420,200,0x7b6c4f, 0.8);
+        
         rulesText.setTint(0xc2baac);
-        var rulesRectStyle = this.add.rectangle(0,0,400,200);
+        var rulesRectStyle = this.add.rectangle(0,0,420,200);
         rulesRectStyle.setStrokeStyle(2,0x000000);
         
         var rulesContainer = this.add.container(400,200,[rulesRect ,rulesText,rulesRectStyle]);
-        rulesContainer.setInteractive(new Phaser.Geom.Rectangle(-200,-100,400,200), Phaser.Geom.Rectangle.Contains);
-        rulesContainer.setName("rulesContainer");
     }
 
     update() {
@@ -264,7 +261,7 @@ class victoryScreentranslateGame extends Phaser.Scene {
         });
         
         //adding the rules in the rules screen
-        var winText = this.add.text(-200,-90, "Merci pour les traductions, mais il est 16 h 45 \net nous devons interroger un témoin, ce qui \nnous apportera sûrement les derniers indices \ndont nous avons besoin pour trouver le \nmeurtrier.",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif' });
+        var winText = this.add.text(-200,-90, "Merci pour les traductions, mais il est 16 h 45 \net nous devons interroger un témoin, ce qui \nnous apportera sûrement les derniers indices \ndont nous avons besoin pour trouver le \nmeurtrier.",{ fontSize : 24 , fontFamily: 'Georgia, Times, serif' });
         var winRect = this.add.rectangle(0,0,420,200,0x7b6c4f, 0.8);
         winText.setTint(0xc2baac);
         var winRectStyle = this.add.rectangle(0,0,420,200);
