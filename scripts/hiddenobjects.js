@@ -35,16 +35,15 @@ class rulesHiddenObjects extends Phaser.Scene {
         
         //adding the rules in the rules screen
 
-        var rulesText = this.add.text(-190,-90, "In this game you have to find all \nthe proofs (objects) that will be \ndisplayed in the manuscript on your left\nAfter you found all the proofs, you will\nbe able to play the next game !\n\nGood luck !",{ fontSize : 16 });
-        var rulesText = this.add.text(-190,-90, "In this game you have to find all \nthe proofs (objects) that will be \ndisplayed in the manuscript on your left\nAfter you found all the proofs, you will\nbe able to play the next game !\n\nGood luck !",{ fontSize : 16 });
+        var rulesText = this.add.text(-200,-90, "In this game you have to find all \nthe proofs (objects) that will be \ndisplayed in the manuscript on your left\nAfter you found all the proofs, you will\nbe able to play the next game !\n\nGood luck !",{ fontSize : 16 });
         rulesText.setTint(0xc2baac);
-        var rulesRect = this.add.rectangle(0,0,400,200,0x7b6c4f, 0.8);
+        var rulesRect = this.add.rectangle(0,0,420,200,0x7b6c4f, 0.8);
         rulesRect.setName("rulesRect");
-        var rulesRectStyle = this.add.rectangle(0,0,400,200);
+        var rulesRectStyle = this.add.rectangle(0,0,420,200);
         rulesRectStyle.setStrokeStyle(2,0x000000);
         
         var rulesContainer = this.add.container(400,200,[rulesRect ,rulesText,rulesRectStyle]);
-        rulesContainer.setInteractive(new Phaser.Geom.Rectangle(-200,-100,400,200), Phaser.Geom.Rectangle.Contains);
+        rulesContainer.setInteractive(new Phaser.Geom.Rectangle(-210,-100,420,200), Phaser.Geom.Rectangle.Contains);
         rulesContainer.setName("rulesContainer");
         
         startContainer.on("pointerdown", function(){
@@ -254,27 +253,27 @@ class victoryScreenHiddenObjects extends Phaser.Scene {
         var victoryScreen = this.add.image(400,300, 'victoryScreenHiddenObject');
         
         //adding the victory container
-        var victoryText = this.add.text(-230,-60, "Incredible ! You found 8 clues, with them the \ninvestigation will be able to move forward !\nBut durring this time, the inspector Marcel \nRoquette found a mistery book, but this book \nis in English and he is not able to translate it,\nhelp him!",{ fontSize : 24 , fontFamily: 'Georgia, Times, serif'});
-        var victoryRect = this.add.rectangle(0,15,500,180,0x273d34, 0.85);
+        var victoryText = this.add.text(-245,-60, "Incredible ! You found 8 clues, with them the \ninvestigation will be able to move forward !\nBut durring this time, the inspector Marcel \nRoquette found a mistery book, but this book \nis in English and he is not able to translate it,\nhelp him!",{ fontSize : 24 , fontFamily: 'Georgia, Times, serif'});
+        var victoryRect = this.add.rectangle(0,15,520,180,0x273d34, 0.85);
         victoryText.setTint(0xc2baac);
         victoryRect.setName("victoryRect");
-        var victoryRectStyle = this.add.rectangle(0,15,500,180);
+        var victoryRectStyle = this.add.rectangle(0,15,520,180);
         victoryRectStyle.setStrokeStyle(2,0x000000);
         
         var victoryContainer = this.add.container(400,100,[victoryRect ,victoryText,victoryRectStyle]);
-        victoryContainer.setInteractive(new Phaser.Geom.Rectangle(-250,-75,500,150), Phaser.Geom.Rectangle.Contains);
+        victoryContainer.setInteractive(new Phaser.Geom.Rectangle(-260,-75,520,150), Phaser.Geom.Rectangle.Contains);
         victoryContainer.setName("victoryContainer");   
         
         //adding the enter container 
-        var enterText = this.add.text(-68,-13, "Interpret this book",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
-        var enterRect = this.add.rectangle(0,0,200,50,0x273d34, 0.85);
+        var enterText = this.add.text(-72,-13, "Interpret this book",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
+        var enterRect = this.add.rectangle(0,0,210,50,0x273d34, 0.85);
         enterText.setTint(0xc2baac);
         enterRect.setName("enterRect");
-        var enterRectStyle = this.add.rectangle(0,0,200,50);
+        var enterRectStyle = this.add.rectangle(0,0,210,50);
         enterRectStyle.setStrokeStyle(2,0x000000);
         
         var enterContainer = this.add.container(400,500,[enterRect ,enterText,enterRectStyle]);
-        enterContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
+        enterContainer.setInteractive(new Phaser.Geom.Rectangle(-105,-25,210,50), Phaser.Geom.Rectangle.Contains);
         enterContainer.setName("enterContainer");  
         
         enterContainer.on("pointerup", function(){

@@ -1,4 +1,4 @@
-export {translateGame, translateGameRules};
+export {translateGame, translateGameRules, victoryScreentranslateGame};
 
 
 var countOfVictory = 0;
@@ -115,14 +115,15 @@ class translateGame extends Phaser.Scene {
     nextPlay(){
         this.clearScene();
         ++countOfVictory;
-        if (countOfVictory < 3){
+        if (countOfVictory < 3)
+        {
             actualProposal = allProposals.shift(); //update actual proposal
             this.addProposals(actualProposal); //add firsts proposals to scene
-            }
+        }
+        
         else
         {
-            var textBA = this.add.text(50, 40, "You Won",{ fontSize : 40 , fontFamily: 'Times, Georgia, serif' });
-            this.scene.start("rulesFindTheMurderer");
+            this.scene.start("victoryScreentranslateGame");
         }
     }
     
@@ -165,26 +166,26 @@ class translateGameRules extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image("Rulesbackground","../images/game/background/rulesBackground.jpg");
+        this.load.image("TranslateRulesbackground","../images/game/background/rulesBackground.jpg");
     }
     
     create() {
         
         //Rules Part 
         //adding the rules background
-        var rulesBackground = this.add.image(400,300, 'Rulesbackground');
+        var rulesBackground = this.add.image(400,300, 'TranslateRulesbackground');
         
         //adding start container to the rules screen
         
-        var startText = this.add.text(-39,-17, "Start !",{ fontSize : 32 , fontFamily: 'Georgia, Times, serif' });
-        var startRect = this.add.rectangle(0,0,200,50,0x7b6c4f, 0.8);
+        var startText = this.add.text(-44,-17, "Start !",{ fontSize : 32 , fontFamily: 'Georgia, Times, serif' });
+        var startRect = this.add.rectangle(0,0,215,50,0x7b6c4f, 0.8);
         startText.setTint(0xc2baac);
         startRect.setName("startRect");
-        var startRectStyle = this.add.rectangle(0,0,200,50);
+        var startRectStyle = this.add.rectangle(0,0,215,50);
         startRectStyle.setStrokeStyle(2,0x000000);
         
         var startContainer = this.add.container(400,450,[startRect ,startText,startRectStyle]);
-        startContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
+        startContainer.setInteractive(new Phaser.Geom.Rectangle(-107,-25,215,50), Phaser.Geom.Rectangle.Contains);
         startContainer.setName("startContainer");
         startContainer.on("pointerdown", function(){
             this.scene.scene.start('translateGame');
@@ -217,3 +218,63 @@ class translateGameRules extends Phaser.Scene {
     
 }
 
+class victoryScreentranslateGame extends Phaser.Scene {
+
+    constructor () {
+        super('victoryScreentranslateGame');
+    }
+
+    preload() {
+        this.load.image("victoryTranslateBackground","../images/game/background/victoryScreentranslateGameBackground.jpg");
+        this.load.image("detectiveTranslate","../images/game/detective1.png");
+    }
+    
+    create() {
+        
+        //Rules Part 
+        //adding the rules background
+        
+        var rulesBackground = this.add.image(400,300, 'victoryTranslateBackground');
+        
+        //adding detective sprite
+        var detective = this.add.image(300,420,"detectiveTranslate");
+        
+        //adding start container to the rules screen
+        
+        var startText = this.add.text(-147,-17, "Question the witness !",{ fontSize : 32 , fontFamily: 'Georgia, Times, serif' });
+        var startRect = this.add.rectangle(0,0,340,50,0x7b6c4f, 0.8);
+        startText.setTint(0xc2baac);
+
+        var startRectStyle = this.add.rectangle(0,0,340,50);
+        startRectStyle.setStrokeStyle(2,0x000000);
+        
+        var startContainer = this.add.container(400,450,[startRect ,startText,startRectStyle]);
+        startContainer.setInteractive(new Phaser.Geom.Rectangle(-170,-25,340,50), Phaser.Geom.Rectangle.Contains);
+        
+        startContainer.on("pointerdown", function(){
+            this.scene.scene.start('startGame');
+        }); 
+        
+        startContainer.on('pointerover', function() {
+            startRect.setFillStyle(0xa88c6c,0.8)
+        });
+        
+        startContainer.on('pointerout', function() {
+            startRect.setFillStyle(0x7b6c4f,0.8)
+        });
+        
+        //adding the rules in the rules screen
+        var winText = this.add.text(-200,-90, "Merci pour les traductions, mais il est 16 h 45 \net nous devons interroger un témoin, ce qui \nnous apportera sûrement les derniers indices \ndont nous avons besoin pour trouver le \nmeurtrier.",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif' });
+        var winRect = this.add.rectangle(0,0,420,200,0x7b6c4f, 0.8);
+        winText.setTint(0xc2baac);
+        var winRectStyle = this.add.rectangle(0,0,420,200);
+        winRectStyle.setStrokeStyle(2,0x000000);
+        
+        var winContainer = this.add.container(400,200,[winRect, winText, winRectStyle]);
+    }
+
+    update() {
+        // Used to update your game. This function runs constantly
+    }
+    
+}
