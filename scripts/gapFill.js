@@ -32,7 +32,7 @@ class rulesGapFill extends Phaser.Scene {
         startContainer.setName("startContainer");   
         
         //adding the rules in the rules screen
-        var rulesText = this.add.text(-200,-90, "In this game you have to fill the gaps \nin the discussion that Mr.Roquette heard. \nWhen all the gaps will be filled with \nthe correct answers, you'll be able to \nplay the next game !\n\nGood luck !",{ fontSize : 16 });
+        var rulesText = this.add.text(-200,-90, "In this game you have to fill the gaps \nin the discussion that Mr.Roquette heard. \nWhen all the gaps will be filled with \nthe correct answers, you'll be able to \nplay the next game !\n\nGood luck !",{ fontSize : 24, fontFamily: 'Georgia, Times, serif'});
         rulesText.setTint(0xc2baac);
         var rulesRect = this.add.rectangle(0,0,420,200,0x7b6c4f, 0.8);
         rulesRect.setName("rulesRect");
