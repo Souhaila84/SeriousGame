@@ -44,7 +44,7 @@ class rulesGapFill extends Phaser.Scene {
         rulesContainer.setName("rulesContainer");
         
         startContainer.on("pointerdown", function(){
-            this.scene.scene.start('rulesFindTheMurderer');  //a chanegr AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+            this.scene.scene.start('gapFill');  
         });
         
         startContainer.on('pointerover', function() {
