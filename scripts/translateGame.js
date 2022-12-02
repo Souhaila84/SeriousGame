@@ -199,11 +199,11 @@ class translateGameRules extends Phaser.Scene {
         });
         
         //adding the rules in the rules screen
-        var rulesText = this.add.text(-195,-90, "For this game, you have to chose \nthe most apropriated traduction \namong the 4 proposed. \nThere are 3 traductions to do.\n\nGood Luck !",{ fontSize : 24 , fontFamily: 'Georgia, Times, serif' });
-        var rulesRect = this.add.rectangle(0,0,420,200,0x7b6c4f, 0.8);
+        var rulesText = this.add.text(-195,-75, "For this game, you have to chose \nthe most apropriated traduction \namong the 4 proposed. \nThere are 3 traductions to do.\n\nGood Luck !",{ fontSize : 24 , fontFamily: 'Georgia, Times, serif' });
+        var rulesRect = this.add.rectangle(0,0,420,170,0x7b6c4f, 0.8);
         
         rulesText.setTint(0xc2baac);
-        var rulesRectStyle = this.add.rectangle(0,0,420,200);
+        var rulesRectStyle = this.add.rectangle(0,0,420,170);
         rulesRectStyle.setStrokeStyle(2,0x000000);
         
         var rulesContainer = this.add.container(400,200,[rulesRect ,rulesText,rulesRectStyle]);
@@ -261,7 +261,7 @@ class victoryScreentranslateGame extends Phaser.Scene {
         });
         
         //adding the rules in the rules screen
-        var winText = this.add.text(-200,-90, "Merci pour les traductions, mais il est 16 h 45 \net nous devons interroger un témoin, ce qui \nnous apportera sûrement les derniers indices \ndont nous avons besoin pour trouver le \nmeurtrier.",{ fontSize : 24 , fontFamily: 'Georgia, Times, serif' });
+        var winText = this.add.text(-200,-90, "Merci pour les traductions, mais \nil est 16 h 45 et nous devons interroger un \ntémoin, ce qui nous apportera sûrement \nles derniers indices dont nous \navons besoin pour trouver le meurtrier.",{ fontSize : 24 , fontFamily: 'Georgia, Times, serif' });
         var winRect = this.add.rectangle(0,0,420,200,0x7b6c4f, 0.8);
         winText.setTint(0xc2baac);
         var winRectStyle = this.add.rectangle(0,0,420,200);
