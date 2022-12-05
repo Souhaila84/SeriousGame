@@ -4,12 +4,19 @@ var count = 0;
 
 var count = 0;
 
+/*
+This class creates the "instructions" screen for the hidden objects game
+*/
 class rulesHiddenObjects extends Phaser.Scene {
 
+     /* construct with a name to call this scene after*/
     constructor () {
         super('rulesHiddenObjects');
     }
 
+     /*
+    This fuction loads the background image
+    */
     preload() {
         this.load.image("Rulesbackground","../images/game/background/rulesBackground.jpg");
     }
@@ -59,17 +66,19 @@ class rulesHiddenObjects extends Phaser.Scene {
         });
     }
 
+     /* 
+    Used to update your game. This function runs constantly
+    */
     update() {
-        // Used to update your game. This function runs constantly
+        
     }
 }
-
 
 
 class hiddenObjects extends Phaser.Scene {
     
     constructor () {
-        super('hiddenObjects');   // construct with a name to call this scene after
+        super('hiddenObjects');   /* construct with a name to call this scene after*/
     }
     
     preload(){
@@ -99,37 +108,43 @@ class hiddenObjects extends Phaser.Scene {
 
     }
     
+    /*
+    This function adds the, previously loaded, images and sets their position on the scene
+    */
     create(){
         //ajout de scène et images 
         this.add.image(400, 300, 'backgroundHidenObjects'); //scene
+        /*The "setInteractives" variables will diseappar once clicked on*/
         var wine = this.add.image(400, 300, 'wine').setInteractive();//wine
         var gloves = this.add.image(700, 550, 'gloves').setInteractive(); //gloves
         var necklace = this.add.image(100, 550, 'necklace').setInteractive(); //necklace
         var cuestick = this.add.image(150, 40, 'cuestick').setInteractive(); //cuestick
         var sunglasses = this.add.image(250, 380, 'sunglasses').setInteractive(); //sunglasses
+        var rope = this.add.image(570, 370, 'rope').setInteractive(); //rope
+        var drink = this.add.image(340, 400, 'drink').setInteractive(); //drink
+        var gun = this.add.image(690, 390, 'gun').setInteractive(); //gun
         this.add.image(85, 270, 'parchemin'); //parchemin
         this.add.image(590, 490, 'violon'); //violon
         this.add.image(655, 400, 'painting'); //painting
-        this.add.image(570, 390, 'blanket'); //blanket
-        var rope = this.add.image(570, 370, 'rope').setInteractive(); //rope
-        var drink = this.add.image(340, 400, 'drink').setInteractive(); //drink
+        this.add.image(570, 390, 'blanket'); //blanket 
         this.add.image(270, 230, 'hat'); //hat
         this.add.image(470, 450, 'briefcase'); //briefcase
         this.add.image(480, 480, 'cat'); //cat
         this.add.image(550, 550, 'books'); //books
         this.add.image(90, 520, 'doll'); //dolls
-        var gun = this.add.image(690, 390, 'gun').setInteractive(); //gun
         this.add.image(300, 120, 'blood'); //blood
         this.add.image(430, 550, 'flowers'); //flowers
-        var music = this.sound.add('theme'); //musique
+        /*var music = this.sound.add('theme'); //musique
         music.setVolume(0.5);
         music.play
         ({
             loop: true
-        });
+        });*/
     
        
-                
+       /*
+       The texts are associated with the variables of the same name and will form a list 
+       */         
         //liste d'objets à trouver
         var textw = this.add.text(60, 140, 'wine').setInteractive(); //liste_wine
         var textg = this.add.text(50, 160, 'gloves').setInteractive(); //liste_gloves
@@ -141,7 +156,9 @@ class hiddenObjects extends Phaser.Scene {
         var textr = this.add.text(55, 280, 'rope').setInteractive(); //liste_rope
         
         
-        
+        /* 
+          The objects and the text associated to them Variables will diseappar once clicked on
+        */
         //  quand on clique dessus, l'objet(image et texte) disparait 
         wine.on('pointerdown', function (pointer) { 
 
