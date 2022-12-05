@@ -4,32 +4,31 @@
  *  @author Alexis Mariotti
  */
 
-
 export {translateGame, translateGameRules, victoryScreentranslateGame};
 
-/** 
-* The count of successful translation
+/**
+* The count of successful translations
 * @type {int} 
 * @author Alexis Mariotti
 */
 var countOfVictory = 0;
-/**
-* Array of all string array of differents proposals and the sentence to translate wich is in position 0 in array
+/** 
+* Array of all string arrays of differents proposals and the sentence to translate which is in position 0 in the array
 * @type {string[]|Array}
 * @author Alexis Mariotti
 */
 var allProposals =[["There was a murder last night","Il y a eu un meurtre hier soir","Il y avais eu un meurtre hier soir","Il y a eu un menteur hier soir","il y a des meurtriers dans la nuit derniére"],
                    ["Bonjour, je cherche un homme de petite taille avec un sourire narquois et une calvitie avancée.","Hello, I am looking for a short and smirk man with a advanced baldness.","Hello, I am looking for a short and sly man with a advanced baldness.","Hello, I am looking for a short man with a sly and advanced bat.","Hello, I am looking for a tall man with a smirk."],
                    ["Monsieur Roquette est un enquêteur de renom en France","Mr. Roquette is a renowned investigator in France","Mr. Roquette is a popular investigator in France","Mr. Roquette is a celebrity in Yugoslavia","Mr. Roquette were a renowned alligator at France"]];
-/**
+/** 
 * The string array of current proposal
 * @type {string[]}
 * @author Alexis Mariotti
 */
 var actualProposal = [];
 /**
-* This fuction call with await will sleep the program for a given time
-* @param {int} ms - The time to sleep in ms
+* This function call with a timer will put the programm to sleep for a given time
+* @param {int} ms - Time to sleep in ms
 */
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -50,42 +49,42 @@ class translateGame extends Phaser.Scene {
     }
     
     /**
-    * This fuction create a buton for proposal
+    * This function creates a button for proposal
     * @param {number} x - The x value.
     * @param {number} y - The y value.
     * @param {string} font - The font that will be used.
-    * @param {boolean} isRigth - True to generate the right proposal and false to generate a wrong proposal.
     * @author Alexis Mariotti
+    * @param {boolean} isRigth - "True" to generate the right proposal and "false" to generate a wrong proposal.
     */
     addTranslateProposal(x, y, text, font, isRigth){
         /** 
-        * This var is the text to good format
+        * This var is the text to the right format
         * @type {(string)} 
         * @author Alexis Mariotti
         */
         var justifyText = this.justify(text,17);
         
         /** 
-        * This var containt the background rectangle of the proposal
+        * This var contains the background rectangle of the proposal
         * @type {(Phaser.GameObjects.Rectangle)} 
         * @author Alexis Mariotti
         */
         var rect = this.add.rectangle(0,0,280,115,0xa38c6c,0.5);
         /** 
-        * This var containt the text gameObject of the proposal
+        * This var contains the text gameObject of the proposal
         * @type {(Phaser.GameObjects.Text)}
         * @author Alexis Mariotti
         */
         var textGameObject = this.add.text(-130,-50, justifyText,{ fontSize : font , fontFamily: 'Georgia, Times, serif' });
         /** 
-        * This var containt the outline rectangle of the proposal
+        * This var contains the outline rectangle of the proposal
         * @type {(Phaser.GameObjects.Rectangle)}
         * @author Alexis Mariotti
         */
         var rectOutline = this.add.rectangle(0,0, 280, 115);
         rectOutline.setStrokeStyle(2, 0x0000,0.3);
         /** 
-        * This var containt the container who contain all memembers of the proposal (rect, textGameObject, rectOutline)
+        * This var contains the container which contains all elements of the proposal (rect, textGameObject, rectOutline)
         * @type {(Phaser.GameObjects.Container)} 
         * @author Alexis Mariotti
         */
@@ -93,14 +92,14 @@ class translateGame extends Phaser.Scene {
         cont.setInteractive(new Phaser.Geom.Rectangle(-140,-57,280,115), Phaser.Geom.Rectangle.Contains);
         
         /**
-        * Fuction for event pointerover of this proposal, change color of rect
+        * Function for event pointerover of this proposal, changes color of rect
         * @author Alexis Mariotti
         */
         cont.on('pointerover', function() {
             rect.setFillStyle(0x28942a,0.5)
         });
         /**
-        * Fuction for event pointerout of this proposal, re-establish color of rect
+        * Function for event pointerout of this proposal, restore the color of rect
         * @author Alexis Mariotti
         */
         cont.on('pointerout', function() {
@@ -116,14 +115,14 @@ class translateGame extends Phaser.Scene {
         }
     }
     
-    /**
-    * This function create and add to scene 4 proposal in random order, the rigth proposal is the first given
+    /** 
+    * This function creates and adds to scene 4 proposals in a random order, the rigth proposal is the first given
     * @param {string[]} proposals - The text of proposals array to add on the scene and the first string is the sentence to translate.
     * @author Alexis Mariotti
     */
     addProposals(proposals){
         /** 
-        * This var containt the texts proposals and an associated boolean representing whether the proposition is correct or not (there is only one true proposition among the 4). Ussing this structure because it's more efficient to associate bool with a proposal that do 2 method, for false or true.
+        * This var contains the proposals texts and an associated boolean representing wether the proposition is correct or not (there is only one true proposition among the 4). Using this structure because it's more efficient to associate bool with a proposal that do 2 method, for false or true proposals.
         * @type {String|boolean[]} 
         * @author Alexis Mariotti
         */
@@ -150,8 +149,8 @@ class translateGame extends Phaser.Scene {
         title.setName("proposalTilte");
     }
     
-    /**
-    * This function return the given string but with '\n' between words and with n lines length
+    /** 
+    * This function returns the given string but with '\n' between words and with n lines length
     * @param {string} text - The String to justify
     * @param {int} n - The line length for the justify text
     * @returns {String} The text but justified with the associate line length
@@ -165,7 +164,7 @@ class translateGame extends Phaser.Scene {
         */
         var justifyText = new String();
         /** 
-        * A array with all words of the String to justify
+        * An array with all the words of the String to justify
         * @type {String[]} 
         * @author Alexis Mariotti
         */
@@ -193,16 +192,16 @@ class translateGame extends Phaser.Scene {
         
         return justifyText;
     }
-    /**
-    * This function is called by clicking on a right proposal
+    /*
+    * This function is called when clicking on the right proposal
     * @author Alexis Mariotti
     */
     onRightProposalClick(){
         this.nextPlay();
     }
     
-    /**
-    * This function is called by clicking on a false proposal, it will display for 2 seconds the text "Mauvaise réponse" on the scene. It's an async function because it's call await for sleep.
+    /*
+    * This function is called when clicking on a false proposal, it will display the text "Mauvaise réponse" on the scene for 2 seconds. It's an async function because it's call await for sleep.
     * @author Alexis Mariotti
     */
     async onFalseProposalClick(){
@@ -236,8 +235,9 @@ class translateGame extends Phaser.Scene {
             this.scene.start("victoryScreentranslateGame");
         }
     }
-    /**
-    * this function destroy all objects on the scene, except the background
+
+    /*
+    * this function destroys all objects on the scene, except the background
     * @author Alexis Mariotti
     */
     clearScene(){
@@ -272,7 +272,7 @@ class translateGame extends Phaser.Scene {
     }
 }
 /**
- * This class is the rules scene for the translate game. She contain a text which explain the rules of this game
+ * This class is the rules scene for the translate game. It contains a text that explains the rules of this game
  * @extends Phaser.Scene
  * @author Alexis Mariotti
  */
@@ -366,7 +366,7 @@ class translateGameRules extends Phaser.Scene {
         
         rulesText.setTint(0xc2baac);
         /**
-         * this is the styling of the rulesRect rectangle that will in the rules Container of the translate rules scene. 
+         * this is the styling of the rulesRect rectangle that will be in the rules Container of the translate rules scene. 
          * @name rulesRectStyle
          * @type {Phaser.GameObjects.Rectangle}
          * @author Alexis Mariotti
@@ -374,7 +374,7 @@ class translateGameRules extends Phaser.Scene {
         var rulesRectStyle = this.add.rectangle(0,0,420,170);
         rulesRectStyle.setStrokeStyle(2,0x000000);
         /**
-         * this is the second container of translate rules scene. Wich contain rulesRect, rulesText and rulesRectStyle
+         * this is the second container of translate rules scene. Which contain rulesRect, rulesText and rulesRectStyle
          * @name rulesContainer
          * @type {Phaser.GameObjects.Container}
          * @author Alexis Mariotti
@@ -389,7 +389,7 @@ class translateGameRules extends Phaser.Scene {
 }
 
 /**
- * This class is the won scene for the translate game. She contain a text which explain the rest of the story
+ * This class is the " you won" scene for the translate game. It contains a text that explains the rest of the story
  * @extends Phaser.Scene
  * @author Alexis Mariotti
  */
@@ -421,7 +421,7 @@ class victoryScreentranslateGame extends Phaser.Scene {
         var rulesBackground = this.add.image(400,300, 'victoryTranslateBackground');
         
         /**
-         * the detective sprite wich is added to the scene
+         * the detective sprite is added to the scene
          * @name detective
          * @type {Phaser.GameObjects.Image}
          * @author Alexis Mariotti
@@ -454,7 +454,7 @@ class victoryScreentranslateGame extends Phaser.Scene {
         var startRectStyle = this.add.rectangle(0,0,340,50);
         startRectStyle.setStrokeStyle(2,0x000000);
         /**
-         * the container wich contain all elements of the button (startText, startRect and startRectStyle)
+         * the container wich contain all the elements of the button (startText, startRect and startRectStyle)
          * @name startContainer
          * @type {Phaser.GameObjects.Container}
          * @author Alexis Mariotti
@@ -477,7 +477,7 @@ class victoryScreentranslateGame extends Phaser.Scene {
         //adding the victory in the rules screen
         
         /**
-         * the text wich explain the rest of the story and introduce the next game
+         * the text that explains the rest of the story and introduce the next game
          * @name winText
          * @type {Phaser.GameObjects.Text}
          * @author Alexis Mariotti
