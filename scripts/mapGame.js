@@ -2,10 +2,15 @@ export {rulesMap, victoryScreenMap, tryAgainScreenMap, mapGame};
 
 /**
  * This is a number declared here, to be usable in all the code.
+ * @author Bouveret Victor
  * @name proposalNumber
  */
 var proposalNumber = 0;
 
+/**
+* This fuction call with await will sleep the program for a given time
+* @param {int} ms - The time to sleep in ms
+*/
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -15,6 +20,7 @@ function sleep(ms) {
 
 /**
  * This class is the rules scene for the mapGame game.
+ * @author Bouveret Victor
  * @extends Phaser.Scene
  */
 
@@ -33,6 +39,7 @@ class rulesMap extends Phaser.Scene {
         //Rules Part 
         /**
          * adding the background to the rulesMap scene.
+         * @author Bouveret Victor
          * @name rulesBackground
          * @name {Phaser.GameObjects.Image}
          */
@@ -42,6 +49,7 @@ class rulesMap extends Phaser.Scene {
         
         /**
          * this is the text that will be in the start Container of the rulesMap scene. 
+         * @author Bouveret Victor
          * @name startText
          * @type {Phaser.GameObjects.Text}
          */
@@ -49,6 +57,7 @@ class rulesMap extends Phaser.Scene {
         
         /**
          * this is the rectangle that will be in the start Container of the rulesMap scene. 
+         * @author Bouveret Victor
          * @name startRect
          * @type {Phaser.Geom.Rectangle}
          */
@@ -58,6 +67,7 @@ class rulesMap extends Phaser.Scene {
         
         /**
          * this is a styling for the startRect that will be in the start Container of the rulesMap scene. 
+         * @author Bouveret Victor
          * @name startRectStyle
          * @type {Phaser.Geom.Rectangle}
          */
@@ -66,6 +76,7 @@ class rulesMap extends Phaser.Scene {
         
         /**
          * this is the first container of rulesMap scene. 
+         * @author Bouveret Victor
          * @name startContainer
          * @type {Phaser.GameObjects.Container}
          */
@@ -76,6 +87,7 @@ class rulesMap extends Phaser.Scene {
         //adding the rules in the rules screen
         /**
          * this is the text that will be displaying the rules of the game in the rules Container of the rulesMap scene. 
+         * @author Bouveret Victor
          * @name rulesText
          * @type {Phaser.GameObjects.Text}
          */
@@ -86,6 +98,7 @@ class rulesMap extends Phaser.Scene {
         
         /**
          * this is the rectangle that will be in the rules Container of the rulesMap scene. 
+         * @author Bouveret Victor
          * @name rulesRect
          * @type {Phaser.Geom.Rectangle}
          */
@@ -93,7 +106,8 @@ class rulesMap extends Phaser.Scene {
         rulesRect.setName("rulesRect");
         
         /**
-         * this is the styling of the rulesRect rectangle that will in the rules Container of the rulesMap scene. 
+         * this is the styling of the rulesRect rectangle that will in the rules Container of the rulesMap scene.
+         * @author Bouveret Victor
          * @name rulesRectStyle
          * @type {Phaser.Geom.Rectangle}
          */
@@ -102,6 +116,7 @@ class rulesMap extends Phaser.Scene {
         
         /**
          * this is the second container of rulesMap scene. 
+         * @author Bouveret Victor
          * @name rulesContainer
          * @type {Phaser.GameObjects.Container}
          */
@@ -111,10 +126,12 @@ class rulesMap extends Phaser.Scene {
         
         /**
          * the fonction inside this will be executed when the cursor of the user will be pressed. 
+         * @author Bouveret Victor
          */
         startContainer.on("pointerdown", function(){
             /**
              * here, this line of code is going to lead us to the mapGame scene if the startContainer is clicked on.
+             * @author Bouveret Victor
              */
             this.scene.scene.start('mapGame');
         });
@@ -139,6 +156,7 @@ class rulesMap extends Phaser.Scene {
 
 /**
  * This class is the victoryScreenMap scene for the mapGame game.
+ * @author Bouveret Victor
  * @extends Phaser.Scene
  */
 
@@ -158,6 +176,7 @@ class victoryScreenMap extends Phaser.Scene {
     
         /**
          * adding the background to the victoryScreenMap scene.
+         * @author Bouveret Victor
          * @name victoryScreen
          * @name {Phaser.GameObjects.Image}
          */
@@ -167,6 +186,7 @@ class victoryScreenMap extends Phaser.Scene {
         
         /**
          * this is the text that will be in the victory Container of the victoryScreenMap scene. 
+         * @author Bouveret Victor
          * @name victoryText
          * @type {Phaser.GameObjects.Text}
          */
@@ -174,6 +194,7 @@ class victoryScreenMap extends Phaser.Scene {
         
         /**
          * this is the rectangle that will be in the victory Container of the victoryScreenMap scene. 
+         * @author Bouveret Victor
          * @name victoryRect
          * @type {Phaser.Geom.Rectangle}
          */
@@ -182,6 +203,7 @@ class victoryScreenMap extends Phaser.Scene {
 
         /**
          * this is the styling of the victoryRect rectangle that will be in the victory Container of the victoryScreenMap scene. 
+         * @author Bouveret Victor
          * @name victoryRectStyle
          * @type {Phaser.Geom.Rectangle}
          */
@@ -190,6 +212,7 @@ class victoryScreenMap extends Phaser.Scene {
         
          /**
          * this is the first container of victoryScreenMap scene. 
+         * @author Bouveret Victor
          * @name victoryContainer
          * @type {Phaser.GameObjects.Container}
          */
@@ -200,6 +223,7 @@ class victoryScreenMap extends Phaser.Scene {
         
         /**
          * this is the text that will be in the enter Container of the victoryScreenMap scene. 
+         * @author Bouveret Victor
          * @name enterText
          * @type {Phaser.GameObjects.Text}
          */
@@ -207,6 +231,7 @@ class victoryScreenMap extends Phaser.Scene {
         
          /**
          * this is the rectangle that will be in the enter Container of the victoryScreenMap scene. 
+         * @author Bouveret Victor
          * @name enterRect
          * @type {Phaser.Geom.Rectangle}
          */
@@ -215,6 +240,7 @@ class victoryScreenMap extends Phaser.Scene {
 
         /**
          * this is the styling of the enterRect rectangle that will be in the enter Container of the victoryScreenMap scene. 
+         * @author Bouveret Victor
          * @name enterRectStyle
          * @type {Phaser.Geom.Rectangle}
          */
@@ -223,6 +249,7 @@ class victoryScreenMap extends Phaser.Scene {
         
          /**
          * this is the second container of victoryScreenMap scene. 
+         * @author Bouveret Victor
          * @name enterContainer
          * @type {Phaser.GameObjects.Container}
          */
@@ -231,10 +258,12 @@ class victoryScreenMap extends Phaser.Scene {
 
         /**
          * the fonction inside this will be executed when the cursor of the user will be pressed. 
+         * @author Bouveret Victor
          */
         enterContainer.on("pointerdown", function(){
              /**
              * here, this line of code is going to lead us to the rulesHiddenObjects scene that is the next playable game if the enterContainer is clicked on after winning the mapGame game.
+             * @author Bouveret Victor
              */
             this.scene.scene.start('rulesHiddenObjects');  
         });
@@ -261,6 +290,7 @@ class victoryScreenMap extends Phaser.Scene {
 
 /**
  * This class is the tryAgainScreenMap scene for the mapGame game.
+ * @author Bouveret Victor
  * @extends Phaser.Scene
  */
 
@@ -280,6 +310,7 @@ class tryAgainScreenMap extends Phaser.Scene {
         
         /**
          * adding the background to the tryAgainScreenMap scene.
+         * @author Bouveret Victor
          * @name tryAgainBackground
          * @name {Phaser.GameObjects.Image}
          */
@@ -289,6 +320,7 @@ class tryAgainScreenMap extends Phaser.Scene {
         
         /**
          * this is the text that will be in the youlost Container of the tryAgainScreenMap scene. 
+         * @author Bouveret Victor
          * @name youlostText
          * @type {Phaser.GameObjects.Text}
          */
@@ -296,6 +328,7 @@ class tryAgainScreenMap extends Phaser.Scene {
         
         /**
          * this is the rectangle that will be in the youlost Container of the tryAgainScreenMap scene. 
+         * @author Bouveret Victor
          * @name youlostRect
          * @type {Phaser.Geom.Rectangle}
          */
@@ -304,6 +337,7 @@ class tryAgainScreenMap extends Phaser.Scene {
 
          /**
          * this is the styling for the youlostRect rectangle that will be in the youlost Container of the tryAgainScreenMap scene. 
+         * @author Bouveret Victor
          * @name youlostRectStyle
          * @type {Phaser.Geom.Rectangle}
          */
@@ -312,6 +346,7 @@ class tryAgainScreenMap extends Phaser.Scene {
         
          /**
          * this is the the first container of the tryAgainScreenMap scene. 
+         * @author Bouveret Victor
          * @name youlostContainer
          * @type {Phaser.GameObjects.Container}
          */
@@ -322,6 +357,7 @@ class tryAgainScreenMap extends Phaser.Scene {
         
          /**
          * this is the text that will be in the tryAgain Container of the tryAgainScreenMap scene. 
+         * @author Bouveret Victor
          * @name tryAgainText
          * @type {Phaser.GameObjects.Text}
          */
@@ -329,6 +365,7 @@ class tryAgainScreenMap extends Phaser.Scene {
         
         /**
          * this is the rectangle that will be in the tryAgain Container of the tryAgainScreenMap scene. 
+         * @author Bouveret Victor
          * @name tryAgainRect
          * @type {Phaser.Geom.Rectangle}
          */
@@ -337,6 +374,7 @@ class tryAgainScreenMap extends Phaser.Scene {
 
          /**
          * this is the styling for the tryAgainRect rectangle that will be in the tryAgain Container of the tryAgainScreenMap scene. 
+         * @author Bouveret Victor
          * @name tryAgainRectStyle
          * @type {Phaser.Geom.Rectangle}
          */
@@ -344,7 +382,8 @@ class tryAgainScreenMap extends Phaser.Scene {
         tryAgainRectStyle.setStrokeStyle(2,0x000000);
         
         /**
-         * this is the the second container of the tryAgainScreenMap scene, it allows the user to try again if he lost the game. 
+         * this is the the second container of the tryAgainScreenMap scene, it allows the user to try again if he lost the game.
+         * @author Bouveret Victor
          * @name tryAgainContainer
          * @type {Phaser.GameObjects.Container}
          */
@@ -355,10 +394,12 @@ class tryAgainScreenMap extends Phaser.Scene {
             
         /**
          * the fonction inside this will be executed when the cursor of the user will be pressed. 
+         * @author Bouveret Victor
          */
         tryAgainContainer.on("pointerdown", function(){
             /**
              * this line of code will lead the user back to the mapGame game. 
+             * @author Bouveret Victor
              */
             this.scene.scene.start('mapGame');
         });
@@ -376,6 +417,7 @@ class tryAgainScreenMap extends Phaser.Scene {
         
          /**
          * this is the text that will be in the returnToMenu Container of the tryAgainScreenMap scene. 
+         * @author Bouveret Victor
          * @name returnToMenuText
          * @type {Phaser.GameObjects.Text}
          */
@@ -383,6 +425,7 @@ class tryAgainScreenMap extends Phaser.Scene {
         
         /**
          * this is the rectangle that will be in the returnToMenu Container of the tryAgainScreenMap scene. 
+         * @author Bouveret Victor
          * @name returnToMenuRect
          * @type {Phaser.Geom.Rectangle}
          */
@@ -391,6 +434,7 @@ class tryAgainScreenMap extends Phaser.Scene {
 
         /**
          * this is the styling for the returnToMenuRect rectangle that will be in the returnToMenu Container of the tryAgainScreenMap scene. 
+         * @author Bouveret Victor
          * @name returnToMenuRectStyle
          * @type {Phaser.Geom.Rectangle}
          */
@@ -399,6 +443,7 @@ class tryAgainScreenMap extends Phaser.Scene {
         
         /**
          * this is the the third container of the tryAgainScreenMap scene, it allows the user to return to the game menu if he doesn't want to play anymore. 
+         * @author Bouveret Victor
          * @name returnToMenuContainer
          * @type {Phaser.GameObjects.Container}
          */
@@ -409,10 +454,12 @@ class tryAgainScreenMap extends Phaser.Scene {
         
          /**
          * the fonction inside this will be executed when the cursor of the user will be pressed. 
+         * @author Bouveret Victor
          */
         returnToMenuContainer.on("pointerdown", function(){
              /**
              * this line of code will lead the user back to the startMenu scene. 
+             * @author Bouveret Victor
              */
             this.scene.scene.start("startMenu");
         });
@@ -439,6 +486,7 @@ class tryAgainScreenMap extends Phaser.Scene {
 
 /**
  * This class is the main scene for the mapGame game.
+ * @author Bouveret Victor
  * @extends Phaser.Scene
  */
 
@@ -466,6 +514,7 @@ class mapGame extends Phaser.Scene
         
          /**
          * adding the background to the mapGame scene.
+         * @author Bouveret Victor
          * @name map
          * @name {Phaser.GameObjects.Image}
          */
@@ -476,6 +525,7 @@ class mapGame extends Phaser.Scene
         
          /**
          * adding the first greenping (there is 2 more) to the mapGame scene and setting their visibility to false.
+         * @author Bouveret Victor
          * @name greenping
          * @name {Phaser.GameObjects.Image}
          */
@@ -494,6 +544,7 @@ class mapGame extends Phaser.Scene
         
         /**
          * adding the first redping (there is 2 more) to the mapGame scene.
+         * @author Bouveret Victor
          * @name redping
          * @name {Phaser.GameObjects.Image}
          */
@@ -509,6 +560,7 @@ class mapGame extends Phaser.Scene
         
         /**
          * adding the start image (and also the gpsuser image) to the mapGame scene.
+         * @author Bouveret Victor
          * @name redping, gpsuser
          * @name {Phaser.GameObjects.Image}
          */
@@ -517,6 +569,7 @@ class mapGame extends Phaser.Scene
         
         /**
          * adding the r3 rectangle to the mapGame scene.
+         * @author Bouveret Victor
          * @name r3
          * @name {Phaser.Geom.Rectangle}
          */
@@ -528,6 +581,7 @@ class mapGame extends Phaser.Scene
         
         /**
          * adding the r1 rectangle to the mapGame scene.
+         * @author Bouveret Victor
          * @name r1
          * @name {Phaser.Geom.Rectangle}
          */
@@ -535,6 +589,7 @@ class mapGame extends Phaser.Scene
         
         /**
          * adding the r2 rectangle to the mapGame scene.
+         * @author Bouveret Victor
          * @name r2
          * @name {Phaser.Geom.Rectangle}
          */
@@ -543,6 +598,7 @@ class mapGame extends Phaser.Scene
         
         /**
          * adding the title text to the mapGame scene.
+         * @author Bouveret Victor
          * @name title
          * @name {Phaser.GameObjects.Text}
          */
@@ -554,6 +610,7 @@ class mapGame extends Phaser.Scene
         
         /**
          * adding text in the subContainer that will appear in the mapGame scene.
+         * @author Bouveret Victor
          * @name subText
          * @name {Phaser.GameObjects.Text}
          */
@@ -561,6 +618,7 @@ class mapGame extends Phaser.Scene
         
         /**
          * adding a rectangle in the subContainer that will appear in the mapGame scene.
+         * @author Bouveret Victor
          * @name subRect
          * @name {Phaser.Geom.Rectangle}
          */
@@ -569,6 +627,7 @@ class mapGame extends Phaser.Scene
         
         /**
          * adding the subContainer in the mapGame scene.
+         * @author Bouveret Victor
          * @name subContainer
          * @name {Phaser.GameObjects.Container}
          */
@@ -581,6 +640,7 @@ class mapGame extends Phaser.Scene
         
         /**
          * adding text in the yesNoContainer that will appear after clicking on the subContainer in the mapGame scene.
+         * @author Bouveret Victor
          * @name yesNoText
          * @name {Phaser.GameObjects.Text}
          */
@@ -588,6 +648,7 @@ class mapGame extends Phaser.Scene
         
         /**
          * adding a rectangle in the yesNoContainer that will appear after clicking on the subContainer in the mapGame scene.
+         * @author Bouveret Victor
          * @name yesNoRect
          * @name {Phaser.Geom.Rectangle}
          */
@@ -596,6 +657,7 @@ class mapGame extends Phaser.Scene
         
         /**
          * adding a styling to the yesNoRect rectangle in the yesNoContainer that will appear after clicking on the subContainer in the mapGame scene.
+         * @author Bouveret Victor
          * @name yesNoRectStyle
          * @name {Phaser.Geom.Rectangle}
          */
@@ -604,7 +666,8 @@ class mapGame extends Phaser.Scene
         
         /**
          * adding the yesNoContainer in the mapGame scene that will be visible after clicking on the subContainer in the mapGame scene.
-         * @name subContainer
+         * @author Bouveret Victor
+         * @name yesNoContainer
          * @name {Phaser.GameObjects.Container}
          */
         var yesNoContainer = this.add.container(300,300,[yesNoRect, yesNoText, yesNoRectStyle]);
@@ -614,11 +677,38 @@ class mapGame extends Phaser.Scene
         
         //adding the yes container to the yes/no container
         
+        /**
+         * adding text in the yesContainer that will appear in the yesNoContainer in the mapGame scene.
+         * @author Bouveret Victor
+         * @name yesText
+         * @name {Phaser.GameObjects.Text}
+         */
         var yesText = this.add.text(-18,-11, "Yes !" ,{ fontSize : 20 , fontFamily: 'Georgia, Times, serif' });
+        
+        /**
+         * adding a rectangle in the yesContainer that will appear in the yesNoContainer in the mapGame scene.
+         * @author Bouveret Victor
+         * @name yesRect
+         * @name {Phaser.Geom.Rectangle}
+         */
         var yesRect = this.add.rectangle(0,0, 100,50, 0x1b499b);
         yesRect.setName("yesRect");
+        
+        /**
+         * adding a styling to the yesRect rectangle in the yesContainer that will appear in the yesNoContainer in the mapGame scene.
+         * @author Bouveret Victor
+         * @name yesRectStyle
+         * @name {Phaser.Geom.Rectangle}
+         */
         var yesRectStyle = this.add.rectangle(0,0,100,50);
         yesRectStyle.setStrokeStyle(2, 0x00000)
+        
+         /**
+         * adding the yesContainer in the mapGame scene that will be visible after clicking on the subContainer in the mapGame scene.
+         * @author Bouveret Victor
+         * @name yesContainer
+         * @name {Phaser.GameObjects.Container}
+         */
         
         var yesContainer = this.add.container(420,400, [yesRect, yesText, yesRectStyle]);
         yesContainer.setInteractive(new Phaser.Geom.Rectangle(-50,-25,100,50), Phaser.Geom.Rectangle.Contains);
@@ -627,12 +717,38 @@ class mapGame extends Phaser.Scene
         
         //adding the no container to the yes/no container 
         
+         /**
+         * adding text in the noContainer that will appear in the yesNoContainer in the mapGame scene.
+         * @author Bouveret Victor
+         * @name noText
+         * @name {Phaser.GameObjects.Text}
+         */
         var noText = this.add.text(-11,-11, "No" ,{ fontSize : 20 , fontFamily: 'Georgia, Times, serif' });
+        
+        /**
+         * adding a rectangle in the noContainer that will appear in the yesNoContainer in the mapGame scene.
+         * @author Bouveret Victor
+         * @name noRect
+         * @name {Phaser.Geom.Rectangle}
+         */
         var noRect = this.add.rectangle(0,0, 100,50, 0x1b499b);
         noRect.setName("noRect");
+        
+        /**
+         * adding a styling to the noRect rectangle in the noContainer that will appear in the yesNoContainer in the mapGame scene.
+         * @author Bouveret Victor
+         * @name noRectStyle
+         * @name {Phaser.Geom.Rectangle}
+         */
         var noRectStyle = this.add.rectangle(0,0,100,50);
         noRectStyle.setStrokeStyle(2, 0x00000);
         
+        /**
+         * adding the noContainer that will be visible after clicking on the subContainer in the mapGame scene.
+         * @author Bouveret Victor
+         * @name noContainer
+         * @name {Phaser.GameObjects.Container}
+         */
         var noContainer = this.add.container(170, 400, [noRect, noText, noRectStyle]);
         noContainer.setInteractive(new Phaser.Geom.Rectangle(-50,-25,100,50), Phaser.Geom.Rectangle.Contains);
         noContainer.setName("noContainer");
