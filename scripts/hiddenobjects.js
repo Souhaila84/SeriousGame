@@ -143,9 +143,9 @@ class hiddenObjects extends Phaser.Scene {
     
        
        /*
-       The texts are associated with the variables of the same name and will form a list 
+       The texts are associated with the variables of the same name and are placed in order to form a list 
        */         
-        //liste d'objets à trouver
+        //objects list to find 
         var textw = this.add.text(60, 140, 'wine').setInteractive(); //liste_wine
         var textg = this.add.text(50, 160, 'gloves').setInteractive(); //liste_gloves
         var textn = this.add.text(40, 180, 'necklace').setInteractive(); //liste_necklace
@@ -159,7 +159,6 @@ class hiddenObjects extends Phaser.Scene {
         /* 
           The following "var.on" functions makes the objects, and the text associated to them, diseappar once clicked on
         */
-        //  quand on clique dessus, l'objet(image et texte) disparait 
         wine.on('pointerdown', function (pointer) { 
 
         this.setVisible(false);
@@ -244,6 +243,9 @@ class victoryScreenHiddenObjects extends Phaser.Scene {
         super('victoryScreenHiddenObjects');     
     }
 
+     /*
+    This fuction loads the background image of the victory screen
+    */
     preload() {
         this.load.image("victoryScreenHiddenObject","../images/game/background/victoryScreenHiddenObjects.jpg");
     }
@@ -293,11 +295,11 @@ class victoryScreenHiddenObjects extends Phaser.Scene {
         enterContainer.on("pointerdown", function(){
             this.scene.scene.start('translateGameRules');  
         });
-        
+        /*This function makes the button change color when the mouse is pointed over*/
         enterContainer.on('pointerover', function() {
             enterRect.setFillStyle(0xbead5f,0.85)
         });
-        
+        /*This function makes the button switch back to his original color when the mouse is pointed away from the button*/
         enterContainer.on('pointerout', function() {
             enterRect.setFillStyle(0x273d34,0.85)
         });
