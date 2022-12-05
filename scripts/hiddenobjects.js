@@ -6,7 +6,7 @@
 
 export {rulesHiddenObjects,hiddenObjects, victoryScreenHiddenObjects};
 
-/*
+/** 
  * The count of objects found
  * @type {int}
  */
