@@ -16,7 +16,7 @@ class rulesMap extends Phaser.Scene {
     preload() {
         this.load.image("Rulesbackground","../images/game/background/rulesBackground.jpg");
     }
-rules
+    
     create() {
         
         //Rules Part 
@@ -25,7 +25,7 @@ rules
         
         //adding start container to the rules screen
         
-        var startText = this.add.text(-38,-18, "Start !",{ fontSize : 32 , fontFamily: 'Georgia, Times, serif'});
+        var startText = this.add.text(-38,-18, "Start !",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
         var startRect = this.add.rectangle(0,0,200,50,0x7b6c4f, 0.8);
         startText.setTint(0xc2baac);
         startRect.setName("startRect");
@@ -37,18 +37,20 @@ rules
         startContainer.setName("startContainer");   
         
         //adding the rules in the rules screen
-        var rulesText = this.add.text(-190,-90, "In this game you have to find the \nright path with the help of \ninstructions that will be displayed\non the right of your screen. After \nthat, click on the location you \nthink right and submit your choice, \nyou only have one right location \nper try. \n\nGood luck !",{ fontSize : 16 });
+        var rulesText = this.add.text(-190,-110, "In this game you have to find the \nright path with the help of \ninstructions that will be displayed\non the right of your screen. After \nthat, click on the location you \nthink right and submit your choice, \nyou only have one right location per try. \n\nGood luck !",
+        { fontSize : 20, fontFamily: 'Georgia, Times, serif'});
+        
         rulesText.setTint(0xc2baac);
-        var rulesRect = this.add.rectangle(0,0,400,200,0x7b6c4f, 0.8);
+        var rulesRect = this.add.rectangle(0,0,400,250,0x7b6c4f, 0.8);
         rulesRect.setName("rulesRect");
-        var rulesRectStyle = this.add.rectangle(0,0,400,200);
+        var rulesRectStyle = this.add.rectangle(0,0,400,250);
         rulesRectStyle.setStrokeStyle(2,0x000000);
         
         var rulesContainer = this.add.container(400,200,[rulesRect ,rulesText,rulesRectStyle]);
-        rulesContainer.setInteractive(new Phaser.Geom.Rectangle(-200,-100,400,200), Phaser.Geom.Rectangle.Contains);
+
         rulesContainer.setName("rulesContainer");
         
-        startContainer.on("pointerup", function(){
+        startContainer.on("pointerdown", function(){
             this.scene.scene.start('mapGame');
         });
         
@@ -85,31 +87,29 @@ class victoryScreenMap extends Phaser.Scene {
         var victoryScreen = this.add.image(400,300, 'victoryScreen');
         
         //adding the victory container
-        var victoryText = this.add.text(-220,-40, "Incredible ! You found the correct house !\n\n   We need to investigate the inside now.",{ fontSize : 24 , fontFamily: 'Georgia, Times, serif'});
+        var victoryText = this.add.text(-220,-40, "Incredible ! You found the correct house !\n\n   We need to investigate the inside now.",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
         var victoryRect = this.add.rectangle(0,0,500,150,0x032d3d, 0.85);
         victoryText.setTint(0xc2baac);
-        victoryRect.setName("victoryRect");
+
         var victoryRectStyle = this.add.rectangle(0,0,500,150);
         victoryRectStyle.setStrokeStyle(2,0x000000);
         
         var victoryContainer = this.add.container(400,250,[victoryRect ,victoryText,victoryRectStyle]);
-        victoryContainer.setInteractive(new Phaser.Geom.Rectangle(-250,-75,500,150), Phaser.Geom.Rectangle.Contains);
-        victoryContainer.setName("victoryContainer");   
-        
+
         
         //adding the enter container 
-        var enterText = this.add.text(-68,-13, "Enter the house",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
-        var enterRect = this.add.rectangle(0,0,200,50,0x032d3d, 0.85);
+        var enterText = this.add.text(-97,-15, "Enter the house",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
+        var enterRect = this.add.rectangle(0,0,236,50,0x032d3d, 0.85);
         enterText.setTint(0xc2baac);
-        enterRect.setName("enterRect");
-        var enterRectStyle = this.add.rectangle(0,0,200,50);
+
+        var enterRectStyle = this.add.rectangle(0,0,236,50);
         enterRectStyle.setStrokeStyle(2,0x000000);
         
         var enterContainer = this.add.container(400,450,[enterRect ,enterText,enterRectStyle]);
-        enterContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
-        enterContainer.setName("enterContainer");  
+        enterContainer.setInteractive(new Phaser.Geom.Rectangle(-115,-25,236,50), Phaser.Geom.Rectangle.Contains);
+
         
-        enterContainer.on("pointerup", function(){
+        enterContainer.on("pointerdown", function(){
             this.scene.scene.start('rulesHiddenObjects');  
         });
         
@@ -148,33 +148,30 @@ class tryAgainScreenMap extends Phaser.Scene {
         var tryAgainBackground = this.add.image(400,300, 'tryAgainBackground');
         
         //adding "you loose" container
-        var youlooseText = this.add.text(-225,-15, "Oops... Seems like it wasn't the right path...",{ fontSize : 24 , fontFamily: 'Georgia, Times, serif'});
+        var youlooseText = this.add.text(-225,-15, "Oops... Seems like it wasn't the right path...",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
         var youlooseRect = this.add.rectangle(0,0,500,150,0x351d0d, 0.85);
         youlooseText.setTint(0xc2baac);
-        youlooseRect.setName("youlooseRect");
+
         var youlooseRectStyle = this.add.rectangle(0,0,500,150);
         youlooseRectStyle.setStrokeStyle(2,0x000000);
         
         var youlooseContainer = this.add.container(400,250,[youlooseRect ,youlooseText,youlooseRectStyle]);
-        youlooseContainer.setInteractive(new Phaser.Geom.Rectangle(-250,-75,500,150), Phaser.Geom.Rectangle.Contains);
-        youlooseContainer.setName("youlooseContainer");   
         
         
         //adding the try again container 
         var tryAgainText = this.add.text(-41,-13, "Try again !",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
         var tryAgainRect = this.add.rectangle(0,0,200,50,0x351d0d, 0.85);
         tryAgainText.setTint(0xc2baac);
-        tryAgainRect.setName("tryAgainRect");
+
         var tryAgainRectStyle = this.add.rectangle(0,0,200,50);
         tryAgainRectStyle.setStrokeStyle(2,0x000000);
         
         var tryAgainContainer = this.add.container(275,450,[tryAgainRect ,tryAgainText,tryAgainRectStyle]);
         tryAgainContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
-        tryAgainContainer.setName("tryAgainContainer");  
         
         //styling tryAgainContainer 
              
-        tryAgainContainer.on("pointerup", function(){
+        tryAgainContainer.on("pointerdown", function(){
             this.scene.scene.start('mapGame');
         });
         
@@ -191,19 +188,18 @@ class tryAgainScreenMap extends Phaser.Scene {
         var returnToMenuText = this.add.text(-67,-13, "Return to Menu",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
         var returnToMenuRect = this.add.rectangle(0,0,200,50,0x351d0d, 0.85);
         returnToMenuText.setTint(0xc2baac);
-        returnToMenuRect.setName("returnToMenuRect");
+
         var returnToMenuRectStyle = this.add.rectangle(0,0,200,50);
         returnToMenuRectStyle.setStrokeStyle(2,0x000000);
         
         var returnToMenuContainer = this.add.container(525,450,[returnToMenuRect ,returnToMenuText,returnToMenuRectStyle]);
         returnToMenuContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
-        returnToMenuContainer.setName("returnToMenuContainer"); 
 
         //styling the returnToMenuContainer 
         
-       /* returnToMenuContainer.on("pointerup", function(){
-            this.scene.scene.start();       AJOUTER LE MENU ICI QUAND ON POURRA !!!!!!!!
-        });*/
+        returnToMenuContainer.on("pointerdown", function(){
+            this.scene.scene.start("startMenu");
+        });
         
         returnToMenuContainer.on('pointerover', function() {
             returnToMenuRect.setFillStyle(0x5d4a3d,0.85)
@@ -447,7 +443,7 @@ class mapGame extends Phaser.Scene
             this.scene.children.getByName("popupContainer").getByName("yesContainer").getByName("yesRect").setFillStyle(0x1b499b);
         });
         
-         yesContainer.on('pointerup', function(){
+         yesContainer.on('pointerdown', function(){
              if(greenping2.visible && proposalNumber == 0 || greenping3.visible && proposalNumber == 0 || greenping.visible && proposalNumber == 1 || greenping3.visible && proposalNumber == 1 || greenping.visible && proposalNumber == 2 || greenping2.visible && proposalNumber == 2)
                  this.scene.scene.start('tryAgainScreenMap');
              else 

@@ -11,7 +11,7 @@ class rulesGapFill extends Phaser.Scene {
     preload() {
         this.load.image("Rulesbackground","../images/game/background/rulesBackground.jpg");
     }
-rules
+
     create() {
         
         //Rules Part 
@@ -20,7 +20,7 @@ rules
         
         //adding start container to the rules screen
         
-        var startText = this.add.text(-38,-18, "Start !",{ fontSize : 32 , fontFamily: 'Georgia, Times, serif'});
+        var startText = this.add.text(-38,-18, "Start !",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
         var startRect = this.add.rectangle(0,0,200,50,0x7b6c4f, 0.8);
         startText.setTint(0xc2baac);
         startRect.setName("startRect");
@@ -32,19 +32,19 @@ rules
         startContainer.setName("startContainer");   
         
         //adding the rules in the rules screen
-        var rulesText = this.add.text(-190,-90, "In this game you have to fill the gaps \nin the discussion that Mr.Roquette heard. \nWhen all the gaps will be filled with \nthe correct answers, you'll be able to \nplay the next game !\n\nGood luck !",{ fontSize : 16 });
+        var rulesText = this.add.text(-200,-90, "In this game you have to fill the gaps \nin the discussion that Mr.Roquette heard. \nWhen all the gaps will be filled with \nthe correct answers, you'll be able to \nplay the next game !\n\nGood luck !",{ fontSize : 20, fontFamily: 'Georgia, Times, serif'});
         rulesText.setTint(0xc2baac);
-        var rulesRect = this.add.rectangle(0,0,400,200,0x7b6c4f, 0.8);
+        var rulesRect = this.add.rectangle(0,0,420,200,0x7b6c4f, 0.8);
         rulesRect.setName("rulesRect");
-        var rulesRectStyle = this.add.rectangle(0,0,400,200);
+        var rulesRectStyle = this.add.rectangle(0,0,420,200);
         rulesRectStyle.setStrokeStyle(2,0x000000);
         
         var rulesContainer = this.add.container(400,200,[rulesRect ,rulesText,rulesRectStyle]);
-        rulesContainer.setInteractive(new Phaser.Geom.Rectangle(-200,-100,400,200), Phaser.Geom.Rectangle.Contains);
+        rulesContainer.setInteractive(new Phaser.Geom.Rectangle(-210,-100,400,200), Phaser.Geom.Rectangle.Contains);
         rulesContainer.setName("rulesContainer");
         
-        startContainer.on("pointerup", function(){
-            this.scene.scene.start('gapFill');
+        startContainer.on("pointerdown", function(){
+            this.scene.scene.start('gapFill');  
         });
         
         startContainer.on('pointerover', function() {
@@ -64,7 +64,10 @@ rules
 
 
 class gapFill extends Phaser.Scene {
-    constructor () {
+    
+    constructor () 
+    
+    {
         super('gapFill');  // construct with a name to call this scene after
     }
     
@@ -72,9 +75,11 @@ class gapFill extends Phaser.Scene {
         this.load.image('living', '../images/game/background/gapFillBackground.jpg');
         this.load.image('detec', '../images/game/detective1.png');
         this.load.image('sprite', '../images/game/_.png');
+        this.load.image('skipArrow', '../images/game/skipArrow.png');
     }
 
-    create(){
+    create()
+    {
         this.add.image(400, 300, 'living')
         this.add.image(300,420, 'detec')
 
@@ -140,7 +145,7 @@ class gapFill extends Phaser.Scene {
         sprite.on('pointerout', function (pointer) {
             this.clearTint();
         });
-        sprite.on('pointerup', function (pointer) {
+        sprite.on('pointerdown', function (pointer) {
             this.clearTint();
 
         });
@@ -180,7 +185,7 @@ class gapFill extends Phaser.Scene {
         sprite2.on('pointerout', function (pointer) {
             this.clearTint();
         });
-        sprite2.on('pointerup', function (pointer) {
+        sprite2.on('pointerdown', function (pointer) {
             this.clearTint();
         });
 
@@ -218,7 +223,7 @@ class gapFill extends Phaser.Scene {
         sprite3.on('pointerout', function (pointer) {
             this.clearTint();
         });
-        sprite3.on('pointerup', function (pointer) {
+        sprite3.on('pointerdown', function (pointer) {
             this.clearTint();
         });
 
@@ -256,7 +261,7 @@ class gapFill extends Phaser.Scene {
         sprite4.on('pointerout', function (pointer) {
             this.clearTint();
         });
-        sprite4.on('pointerup', function (pointer) {
+        sprite4.on('pointerdown', function (pointer) {
             this.clearTint();
         });
 
@@ -294,7 +299,7 @@ class gapFill extends Phaser.Scene {
         sprite5.on('pointerout', function (pointer) {
             this.clearTint();
         });
-        sprite5.on('pointerup', function (pointer) {
+        sprite5.on('pointerdown', function (pointer) {
             this.clearTint();
         });
 
@@ -332,7 +337,7 @@ class gapFill extends Phaser.Scene {
         sprite6.on('pointerout', function (pointer) {
             this.clearTint();
         });
-        sprite6.on('pointerup', function (pointer) {
+        sprite6.on('pointerdown', function (pointer) {
             this.clearTint();
         });
 
@@ -370,7 +375,7 @@ class gapFill extends Phaser.Scene {
         sprite7.on('pointerout', function (pointer) {
             this.clearTint();
         });
-        sprite7.on('pointerup', function (pointer) {
+        sprite7.on('pointerdown', function (pointer) {
             this.clearTint();
         });
 
@@ -408,7 +413,7 @@ class gapFill extends Phaser.Scene {
         sprite8.on('pointerout', function (pointer) {
             this.clearTint();
         });
-        sprite8.on('pointerup', function (pointer) {
+        sprite8.on('pointerdown', function (pointer) {
             this.clearTint();
         });
 
@@ -447,19 +452,45 @@ class gapFill extends Phaser.Scene {
         sprite9.on('pointerout', function (pointer) {
             this.clearTint();
         });
-        sprite9.on('pointerup', function (pointer) {
+        sprite9.on('pointerdown', function (pointer) {
             this.clearTint();
         });
+        
+        
+        
     }
     
     update(){
-        if (score > 8) {
+        if (score > 0) {
             var text = this.add.text(350,550, "Let's go to the crime scene !",{
                 color: "white",
             });
             this.children.getByName("text1").setVisible(false);
             
-            this.scene.start('rulesMap');
+            // skip the game
+        
+            var skipArrow = this.add.image(0,0,'skipArrow');
+        
+            var skipRect = this.add.rectangle(0,0,120,120,0x7b6c4f, 0.8);
+            skipRect.setName("skipRect");
+            var skipRectStyle = this.add.rectangle(0,0,120,120);
+                skipRectStyle.setStrokeStyle(2,0x000000);
+
+            var skipContainer = this.add.container(700,500,[skipRect, skipArrow ,skipRectStyle]);
+            skipContainer.setInteractive(new Phaser.Geom.Rectangle(-60,-60,120,120), Phaser.Geom.Rectangle.Contains);
+            skipContainer.setName("skipContainer");
+
+            skipContainer.on("pointerdown", function(){
+                this.scene.scene.start('rulesMap');
+            }); 
+
+            skipContainer.on('pointerover', function() {
+                skipRect.setFillStyle(0xa88c6c,0.8)
+            });
+
+            skipContainer.on('pointerout', function() {
+                skipRect.setFillStyle(0x7b6c4f,0.8)
+            });
         } 
     }
 }
