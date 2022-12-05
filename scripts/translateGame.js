@@ -12,20 +12,41 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+/**
+ * This class is the main scene for the translate game
+ * @extends Phaser.Scene
+ */
 class translateGame extends Phaser.Scene {
-    
+    /**
+    * Construct a new scene with 'translateGame' name to call this scene after
+    */
     constructor () {
         super('translateGame');  // construct with a name to call this scene after
     }
     
-    /*
-    This fuction create a buton for proposal
+    /**
+    * This fuction create a buton for proposal
+    * @param {number} x - The x value.
+    * @param {number} y - The y value.
+    * @param {string} font - The font that will be used.
+    * @param {boolean} isRigth - True to generate the right proposal and false to generate a wrong proposal.
     */
     addTranslateProposal(x, y, text, font, isRigth){
-        
+        /** 
+        * This var is the text to good format
+        * @type {(string)} 
+        */
         var justifyText = this.justify(text,17);
         
+        /** 
+        * This var containt the background rectangle of the proposal
+        * @type {(Phaser.GameObjects.Rectangle)} 
+        */
         var rect = this.add.rectangle(0,0,280,115,0xa38c6c,0.5);
+        /** 
+        * This var containt the background rectangle of the proposal
+        * @type {(Phaser.GameObjects.Rectangle)} 
+        */
         var textGameObject = this.add.text(-130,-50, justifyText,{ fontSize : font , fontFamily: 'Georgia, Times, serif' });
         
         var r2 = this.add.rectangle(0,0, 280, 115);
