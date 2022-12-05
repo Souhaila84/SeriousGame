@@ -12,6 +12,12 @@ function sleep(ms) {
 }
 
 //Rules screen 
+
+/**
+ * This class is the rules scene for the mapGame game.
+ * @extends Phaser.Scene
+ */
+
 class rulesMap extends Phaser.Scene {
 
     constructor () {
@@ -130,6 +136,12 @@ class rulesMap extends Phaser.Scene {
 
 
 //Victory Screen Scene 
+
+/**
+ * This class is the victoryScreenMap scene for the mapGame game.
+ * @extends Phaser.Scene
+ */
+
 class victoryScreenMap extends Phaser.Scene {
 
     constructor () {
@@ -246,6 +258,12 @@ class victoryScreenMap extends Phaser.Scene {
 
 
 //Try again screen
+
+/**
+ * This class is the tryAgainScreenMap scene for the mapGame game.
+ * @extends Phaser.Scene
+ */
+
 class tryAgainScreenMap extends Phaser.Scene {
 
     constructor () {
@@ -418,6 +436,12 @@ class tryAgainScreenMap extends Phaser.Scene {
 
 
 //Game screen 
+
+/**
+ * This class is the main scene for the mapGame game.
+ * @extends Phaser.Scene
+ */
+
 class mapGame extends Phaser.Scene 
 {   
     
