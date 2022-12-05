@@ -143,9 +143,9 @@ class hiddenObjects extends Phaser.Scene {
     
        
        /*
-       The texts are associated with the variables of the same name and will form a list 
+       The texts are associated with the variables of the same name and are placed in order to form a list 
        */         
-        //liste d'objets à trouver
+        //objects list to find 
         var textw = this.add.text(60, 140, 'wine').setInteractive(); //liste_wine
         var textg = this.add.text(50, 160, 'gloves').setInteractive(); //liste_gloves
         var textn = this.add.text(40, 180, 'necklace').setInteractive(); //liste_necklace
@@ -157,17 +157,14 @@ class hiddenObjects extends Phaser.Scene {
         
         
         /* 
-          The objects and the text associated to them Variables will diseappar once clicked on
+          The following "var.on" functions makes the objects, and the text associated to them, diseappar once clicked on
         */
-        //  quand on clique dessus, l'objet(image et texte) disparait 
         wine.on('pointerdown', function (pointer) { 
 
         this.setVisible(false);
         textw.setVisible(false);
+        /* add 1 to "count" when the object is found*/
         count += 1;
-                        console.log(count);
-
-
     });
         
          gloves.on('pointerdown', function (pointer) { 
@@ -175,9 +172,6 @@ class hiddenObjects extends Phaser.Scene {
          this.setVisible(false);
          textg.setVisible(false);
          count += 1;
-                         console.log(count);
-
-
     });
         
         
@@ -186,8 +180,6 @@ class hiddenObjects extends Phaser.Scene {
          this.setVisible(false);
          textn.setVisible(false);
          count += 1;
-                         console.log(count);
-
 
     });
         
@@ -196,9 +188,6 @@ class hiddenObjects extends Phaser.Scene {
             this.setVisible(false);
             textc.setVisible(false);
             count += 1;
-                            console.log(count);
-
-
     });
         
             sunglasses.on('pointerdown', function (pointer) { 
@@ -206,9 +195,6 @@ class hiddenObjects extends Phaser.Scene {
             this.setVisible(false);
             texts.setVisible(false);
             count += 1;
-                            console.log(count);
-
-
     });
         
             gun.on('pointerdown', function (pointer) { 
@@ -216,9 +202,6 @@ class hiddenObjects extends Phaser.Scene {
             this.setVisible(false);
             textgu.setVisible(false);
             count += 1;
-                            console.log(count);
-
-
     });
         
 
@@ -227,9 +210,6 @@ class hiddenObjects extends Phaser.Scene {
             this.setVisible(false);
             textsc.setVisible(false);
             count += 1;
-                            console.log(count);
-
-
     });
         
             rope.on('pointerdown', function (pointer) { 
@@ -237,14 +217,14 @@ class hiddenObjects extends Phaser.Scene {
             this.setVisible(false);
             textr.setVisible(false);
             count += 1;
-                           console.log(count);
- 
-
     });    
         
                 
         
     }
+    /*
+     This function switches scene when all the objects are found (count == 8)
+    */
     update() {
         if(count == 8){  
             this.scene.start('victoryScreenHiddenObjects');
@@ -253,6 +233,9 @@ class hiddenObjects extends Phaser.Scene {
     
 }
 
+/*
+ This class creates a scene that displays when the player wins the game 
+*/
 //Victory Screen Scene 
 class victoryScreenHiddenObjects extends Phaser.Scene {
 
@@ -260,44 +243,63 @@ class victoryScreenHiddenObjects extends Phaser.Scene {
         super('victoryScreenHiddenObjects');     
     }
 
+     /*
+    This fuction loads the background image of the victory screen
+    */
     preload() {
         this.load.image("victoryScreenHiddenObject","../images/game/background/victoryScreenHiddenObjects.jpg");
     }
 
     create() {
     
+        /*Adds the background*/
         //adding the background
         var victoryScreen = this.add.image(400,300, 'victoryScreenHiddenObject');
         
+        /*Adds a rectangle containing the victory text*/
         //adding the victory container
         var victoryText = this.add.text(-245,-60, "Incredible ! You found 8 clues, with them the \ninvestigation will be able to move forward !\nBut durring this time, the inspector Marcel \nRoquette found a mistery book, but this book \nis in English and he is not able to translate it,\nhelp him!",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
         var victoryRect = this.add.rectangle(0,15,520,180,0x273d34, 0.85);
+        /*Sets the text color to beige*/
         victoryText.setTint(0xc2baac);
         
+        /*Adding an outline to the rectangle*/
         var victoryRectStyle = this.add.rectangle(0,15,520,180);
+
+        /*Sets the victory rectangle outline's colour and style*/
         victoryRectStyle.setStrokeStyle(2,0x000000);
+
+        /*Assemble the victory variables into a container*/
         var victoryContainer = this.add.container(400,100,[victoryRect ,victoryText,victoryRectStyle]);
         
+        /*Adds a rectangle containing the text - transition to the next game*/
         //adding the enter container 
         var enterText = this.add.text(-120,-17, "Interpret this book",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
         var enterRect = this.add.rectangle(0,0,270,50,0x273d34, 0.85);
+         /*Sets the text color to beige*/
         enterText.setTint(0xc2baac);
 
+        /*Adding an outline to the enter rectangle*/
         var enterRectStyle = this.add.rectangle(0,0,270,50);
+
+        /*Sets the enter rectangle outline's colour and style*/
         enterRectStyle.setStrokeStyle(2,0x000000);
         
+         /*Assemble the enter variables into a container*/
         var enterContainer = this.add.container(400,500,[enterRect ,enterText,enterRectStyle]);
+
+        /*Transform the enter rectangle into an interactive button*/
         enterContainer.setInteractive(new Phaser.Geom.Rectangle(-135,-25,270,50), Phaser.Geom.Rectangle.Contains);
 
-        
+        /*This function makes the button switch into the next game once clicked on*/
         enterContainer.on("pointerdown", function(){
             this.scene.scene.start('translateGameRules');  
         });
-        
+        /*This function makes the button change color when the mouse is pointed over*/
         enterContainer.on('pointerover', function() {
             enterRect.setFillStyle(0xbead5f,0.85)
         });
-        
+        /*This function makes the button switch back to his original color when the mouse is pointed away from the button*/
         enterContainer.on('pointerout', function() {
             enterRect.setFillStyle(0x273d34,0.85)
         });
