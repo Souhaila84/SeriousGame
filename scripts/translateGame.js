@@ -1,6 +1,6 @@
 export {translateGame, translateGameRules, victoryScreentranslateGame};
 
-/** 
+/*
 * The count of successful translation
 * @type {int} 
 */
@@ -52,36 +52,36 @@ class translateGame extends Phaser.Scene {
         var justifyText = this.justify(text,17);
         
         /** 
-        * This var containt the background rectangle of the proposal
+        * This var contains the background rectangle of the proposal
         * @type {(Phaser.GameObjects.Rectangle)} 
         */
         var rect = this.add.rectangle(0,0,280,115,0xa38c6c,0.5);
         /** 
-        * This var containt the text gameObject of the proposal
+        * This var contains the text gameObject of the proposal
         * @type {(Phaser.GameObjects.Text)} 
         */
         var textGameObject = this.add.text(-130,-50, justifyText,{ fontSize : font , fontFamily: 'Georgia, Times, serif' });
         /** 
-        * This var containt the outline rectangle of the proposal
+        * This var contains the outline rectangle of the proposal
         * @type {(Phaser.GameObjects.Rectangle)} 
         */
         var rectOutline = this.add.rectangle(0,0, 280, 115);
         rectOutline.setStrokeStyle(2, 0x0000,0.3);
         /** 
-        * This var containt the container who contain all memembers of the proposal (rect, textGameObject, rectOutline)
+        * This var contains the container which contains all members of the proposal (rect, textGameObject, rectOutline)
         * @type {(Phaser.GameObjects.Container)} 
         */
         var cont = this.add.container(x, y,[rect,textGameObject,rectOutline]);
         cont.setInteractive(new Phaser.Geom.Rectangle(-140,-57,280,115), Phaser.Geom.Rectangle.Contains);
         
         /**
-        * Fuction for event pointerover of this proposal, change color of rect
+        * Function for event pointerover of this proposal, changes color of rect
         */
         cont.on('pointerover', function() {
             rect.setFillStyle(0x28942a,0.5)
         });
         /**
-        * Fuction for event pointerout of this proposal, re-establish color of rect
+        * Function for event pointerout of this proposal, re-establish color of rect
         */
         cont.on('pointerout', function() {
             rect.setFillStyle(0xa38c6c,0.5)
@@ -97,12 +97,12 @@ class translateGame extends Phaser.Scene {
     }
     
     /*
-    * This function create and add to scene 4 proposal in random order, the rigth proposal is the first given
+    * This function creates and add to scene 4 proposal in random order, the rigth proposal is the first given
     * @param {string[]} proposals - The text of proposals array to add on the scene and the first string is the sentence to translate.
     */
     addProposals(proposals){
         /** 
-        * This var containt the texts proposals and an associated boolean representing whether the proposition is correct or not (there is only one true proposition among the 4). Ussing this structure because it's more efficient to associate bool with a proposal that do 2 method, for false or true proposals.
+        * This var contains the texts proposals and an associated boolean representing wether the proposition is correct or not (there is only one true proposition among the 4). Using this structure because it's more efficient to associate bool with a proposal that do 2 method, for false or true proposals.
         * @type {String|boolean[]} 
         */
         var proposalsBool = [[proposals[1],true],[proposals[2],false],[proposals[3],false],[proposals[4],false]];

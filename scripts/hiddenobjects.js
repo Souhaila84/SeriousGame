@@ -1,11 +1,20 @@
+/** 
+ *  @fileOverview This file contains 3 classes rulesHiddenObjects, hiddenObjects, victoryScreenHiddenObjects. Theses 3 classes represent the hidden objects game.
+ *
+ *  @author Souhaila Moumane
+*/
+
 export {rulesHiddenObjects,hiddenObjects, victoryScreenHiddenObjects};
 
-var count = 0;
-
-var count = 0;
-
 /*
-This class creates the "instructions" screen for the hidden objects game
+ * The count of objects found
+ * @type {int}
+ */
+var count = 0;
+
+/**
+ * This class creates the "instructions" screen for the hidden objects game
+ * @extends Phaser.Scene
 */
 class rulesHiddenObjects extends Phaser.Scene {
 
@@ -15,7 +24,7 @@ class rulesHiddenObjects extends Phaser.Scene {
     }
 
      /*
-    This fuction loads the background image
+    This fuction loads the background image 
     */
     preload() {
         this.load.image("Rulesbackground","../images/game/background/rulesBackground.jpg");
@@ -24,43 +33,84 @@ class rulesHiddenObjects extends Phaser.Scene {
     create() {
         
         //Rules Part 
-        //adding the rules background
+        /**
+         * This var contains the "rules" background that is added
+         * @type {(Phaser.GameObjects.image)}
+        */
         var rulesBackground = this.add.image(400,300, 'Rulesbackground');
         
         //adding start container to the rules screen
-        
+        /**
+         * This var contains the "Start" text
+         * @type {(Phaser.GameObjects.Text)}
+         */
         var startText = this.add.text(-38,-18, "Start !",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
+
+         /**
+         * This var contains the rectangle that contains the "start" text
+         * @type {(Phaser.GameObjects.Rectangle)}
+         */
         var startRect = this.add.rectangle(0,0,200,50,0x7b6c4f, 0.8);
         startText.setTint(0xc2baac);
         startRect.setName("startRect");
+
+        /**
+         * Adding an outline to the rectangle
+         * @type {(Phaser.GameObjects.Rectangle)}
+        */
         var startRectStyle = this.add.rectangle(0,0,200,50);
         startRectStyle.setStrokeStyle(2,0x000000);
         
+        /**
+         * Assemble the "start" variables into a container
+         * @type {(Phaser.GameObjects.container)}
+         */
         var startContainer = this.add.container(400,450,[startRect ,startText,startRectStyle]);
         startContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
         startContainer.setName("startContainer");   
         
         //adding the rules in the rules screen
 
+         /**
+         * This var contains the "rules" text 
+         * @type {(Phaser.GameObjects.text)}
+         */
         var rulesText = this.add.text(-200,-90, "In this game you have to find all \nthe proofs (objects) that will be \ndisplayed in the manuscript on your left\nAfter you found all the proofs, you will\nbe able to play the next game !\n\nGood luck !",{ fontSize : 20 ,fontFamily: 'Georgia, Times, serif'});
         rulesText.setTint(0xc2baac);
+
+         /**
+         * This var contains a rectangle where the "rules" will be placed on
+         * @type {(Phaser.GameObjects.Rectangle)}
+         */
         var rulesRect = this.add.rectangle(0,0,420,200,0x7b6c4f, 0.8);
         rulesRect.setName("rulesRect");
+
+        /**
+         * Adding an outline to the "rules" rectangle
+         * @type {(Phaser.GameObjects.Rectangle)}
+        */
         var rulesRectStyle = this.add.rectangle(0,0,420,200);
         rulesRectStyle.setStrokeStyle(2,0x000000);
         
+        /**
+         * This var assemble the "rules" variables into a container
+         * @type {(Phaser.GameObjects.container)}
+         */
         var rulesContainer = this.add.container(400,200,[rulesRect ,rulesText,rulesRectStyle]);
         rulesContainer.setInteractive(new Phaser.Geom.Rectangle(-210,-100,420,200), Phaser.Geom.Rectangle.Contains);
         rulesContainer.setName("rulesContainer");
         
+        /*This function starts the "hidden objects" game once clicked on the "start" button*/
         startContainer.on("pointerdown", function(){
             this.scene.scene.start('hiddenObjects');
         });
         
+         /*This function makes the button change color when the mouse is pointed over*/
         startContainer.on('pointerover', function() {
             startRect.setFillStyle(0xa88c6c,0.8)
         });
         
+         /*This function makes the button switch back to his original color when the mouse is pointed away from the button*/
         startContainer.on('pointerout', function() {
             startRect.setFillStyle(0x7b6c4f,0.8)
         });
@@ -74,6 +124,10 @@ class rulesHiddenObjects extends Phaser.Scene {
     }
 }
 
+/**
+ * This class is the main scene for the hidden objects game
+ * @extends Phaser.Scene
+ */
 
 class hiddenObjects extends Phaser.Scene {
     
@@ -112,9 +166,12 @@ class hiddenObjects extends Phaser.Scene {
     This function adds the, previously loaded, images and sets their position on the scene
     */
     create(){
-        //ajout de scène et images 
+        //adding images
         this.add.image(400, 300, 'backgroundHidenObjects'); //scene
-        /*The "setInteractives" variables will diseappar once clicked on*/
+        /**
+         * The following variables contains the images that need to be found
+         * @type {(Phaser.GameObjects.image)}
+        */
         var wine = this.add.image(400, 300, 'wine').setInteractive();//wine
         var gloves = this.add.image(700, 550, 'gloves').setInteractive(); //gloves
         var necklace = this.add.image(100, 550, 'necklace').setInteractive(); //necklace
@@ -134,16 +191,11 @@ class hiddenObjects extends Phaser.Scene {
         this.add.image(90, 520, 'doll'); //dolls
         this.add.image(300, 120, 'blood'); //blood
         this.add.image(430, 550, 'flowers'); //flowers
-        /*var music = this.sound.add('theme'); //musique
-        music.setVolume(0.5);
-        music.play
-        ({
-            loop: true
-        });*/
     
        
-       /*
-       The texts are associated with the variables of the same name and are placed in order to form a list 
+       /** 
+        * The texts are associated with the variables of the same name and are placed in order to form a list 
+        * @type {(Phaser.GameObjects.text)}
        */         
         //objects list to find 
         var textw = this.add.text(60, 140, 'wine').setInteractive(); //liste_wine
@@ -163,7 +215,10 @@ class hiddenObjects extends Phaser.Scene {
 
         this.setVisible(false);
         textw.setVisible(false);
-        /* add 1 to "count" when the object is found*/
+        /** 
+         * add 1 to "count" when the object is found
+         * @type {int}
+         */
         count += 1;
     });
         
@@ -223,7 +278,7 @@ class hiddenObjects extends Phaser.Scene {
         
     }
     /*
-     This function switches scene when all the objects are found (count == 8)
+     This function makes the "victory screen" scene appear when all the objects are found (count == 8)
     */
     update() {
         if(count == 8){  
@@ -233,12 +288,16 @@ class hiddenObjects extends Phaser.Scene {
     
 }
 
-/*
- This class creates a scene that displays when the player wins the game 
+/** 
+ * This class creates a scene that displays when the player wins the game 
+ * @extends Phaser.Scene
 */
 //Victory Screen Scene 
 class victoryScreenHiddenObjects extends Phaser.Scene {
 
+    /**
+    * Construct a new scene with 'victoryScreenHiddenObjects' name to call this scene after
+    */
     constructor () {
         super('victoryScreenHiddenObjects');     
     }
@@ -252,43 +311,69 @@ class victoryScreenHiddenObjects extends Phaser.Scene {
 
     create() {
     
-        /*Adds the background*/
-        //adding the background
+        /**
+         *  This var contains the "victory" background that is added
+         * @type {(Phaser.GameObjects.image)}
+        */
         var victoryScreen = this.add.image(400,300, 'victoryScreenHiddenObject');
         
-        /*Adds a rectangle containing the victory text*/
-        //adding the victory container
+        /**
+         * This var contains the victory text
+         * @type {(Phaser.GameObjects.text)}
+         */
         var victoryText = this.add.text(-245,-60, "Incredible ! You found 8 clues, with them the \ninvestigation will be able to move forward !\nBut durring this time, the inspector Marcel \nRoquette found a mistery book, but this book \nis in English and he is not able to translate it,\nhelp him!",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
+       
+        /**
+         * This var contains a rectangle where the victory text will be placed on
+         * @type {(Phaser.GameObjects.rectangle)}
+         */
         var victoryRect = this.add.rectangle(0,15,520,180,0x273d34, 0.85);
-        /*Sets the text color to beige*/
         victoryText.setTint(0xc2baac);
         
-        /*Adding an outline to the rectangle*/
+        /**
+         * This var contains the outline of the rectangle
+         * @type {(Phaser.GameObjects.rectangle)}
+         */
         var victoryRectStyle = this.add.rectangle(0,15,520,180);
 
         /*Sets the victory rectangle outline's colour and style*/
         victoryRectStyle.setStrokeStyle(2,0x000000);
-
-        /*Assemble the victory variables into a container*/
+        
+        /**
+         * This var assemble the variables into a container
+         * @type {(Phaser.GameObjects.container)}
+         */
         var victoryContainer = this.add.container(400,100,[victoryRect ,victoryText,victoryRectStyle]);
         
-        /*Adds a rectangle containing the text - transition to the next game*/
-        //adding the enter container 
+        /**
+         * This var contains the 'transition to the next game' text
+         * @type {(Phaser.GameObjects.text)}
+         */
         var enterText = this.add.text(-120,-17, "Interpret this book",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
+
+        /**
+         * This var contains a rectangle where the 'transition to the next game' text will be placed on
+         * @type {(Phaser.GameObjects.rectangle)}
+         */
         var enterRect = this.add.rectangle(0,0,270,50,0x273d34, 0.85);
-         /*Sets the text color to beige*/
         enterText.setTint(0xc2baac);
 
-        /*Adding an outline to the enter rectangle*/
+         /**
+         * This var contains the outline of the rectangle
+         * @type {(Phaser.GameObjects.rectangle)}
+         */
         var enterRectStyle = this.add.rectangle(0,0,270,50);
 
-        /*Sets the enter rectangle outline's colour and style*/
+
         enterRectStyle.setStrokeStyle(2,0x000000);
         
-         /*Assemble the enter variables into a container*/
+        /**
+         * This var assemble the variables into a container
+         * @type {(Phaser.GameObjects.container)}
+         */
         var enterContainer = this.add.container(400,500,[enterRect ,enterText,enterRectStyle]);
 
-        /*Transform the enter rectangle into an interactive button*/
+        
         enterContainer.setInteractive(new Phaser.Geom.Rectangle(-135,-25,270,50), Phaser.Geom.Rectangle.Contains);
 
         /*This function makes the button switch into the next game once clicked on*/
