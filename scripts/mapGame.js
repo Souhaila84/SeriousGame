@@ -1,6 +1,11 @@
 export {rulesMap, victoryScreenMap, tryAgainScreenMap, mapGame};
 
+/**
+ * This is a number declared here, to be usable in all the code.
+ * @name proposalNumber
+ */
 var proposalNumber = 0;
+
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -20,37 +25,91 @@ class rulesMap extends Phaser.Scene {
     create() {
         
         //Rules Part 
-        //adding the rules background
+        /**
+         * adding the background to the rulesMap scene.
+         * @name rulesBackground
+         * @name {Phaser.GameObjects.Image}
+         */
         var rulesBackground = this.add.image(400,300, 'Rulesbackground');
         
         //adding start container to the rules screen
         
+        /**
+         * this is the text that will be in the start Container of the rulesMap scene. 
+         * @name startText
+         * @type {Phaser.GameObjects.Text}
+         */
         var startText = this.add.text(-38,-18, "Start !",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
+        
+        /**
+         * this is the rectangle that will be in the start Container of the rulesMap scene. 
+         * @name startRect
+         * @type {Phaser.Geom.Rectangle}
+         */
         var startRect = this.add.rectangle(0,0,200,50,0x7b6c4f, 0.8);
         startText.setTint(0xc2baac);
         startRect.setName("startRect");
+        
+        /**
+         * this is a styling for the startRect that will be in the start Container of the rulesMap scene. 
+         * @name startRectStyle
+         * @type {Phaser.Geom.Rectangle}
+         */
         var startRectStyle = this.add.rectangle(0,0,200,50);
         startRectStyle.setStrokeStyle(2,0x000000);
         
+        /**
+         * this is the first container of rulesMap scene. 
+         * @name startContainer
+         * @type {Phaser.GameObjects.Container}
+         */
         var startContainer = this.add.container(400,450,[startRect ,startText,startRectStyle]);
         startContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
         startContainer.setName("startContainer");   
         
         //adding the rules in the rules screen
+        /**
+         * this is the text that will be displaying the rules of the game in the rules Container of the rulesMap scene. 
+         * @name rulesText
+         * @type {Phaser.GameObjects.Text}
+         */
         var rulesText = this.add.text(-190,-110, "In this game you have to find the \nright path with the help of \ninstructions that will be displayed\non the right of your screen. After \nthat, click on the location you \nthink right and submit your choice, \nyou only have one right location per try. \n\nGood luck !",
         { fontSize : 20, fontFamily: 'Georgia, Times, serif'});
         
         rulesText.setTint(0xc2baac);
+        
+        /**
+         * this is the rectangle that will be in the rules Container of the rulesMap scene. 
+         * @name rulesRect
+         * @type {Phaser.Geom.Rectangle}
+         */
         var rulesRect = this.add.rectangle(0,0,400,250,0x7b6c4f, 0.8);
         rulesRect.setName("rulesRect");
+        
+        /**
+         * this is the styling of the rulesRect rectangle that will in the rules Container of the rulesMap scene. 
+         * @name rulesRectStyle
+         * @type {Phaser.Geom.Rectangle}
+         */
         var rulesRectStyle = this.add.rectangle(0,0,400,250);
         rulesRectStyle.setStrokeStyle(2,0x000000);
         
+        /**
+         * this is the second container of rulesMap scene. 
+         * @name rulesContainer
+         * @type {Phaser.GameObjects.Container}
+         */
         var rulesContainer = this.add.container(400,200,[rulesRect ,rulesText,rulesRectStyle]);
 
         rulesContainer.setName("rulesContainer");
         
+        /**
+         * the fonction inside this will be executed when the cursor of the user will be pressed. 
+         */
         startContainer.on("pointerdown", function(){
+            /**
+             * here, this line of code is going to lead us to the mapGame scene if the startContainer is clicked on.
+             */
             this.scene.scene.start('mapGame');
         });
         
@@ -84,32 +143,87 @@ class victoryScreenMap extends Phaser.Scene {
     create() {
     
         //adding the background
+    
+        /**
+         * adding the background to the victoryScreenMap scene.
+         * @name victoryScreen
+         * @name {Phaser.GameObjects.Image}
+         */
         var victoryScreen = this.add.image(400,300, 'victoryScreen');
         
         //adding the victory container
+        
+        /**
+         * this is the text that will be in the victory Container of the victoryScreenMap scene. 
+         * @name victoryText
+         * @type {Phaser.GameObjects.Text}
+         */
         var victoryText = this.add.text(-220,-40, "Incredible ! You found the correct house !\n\n   We need to investigate the inside now.",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
+        
+        /**
+         * this is the rectangle that will be in the victory Container of the victoryScreenMap scene. 
+         * @name victoryRect
+         * @type {Phaser.Geom.Rectangle}
+         */
         var victoryRect = this.add.rectangle(0,0,500,150,0x032d3d, 0.85);
         victoryText.setTint(0xc2baac);
 
+        /**
+         * this is the styling of the victoryRect rectangle that will be in the victory Container of the victoryScreenMap scene. 
+         * @name victoryRectStyle
+         * @type {Phaser.Geom.Rectangle}
+         */
         var victoryRectStyle = this.add.rectangle(0,0,500,150);
         victoryRectStyle.setStrokeStyle(2,0x000000);
         
+         /**
+         * this is the first container of victoryScreenMap scene. 
+         * @name victoryContainer
+         * @type {Phaser.GameObjects.Container}
+         */
         var victoryContainer = this.add.container(400,250,[victoryRect ,victoryText,victoryRectStyle]);
 
         
         //adding the enter container 
+        
+        /**
+         * this is the text that will be in the enter Container of the victoryScreenMap scene. 
+         * @name enterText
+         * @type {Phaser.GameObjects.Text}
+         */
         var enterText = this.add.text(-97,-15, "Enter the house",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
+        
+         /**
+         * this is the rectangle that will be in the enter Container of the victoryScreenMap scene. 
+         * @name enterRect
+         * @type {Phaser.Geom.Rectangle}
+         */
         var enterRect = this.add.rectangle(0,0,236,50,0x032d3d, 0.85);
         enterText.setTint(0xc2baac);
 
+        /**
+         * this is the styling of the enterRect rectangle that will be in the enter Container of the victoryScreenMap scene. 
+         * @name enterRectStyle
+         * @type {Phaser.Geom.Rectangle}
+         */
         var enterRectStyle = this.add.rectangle(0,0,236,50);
         enterRectStyle.setStrokeStyle(2,0x000000);
         
+         /**
+         * this is the second container of victoryScreenMap scene. 
+         * @name enterContainer
+         * @type {Phaser.GameObjects.Container}
+         */
         var enterContainer = this.add.container(400,450,[enterRect ,enterText,enterRectStyle]);
         enterContainer.setInteractive(new Phaser.Geom.Rectangle(-115,-25,236,50), Phaser.Geom.Rectangle.Contains);
 
-        
+        /**
+         * the fonction inside this will be executed when the cursor of the user will be pressed. 
+         */
         enterContainer.on("pointerdown", function(){
+             /**
+             * here, this line of code is going to lead us to the rulesHiddenObjects scene that is the next playable game if the enterContainer is clicked on after winning the mapGame game.
+             */
             this.scene.scene.start('rulesHiddenObjects');  
         });
         
@@ -145,33 +259,89 @@ class tryAgainScreenMap extends Phaser.Scene {
     create() {
         
         //adding the background
+        
+        /**
+         * adding the background to the tryAgainScreenMap scene.
+         * @name tryAgainBackground
+         * @name {Phaser.GameObjects.Image}
+         */
         var tryAgainBackground = this.add.image(400,300, 'tryAgainBackground');
         
-        //adding "you loose" container
-        var youlooseText = this.add.text(-225,-15, "Oops... Seems like it wasn't the right path...",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
-        var youlooseRect = this.add.rectangle(0,0,500,150,0x351d0d, 0.85);
-        youlooseText.setTint(0xc2baac);
-
-        var youlooseRectStyle = this.add.rectangle(0,0,500,150);
-        youlooseRectStyle.setStrokeStyle(2,0x000000);
+        //adding "you lost" container
         
-        var youlooseContainer = this.add.container(400,250,[youlooseRect ,youlooseText,youlooseRectStyle]);
+        /**
+         * this is the text that will be in the youlost Container of the tryAgainScreenMap scene. 
+         * @name youlostText
+         * @type {Phaser.GameObjects.Text}
+         */
+        var youlostText = this.add.text(-225,-15, "Oops... Seems like it wasn't the right path...",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
+        
+        /**
+         * this is the rectangle that will be in the youlost Container of the tryAgainScreenMap scene. 
+         * @name youlostRect
+         * @type {Phaser.Geom.Rectangle}
+         */
+        var youlostRect = this.add.rectangle(0,0,500,150,0x351d0d, 0.85);
+        youlostText.setTint(0xc2baac);
+
+         /**
+         * this is the styling for the youlostRect rectangle that will be in the youlost Container of the tryAgainScreenMap scene. 
+         * @name youlostRectStyle
+         * @type {Phaser.Geom.Rectangle}
+         */
+        var youlostRectStyle = this.add.rectangle(0,0,500,150);
+        youlostRectStyle.setStrokeStyle(2,0x000000);
+        
+         /**
+         * this is the the first container of the tryAgainScreenMap scene. 
+         * @name youlostContainer
+         * @type {Phaser.GameObjects.Container}
+         */
+        var youlostContainer = this.add.container(400,250,[youlostRect ,youlostText, youlostRectStyle]);
         
         
         //adding the try again container 
+        
+         /**
+         * this is the text that will be in the tryAgain Container of the tryAgainScreenMap scene. 
+         * @name tryAgainText
+         * @type {Phaser.GameObjects.Text}
+         */
         var tryAgainText = this.add.text(-41,-13, "Try again !",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
+        
+        /**
+         * this is the rectangle that will be in the tryAgain Container of the tryAgainScreenMap scene. 
+         * @name tryAgainRect
+         * @type {Phaser.Geom.Rectangle}
+         */
         var tryAgainRect = this.add.rectangle(0,0,200,50,0x351d0d, 0.85);
         tryAgainText.setTint(0xc2baac);
 
+         /**
+         * this is the styling for the tryAgainRect rectangle that will be in the tryAgain Container of the tryAgainScreenMap scene. 
+         * @name tryAgainRectStyle
+         * @type {Phaser.Geom.Rectangle}
+         */
         var tryAgainRectStyle = this.add.rectangle(0,0,200,50);
         tryAgainRectStyle.setStrokeStyle(2,0x000000);
         
+        /**
+         * this is the the second container of the tryAgainScreenMap scene, it allows the user to try again if he lost the game. 
+         * @name tryAgainContainer
+         * @type {Phaser.GameObjects.Container}
+         */
         var tryAgainContainer = this.add.container(275,450,[tryAgainRect ,tryAgainText,tryAgainRectStyle]);
         tryAgainContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
         
         //styling tryAgainContainer 
-             
+            
+        /**
+         * the fonction inside this will be executed when the cursor of the user will be pressed. 
+         */
         tryAgainContainer.on("pointerdown", function(){
+            /**
+             * this line of code will lead the user back to the mapGame game. 
+             */
             this.scene.scene.start('mapGame');
         });
         
@@ -185,19 +355,47 @@ class tryAgainScreenMap extends Phaser.Scene {
 
         
         //adding the return to menu container
+        
+         /**
+         * this is the text that will be in the returnToMenu Container of the tryAgainScreenMap scene. 
+         * @name returnToMenuText
+         * @type {Phaser.GameObjects.Text}
+         */
         var returnToMenuText = this.add.text(-67,-13, "Return to Menu",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
+        
+        /**
+         * this is the rectangle that will be in the returnToMenu Container of the tryAgainScreenMap scene. 
+         * @name returnToMenuRect
+         * @type {Phaser.Geom.Rectangle}
+         */
         var returnToMenuRect = this.add.rectangle(0,0,200,50,0x351d0d, 0.85);
         returnToMenuText.setTint(0xc2baac);
 
+        /**
+         * this is the styling for the returnToMenuRect rectangle that will be in the returnToMenu Container of the tryAgainScreenMap scene. 
+         * @name returnToMenuRectStyle
+         * @type {Phaser.Geom.Rectangle}
+         */
         var returnToMenuRectStyle = this.add.rectangle(0,0,200,50);
         returnToMenuRectStyle.setStrokeStyle(2,0x000000);
         
+        /**
+         * this is the the third container of the tryAgainScreenMap scene, it allows the user to return to the game menu if he doesn't want to play anymore. 
+         * @name returnToMenuContainer
+         * @type {Phaser.GameObjects.Container}
+         */
         var returnToMenuContainer = this.add.container(525,450,[returnToMenuRect ,returnToMenuText,returnToMenuRectStyle]);
         returnToMenuContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
 
         //styling the returnToMenuContainer 
         
+         /**
+         * the fonction inside this will be executed when the cursor of the user will be pressed. 
+         */
         returnToMenuContainer.on("pointerdown", function(){
+             /**
+             * this line of code will lead the user back to the startMenu scene. 
+             */
             this.scene.scene.start("startMenu");
         });
         
@@ -242,11 +440,21 @@ class mapGame extends Phaser.Scene
     {         
         //adding the map 
         
+         /**
+         * adding the background to the mapGame scene.
+         * @name map
+         * @name {Phaser.GameObjects.Image}
+         */
         var map = this.add.image(400,300, 'Map');
                 
         //Game Part
         //adding the green pings
         
+         /**
+         * adding the first greenping (there is 2 more) to the mapGame scene and setting their visibility to false.
+         * @name greenping
+         * @name {Phaser.GameObjects.Image}
+         */
         var greenping = this.add.image(210,148, "Greenping");
         greenping.setName("Greenping");
         greenping.visible = false;
@@ -260,6 +468,11 @@ class mapGame extends Phaser.Scene
         
         //adding  the red pings
         
+        /**
+         * adding the first redping (there is 2 more) to the mapGame scene.
+         * @name redping
+         * @name {Phaser.GameObjects.Image}
+         */
         var redping = this.add.image(210,148, "Redping");
         redping.setName("Redping")
         var redping2 = this.add.image(287,323, "Redping");
@@ -270,26 +483,71 @@ class mapGame extends Phaser.Scene
         
         //adding the start stuff
         
+        /**
+         * adding the start image (and also the gpsuser image) to the mapGame scene.
+         * @name redping, gpsuser
+         * @name {Phaser.GameObjects.Image}
+         */
         var start = this.add.image(60,410, "Start");
         var gpsuser = this.add.image(58,442, "Gps user")
+        
+        /**
+         * adding the r3 rectangle to the mapGame scene.
+         * @name r3
+         * @name {Phaser.Geom.Rectangle}
+         */
         var r3 = this.add.rectangle(60,400, 109, 40);
         r3.setStrokeStyle(2, 0x504a4a);
         
         
         //adding the instructions 
         
+        /**
+         * adding the r1 rectangle to the mapGame scene.
+         * @name r1
+         * @name {Phaser.Geom.Rectangle}
+         */
         var r1 = this.add.rectangle(750,315, 300, 450, 0x0008, 0.7);
-            var r2 = this.add.rectangle(750,315, 300, 450);
-            r2.setStrokeStyle(2, 0x0000);
-        var titre = this.add.text(650,110,"Instructions :", {fontSize : 18, fontFamily: 'Georgia, Times, serif' });
+        
+        /**
+         * adding the r2 rectangle to the mapGame scene.
+         * @name r2
+         * @name {Phaser.Geom.Rectangle}
+         */
+        var r2 = this.add.rectangle(750,315, 300, 450);
+        r2.setStrokeStyle(2, 0x0000);
+        
+        /**
+         * adding the title text to the mapGame scene.
+         * @name title
+         * @name {Phaser.GameObjects.Text}
+         */
+        var title = this.add.text(650,110,"Instructions :", {fontSize : 18, fontFamily: 'Georgia, Times, serif' });
         
         
         //adding submit container 
         
+        
+        /**
+         * adding text in the subContainer that will appear in the mapGame scene.
+         * @name subText
+         * @name {Phaser.GameObjects.Text}
+         */
         var subText = this.add.text(-28,-10, "Submit",{ fontSize : 18 , fontFamily: 'Georgia, Times, serif' });
+        
+        /**
+         * adding a rectangle in the subContainer that will appear in the mapGame scene.
+         * @name subRect
+         * @name {Phaser.Geom.Rectangle}
+         */
         var subRect = this.add.rectangle(0,0,150,35,0x1b499b);
         subRect.setName("subRect");
         
+        /**
+         * adding the subContainer in the mapGame scene.
+         * @name subContainer
+         * @name {Phaser.GameObjects.Container}
+         */
         var subContainer = this.add.container(700, 570,[subRect ,subText]);
         subContainer.setInteractive(new Phaser.Geom.Rectangle(-75,-17,150,35), Phaser.Geom.Rectangle.Contains);
         subContainer.setName("subContainer");
@@ -297,13 +555,34 @@ class mapGame extends Phaser.Scene
         
         //adding yes/no container 
         
+        /**
+         * adding text in the yesNoContainer that will appear after clicking on the subContainer in the mapGame scene.
+         * @name yesNoText
+         * @name {Phaser.GameObjects.Text}
+         */
         var yesNoText = this.add.text(-80,-100, "Are you sure ?" ,{ fontSize : 30 , fontFamily: 'Georgia, Times, serif' });
+        
+        /**
+         * adding a rectangle in the yesNoContainer that will appear after clicking on the subContainer in the mapGame scene.
+         * @name yesNoRect
+         * @name {Phaser.Geom.Rectangle}
+         */
         var yesNoRect = this.add.rectangle(0,0,500,300,0x0008, 0.75);
         yesNoRect.setName("yesNoRect");
+        
+        /**
+         * adding a styling to the yesNoRect rectangle in the yesNoContainer that will appear after clicking on the subContainer in the mapGame scene.
+         * @name yesNoRectStyle
+         * @name {Phaser.Geom.Rectangle}
+         */
         var yesNoRectStyle = this.add.rectangle(0,0,500,300);
         yesNoRectStyle.setStrokeStyle(2, 0x00000);
         
-        
+        /**
+         * adding the yesNoContainer in the mapGame scene that will be visible after clicking on the subContainer in the mapGame scene.
+         * @name subContainer
+         * @name {Phaser.GameObjects.Container}
+         */
         var yesNoContainer = this.add.container(300,300,[yesNoRect, yesNoText, yesNoRectStyle]);
         yesNoContainer.setInteractive(new Phaser.Geom.Rectangle(-250, -150,500,300), Phaser.Geom.Rectangle.Contains);
         yesNoContainer.setName("yesNoContainer");
