@@ -1,3 +1,9 @@
+/** 
+ *  @fileOverview This file contains 4 classes mapGame, rulesMap, victoryScreenMap, tryAgainScreenMap. Theses 4 classes represent the Map game.
+ *
+ *  @author Bouveret Victor
+ */
+
 export {rulesMap, victoryScreenMap, tryAgainScreenMap, mapGame};
 
 /**
@@ -756,6 +762,12 @@ class mapGame extends Phaser.Scene
         
         //adding all the yes/no stuff into a container 
         
+        /**
+         * adding the popupContainer that will include all the precedents containers (yesNoContainer, noContainer and yesContainer)in the mapGame scene.
+         * @author Bouveret Victor
+         * @name popupContainer
+         * @name {Phaser.GameObjects.Container}
+         */
         var popupContainer = this.add.container(0,0, [yesNoContainer, noContainer, yesContainer]);
         popupContainer.setInteractive(new Phaser.Geom.Rectangle(-250, -150,500,300), Phaser.Geom.Rectangle.Contains);
         popupContainer.setName("popupContainer");
@@ -763,13 +775,39 @@ class mapGame extends Phaser.Scene
         
         //adding advert container 
     
+        /**
+         * adding a rectangle in the advertContainer that will appear if the user select more than one location in the mapGame scene.
+         * @author Bouveret Victor
+         * @name advertRect
+         * @name {Phaser.Geom.Rectangle}
+         */
         var advertRect = this.add.rectangle(360,310, 400,50, 0xff0000, 0.9);
         advertRect.setName("advertRect");
+        
+        /**
+         * adding a styling to the advertRect rectangle in the advertContainer that will appear if the user select more than one location in the mapGame scene.
+         * @author Bouveret Victor
+         * @name advertRectStyle
+         * @name {Phaser.Geom.Rectangle}
+         */
         var advertRectStyle = this.add.rectangle(360,310,400,50);
         advertRectStyle.setStrokeStyle(2, 0x00000);
+        
+         /**
+         * adding text in the advertContainer that will appear if the user select more than one location in the mapGame scene.
+         * @author Bouveret Victor
+         * @name advertText
+         * @name {Phaser.GameObjects.Text}
+         */
         var advertText = this.add.text(180,300, "You need to choose only one location !",{ fontSize : 22 , fontFamily: 'Georgia, Times, serif'});
         advertText.setTint(0x000000);
         
+        /**
+         * adding the advertContainer that will be set visile if the user select more than one location and click on the subContainer in the mapGame scene.
+         * @author Bouveret Victor
+         * @name advertContainer
+         * @name {Phaser.GameObjects.Container}
+         */
         var advertContainer = this.add.container(0, 0,[advertRect ,advertText, advertRectStyle]);
         advertContainer.visible = false;        
         

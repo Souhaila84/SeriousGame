@@ -1,29 +1,36 @@
+/** 
+ *  @fileOverview This file contains 2 classes rulesGapFill, gapFill. Theses 2 classes represent the gapFill game.
+ *
+ *  @author William Goujon
+ */
+
 export {rulesGapFill,gapFill};
 
-var score = 0;
+var score = 0;/*initialise the variable score to count the good answer*/
 
 class rulesGapFill extends Phaser.Scene {
-
+    
     constructor () {
-        super('rulesGapFill');
+        super('rulesGapFill');/* construct with a name to call this scene after*/
     }
 
+    /*This function loads the background image*/
     preload() {
         this.load.image("Rulesbackground","../images/game/background/rulesBackground.jpg");
     }
-
+    /*This function create the functionality of the scene*/
     create() {
         
         //Rules Part 
         //adding the rules background
-        var rulesBackground = this.add.image(400,300, 'Rulesbackground');
+        var rulesBackground = this.add.image(400,300, 'Rulesbackground'); //Add the image 
         
         //adding start container to the rules screen
-        
+        /*Add text start in container with the rules of the game*/
         var startText = this.add.text(-38,-18, "Start !",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
-        var startRect = this.add.rectangle(0,0,200,50,0x7b6c4f, 0.8);
+        var startRect = this.add.rectangle(0,0,200,50,0x7b6c4f, 0.8);/*create and set the characteristic of the rectangle */
         startText.setTint(0xc2baac);
-        startRect.setName("startRect");
+        startRect.setName("startRect");/*set the name of the varialbe startText */
         var startRectStyle = this.add.rectangle(0,0,200,50);
         startRectStyle.setStrokeStyle(2,0x000000);
         
@@ -32,6 +39,7 @@ class rulesGapFill extends Phaser.Scene {
         startContainer.setName("startContainer");   
         
         //adding the rules in the rules screen
+        /*Add text with the rules of the game */
         var rulesText = this.add.text(-200,-90, "In this game you have to fill the gaps \nin the discussion that Mr.Roquette heard. \nWhen all the gaps will be filled with \nthe correct answers, you'll be able to \nplay the next game !\n\nGood luck !",{ fontSize : 20, fontFamily: 'Georgia, Times, serif'});
         rulesText.setTint(0xc2baac);
         var rulesRect = this.add.rectangle(0,0,420,200,0x7b6c4f, 0.8);
@@ -62,90 +70,91 @@ class rulesGapFill extends Phaser.Scene {
 }
 
 
-
+/*This class is used to create a game */
 class gapFill extends Phaser.Scene {
     
     constructor () 
     
     {
-        super('gapFill');  // construct with a name to call this scene after
+        super('gapFill');  /*construct with a name to call this scene after*/
     }
-    
+    /*This function loads the image of the game*/
     preload(){
-        this.load.image('living', '../images/game/background/gapFillBackground.jpg');
-        this.load.image('detec', '../images/game/detective1.png');
-        this.load.image('sprite', '../images/game/_.png');
-        this.load.image('skipArrow', '../images/game/skipArrow.png');
+        this.load.image('living', '../images/game/background/gapFillBackground.jpg');/*Load background */
+        this.load.image('detec', '../images/game/detective1.png');/*Load the detective image */
+        this.load.image('sprite', '../images/game/_.png');/*Load the sprite image */
+        this.load.image('skipArrow', '../images/game/skipArrow.png');/*Load the skip image */
     }
-
+    /*This function create the functionality of the scene*/
     create()
     {
-        this.add.image(400, 300, 'living')
-        this.add.image(300,420, 'detec')
+        this.add.image(400, 300, 'living') /*Add the image for the background*/
+        this.add.image(300,420, 'detec') /* Add the image of the detective*/
 
-        
+        /*Add the text instruction of the game*/
         var text1 = this.add.text(230,25, "Find out what the inspector heard ",{
-            color: "white",
+            color: "white",/*set the text color in white*/ 
             fontStyle: "bold",
             
         });
-        text1.setName("text1");
-
+        text1.setName("text1"); /*set a name of text1*/
+        
         var text2 = this.add.text(325,60, "List of Words ",{
             color: "white",  
         });
-
+        /* Add the text with the words list*/
         var text3 = this.add.text(200,90, "-ruckus -known -bullet -decided -eyes -flat \n         -safety -dead -mess",{
             color: "white",   
         });
-
+        /* Add the text to make the text paragraph with color white */
         var text4 = this.add.text(200,175, "Edward O'Neill was found      on March 2 1884 at 10pm.\nA neighbour heard a       and found Edward O'Neill \nwith a       between his      and immediately notified \nthe police. \nOnce the police arrived in the      ,they found a     .",{
             color: "white",
             lineSpacing: '10',
         });
+        /* Add the text to make the text paragraph with color white */
         var text5 = this.add.text(200,330, "In those time of lack of        in the town of London.\nThe police         to call a well      french inspector,\n Marcel Roquette.",{
             color: "white",
             lineSpacing: '10',
         });
-            
-        var sprite = this.add.sprite(460, 190, 'sprite').setInteractive()
-        var textSprite12
+        /*create and add a sprite which allows you to add the missing words*/
+        var sprite = this.add.sprite(460, 190, 'sprite').setInteractive() /*Add position and interactive image */
+        var textSprite12  /*create a text who display the wrongs words*/
         var isFalse = false
         
-        sprite.on('pointerdown', function(pointer){
+        sprite.on('pointerdown', function(pointer){ /*event on input plugin for each touched Game object*/ 
             console.log(this);
-            let person = prompt("entre le mot", "");
+            let person = prompt("entre le mot", ""); /*crete a prompt to create a text box */ 
             
             if (person == "dead") {
-                var textSprite1 = this.scene.add.text(440,175,person,{
-                    color: "white",
+                var textSprite1 = this.scene.add.text(440,175,person,{ /* if the answer is good, add a text*/
+                    color: "white", /*color the text on white*/
                     fontStyle: "bold",
                 });
-                score +=1;
-                this.setVisible(false);
+                score +=1; /*Update the variable score when there is a good answer*/
+                this.setVisible(false); /*Hide the sprite */
                 if (isFalse)
-                    textSprite12.setVisible(false);
+                    textSprite12.setVisible(false);/*Hide the textSprite */ 
             }
             else {
                 if (isFalse){
-                    this.scene.children.getByName("textSprite12").destroy();
+                    this.scene.children.getByName("textSprite12").destroy(); /*Destroy the textsprite to replace the textsprite, if the variable isFalse = False*/
                 }
                 else{
                     isFalse = true;
                 }
-                textSprite12 = this.scene.add.text(440,175,person,{
-                color: "red",
+                textSprite12 = this.scene.add.text(440,175,person,{ /*add a textsprite when the word is not dead*/
+                color: "red", /*color the text on red */
                 fontStyle: "bold",
                 });
-                textSprite12.setName("textSprite12");
+                textSprite12.setName("textSprite12");/*set a name of the textsprite */ 
             }
             
             
         });
-        sprite.on('pointerout', function (pointer) {
+        sprite.on('pointerout', function (pointer) { /*event on input plugin for each touched Game object*/
             this.clearTint();
         });
-        sprite.on('pointerdown', function (pointer) {
+        sprite.on('pointerdown', function (pointer) { /*event on input plugin for each touched Game object*/
             this.clearTint();
 
         });
@@ -459,29 +468,29 @@ class gapFill extends Phaser.Scene {
         
         
     }
-    
+    /*This function update the scene*/ 
     update(){
-        if (score > 0) {
+        if (score > 0) { /*Add text if all answer are correct */ 
             var text = this.add.text(350,550, "Let's go to the crime scene !",{
                 color: "white",
             });
-            this.children.getByName("text1").setVisible(false);
+            this.children.getByName("text1").setVisible(false);/*Hide the text instruction of the game*/ 
             
             // skip the game
         
-            var skipArrow = this.add.image(0,0,'skipArrow');
+            var skipArrow = this.add.image(0,0,'skipArrow');/*Add button when all answer are correct*/ 
         
-            var skipRect = this.add.rectangle(0,0,120,120,0x7b6c4f, 0.8);
-            skipRect.setName("skipRect");
+            var skipRect = this.add.rectangle(0,0,120,120,0x7b6c4f, 0.8);/*Create variable skipRect */
+            skipRect.setName("skipRect");/*set name of the variable*/
             var skipRectStyle = this.add.rectangle(0,0,120,120);
                 skipRectStyle.setStrokeStyle(2,0x000000);
 
-            var skipContainer = this.add.container(700,500,[skipRect, skipArrow ,skipRectStyle]);
+            var skipContainer = this.add.container(700,500,[skipRect, skipArrow ,skipRectStyle]);/*create variable skipContainer which includes other variable*/ 
             skipContainer.setInteractive(new Phaser.Geom.Rectangle(-60,-60,120,120), Phaser.Geom.Rectangle.Contains);
             skipContainer.setName("skipContainer");
 
             skipContainer.on("pointerdown", function(){
-                this.scene.scene.start('rulesMap');
+                this.scene.scene.start('rulesMap');/*when the button is activate, change a scene*/
             }); 
 
             skipContainer.on('pointerover', function() {
