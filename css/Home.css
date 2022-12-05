@@ -14,8 +14,12 @@ body {
     background-color:#fff;
 }
 
-/*2e image avec présentation du jeu */
-
+/*2e image avec présentation du jeu + images*/
+#gamePreview{
+    background-color: #000;
+    display: flex;
+    align-items: center;
+}
 
 
 /*texte de présentation du jeu */
@@ -51,9 +55,10 @@ body {
     font-size: 20px;
     color: black;
     display: flex;
-    justify-content: space-around;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
    
 }
 
@@ -88,7 +93,50 @@ body {
     height: 80px;
 }
 
+.slidecontainer{ /*taille et position du container slider*/
+    padding: 2rem;
+    position: relative;
+    max-width: 38rem;
+    margin: 0 auto;
+}
 
+.slider{ /*slider container*/
+    display: flex;
+    aspect-ratio: 16/9;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+}
+
+.slider img{ /* images du slider*/
+    flex: 1 0 100%; 
+    scroll-snap-align: start;
+}
+
+.navslider{ /*navigation du slider*/
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left:50%;
+    transform:translateX(-50%);
+    z-index: 1;
+}
+
+.navslider a{   /*boutons slides*/
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.75;
+    transition: opacity ease 250ms;
+}
+
+.navslider a:hover{
+    opacity: 1;
+
+}
 
 /*Responsiving Image*/
 .responsive {
