@@ -135,10 +135,10 @@ class translateGame extends Phaser.Scene {
                 proposalsBool[i] = proposalsBool[j];
                 proposalsBool[j] = temp;
         }
-        this.addTranslateProposal(230,250,proposalsBool[0][0],25,proposalsBool[0][1]);
-        this.addTranslateProposal(230,450,proposalsBool[1][0],25,proposalsBool[1][1]);
-        this.addTranslateProposal(570,250,proposalsBool[2][0],25,proposalsBool[2][1]);
-        this.addTranslateProposal(570,450,proposalsBool[3][0],25,proposalsBool[3][1]);
+        this.addTranslateProposal(230,250,proposalsBool[0][0],22,proposalsBool[0][1]);
+        this.addTranslateProposal(230,450,proposalsBool[1][0],22,proposalsBool[1][1]);
+        this.addTranslateProposal(570,250,proposalsBool[2][0],22,proposalsBool[2][1]);
+        this.addTranslateProposal(570,450,proposalsBool[3][0],22,proposalsBool[3][1]);
         /** 
         * The Text game object of the sentence to translate
         * @type {Phaser.GameObjects.Text} 
