@@ -199,13 +199,13 @@ class hiddenObjects extends Phaser.Scene {
         var necklace = this.add.image(100, 550, 'necklace').setInteractive(); //necklace
         var cuestick = this.add.image(150, 40, 'cuestick').setInteractive(); //cuestick
         var sunglasses = this.add.image(250, 380, 'sunglasses').setInteractive(); //sunglasses
+        this.add.image(570, 390, 'blanket'); //blanket 
         var rope = this.add.image(570, 370, 'rope').setInteractive(); //rope
         var drink = this.add.image(340, 400, 'drink').setInteractive(); //drink
+        this.add.image(655, 400, 'painting'); //painting
         var gun = this.add.image(690, 390, 'gun').setInteractive(); //gun
         this.add.image(85, 270, 'parchemin'); //parchemin
         this.add.image(590, 490, 'violon'); //violon
-        this.add.image(655, 400, 'painting'); //painting
-        this.add.image(570, 390, 'blanket'); //blanket 
         this.add.image(270, 230, 'hat'); //hat
         this.add.image(470, 450, 'briefcase'); //briefcase
         this.add.image(480, 480, 'cat'); //cat

@@ -482,15 +482,15 @@ class victoryScreentranslateGame extends Phaser.Scene {
          * @type {Phaser.GameObjects.Text}
          * @author Alexis Mariotti
          */
-        var winText = this.add.text(-200,-90, "Merci pour les traductions, mais \nil est 16 h 45 et nous devons interroger un \ntémoin, ce qui nous apportera sûrement \nles derniers indices dont nous \navons besoin pour trouver le meurtrier.",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif' });
+        var translateWinText = this.add.text(-200,-90, "Merci pour les traductions, mais \nil est 16 h 45 et nous devons interroger un \ntémoin, ce qui nous apportera sûrement \nles derniers indices dont nous \navons besoin pour trouver le meurtrier.",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif' });
         /**
          * the background of winText
          * @name winRect
          * @type {Phaser.GameObjects.Rectangle}
          * @author Alexis Mariotti
          */
-        var winRect = this.add.rectangle(0,0,420,200,0x7b6c4f, 0.8);
-        winText.setTint(0xc2baac);
+        var translateWinRect = this.add.rectangle(0,0,420,200,0x7b6c4f, 0.8);
+        translateWinText.setTint(0xc2baac);
         /**
          * the outline of winText
          * @name winRectStyle
@@ -499,6 +499,8 @@ class victoryScreentranslateGame extends Phaser.Scene {
          */
         var winRectStyle = this.add.rectangle(0,0,420,200);
         winRectStyle.setStrokeStyle(2,0x000000);
+        
+        this.add.container(400,300, [translateWinRect, translateWinText,winRectStyle]);
 
     }
 
