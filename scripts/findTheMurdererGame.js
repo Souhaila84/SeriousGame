@@ -82,7 +82,7 @@ class instructionsForTheMurdererGame extends Phaser.Scene {
         var playButtonCircle = this.add.circle (0,0,23,0x032d3d, 0.8);
         playButtonCircle.setName("playButtonCircle");
         
-        var playButtonContainer = this.add.container(400,435,[playButtonCircle ,playButtonImg]);
+        var playButtonContainer = this.add.container(400,425,[playButtonCircle ,playButtonImg]);
         playButtonContainer.setInteractive(new Phaser.Geom.Circle(400,450,23), Phaser.Geom.Circle.Contains);
         playButtonContainer.setName("playButtonContainer");   
         
@@ -96,7 +96,7 @@ class instructionsForTheMurdererGame extends Phaser.Scene {
         var instructionsRectStyle = this.add.rectangle(0,0,525,250);
         instructionsRectStyle.setStrokeStyle(2,0x000000);
         
-        var instructionsContainer = this.add.container(400,250,[instructionsRect ,instructionsText,instructionsText2,instructionsRectStyle]);
+        var instructionsContainer = this.add.container(400,215,[instructionsRect ,instructionsText,instructionsText2,instructionsRectStyle]);
         instructionsContainer.setInteractive(new Phaser.Geom.Rectangle(-250,-125,525,250), Phaser.Geom.Rectangle.Contains);
         instructionsContainer.setName("instructionsContainer");   
         
@@ -116,13 +116,13 @@ class instructionsForTheMurdererGame extends Phaser.Scene {
             this.scene.scene.start('findTheMurdererGame');
         });
         
-        iGotItContainer.on('pointerover', function() {
-            iGotItRect.setFillStyle(0x356c18,0.8)
-        });
-        
-        iGotItContainer.on('pointerout', function() {
-            iGotItRect.setFillStyle(0x032d3d,0.8)
-        });
+            iGotItContainer.on('pointerover', function() {
+                iGotItRect.setFillStyle(0x356c18,0.8)
+            });
+
+            iGotItContainer.on('pointerout', function() {
+                iGotItRect.setFillStyle(0x032d3d,0.8)
+            });
         
     }   
     
@@ -143,10 +143,56 @@ class findTheMurdererGame extends Phaser.Scene {
         preload() 
         {
             this.load.image("witessInterrogation","../images/game/background/witnessinterrogation1.2.png");
+            this.load.image("PlayButton","../images/playbutton.png");
         }
 
         create() {
             var witnessInterogation = this.add.image(400,300, 'witessInterrogation');
+            
+             
+            var playButtonImg2 = this.add.image(400,435, 'PlayButton');
+            var playButtonCircle2 = this.add.circle (400,435,23,0x032d3d, 0.8);
+            playButtonCircle2.setName("playButtonCircle2");
+
+            var playButtonContainer2 = this.add.container(0,0,[playButtonCircle2 ,playButtonImg2]);
+            playButtonContainer2.setInteractive(new Phaser.Geom.Circle(400,435,23), Phaser.Geom.Circle.Contains);
+            playButtonContainer2.setName("playButtonContainer2");
+            
+            
+            playButtonContainer2.on('pointerdown', function() {
+                //ici mettre la voix qui décrit le/la meurtrier/e
+            })
+            
+            playButtonContainer2.on('pointerover', function() {
+                playButtonCircle2.setFillStyle(0x356c18, 0.8)
+            });
+            
+            playButtonContainer2.on('pointerout', function() {
+                playButtonCircle2.setFillStyle(0x032d3d, 0.8)
+            });
+            
+            var findMurdererText = this.add.text(-189,-16, "Lets find who is the murderer !",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
+            var findMurdererRect = this.add.rectangle(0,0,410,50,0x032d3d, 0.8);
+            findMurdererText.setTint(0xc2baac);
+            findMurdererRect.setName("findMurdererRect");
+            var findMurdererRectStyle = this.add.rectangle(0,0,410,50);
+            findMurdererRectStyle.setStrokeStyle(2,0x000000);
+
+            var findMurdererContainer = this.add.container(400,520,[findMurdererRect ,findMurdererText,findMurdererRectStyle]);
+            findMurdererContainer.setInteractive(new Phaser.Geom.Rectangle(-205,-25,410,50), Phaser.Geom.Rectangle.Contains);
+            findMurdererContainer.setName("findMurdererContainer");   
+             
+            findMurdererContainer.on("pointerdown", function(){
+            //this.scene.scene.start('le choix du meurtrier game');
+            });
+        
+            findMurdererContainer.on('pointerover', function() {
+                findMurdererRect.setFillStyle(0x356c18,0.8)
+            });
+
+            findMurdererContainer.on('pointerout', function() {
+                findMurdererRect.setFillStyle(0x032d3d,0.8)
+            });
         }
 
         update() {
