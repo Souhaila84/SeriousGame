@@ -1,4 +1,32 @@
-/** 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: gapFill.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: gapFill.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** 
  *  @fileOverview This file contains 2 classes rulesGapFill, gapFill. Theses 2 classes represent the gapFill game.
  *
  *  @author William Goujon
@@ -47,8 +75,8 @@ class rulesGapFill extends Phaser.Scene {
         * @author William Goujon
         */
         var gapFillStartRect = this.add.rectangle(0,0,200,50,0x7b6c4f, 0.8);
-        gapFillStartText.setTint(0xc2baac);
-        gapFillStartRect.setName("gapFillStartRect"); //set the name of the varialbe gapFillStartText
+        startText.setTint(0xc2baac);
+        startRect.setName("startRect"); //set the name of the varialbe startText
         
         /*
         * This rectangle is used for the outline of start button in gapFIll start scene
@@ -57,11 +85,11 @@ class rulesGapFill extends Phaser.Scene {
         * @author Victor Bouveret
         */
         var gapFillStartRectStyle = this.add.rectangle(0,0,200,50);
-        gapFillStartRectStyle.setStrokeStyle(2,0x000000);
+        startRectStyle.setStrokeStyle(2,0x000000);
         
-        var gapFillStartContainer = this.add.container(400,450,[gapFillStartRect ,gapFillStartText,gapFillStartRectStyle]);
-        gapFillStartContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
-        gapFillStartContainer.setName("gapFillStartContainer");   
+        var startContainer = this.add.container(400,450,[gapFillStartRect ,gapFillStartText,gapFillStartRectStyle]);
+        startContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
+        startContainer.setName("startContainer");   
         
         //adding the rules in the rules screen
         /*
@@ -70,36 +98,36 @@ class rulesGapFill extends Phaser.Scene {
         * @author William Goujon
         */
         var gapFillRulesText = this.add.text(-200,-90, "In this game you have to fill the gaps \nin the discussion that Mr.Roquette heard. \nWhen all the gaps will be filled with \nthe correct answers, you'll be able to \nplay the next game !\n\nGood luck !",{ fontSize : 20, fontFamily: 'Georgia, Times, serif'});
-        gapFillRulesText.setTint(0xc2baac);
+        rulesText.setTint(0xc2baac);
         /*
         * This variable contains a rectangle which is the background of rules text 
         * @type {Phaser.GameObject.Rectangle}
         * @author William Goujon
         */
         var gapFillRulesRect = this.add.rectangle(0,0,420,200,0x7b6c4f, 0.8);
-        gapFillRulesRect.setName("gapFillRulesRect");
+        rulesRect.setName("rulesRect");
         /*
         * This variable contains a rectangle which is the outline of rules text
         * @type {Phaser.GameObject.Rectangle}
         * @author William Goujon
         */
         var gapFillRulesRectStyle = this.add.rectangle(0,0,420,200);
-        gapFillRulesRectStyle.setStrokeStyle(2,0x000000);
+        rulesRectStyle.setStrokeStyle(2,0x000000);
         
-        var gapFillRulesContainer = this.add.container(400,200,[gapFillRulesRect ,gapFillRulesText,gapFillRulesRectStyle]);
-        gapFillRulesContainer.setInteractive(new Phaser.Geom.Rectangle(-210,-100,400,200), Phaser.Geom.Rectangle.Contains);
-        gapFillRulesContainer.setName("gapFillRulesContainer");
+        var rulesContainer = this.add.container(400,200,[gapFillRulesRect ,gapFillRulesText,gapFillRulesRectStyle]);
+        rulesContainer.setInteractive(new Phaser.Geom.Rectangle(-210,-100,400,200), Phaser.Geom.Rectangle.Contains);
+        rulesContainer.setName("rulesContainer");
         
-        gapFillStartContainer.on("pointerdown", function(){
+        startContainer.on("pointerdown", function(){
             this.scene.scene.start('gapFill');  
         });
         
-        gapFillStartContainer.on('pointerover', function() {
-            gapFillStartRect.setFillStyle(0xa88c6c,0.8)
+        startContainer.on('pointerover', function() {
+            startRect.setFillStyle(0xa88c6c,0.8)
         });
         
-        gapFillStartContainer.on('pointerout', function() {
-            gapFillStartRect.setFillStyle(0x7b6c4f,0.8)
+        startContainer.on('pointerout', function() {
+            startRect.setFillStyle(0x7b6c4f,0.8)
         });
     }
 
@@ -191,6 +219,7 @@ class gapFill extends Phaser.Scene {
         * @author William Goujon
         */ 
         sprite.on('pointerdown', function(pointer){
+            console.log(this);
             /*
             * create a prompt to create a text box in gapFill game
             * @type {String}
@@ -248,6 +277,7 @@ class gapFill extends Phaser.Scene {
         var isFalse2 = false    
 
         sprite2.on('pointerdown', function(pointer){
+            console.log(this);
             let person = prompt("entre le mot", "");
             if (person == "ruckus") {
                 var textSprite2 = this.scene.add.text(390,203,person,{
@@ -285,6 +315,7 @@ class gapFill extends Phaser.Scene {
         var isFalse3 = false
 
         sprite3.on('pointerdown', function(pointer){
+            console.log(this);
             let person = prompt("entre le mot", "");
             if (person == "bullet") {
                 var textSprite3 = this.scene.add.text(263,228,person,{
@@ -322,6 +353,7 @@ class gapFill extends Phaser.Scene {
         var isFalse4 = false
 
         sprite4.on('pointerdown', function(pointer){
+            console.log(this);
             let person = prompt("entre le mot", "");
             if (person == "eyes") {
                 var textSprite4 = this.scene.add.text(440,228,person,{
@@ -359,6 +391,7 @@ class gapFill extends Phaser.Scene {
         var isFalse5 = false 
 
         sprite5.on('pointerdown', function(pointer){
+            console.log(this);
             let person = prompt("entre le mot", "");
             if (person == "flat") {
                 var textSprite5 = this.scene.add.text(500,285,person,{
@@ -396,6 +429,7 @@ class gapFill extends Phaser.Scene {
         var isFalse6 = false
 
         sprite6.on('pointerdown', function(pointer){
+            console.log(this);
             let person = prompt("entre le mot", "");
             if (person == "mess") {
                 var textSprite6 = this.scene.add.text(680,285,person,{
@@ -433,6 +467,7 @@ class gapFill extends Phaser.Scene {
         var isFalse7 = false
 
         sprite7.on('pointerdown', function(pointer){
+            console.log(this);
             let person = prompt("entre le mot", "");
             if (person == "safety") {
                 var textSprite7 = this.scene.add.text(440,330,person,{
@@ -470,6 +505,7 @@ class gapFill extends Phaser.Scene {
         var isFalse8 = false;
 
         sprite8.on('pointerdown', function(pointer){
+            console.log(this);
             let person = prompt("entre le mot", "");
             if (person == "decided") {
                 var textSprite8 = this.scene.add.text(305,358,person,{
@@ -508,6 +544,7 @@ class gapFill extends Phaser.Scene {
         var isFalse9 = false
 
         sprite9.on('pointerdown', function(pointer){
+            console.log(this);
             let person = prompt("entre le mot", "");
             if (person == "known") {
                 var textSprite9 = this.scene.add.text(530,358,person,{
@@ -582,4 +619,26 @@ class gapFill extends Phaser.Scene {
             });
         } 
     }
-}
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="gapFill.html">gapFill</a></li><li><a href="hiddenObjects.html">hiddenObjects</a></li><li><a href="mapGame.html">mapGame</a></li><li><a href="rulesGapFill.html">rulesGapFill</a></li><li><a href="rulesHiddenObjects.html">rulesHiddenObjects</a></li><li><a href="rulesMap.html">rulesMap</a></li><li><a href="translateGame.html">translateGame</a></li><li><a href="translateGameRules.html">translateGameRules</a></li><li><a href="tryAgainScreenMap.html">tryAgainScreenMap</a></li><li><a href="victoryScreenHiddenObjects.html">victoryScreenHiddenObjects</a></li><li><a href="victoryScreenMap.html">victoryScreenMap</a></li><li><a href="victoryScreentranslateGame.html">victoryScreentranslateGame</a></li></ul><h3>Global</h3><ul><li><a href="global.html#actualProposal">actualProposal</a></li><li><a href="global.html#allProposals">allProposals</a></li><li><a href="global.html#config">config</a></li><li><a href="global.html#count">count</a></li><li><a href="global.html#countOfVictory">countOfVictory</a></li><li><a href="global.html#detective">detective</a></li><li><a href="global.html#enterContainer">enterContainer</a></li><li><a href="global.html#enterRect">enterRect</a></li><li><a href="global.html#enterRectStyle">enterRectStyle</a></li><li><a href="global.html#enterText">enterText</a></li><li><a href="global.html#game">game</a></li><li><a href="global.html#itemsGameObjectsImages">itemsGameObjectsImages</a></li><li><a href="global.html#itemsGameObjectsTexts">itemsGameObjectsTexts</a></li><li><a href="global.html#noContainerPointerDown">noContainerPointerDown</a></li><li><a href="global.html#noContainerPointerOut">noContainerPointerOut</a></li><li><a href="global.html#noContainerPointerOver">noContainerPointerOver</a></li><li><a href="global.html#proposalNumber">proposalNumber</a></li><li><a href="global.html#returnToMenuContainer">returnToMenuContainer</a></li><li><a href="global.html#returnToMenuRect">returnToMenuRect</a></li><li><a href="global.html#returnToMenuRectStyle">returnToMenuRectStyle</a></li><li><a href="global.html#returnToMenuText">returnToMenuText</a></li><li><a href="global.html#rulesBackground">rulesBackground</a></li><li><a href="global.html#rulesContainer">rulesContainer</a></li><li><a href="global.html#rulesRect">rulesRect</a></li><li><a href="global.html#rulesRectStyle">rulesRectStyle</a></li><li><a href="global.html#rulesText">rulesText</a></li><li><a href="global.html#sleep">sleep</a></li><li><a href="global.html#startContainer">startContainer</a></li><li><a href="global.html#startRect">startRect</a></li><li><a href="global.html#startRectStyle">startRectStyle</a></li><li><a href="global.html#startText">startText</a></li><li><a href="global.html#subCOntainerPointerDown">subCOntainerPointerDown</a></li><li><a href="global.html#subCOntainerPointerOut">subCOntainerPointerOut</a></li><li><a href="global.html#subCOntainerPointerOver">subCOntainerPointerOver</a></li><li><a href="global.html#tryAgainContainer">tryAgainContainer</a></li><li><a href="global.html#tryAgainRect">tryAgainRect</a></li><li><a href="global.html#tryAgainRectStyle">tryAgainRectStyle</a></li><li><a href="global.html#tryAgainText">tryAgainText</a></li><li><a href="global.html#victoryContainer">victoryContainer</a></li><li><a href="global.html#victoryRect">victoryRect</a></li><li><a href="global.html#victoryRectStyle">victoryRectStyle</a></li><li><a href="global.html#victoryText">victoryText</a></li><li><a href="global.html#winRect">winRect</a></li><li><a href="global.html#winRectStyle">winRectStyle</a></li><li><a href="global.html#winText">winText</a></li><li><a href="global.html#yesContainerPointerDown">yesContainerPointerDown</a></li><li><a href="global.html#yesContainerPointerOut">yesContainerPointerOut</a></li><li><a href="global.html#yesContainerPointerOver">yesContainerPointerOver</a></li><li><a href="global.html#youlostContainer">youlostContainer</a></li><li><a href="global.html#youlostRect">youlostRect</a></li><li><a href="global.html#youlostRectStyle">youlostRectStyle</a></li><li><a href="global.html#youlostText">youlostText</a></li><li>{Array.&lt;String>}</li><li>{int}</li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Mon Dec 05 2022 22:38:29 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
