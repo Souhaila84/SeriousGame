@@ -803,7 +803,7 @@ class mapGame extends Phaser.Scene
         advertText.setTint(0x000000);
         
         /**
-         * adding the advertContainer that will be set visile if the user select more than one location and click on the subContainer in the mapGame scene.
+         * adding the advertContainer that will be visile if the user select more than one location and clicked on the subContainer in the mapGame scene.
          * @author Bouveret Victor
          * @name advertContainer
          * @name {Phaser.GameObjects.Container}
@@ -813,14 +813,40 @@ class mapGame extends Phaser.Scene
         
         
         //adding the second advert container 
-        
+
+        /**
+         * adding a rectangle in the advertContainer2 that will appear if the user did not selected any location in the mapGame scene.
+         * @author Bouveret Victor
+         * @name advertRect2
+         * @name {Phaser.Geom.Rectangle}
+         */
         var advertRect2 = this.add.rectangle(360,310, 400,50, 0xff0000, 0.9);
         advertRect2.setName("advertRect2");
+        
+        /**
+         * adding a styling to the advertRect2 rectangle in the advertContainer2 that will appear if the user did not selected any location in the mapGame scene.
+         * @author Bouveret Victor
+         * @name advertRectStyle2
+         * @name {Phaser.Geom.Rectangle}
+         */
         var advertRectStyle2 = this.add.rectangle(360,310,400,50);
         advertRectStyle2.setStrokeStyle(2, 0x00000);
+        
+        /**
+         * adding text in the advertContainer2 that will appear if the user did not selected any location in the mapGame scene.
+         * @author Bouveret Victor
+         * @name advertText2
+         * @name {Phaser.GameObjects.Text}
+         */
         var advertText2 = this.add.text(200,300, "You need to choose one location !",{ fontSize : 22 , fontFamily: 'Georgia, Times, serif'});
         advertText2.setTint(0x000000);
         
+        /**
+         * adding the advertContainer2 that will be visile if the user did not selected any location and clicked on the subContainer in the mapGame scene.
+         * @author Bouveret Victor
+         * @name advertContainer2
+         * @name {Phaser.GameObjects.Container}
+         */
         var advertContainer2 = this.add.container(0, 0,[advertRect2 ,advertText2, advertRectStyle2]);  
         advertContainer2.visible = false;
         
@@ -845,7 +871,7 @@ class mapGame extends Phaser.Scene
         
         redping.on('clicked', this.redClickHandler);
         redping2.on('clicked', this.redClickHandler2);
-        redping3.on('clicked', this.redClickHandler3);
+        redping3.on('clicked', this.redClickHandler3);d
         greenping.on('clicked', this.greenClickHandler);
         greenping2.on('clicked', this.greenClickHandler2);
         greenping3.on('clicked', this.greenClickHandler3);
