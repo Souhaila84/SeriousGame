@@ -1,5 +1,5 @@
 <?php
-    /connexion à la base de données 
+    //connexion à la base de données 
     $dbLink = mysqli_connect("localhost", "root@localhost", "")
     or die('Erreur de connexion au serveur : ' . mysqli_connect_error());
 
