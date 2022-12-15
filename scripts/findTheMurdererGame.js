@@ -249,11 +249,17 @@ class guessTheMurderer extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image("guessTheMurdererScreen","../images/game/background/findTheMurdererBackground .jpg");
+        this.load.image("guessTheMurdererScreen","../images/game/background/findTheMurdererBackground.jpg");
+        this.load.image("firstSuspect","../images/yellowpepper.png");
+        this.load.image("secondSuspect","../images/radish.png");
+        this.load.image("thirdSuspect","../images/broccoli.png");
+        this.load.image("fourthSuspect","../images/eggplant.png");
+        this.load.image("leftarrow","../images/leftarrow.png");
+        this.load.image("rightarrow","../images/rightarrow.png");
     }
 
     create() {
-    
+        
         //adding the background
         var guessTheMurdererscreen = this.add.image(400,300, 'guessTheMurdererScreen');
         
@@ -268,6 +274,23 @@ class guessTheMurderer extends Phaser.Scene {
         var guessTheMurdererContainer = this.add.container(400,100,[guessTheMurdererRect ,guessTheMurdererText,guessTheMurdererRectStyle]);
         guessTheMurdererContainer.setInteractive(new Phaser.Geom.Rectangle(-250,-75,500,150), Phaser.Geom.Rectangle.Contains);
         guessTheMurdererContainer.setName("guessTheMurdererContainer");
+        
+        
+        var firstSuspect = this.add.image(400,450, 'firstSuspect');
+        firstSuspect.setName("firstSuspect");
+        var secondSuspect = this.add.image(400,450, 'secondSuspect');
+        secondSuspect.setName("secondSuspect");
+        var thirdSuspect = this.add.image(400,450, 'thirdSuspect');
+        thirdSuspect.setName("thirdSuspect");
+        var fourthSuspect = this.add.image(400,450, 'fourthSuspect');
+        fourthSuspect.setName("fourthSuspect");
+        
+        var leftArrow = this.add.image(200,450, 'leftarrow');
+        var rightArrow = this.add.image(600,450, 'rightarrow');
+        
+        this.children.getByName("secondSuspect").visible = false;
+        this.children.getByName("thirdSuspect").visible = false;
+        this.children.getByName("fourthSuspect").visible = false;
         
     }
 
