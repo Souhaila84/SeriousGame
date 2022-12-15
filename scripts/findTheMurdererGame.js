@@ -1,4 +1,4 @@
-export {rulesFindTheMurderer,instructionsForTheMurdererGame ,findTheMurdererGame,victoryScreenFindTheMurderer}; 
+export {rulesFindTheMurderer,instructionsForTheMurdererGame ,findTheMurdererGame ,guessTheMurderer ,victoryScreenFindTheMurderer,}; 
 
 //Rules screen 
 class rulesFindTheMurderer extends Phaser.Scene {
@@ -212,7 +212,7 @@ class findTheMurdererGame extends Phaser.Scene {
             findMurdererContainer.setName("findMurdererContainer");   
              
             findMurdererContainer.on("pointerdown", function(){
-            //this.scene.scene.start('le choix du meurtrier game');
+            this.scene.scene.start('guessTheMurderer');
             });
         
             findMurdererContainer.on('pointerover', function() {
@@ -238,6 +238,43 @@ class findTheMurdererGame extends Phaser.Scene {
         update() {
             // Used to update your game. This function runs constantly
         }
+}
+
+
+//GuessTheMurderer Screen Scene 
+class guessTheMurderer extends Phaser.Scene {
+
+    constructor () {
+        super('guessTheMurderer');
+    }
+
+    preload() {
+        this.load.image("guessTheMurdererScreen","../images/game/background/findTheMurdererBackground .jpg");
+    }
+
+    create() {
+    
+        //adding the background
+        var guessTheMurdererscreen = this.add.image(400,300, 'guessTheMurdererScreen');
+        
+        //adding the victory container
+        var guessTheMurdererText = this.add.text(-240,-40, "Remember the description that the witness gave\nyou ? Now we need to find the murderer between \nthese four suspects !",{ fontSize : 22 , fontFamily: 'Georgia, Times, serif'});
+        var guessTheMurdererRect = this.add.rectangle(0,0,500,100,0x032d3d, 0.85);
+        guessTheMurdererText.setTint(0xc2baac);
+        guessTheMurdererRect.setName("guessTheMurdererRect");
+        var guessTheMurdererRectStyle = this.add.rectangle(0,0,500,100);
+        guessTheMurdererRectStyle.setStrokeStyle(2,0x000000);
+        
+        var guessTheMurdererContainer = this.add.container(400,100,[guessTheMurdererRect ,guessTheMurdererText,guessTheMurdererRectStyle]);
+        guessTheMurdererContainer.setInteractive(new Phaser.Geom.Rectangle(-250,-75,500,150), Phaser.Geom.Rectangle.Contains);
+        guessTheMurdererContainer.setName("guessTheMurdererContainer");
+        
+    }
+
+    update() {
+        // Used to update your game. This function runs constantly
+    }
+    
 }
 
 
