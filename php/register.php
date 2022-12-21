@@ -1,15 +1,14 @@
 <?php 
-session_start();
     require_once 'config.php'; // On inclu la connexion à la bdd
+    //session_start();
     echo $_POST;
+    print_r($_POST);
     echo $_POST['email'];
     echo $_POST['password'];
     echo $_POST['confirm_password'];
-    echo "a";
     // Si les variables existent et qu'elles ne sont pas vides
-    if(!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirm_password']))
+    if(isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm_password']) )
     {
-        echo "ha";
         // Patch XSS
         $pseudo = htmlspecialchars($_POST['pseudo']);
         $email = htmlspecialchars($_POST['email']);
@@ -29,7 +28,7 @@ session_start();
             if(strlen($pseudo) <= 100){ // On verifie que la longueur du pseudo <= 100
                 if(strlen($email) <= 100){ // On verifie que la longueur du mail <= 100
                     if(filter_var($email, FILTER_VALIDATE_EMAIL)){ // Si l'email est de la bonne forme
-                        if($password === $confirm_password){ // si les deux mdp saisis sont bon
+                        if($password == $confirm_password){ // si les deux mdp saisis sont bon
                             echo "haaaaa";
                             // On hash le mot de passe avec Bcrypt, via un coût de 12
                             $cost = ['cost' => 12];
@@ -60,3 +59,4 @@ session_start();
             }else{ header('Location: register.php?reg_err=pseudo_length'); die();}
         }else{ header('Location: register.php?reg_err=already'); die();}
     }
+echo "b";

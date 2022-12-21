@@ -19,7 +19,7 @@
            </ul>   
        </nav>
     <div id="connect">
-        <form action="../php/login.php" method="post" class="inscription">
+        <form action="../php/login.php" method="post">
             <h3>Se connecter</h3> <!--Connexion-->
             <input type="email" placeholder="E-MAIL">
             <input type="password" placeholder="MOT DE PASSE">
@@ -30,11 +30,11 @@
         <br>PROGESSION ET AJOUTER DES COMMENTAIRES</p>
         <h3>S'inscrire</h3> <!--Inscription-->
         <form action="../php/register.php" method="post" class="inscription">
-            <input type="email" id="email" placeholder="E-MAIL">
-            <input type="password" id="password" placeholder="MOT DE PASSE">
-            <input type="password" id="confirm_password" placeholder="CONFIRMER MOT DE PASSE">
-            <input type="text" id="pseudo" placeholder="PSEUDO">
-            <button class="boutonlog" type="submit">S'INSCRIRE</button>
+            <input type="email" name="email" id="email" placeholder="E-MAIL">
+            <input type="password" name="password" id="password" placeholder="MOT DE PASSE">
+            <input type="password" name="confirm_password" id="confirm_password" placeholder="CONFIRMER MOT DE PASSE">
+            <input type="text" name="pseudo" placeholder="PSEUDO">
+            <input type="submit" value="S'INSCRIRE" class="boutonlog">
         </form>
   </div>
        <div id="footer">
