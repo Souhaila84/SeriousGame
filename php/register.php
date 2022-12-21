@@ -1,15 +1,14 @@
 <?php 
 session_start();
     require_once 'config.php'; // On inclu la connexion à la bdd
+    echo $_POST;
+    echo $_POST['email'];
+    echo $_POST['password'];
+    echo $_POST['confirm_password'];
     echo "a";
     // Si les variables existent et qu'elles ne sont pas vides
-    if(!empty($_POST))
+    if(!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirm_password']))
     {
-        extract($_POST);
-        echo $_POST['pseudo'];
-        echo $_POST['email'];
-        echo $_POST['password'];
-        echo $_POST['confirm_password'];
         echo "ha";
         // Patch XSS
         $pseudo = htmlspecialchars($_POST['pseudo']);
