@@ -888,7 +888,7 @@ class mapGame extends Phaser.Scene
         
         redping.on('clicked', this.redClickHandler);
         redping2.on('clicked', this.redClickHandler2);
-        redping3.on('clicked', this.redClickHandler3);d
+        redping3.on('clicked', this.redClickHandler3);
         greenping.on('clicked', this.greenClickHandler);
         greenping2.on('clicked', this.greenClickHandler2);
         greenping3.on('clicked', this.greenClickHandler3);

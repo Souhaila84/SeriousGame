@@ -61,28 +61,28 @@ BEGINNING OF BUTTONS STYLING
 
 /*Buttons Style*/
 .loginbutton {
-  align-items: center;
-  background-color: #c4cbd8;
-  border-radius: 100px;
-  border-width: 0;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-flex;
-  font-size: 1vw;
-  height: auto;
-  justify-content: center;
-  line-height: 1.5vw;
-  padding: 0.5vw 0.8vw;
-  position: relative;
-  text-align: center;
-  user-select: none;
-  -webkit-user-select: none;
-  vertical-align: top;
-  margin-left: auto;
-  margin-right: 1vw;
-  margin-top: 0.8vw;
-  margin-bottom: 0.7vw;
+    align-items: center;
+    background-color: #c4cbd8;
+    border-radius: 100px;
+    border-width: 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 1vw;
+    height: auto;
+    justify-content: center;
+    line-height: 1.5vw;
+    padding: 0.5vw 0.8vw;
+    position: relative;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: top;
+    margin-left: auto;
+    margin-right: 1vw;
+    margin-top: 0.8vw;
+    margin-bottom: 0.7vw;
 }
 
 .loginbutton a {
@@ -92,7 +92,7 @@ BEGINNING OF BUTTONS STYLING
 
 .loginbutton:hover {
     background-color: #fff;
-    color: #c4cbd8;
+    color: #5f687c;
 }
 
 /*

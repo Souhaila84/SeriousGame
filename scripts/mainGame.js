@@ -12,7 +12,7 @@ import {gapFill,rulesGapFill} from "./gapFill.js"
 import {rulesMap, victoryScreenMap, tryAgainScreenMap, mapGame} from "./mapGame.js"
 import {rulesHiddenObjects,hiddenObjects, victoryScreenHiddenObjects} from "./hiddenobjects.js"
 import {translateGame, translateGameRules, victoryScreentranslateGame} from "./translateGame.js"
-import {rulesFindTheMurderer, instructionsForTheMurdererGame , findTheMurdererGame,victoryScreenFindTheMurderer} from "./findTheMurdererGame.js"
+import {rulesFindTheMurderer, instructionsForTheMurdererGame , findTheMurdererGame, guessTheMurderer,victoryScreenFindTheMurderer} from "./findTheMurdererGame.js"
 
 /**
 * The config of the game wich call all scenes and set the canva size at 800x600
@@ -24,7 +24,7 @@ const config = {
     parent: 'game',
     width: 800,
     height: 600,
-    scene: [startMenu,rulesGapFill,gapFill,rulesMap,mapGame,tryAgainScreenMap,victoryScreenMap, rulesHiddenObjects, hiddenObjects, victoryScreenHiddenObjects, translateGameRules, translateGame,victoryScreentranslateGame, rulesFindTheMurderer, instructionsForTheMurdererGame, findTheMurdererGame, victoryScreenFindTheMurderer]
+    scene: [startMenu,rulesGapFill,gapFill,rulesMap,mapGame,tryAgainScreenMap,victoryScreenMap, rulesHiddenObjects, hiddenObjects, victoryScreenHiddenObjects, translateGameRules, translateGame,victoryScreentranslateGame, rulesFindTheMurderer, instructionsForTheMurdererGame, findTheMurdererGame, guessTheMurderer,victoryScreenFindTheMurderer]
 };
 /**
 * The Phaser.Game object of this game. It's the script which turn in the html page

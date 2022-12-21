@@ -1,4 +1,4 @@
-export {rulesFindTheMurderer,instructionsForTheMurdererGame ,findTheMurdererGame,victoryScreenFindTheMurderer}; 
+export {rulesFindTheMurderer,instructionsForTheMurdererGame ,findTheMurdererGame ,guessTheMurderer ,victoryScreenFindTheMurderer,}; 
 
 //Rules screen 
 class rulesFindTheMurderer extends Phaser.Scene {
@@ -82,7 +82,7 @@ class instructionsForTheMurdererGame extends Phaser.Scene {
         var playButtonCircle = this.add.circle (0,0,23,0x032d3d, 0.8);
         playButtonCircle.setName("playButtonCircle");
         
-        var playButtonContainer = this.add.container(400,435,[playButtonCircle ,playButtonImg]);
+        var playButtonContainer = this.add.container(400,425,[playButtonCircle ,playButtonImg]);
         playButtonContainer.setInteractive(new Phaser.Geom.Circle(400,450,23), Phaser.Geom.Circle.Contains);
         playButtonContainer.setName("playButtonContainer");   
         
@@ -96,7 +96,7 @@ class instructionsForTheMurdererGame extends Phaser.Scene {
         var instructionsRectStyle = this.add.rectangle(0,0,525,250);
         instructionsRectStyle.setStrokeStyle(2,0x000000);
         
-        var instructionsContainer = this.add.container(400,250,[instructionsRect ,instructionsText,instructionsText2,instructionsRectStyle]);
+        var instructionsContainer = this.add.container(400,215,[instructionsRect ,instructionsText,instructionsText2,instructionsRectStyle]);
         instructionsContainer.setInteractive(new Phaser.Geom.Rectangle(-250,-125,525,250), Phaser.Geom.Rectangle.Contains);
         instructionsContainer.setName("instructionsContainer");   
         
@@ -116,13 +116,13 @@ class instructionsForTheMurdererGame extends Phaser.Scene {
             this.scene.scene.start('findTheMurdererGame');
         });
         
-        iGotItContainer.on('pointerover', function() {
-            iGotItRect.setFillStyle(0x356c18,0.8)
-        });
-        
-        iGotItContainer.on('pointerout', function() {
-            iGotItRect.setFillStyle(0x032d3d,0.8)
-        });
+            iGotItContainer.on('pointerover', function() {
+                iGotItRect.setFillStyle(0x356c18,0.8)
+            });
+
+            iGotItContainer.on('pointerout', function() {
+                iGotItRect.setFillStyle(0x032d3d,0.8)
+            });
         
     }   
     
@@ -143,15 +143,161 @@ class findTheMurdererGame extends Phaser.Scene {
         preload() 
         {
             this.load.image("witessInterrogation","../images/game/background/witnessinterrogation1.2.png");
+            this.load.image("playButton","../images/playbutton.png");
+            this.load.image("pauseButton","../images/pausebutton.png");
         }
 
         create() {
             var witnessInterogation = this.add.image(400,300, 'witessInterrogation');
+            
+            //creating the playbutton container.
+            var playButtonImg2 = this.add.image(400,435, 'playButton');
+            var playButtonCircle2 = this.add.circle (400,435,23,0x032d3d, 0.8);
+            playButtonCircle2.setName("playButtonCircle2");
+
+            var playButtonContainer2 = this.add.container(0,-50,[playButtonCircle2 ,playButtonImg2]);
+            playButtonContainer2.setInteractive(new Phaser.Geom.Circle(400,435,23), Phaser.Geom.Circle.Contains);
+            playButtonContainer2.setName("playButtonContainer2");
+            
+            //creating the pausebutton container.
+            var pauseButtonImg = this.add.image(400,435, 'pauseButton');
+            var pauseButtonCircle = this.add.circle (400,435,23,0x032d3d, 0.8);
+            pauseButtonCircle.setName("pauseButtonCircle");
+
+            var pauseButtonContainer = this.add.container(0,-50,[pauseButtonCircle ,pauseButtonImg]);
+            pauseButtonContainer.setInteractive(new Phaser.Geom.Circle(400,435,23), Phaser.Geom.Circle.Contains);
+            pauseButtonContainer.setName("pauseButtonContaine");
+            
+            pauseButtonContainer.visible = false;
+            
+            
+            playButtonContainer2.on('pointerdown', function() {
+                playButtonContainer2.visible = false;
+                pauseButtonContainer.visible = true;
+                //ici mettre la voix qui décrit le/la meurtrier/e
+            })
+            
+            playButtonContainer2.on('pointerover', function() {
+                playButtonCircle2.setFillStyle(0x356c18, 0.8)
+            });
+            
+            playButtonContainer2.on('pointerout', function() {
+                playButtonCircle2.setFillStyle(0x032d3d, 0.8)
+            });
+            
+            pauseButtonContainer.on('pointerdown', function() {
+                playButtonContainer2.visible = true;
+                pauseButtonContainer.visible = false;
+                //ici stopper la voix du mec qui parle 
+            })
+            
+            pauseButtonContainer.on('pointerover', function() {
+                pauseButtonCircle.setFillStyle(0x356c18, 0.8)
+            });
+            
+            pauseButtonContainer.on('pointerout', function() {
+                pauseButtonCircle.setFillStyle(0x032d3d, 0.8)
+            });
+        
+        
+            var findMurdererText = this.add.text(-189,-16, "Lets find who is the murderer !",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
+            var findMurdererRect = this.add.rectangle(0,0,410,50,0x032d3d, 0.8);
+            findMurdererText.setTint(0xc2baac);
+            findMurdererRect.setName("findMurdererRect");
+            var findMurdererRectStyle = this.add.rectangle(0,0,410,50);
+            findMurdererRectStyle.setStrokeStyle(2,0x000000);
+
+            var findMurdererContainer = this.add.container(400,520,[findMurdererRect ,findMurdererText,findMurdererRectStyle]);
+            findMurdererContainer.setInteractive(new Phaser.Geom.Rectangle(-205,-25,410,50), Phaser.Geom.Rectangle.Contains);
+            findMurdererContainer.setName("findMurdererContainer");   
+             
+            findMurdererContainer.on("pointerdown", function(){
+            this.scene.scene.start('guessTheMurderer');
+            });
+        
+            findMurdererContainer.on('pointerover', function() {
+                findMurdererRect.setFillStyle(0x356c18,0.8)
+            });
+
+            findMurdererContainer.on('pointerout', function() {
+                findMurdererRect.setFillStyle(0x032d3d,0.8)
+            });
+            
+            var listenInstructionsText = this.add.text(-190,-40, "Click on the button to listen the \nwitness, you can tell him to stop at \nany time",{ fontSize : 24 , fontFamily: 'Georgia, Times, serif'});
+            var listenInstructionsRect = this.add.rectangle(0,0,400, 100,0x032d3d, 0.8);
+            listenInstructionsText.setTint(0xc2baac);
+            listenInstructionsRect.setName("listenInstructionsRect");
+            var listenInstructionsRectStyle = this.add.rectangle(0,0,400, 100);
+            listenInstructionsRectStyle.setStrokeStyle(2,0x000000);
+            
+            var listenInstructionsContainer = this.add.container(400,100, [listenInstructionsRect, listenInstructionsText, listenInstructionsRectStyle]);
+            listenInstructionsContainer.setInteractive(new Phaser.Geom.Rectangle(-250,-50,400,100), Phaser.Geom.Rectangle.Contains);
+            listenInstructionsContainer.setName("findMurdererContainer");
         }
 
         update() {
             // Used to update your game. This function runs constantly
         }
+}
+
+
+//GuessTheMurderer Screen Scene 
+class guessTheMurderer extends Phaser.Scene {
+
+    constructor () {
+        super('guessTheMurderer');
+    }
+
+    preload() {
+        this.load.image("guessTheMurdererScreen","../images/game/background/findTheMurdererBackground.jpg");
+        this.load.image("firstSuspect","../images/yellowpepper.png");
+        this.load.image("secondSuspect","../images/radish.png");
+        this.load.image("thirdSuspect","../images/broccoli.png");
+        this.load.image("fourthSuspect","../images/eggplant.png");
+        this.load.image("leftarrow","../images/leftarrow.png");
+        this.load.image("rightarrow","../images/rightarrow.png");
+    }
+
+    create() {
+        
+        //adding the background
+        var guessTheMurdererscreen = this.add.image(400,300, 'guessTheMurdererScreen');
+        
+        //adding the victory container
+        var guessTheMurdererText = this.add.text(-240,-40, "Remember the description that the witness gave\nyou ? Now we need to find the murderer between \nthese four suspects !",{ fontSize : 22 , fontFamily: 'Georgia, Times, serif'});
+        var guessTheMurdererRect = this.add.rectangle(0,0,500,100,0x032d3d, 0.85);
+        guessTheMurdererText.setTint(0xc2baac);
+        guessTheMurdererRect.setName("guessTheMurdererRect");
+        var guessTheMurdererRectStyle = this.add.rectangle(0,0,500,100);
+        guessTheMurdererRectStyle.setStrokeStyle(2,0x000000);
+        
+        var guessTheMurdererContainer = this.add.container(400,100,[guessTheMurdererRect ,guessTheMurdererText,guessTheMurdererRectStyle]);
+        guessTheMurdererContainer.setInteractive(new Phaser.Geom.Rectangle(-250,-75,500,150), Phaser.Geom.Rectangle.Contains);
+        guessTheMurdererContainer.setName("guessTheMurdererContainer");
+        
+        
+        var firstSuspect = this.add.image(400,450, 'firstSuspect');
+        firstSuspect.setName("firstSuspect");
+        var secondSuspect = this.add.image(400,450, 'secondSuspect');
+        secondSuspect.setName("secondSuspect");
+        var thirdSuspect = this.add.image(400,450, 'thirdSuspect');
+        thirdSuspect.setName("thirdSuspect");
+        var fourthSuspect = this.add.image(400,450, 'fourthSuspect');
+        fourthSuspect.setName("fourthSuspect");
+        
+        var leftArrow = this.add.image(200,450, 'leftarrow');
+        var rightArrow = this.add.image(600,450, 'rightarrow');
+        
+        this.children.getByName("secondSuspect").visible = false;
+        this.children.getByName("thirdSuspect").visible = false;
+        this.children.getByName("fourthSuspect").visible = false;
+        
+    }
+
+    update() {
+        // Used to update your game. This function runs constantly
+    }
+    
 }
 
 
