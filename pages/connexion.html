@@ -9,7 +9,6 @@
    <title>Marcel Roquette</title>
  </head>
  <body>
-  <form action="../php/connexionn.php" method="post" class="inscription">
     <nav class="sticky">
            <ul id="nav">
           <li><a id="home" href="/Home.html">Accueil</a></li>
@@ -20,19 +19,23 @@
            </ul>   
        </nav>
     <div id="connect">
-        <h3>Se connecter</h3> <!--Connexion-->
-        <input type="email" placeholder="E-MAIL">
-        <input type="password" placeholder="MOT DE PASSE">
-        <button class="boutonlog" type="submit">CONNEXION</button>
+        <form action="../php/login.php" method="post" class="inscription">
+            <h3>Se connecter</h3> <!--Connexion-->
+            <input type="email" placeholder="E-MAIL">
+            <input type="password" placeholder="MOT DE PASSE">
+            <button class="boutonlog" type="submit">CONNEXION</button>
+        </form>
         <p>SI VOUS N'AVEZ PAS ENCORE DE COMPTE, VOUS POUVEZ EN CREER UN CI-DESSOUS. <!--texte listant raisons de s'inscrire-->
         <br>EN VOUS INSCRIVANT, VOUS POUVEZ SAUVEGARDER VOTRE 
         <br>PROGESSION ET AJOUTER DES COMMENTAIRES</p>
         <h3>S'inscrire</h3> <!--Inscription-->
-        <input type="email" id="email" placeholder="E-MAIL">
-        <input type="password" id="password" placeholder="MOT DE PASSE">
-        <input type="password" id="confirm_password" placeholder="CONFIRMER MOT DE PASSE">
-        <input type="text" id="pseudo" placeholder="PSEUDO">
-        <button class="boutonlog" type="submit">S'INSCRIRE</button>
+        <form action="../php/register.php" method="post" class="inscription">
+            <input type="email" id="email" placeholder="E-MAIL">
+            <input type="password" id="password" placeholder="MOT DE PASSE">
+            <input type="password" id="confirm_password" placeholder="CONFIRMER MOT DE PASSE">
+            <input type="text" id="pseudo" placeholder="PSEUDO">
+            <button class="boutonlog" type="submit">S'INSCRIRE</button>
+        </form>
   </div>
        <div id="footer">
                 <ul id="footer">

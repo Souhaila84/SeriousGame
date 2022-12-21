@@ -11,7 +11,7 @@
         $email = strtolower($email); // email transformé en minuscule
         
         // On regarde si l'utilisateur est inscrit dans la table utilisateurs
-        $check = $bdd->prepare('SELECT pseudo, email, password, token FROM user WHERE email = ?');
+        $check = $bdd->prepare('SELECT pseudo, email, password, token FROM users WHERE email = ?');
         $check->execute(array($email));
         $data = $check->fetch();
         $row = $check->rowCount();
@@ -31,7 +31,7 @@
                     $_SESSION['user'] = $data['token'];
                     header('Location: landing.php');
                     die();
-                }else{ header('Location: index.php?login_err=password'); die(); }
-            }else{ header('Location: index.php?login_err=email'); die(); }
-        }else{ header('Location: index.php?login_err=already'); die(); }
-    }else{ header('Location: index.php'); die();} // si le formulaire est envoyé sans aucune donnée
+                }else{ header('Location: login.php?login_err=password'); die(); }
+            }else{ header('Location: login.php?login_err=email'); die(); }
+        }else{ header('Location: login.php?login_err=already'); die(); }
+    }else{ header('Location: login.php'); die();} // si le formulaire est envoyé sans aucune donnée

@@ -1,9 +1,16 @@
 <?php 
+session_start();
     require_once 'config.php'; // On inclu la connexion à la bdd
-
+    echo "a";
     // Si les variables existent et qu'elles ne sont pas vides
-    if(!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirm_password']))
+    if(!empty($_POST))
     {
+        extract($_POST);
+        echo $_POST['pseudo'];
+        echo $_POST['email'];
+        echo $_POST['password'];
+        echo $_POST['confirm_password'];
+        echo "ha";
         // Patch XSS
         $pseudo = htmlspecialchars($_POST['pseudo']);
         $email = htmlspecialchars($_POST['email']);
@@ -11,7 +18,7 @@
         $password_retype = htmlspecialchars($_POST['confirm_password']);
 
         // On vérifie si l'utilisateur existe
-        $check = $bdd->prepare('SELECT pseudo, email, password FROM user WHERE email = ?');
+        $check = $bdd->prepare('SELECT pseudo, email, password FROM users WHERE email = ?');
         $check->execute(array($email));
         $data = $check->fetch();
         $row = $check->rowCount();
@@ -24,7 +31,7 @@
                 if(strlen($email) <= 100){ // On verifie que la longueur du mail <= 100
                     if(filter_var($email, FILTER_VALIDATE_EMAIL)){ // Si l'email est de la bonne forme
                         if($password === $confirm_password){ // si les deux mdp saisis sont bon
-
+                            echo "haaaaa";
                             // On hash le mot de passe avec Bcrypt, via un coût de 12
                             $cost = ['cost' => 12];
                             $password = password_hash($password, PASSWORD_BCRYPT, $cost);
@@ -38,7 +45,7 @@
                               ATTENTION
                             */
                             // On insère dans la base de données
-                            $insert = $bdd->prepare('INSERT INTO user(pseudo, email, password, token) VALUES(:pseudo, :email, :password, :token)');
+                            $insert = $bdd->prepare('INSERT INTO users(pseudo, email, password, token) VALUES(:pseudo, :email, :password, :token)');
                             $insert->execute(array(
                                 'pseudo' => $pseudo,
                                 'email' => $email,
@@ -48,9 +55,9 @@
                             // On redirige avec le message de succès
                             header('Location:inscription.php?reg_err=success');
                             die();
-                        }else{ header('Location: inscription.php?reg_err=password'); die();}
-                    }else{ header('Location: inscription.php?reg_err=email'); die();}
-                }else{ header('Location: inscription.php?reg_err=email_length'); die();}
-            }else{ header('Location: inscription.php?reg_err=pseudo_length'); die();}
-        }else{ header('Location: inscription.php?reg_err=already'); die();}
+                        }else{ header('Location: register.php?reg_err=password'); die();}
+                    }else{ header('Location: register.php?reg_err=email'); die();}
+                }else{ header('Location: register.php?reg_err=email_length'); die();}
+            }else{ header('Location: register.php?reg_err=pseudo_length'); die();}
+        }else{ header('Location: register.php?reg_err=already'); die();}
     }
