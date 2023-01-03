@@ -1,14 +1,15 @@
 <?php 
-    require_once 'config.php'; // On inclu la connexion à la bdd
-    //session_start();
+
     echo $_POST;
     print_r($_POST);
-    echo $_POST['email'];
-    echo $_POST['password'];
-    echo $_POST['confirm_password'];
+    $pseudo = $_POST['pseudo'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
     // Si les variables existent et qu'elles ne sont pas vides
     if(isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['confirm_password']) )
     {
+        include 'config.php'; // On inclu la connexion à la bdd
         // Patch XSS
         $pseudo = htmlspecialchars($_POST['pseudo']);
         $email = htmlspecialchars($_POST['email']);
@@ -59,4 +60,6 @@
             }else{ header('Location: register.php?reg_err=pseudo_length'); die();}
         }else{ header('Location: register.php?reg_err=already'); die();}
     }
-echo "b";
+    echo "b";
+
+?>
