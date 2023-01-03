@@ -1,4 +1,4 @@
-export {rulesFindTheMurderer,instructionsForTheMurdererGame ,findTheMurdererGame ,guessTheMurderer ,victoryScreenFindTheMurderer,}; 
+export {rulesFindTheMurderer,instructionsForTheMurdererGame ,findTheMurdererGame ,guessTheMurderer ,victoryScreenFindTheMurderer,youLooseToFindTheMurderer}; 
 
 var suspectNumber = 0;
 var proposalNumber = 0;
@@ -360,29 +360,29 @@ class guessTheMurderer extends Phaser.Scene {
         })
         
         var confirmText = this.add.text(-126,-16, "Confirm your choice",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
-            var confirmRect = this.add.rectangle(0,0,300,50,0x032d3d, 0.8);
-            confirmText.setTint(0xc2baac);
-            confirmRect.setName("findMurdererRect");
-            var confirmRectStyle = this.add.rectangle(0,0,300,50);
-            confirmRectStyle.setStrokeStyle(2,0x000000);
+        var confirmRect = this.add.rectangle(0,0,300,50,0x032d3d, 0.8);
+        confirmText.setTint(0xc2baac);
+        confirmRect.setName("findMurdererRect");
+        var confirmRectStyle = this.add.rectangle(0,0,300,50);
+        confirmRectStyle.setStrokeStyle(2,0x000000);
 
-            var confirmContainer = this.add.container(400,520,[confirmRect ,confirmText,confirmRectStyle]);
-            confirmContainer.setInteractive(new Phaser.Geom.Rectangle(-150,-25,300,50), Phaser.Geom.Rectangle.Contains);
-            confirmContainer.setName("confirmContainer");   
-        
-            confirmContainer.on('pointerover', function() {
-                confirmRect.setFillStyle(0x356c18,0.8)
-            });
+        var confirmContainer = this.add.container(400,520,[confirmRect ,confirmText,confirmRectStyle]);
+        confirmContainer.setInteractive(new Phaser.Geom.Rectangle(-150,-25,300,50), Phaser.Geom.Rectangle.Contains);
+        confirmContainer.setName("confirmContainer");   
 
-            confirmContainer.on('pointerout', function() {
-                confirmRect.setFillStyle(0x032d3d,0.8)
-            });
-        
-            confirmContainer.on('pointerdown', function(){
-            if(suspectNumber == 0 && proposalNumber == 0 || suspectNumber == 1 && proposalNumber == 1 || suspectNumber == 2 && proposalNumber == 2 || suspectNumber == 3 && proposalNumber == 3)
-                this.scene.scene.start('victoryScreenFindTheMurderer');
-            else 
-                this.scene.scene.start('YouLooseToFindTheMurderer');
+        confirmContainer.on('pointerover', function() {
+            confirmRect.setFillStyle(0x356c18,0.8)
+        });
+
+        confirmContainer.on('pointerout', function() {
+            confirmRect.setFillStyle(0x032d3d,0.8)
+        });
+
+        confirmContainer.on('pointerdown', function(){
+        if(suspectNumber == 0 && proposalNumber == 0 || suspectNumber == 1 && proposalNumber == 1 || suspectNumber == 2 && proposalNumber == 2 || suspectNumber == 3 && proposalNumber == 3)
+            this.scene.scene.start('victoryScreenFindTheMurderer');
+        else 
+            this.scene.scene.start('youLooseToFindTheMurderer');
         });
 
     }
@@ -425,16 +425,18 @@ class victoryScreenFindTheMurderer extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image("victoryScreen","../images/game/background/victoryScreen.jpg");
+        this.load.image("victoryFindtheMurderer","../images/game/background/victoryScreentranslateGameBackground.jpg");
+        this.load.image("detectiveTranslate","../images/game/detective1.png");
     }
 
     create() {
     
         //adding the background
-        var victoryScreen = this.add.image(400,300, 'victoryScreen');
+        var victoryScreen = this.add.image(400,300,'victoryFindtheMurderer');
+        var detective = this.add.image(300,420,"detectiveTranslate");
         
         //adding the victory container
-        var victoryText = this.add.text(-220,-40, "Incredible ! You found the correct house !\n\n   We need to investigate the inside now.",{ fontSize : 24 , fontFamily: 'Georgia, Times, serif'});
+        var victoryText = this.add.text(-220,-65, "Great job ! you found the murderer. You are a\n\ngreat assistant, come see me again whenever\n\nyou like to help me in my investigations !",{ fontSize : 22 , fontFamily: 'Georgia, Times, serif'});
         var victoryRect = this.add.rectangle(0,0,500,150,0x032d3d, 0.85);
         victoryText.setTint(0xc2baac);
         victoryRect.setName("victoryRect");
@@ -443,12 +445,72 @@ class victoryScreenFindTheMurderer extends Phaser.Scene {
         
         var victoryContainer = this.add.container(400,250,[victoryRect ,victoryText,victoryRectStyle]);
         victoryContainer.setInteractive(new Phaser.Geom.Rectangle(-250,-75,500,150), Phaser.Geom.Rectangle.Contains);
-        victoryContainer.setName("victoryContainer");   
+        victoryContainer.setName("victoryContainer");
+        
+        var finishText = this.add.text(-100,-16, "Go back home...",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
+        var finishRect = this.add.rectangle(0,0,250,50,0x032d3d, 0.8);
+        finishText.setTint(0xc2baac);
+        finishRect.setName("findMurdererRect");
+        var finishRectStyle = this.add.rectangle(0,0,250,50);
+        finishRectStyle.setStrokeStyle(2,0x000000);
+
+        var finishContainer = this.add.container(400,520,[finishRect ,finishText,finishRectStyle]);
+        finishContainer.setInteractive(new Phaser.Geom.Rectangle(-125,-25,250,50), Phaser.Geom.Rectangle.Contains);
+        finishContainer.setName("finishContainer");   
+
+        finishContainer.on('pointerover', function() {
+            finishRect.setFillStyle(0x356c18,0.8)
+        });
+
+        finishContainer.on('pointerout', function() {
+            finishRect.setFillStyle(0x032d3d,0.8)
+        });
         
     }
 
     update() {
         // Used to update your game. This function runs constantly
     }
+    
+    
+    
+}
+
+class youLooseToFindTheMurderer extends Phaser.Scene {
+
+    constructor () {
+        super('youLooseToFindTheMurderer');
+    }
+
+    preload() {
+        this.load.image("youLooseToFindTheMurdererScreen","../images/game/background/youLooseToFindTheMurderer.jpg");
+        this.load.image("detectiveTranslate","../images/game/detective1.png");
+    }
+
+    create() {
+    
+        //adding the background
+        var youLoose = this.add.image(400,300,'youLooseToFindTheMurdererScreen'); 
+        var detective = this.add.image(300,420,"detectiveTranslate");
+
+        
+        var youLooseText = this.add.text(-220,-65, "Unfortunately... this was not the person that \n\nwe were looking for... It was great to investigate \n\nwith you but I have to leave.",{ fontSize : 22 , fontFamily: 'Georgia, Times, serif'});
+        var youLooseRect = this.add.rectangle(0,0,500,150,0x555555, 0.85);
+        youLooseText.setTint(0xc2baac);
+        youLooseRect.setName("victoryRect");
+        var youLooseRectStyle = this.add.rectangle(0,0,500,150);
+        youLooseRectStyle.setStrokeStyle(2,0x000000);
+        
+        var youLooseContainer = this.add.container(400,250,[youLooseRect ,youLooseText,youLooseRectStyle]);
+        youLooseContainer.setInteractive(new Phaser.Geom.Rectangle(-250,-75,500,150), Phaser.Geom.Rectangle.Contains);
+        youLooseContainer.setName("youLooseContainer");
+    
+    }
+
+    update() {
+        // Used to update your game. This function runs constantly
+    }
+    
+    
     
 }
