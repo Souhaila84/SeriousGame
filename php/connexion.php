@@ -18,42 +18,8 @@
           <li><a id="about us" href="/pages/About_us.html">A propos</a></li>
           <button class="loginbutton" role="button">CONNEXION</button>
            </ul>   
-       </nav>
-    <div id="connect">
-        <form action="../php/login.php" method="post">
-            <h3>Se connecter</h3> <!--Connexion-->
-            <input name="email" type="email" placeholder="E-MAIL">
-            <input name="password" type="password" placeholder="MOT DE PASSE">
-            <button class="boutonlog" type="submit">CONNEXION</button>
-        </form>
-        <p>SI VOUS N\'AVEZ PAS ENCORE DE COMPTE, VOUS POUVEZ EN CREER UN CI-DESSOUS. <!--texte listant raisons de s\'inscrire-->
-        <br>EN VOUS INSCRIVANT, VOUS POUVEZ SAUVEGARDER VOTRE 
-        <br>PROGESSION ET AJOUTER DES COMMENTAIRES</p>
-        <h3>S\'inscrire</h3> <!--Inscription-->
-        <form action="../php/register.php" method="post" class="inscription">
-            <input type="email" name="email" id="email" placeholder="E-MAIL">
-            <input type="password" name="password" id="password" placeholder="MOT DE PASSE">
-            <input type="password" name="confirm_password" id="confirm_password" placeholder="CONFIRMER MOT DE PASSE">
-            <input type="text" name="pseudo" placeholder="PSEUDO">
-            <input type="submit" value="S\'INSCRIRE" class="boutonlog">
-        </form>
-  </div>
-       <div id="footer">
-                <ul id="footer">
-              <li><a id="legal_terms" href="#">Mentions légales</a></li>
-              <li><p class="pipe"> | </p></li>
-              <li><a id="about us_bot" href="#">A propos</a></li>
-              <li><p class="pipe"> | </p></li>
-              <li><a id="utilisations conditions" href="#">Conidtions d\'utilisation</a></li>
-              <li><p class="pipe"> | </p></li>
-              <li><a id="Contact" href="#">Contact</a></li> 
-                </ul>
-            </div>
-        <div id="legals_terms">
-            <li><a>Copyright © 2022 LorenIpsum Inc. Tous droits réservés.</a></li>
-        </div>
-    </body>';
-        
+    </nav>';
+
     if (isset($_GET["reg_err"])){
         switch ($_GET["reg_err"]) {
             case "succes" :
@@ -127,5 +93,41 @@
                 break;
         }
     }
+
+    
+    echo '<div id="connect">
+            <form action="../php/login.php" method="post">
+                <h3>Se connecter</h3> <!--Connexion-->
+                <input name="email" type="email" placeholder="E-MAIL">
+                <input name="password" type="password" placeholder="MOT DE PASSE">
+                <button class="boutonlog" type="submit">CONNEXION</button>
+            </form>
+            <p>SI VOUS N\'AVEZ PAS ENCORE DE COMPTE, VOUS POUVEZ EN CREER UN CI-DESSOUS. <!--texte listant raisons de s\'inscrire-->
+            <br>EN VOUS INSCRIVANT, VOUS POUVEZ SAUVEGARDER VOTRE 
+            <br>PROGESSION ET AJOUTER DES COMMENTAIRES</p>
+            <h3>S\'inscrire</h3> <!--Inscription-->
+            <form action="../php/register.php" method="post" class="inscription">
+                <input type="email" name="email" id="email" placeholder="E-MAIL">
+                <input type="password" name="password" id="password" placeholder="MOT DE PASSE">
+                <input type="password" name="confirm_password" id="confirm_password" placeholder="CONFIRMER MOT DE PASSE">
+                <input type="text" name="pseudo" placeholder="PSEUDO">
+                <input type="submit" value="S\'INSCRIRE" class="boutonlog">
+            </form>
+      </div>
+           <div id="footer">
+                    <ul id="footer">
+                  <li><a id="legal_terms" href="#">Mentions légales</a></li>
+                  <li><p class="pipe"> | </p></li>
+                  <li><a id="about us_bot" href="#">A propos</a></li>
+                  <li><p class="pipe"> | </p></li>
+                  <li><a id="utilisations conditions" href="#">Conidtions d\'utilisation</a></li>
+                  <li><p class="pipe"> | </p></li>
+                  <li><a id="Contact" href="#">Contact</a></li> 
+                    </ul>
+                </div>
+            <div id="legals_terms">
+            <li><a>Copyright © 2022 LorenIpsum Inc. Tous droits réservés.</a></li>
+        </div>
+    </body>';
 ?>
 

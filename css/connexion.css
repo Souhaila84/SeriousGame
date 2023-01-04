@@ -11,6 +11,9 @@ body {
     text-align: justify;
     font-size: 13px;
     background-color:#fff;
+    
+    display: flex;
+    flex-direction : column;
 }
 
 
@@ -71,6 +74,10 @@ h3{ /*titre connexion et inscription*/
     padding: 1vw;
     font-size: 2vw;
     text-align: center;
+    
+    display: flex;
+    align-self : center;
+    flex-direction : row;
 }
 
 .alert-sucess {
@@ -80,4 +87,8 @@ h3{ /*titre connexion et inscription*/
     padding: 1vw;
     font-size: 2vw;
     text-align: center;
+    
+    display: flex;
+    align-self : center;
+    flex-direction : row;
 }
