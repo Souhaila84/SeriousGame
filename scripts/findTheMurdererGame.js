@@ -22,7 +22,7 @@ class rulesFindTheMurderer extends Phaser.Scene {
         
         //adding start container to the rules screen
         
-        var startText = this.add.text(-38,-18, "Start !",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
+        var startText = this.add.text(-38,-17, "Start !",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
         var startRect = this.add.rectangle(0,0,200,50,0x7b6c4f, 0.8);
         startText.setTint(0xc2baac);
 
@@ -104,7 +104,7 @@ class instructionsForTheMurdererGame extends Phaser.Scene {
         instructionsContainer.setName("instructionsContainer");   
         
         //creating the IGotIt container 
-        var iGotItText = this.add.text(-43,-18, "Got it !",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
+        var iGotItText = this.add.text(-43,-16, "Got it !",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
         var iGotItRect = this.add.rectangle(0,0,200,50,0x032d3d, 0.8);
         iGotItText.setTint(0xc2baac);
         iGotItRect.setName("iGotItRect");
