@@ -927,7 +927,7 @@ class mapGame extends Phaser.Scene
                     advertContainer.visible = false;
                 }
                 else if (redping.visible && redping2.visible && redping3.visible) {
-                    advertContainer2.visible = true;
+                    advertContainer2.visible = true;    
                     await sleep(2500);
                     advertContainer2.visible = false;
                 }
