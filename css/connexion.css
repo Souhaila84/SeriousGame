@@ -80,7 +80,7 @@ h3{ /*titre connexion et inscription*/
     flex-direction : row;
 }
 
-.alert-sucess {
+.alert-success {
     background-color: #d4edda;
     color: #8d9f75;
     margin-top: 1.7vw;
