@@ -131,7 +131,7 @@ class instructionsForTheMurdererGame extends Phaser.Scene {
     
     update() 
     {
-        
+        // Used to update your game. This function runs constantly
     }
 }
 
@@ -384,7 +384,6 @@ class guessTheMurderer extends Phaser.Scene {
         else 
             this.scene.scene.start('youLooseToFindTheMurderer');
         });
-
     }
 
     update() {
@@ -466,14 +465,14 @@ class victoryScreenFindTheMurderer extends Phaser.Scene {
             finishRect.setFillStyle(0x032d3d,0.8)
         });
         
+        finishContainer.on('pointerdown', function() {
+            this.scene.scene.start('timeRankingPage');
+        }); 
     }
 
     update() {
         // Used to update your game. This function runs constantly
-    }
-    
-    
-    
+    } 
 }
 
 class youLooseToFindTheMurderer extends Phaser.Scene {
@@ -497,14 +496,37 @@ class youLooseToFindTheMurderer extends Phaser.Scene {
         var youLooseText = this.add.text(-220,-65, "Unfortunately... this was not the person that \n\nwe were looking for... It was great to investigate \n\nwith you but I have to leave.",{ fontSize : 22 , fontFamily: 'Georgia, Times, serif'});
         var youLooseRect = this.add.rectangle(0,0,500,150,0x555555, 0.85);
         youLooseText.setTint(0xc2baac);
-        youLooseRect.setName("victoryRect");
+        youLooseRect.setName("youLooseRect");
         var youLooseRectStyle = this.add.rectangle(0,0,500,150);
         youLooseRectStyle.setStrokeStyle(2,0x000000);
         
         var youLooseContainer = this.add.container(400,250,[youLooseRect ,youLooseText,youLooseRectStyle]);
         youLooseContainer.setInteractive(new Phaser.Geom.Rectangle(-250,-75,500,150), Phaser.Geom.Rectangle.Contains);
         youLooseContainer.setName("youLooseContainer");
-    
+        
+        
+        var finishLooseText = this.add.text(-60,-16, "Try Again",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
+        var finishLooseRect = this.add.rectangle(0,0,200,50,0x555555, 0.8);
+        finishLooseText.setTint(0xc2baac);
+        finishLooseRect.setName("finishLooseRect");
+        var finishLooseRectStyle = this.add.rectangle(0,0,200,50);
+        finishLooseRectStyle.setStrokeStyle(2,0x000000);
+
+        var finishLooseContainer = this.add.container(400,520,[finishLooseRect ,finishLooseText,finishLooseRectStyle]);
+        finishLooseContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
+        finishLooseContainer.setName("finishLooseContainer");
+        
+        finishLooseContainer.on('pointerover', function() {
+            finishLooseRect.setFillStyle(0x888888,0.8)
+        });
+
+        finishLooseContainer.on('pointerout', function() {
+            finishLooseRect.setFillStyle(0x555555,0.8)
+        });
+
+        finishLooseContainer.on('pointerdown', function() {
+            this.scene.scene.start('instructionsForTheMurdererGame');
+        });
     }
 
     update() {
