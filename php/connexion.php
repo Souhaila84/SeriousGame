@@ -25,42 +25,42 @@
             case "succes" :
                 echo ' 
                 <div class="alert-success">
-                <strong>Success!</strong> Your account is created. 
+                <strong>Bravo!</strong> Votre compte a bien été créé.
                 </div> 
                 </html>';
                 break;
             case "password" :
                 echo ' 
                 <div class="alert-warning">
-                <strong>Warning!</strong> Paswords are not the same. 
+                <strong>Attention!</strong> Le mot de passe ne correspond pas avec le mot de passe de confirmation. 
                 </div> 
                 </html>';
                 break;
             case "email" :
                 echo ' 
                 <div class="alert-warning">
-                <strong>Warning!</strong> Email is not conform. 
+                <strong>Attention!</strong> L\'Email n\'est pas conforme. 
                 </div> 
                 </html>';
                 break;
             case "email_length":
                 echo ' 
                 <div class="alert-warning">
-                <strong>Warning!</strong> Email is too long. 
+                <strong>Attention!</strong> L\'Email est trop long. 
                 </div> 
                 </html>';
                 break;
             case "pseudo_length":
                 echo ' 
                 <div class="alert-warning">
-                <strong>Warning!</strong> Pseudo is too long. 
+                <strong>Attention!</strong> Le pseudo est trop long. 
                 </div> 
                 </html>';
                 break;
             case "already":
                 echo ' 
                 <div class="alert-warning">
-                <strong>Warning!</strong> This acount already exist. 
+                <strong>Attention!</strong> Ce compte existe déja dans notre base de donnée, essayer de vous connecter. 
                 </div> 
                 </html>';
                 break;
@@ -70,7 +70,7 @@
         if($_GET["err"] == "formNotComplete"){
             echo ' 
                 <div class="alert-warning">
-                <strong>Warning!</strong> You need to complette all the fields. 
+                <strong>Attention!</strong> Vous devez completez tous les champs! 
                 </div> 
                 </html>';
         }
@@ -80,14 +80,14 @@
             case "password" :
                 echo " 
                 <div class='alert-warning'>
-                <strong>Warning!</strong> This pasword doesn't correspond with this email. 
+                <strong>Attention!</strong> Le mot de passe ne correspond pas avec l'email. 
                 </div> 
                 </html>";
                 break;
             case "email" :
                 echo ' 
                 <div class="alert-warning">
-                <strong>Warning!</strong> There is no account with this email. 
+                <strong>Attention!</strong> Il n\'y a pas de compte lié à cet email. 
                 </div> 
                 </html>';
                 break;
