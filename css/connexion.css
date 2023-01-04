@@ -53,7 +53,7 @@ p {
     cursor: pointer;
     padding: 8px 80px;
     position: relative;
-    margin: 10px;
+    margin: 10px;   
 }
 
 
@@ -61,4 +61,23 @@ h3{ /*titre connexion et inscription*/
     margin: 0;
     padding: 0;
     font-weight: bold;
+}
+
+
+.alert-warning {
+    background-color: #f8d7da;
+    color: #9e636d;
+    margin-top: 1.7vw;
+    padding: 1vw;
+    font-size: 2vw;
+    text-align: center;
+}
+
+.alert-sucess {
+    background-color: #d4edda;
+    color: #8d9f75;
+    margin-top: 1.7vw;
+    padding: 1vw;
+    font-size: 2vw;
+    text-align: center;
 }

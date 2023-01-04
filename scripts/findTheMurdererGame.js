@@ -239,6 +239,7 @@ class findTheMurdererGame extends Phaser.Scene {
             findMurdererContainer.setName("findMurdererContainer");   
              
             findMurdererContainer.on("pointerdown", function(){
+            music.stop();
             this.scene.scene.start('guessTheMurderer');
             });
         
