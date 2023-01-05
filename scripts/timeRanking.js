@@ -1,5 +1,7 @@
 export {timeRankingPage}; 
 
+import {timePlayed} from "./findTheMurdererGame.js";
+
 class timeRankingPage extends Phaser.Scene {
 
     constructor () {
@@ -12,6 +14,10 @@ class timeRankingPage extends Phaser.Scene {
 
     create() {
         
+        var secondes = ((timePlayed / 1000)% 60);
+        var minutes = (Math.floor((timePlayed / 1000) / 60));
+        var affichageMinutesSecondes = (minutes + " min et " + secondes + " secondes");
+        console.log(affichageMinutesSecondes);
         //Rules Part
         //adding the rules background
         var timeRankingground = this.add.image(400,300, 'timeRankingBackground');
@@ -39,7 +45,7 @@ class timeRankingPage extends Phaser.Scene {
         var rankingContainer = this.add.container(400,200,[rankingRect ,rankingText,rankingRectStyle]);
         
         timeRankingContainer.on("pointerdown", function(){
-            this.scene.scene.start('startMenu');
+            location.reload();
         });
         
         timeRankingContainer.on('pointerover', function() {

@@ -1,7 +1,12 @@
-export {rulesFindTheMurderer,instructionsForTheMurdererGame ,findTheMurdererGame ,guessTheMurderer ,victoryScreenFindTheMurderer,youLooseToFindTheMurderer}; 
+export {rulesFindTheMurderer,instructionsForTheMurdererGame ,findTheMurdererGame ,guessTheMurderer ,victoryScreenFindTheMurderer,youLooseToFindTheMurderer, timePlayed}; 
+
+import timer from "./gapFill.js";
+
 
 var suspectNumber = 0;
 var proposalNumber = 0;
+
+var timePlayed = null;
 
 //Rules screen 
 class rulesFindTheMurderer extends Phaser.Scene {
@@ -379,9 +384,13 @@ class guessTheMurderer extends Phaser.Scene {
             confirmRect.setFillStyle(0x032d3d,0.8)
         });
 
+        
         confirmContainer.on('pointerdown', function(){
-        if(suspectNumber == 0 && proposalNumber == 0 || suspectNumber == 1 && proposalNumber == 1 || suspectNumber == 2 && proposalNumber == 2 || suspectNumber == 3 && proposalNumber == 3)
+        if(suspectNumber == 0 && proposalNumber == 0 || suspectNumber == 1 && proposalNumber == 1 || suspectNumber == 2 && proposalNumber == 2 || suspectNumber == 3 && proposalNumber == 3) {
+            timePlayed = new Date() - timer;
+            console.log (timer);
             this.scene.scene.start('victoryScreenFindTheMurderer');
+        }
         else 
             this.scene.scene.start('youLooseToFindTheMurderer');
         });
