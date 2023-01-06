@@ -12,13 +12,31 @@
             $isExistSql = "SELECT id FROM user WHERE email = '$email'";
             $resultIsExist = mysqli_query($bdd, $isExistSql);
 
-            if(mysqli_num_rows($resultIsExist) == 1){
-                $userId = $resultIsExist->fetch_row();
-                $getPasswordSql = "SELECT password FROM user WHERE id = $userId[0]";
+            if($resultIsExist){
+                $userId = $resultIsExist->fetch_row()[0];
+                $getPasswordSql = "SELECT password FROM user WHERE id = $userId";
                 $getPasswordResult = mysqli_query($bdd, $getPasswordSql);
-                $userPassword = $getPasswordResult->fetch_row();
-                if (strcmp($password, $userPassword[0]) == 0){
-                    echo "gg t'es connecté";
+                if ($getPasswordResult){
+                    $userPassword = $getPasswordResult->fetch_row()[0];
+                }
+                if (strcmp($password, $userPassword) == 0){
+                    
+                    // Generate a secure random token
+                    $token = bin2hex(openssl_random_pseudo_bytes(32));
+
+                    $_SESSION['login_token'] = $token;
+                    setcookie('login_token', $token);
+                    setcookie('id_user', $userId);
+                    
+                    $deleteHoldToken = "DELETE FROM session WHERE idUser = $userId";
+                    mysqli_query($bdd, $deleteHoldToken);
+                    
+                    $insertSession = "INSERT INTO session(sessionToken, idUser) VALUES('$token', '$userId')";
+                    $result = mysqli_query($bdd, $insertSession);
+
+                    header('Location: connexion.php'); $bdd -> close(); die();
+
+                    
                 }else{ header('Location: connexion.php?conn_err=password'); $bdd -> close(); die();}
             }else{ header('Location: connexion.php?conn_err=email'); $bdd -> close(); die();}
         }
