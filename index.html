@@ -29,9 +29,21 @@
     <br>
     <br>
     <div id='commentaire' >
-      <form action="index.php" method = "fetch" >
-    </form>
-    </div>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <div id='commentaire' ></div>
+      <script>
+         function genererComment(){
+             $.ajax({
+                 url: 'php/genereComm.php',
+                 success: function(data){
+                     $('#commentaire').html(data);
+                 }
+             });
+         }
+         setTimeout(genererComment, 0);
+         setInterval(genererComment, 10000);
+      </script>
+     </div>
     <br>
     <br>  
     <br>
