@@ -14,6 +14,24 @@ body {
     background-color:#fff;
 }
 
+/*espace commentaires*/
+#commentaire{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    text-shadow: 1px 1px 2px black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.comment{
+    font-size: 35px;
+    font-weight: bold;
+    font-style: italic;
+}
+#commentPseudo{
+    font-size: 22px;
+    margin-top: 10px;
+}
 
 /*2e image avec présentation du jeu + image*/
 #gamePreview{
@@ -72,7 +90,7 @@ body {
     border: 8px solid #767b96;
     margin: auto;
     display: block;
-    margin-bottom: 13.2vw;
+    margin-bottom: 9.5vw;
     font-size: 20px;
     color: black;
    

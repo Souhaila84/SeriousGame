@@ -5,5 +5,6 @@
     $result = mysqli_query($bdd, $query);
     $comment = mysqli_fetch_assoc($result);
     // Affichage du commentaire
-    echo "<br> ". $comment["libelle"]. " <br> ". $comment["pseudo"]. "<br>";
+    
+    echo "<div class='comment'> ". $comment["libelle"]. "</div>" , " <content id='commentPseudo'> ". $comment["pseudo"]. "</content>";
 ?>
