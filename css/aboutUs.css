@@ -13,11 +13,57 @@ body {
     background-color:#fff;
 }
 
+.encadrement{
+    background: white;
+    width: 80%;
+    height: 150px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+    font-size: 15px;
+    color: black;
+    text-align: center;
+}
 
- /* 
-IMPORTING SUPPORT STYLE
-*/
+.text{
+    margin-left: 30px;
+    margin-right: 30px;
+}
 
-@import url("Support.css");
+.profilG{
+    width: 125px;
+    border: 1px solid black;
+    border-radius: 100px;
+    float: left;
+    margin: 5px 15px 0 400px;
+
+}
+
+.profilD{
+    width: 125px;
+    border: 1px solid black;
+    border-radius: 100px;
+    float: right;
+    margin: 5px 400px 0 15px;
+
+}
+
+.texteD{
+    text-align: right;
+    margin: 30px 400px 0 400px;
+}
+
+.texteG{
+    text-align: left;
+    margin: 30px 400px 0 400px;
+}
+
+.titre{
+    text-align: center;
+}
+
+
 
 

@@ -1,4 +1,7 @@
 <?php
+    
+    include 'isLogged.php';
+
     echo '<!DOCTYPE html>
 <link href="../css/connexion.css" rel="stylesheet">
 
@@ -25,42 +28,42 @@
             case "succes" :
                 echo ' 
                 <div class="alert-success">
-                <strong>Bravo!</strong> Votre compte a bien été créé.
+                Bravo! Votre compte a bien été créé.
                 </div> 
                 </html>';
                 break;
             case "password" :
                 echo ' 
                 <div class="alert-warning">
-                <strong>Attention!</strong> Le mot de passe ne correspond pas avec le mot de passe de confirmation. 
+                Attention! Le mot de passe ne correspond pas avec le mot de passe de confirmation. 
                 </div> 
                 </html>';
                 break;
             case "email" :
                 echo ' 
                 <div class="alert-warning">
-                <strong>Attention!</strong> L\'Email n\'est pas conforme. 
+                Attention! L\'Email n\'est pas conforme. 
                 </div> 
                 </html>';
                 break;
             case "email_length":
                 echo ' 
                 <div class="alert-warning">
-                <strong>Attention!</strong> L\'Email est trop long. 
+                Attention! L\'Email est trop long. 
                 </div> 
                 </html>';
                 break;
             case "pseudo_length":
                 echo ' 
                 <div class="alert-warning">
-                <strong>Attention!</strong> Le pseudo est trop long. 
+                Attention! Le pseudo est trop long. 
                 </div> 
                 </html>';
                 break;
             case "already":
                 echo ' 
                 <div class="alert-warning">
-                <strong>Attention!</strong> Ce compte existe déja dans notre base de donnée, essayer de vous connecter. 
+                Attention! Ce compte existe déja dans notre base de donnée, essayer de vous connecter. 
                 </div> 
                 </html>';
                 break;
@@ -70,7 +73,7 @@
         if($_GET["err"] == "formNotComplete"){
             echo ' 
                 <div class="alert-warning">
-                <strong>Attention!</strong> Vous devez completez tous les champs! 
+                Attention! Vous devez completez tous les champs! 
                 </div> 
                 </html>';
         }
@@ -80,21 +83,22 @@
             case "password" :
                 echo " 
                 <div class='alert-warning'>
-                <strong>Attention!</strong> Le mot de passe ne correspond pas avec l'email. 
+                Attention! Le mot de passe ne correspond pas avec l'email. 
                 </div> 
                 </html>";
                 break;
             case "email" :
                 echo ' 
                 <div class="alert-warning">
-                <strong>Attention!</strong> Il n\'y a pas de compte lié à cet email. 
+                Attention! Il n\'y a pas de compte lié à cet email. 
                 </div> 
                 </html>';
                 break;
         }
     }
 
-    
+    echo $isLogged;
+    echo json_encode(array('login_token' => $_SESSION['login_token']));
     echo '<div id="connect">
             <form action="../php/login.php" method="post">
                 <h3>Se connecter</h3> <!--Connexion-->

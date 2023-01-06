@@ -21,131 +21,99 @@
            </ul>   
        </nav>
     <div id="content"> <!----1ère photo accueil--->
-        <img src="images/ai-g95ee21810_1920.jpg" alt="example" class="responsive">
-    </div>
+        <img src="images/The 1884's murder.png" alt="example" class="responsive">
+    </div>  
     <br>
+    <div id='commentaire'>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <div id='commentaire' ></div>
+      <script>
+         function genererComment(){
+             $.ajax({
+                 url: 'php/genereComm.php',
+                 success: function(data){
+                     $('#commentaire').html(data);
+                 }
+             });
+         }
+         setTimeout(genererComment, 0);
+         setInterval(genererComment, 10000);
+      </script>
+     </div>
     <br>
     <br>  
-    <br>
-    <br>
-    <div id="gamePreview" class="responsive"> 
-      <div class = "textPreview">
-        <br>
-        <br>
-        <br>
-        <h2>Loren Ipsum</h2>
-        simply dummy text of the printing and<br> typesetting industry. Lorem Ipsum<br>
-        has been the industry's standard <br> dummy text ever since the 1500s, when<br>
-       an unknown printer took a galley of <br> type and scrambled it to make a type<br>
-       <br>
-       <br>
-       <br>
-       <br>
-       <a href="/pages/gamePage.html">
-       <button class="boutonJouer">JOUER</button>
-       </a>
+    <div>
+    <div id="imagePreview">
+      <img src="images/preview.jpg" class="responsive">
+    </div>
+        <div id="gamePreview" class="responsive"> 
+          <div class = "textPreview">
+          <br>
+          <br>
+          <br>
+          <h2>Loren Ipsum</h2>
+          simply dummy text of the printing and<br> typesetting industry. Lorem Ipsum<br>
+          has been the industry's standard <br> dummy text ever since the 1500s, when<br>
+          an unknown printer took a galley of <br> type and scrambled it to make a type<br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <a href="/pages/gamePage.html">
+          <button class="boutonJouer">JOUER</button>
+          </a>
+          </div>
+          <div class="slidecontainer">
+          <div class ="slider"> <!--slider avec images du jeu-->
+          <div class="slide"><img src="images/game/hidden.png"></div>
+          <div class="slide"><img src="images/game/menustart.png"></div>
+          <div class="slide"><img src="images/game/map.png"></div>
+          <div class="slide"><img src="images/game/instructions.png"></div>
+          </div>
+        </div> 
       </div>
-    <section class="slidecontainer">
-      <div class ="slider"> <!--slider avec images du jeu-->
-        <img id="ho" src="images/game/hidden.png">
-        <img id="start" src="images/game/menustart.png">
-        <img id="map" src="images/game/map.png">
-        <img id="instr" src="images/game/instructions.png">
-      </div>
-      <div class="navslider">
-        <a href="ho"></a>
-        <a href="start"></a>
-        <a href="map"></a>
-        <a href="instr"></a>
-      </div>
-    </section> 
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+      <div>
+      <div id="fondIcons">
+        <img src="images/london-g7db731864_1920.jpg" class="responsive">
       </div>
       <div class="gameIcons"> <!---rectangle avec icones + petit textes-->
         <!--images des icones-->
-        <img src="/images/brain.png">
-        <img src="/images/loupe.png">
-        <img src="/images/inspector.png">
-        <img src="/images/langue.png">
+        <div class="imageIcons">
+          <img src="/images/brain.png" style="margin-left: 75px">
+          <img src="/images/loupe.png" style="margin-left: 85px">
+          <img src="/images/inspector.png" style="margin-left: 85px">
+          <img src="/images/langue.png" style="margin-left: 85px">
+        </div>
+        
+        <div class="textIcons">
         <div class="iconeCerebrale"><!---texte cerebrale-->
           <br>
-          <br>
-          <br>
-          and typesetting
+          <p>and typesetting
           industry.Lorem
-          Ipsum has been
+          Ipsum has been</p>
         </div>
         <div class="iconeLoupe"><!---texte loupe-->
           <br>
-          <br>
-          <br>
-          and typesetting
-          industry.Lorem
-          Ipsum has been
+          <p>and typesetting
+            industry.Lorem
+            Ipsum has been</p>
         </div>
         <div class="iconeInspector"><!---texte inspecteur-->
           <br>
-          <br>
-          <br>
-          and typesetting
-          industry.Lorem
-          Ipsum has been
+          <p>and typesetting
+            industry.Lorem
+            Ipsum has been</p>
         </div>
         <div class="iconeLangue"><!---texte Langue-->
           <br>
-          <br>
-          <br>
-          and typesetting
-          industry.Lorem
-          Ipsum has been
+          <p>and typesetting
+            industry.Lorem
+            Ipsum has been</p>
         </div>
+      </div>
     </div>  
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>    
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>   
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+  </div>
+
     <div id="footer">
         <ul id="footer">
       <li><a id="legal_terms" href="#">Mentions légales</a></li>

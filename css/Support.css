@@ -13,50 +13,29 @@ body {
     background-color:#fff;
 }
 
-
-
-header{
-    border-bottom: 1px solid #5f687c;
-    background-color: #5f687c;
-}
-
-header li{
-    display: inline-block;
-    vertical-align: top;
-    position: relative;
-}
-
-header li a{
+input[type="text"]{
     display: block;
-    padding: 20px;
+    position: inherit;
+    margin: 5px auto;
+    font-size: 12px;
+    border: none;
+    border-bottom: 1px solid rgb(0, 0, 0); 
+    background: transparent;
+    outline: none;
+    height: 40px;
+    width: 220px;
 }
 
-header li a:hover {
-    background-color: white;
-    color : black;
-}
+#zone{
+    margin-left: 25%;
 
-header li:hover .sub-menu{
-    display: block;
-}
-
-.sub-menu{
-    display: none;
-    position: absolute;
-    background-color: grey;
-    width: 600px;
 }
 
 .wrapper{
     text-align: center;
 }
 
-footer{
-    border-top: 1px solid #5f687c;
-    background-color: #5f687c;
-}
-
-.bsupp{
+.title{
     text-align: center;
 }
 
@@ -67,44 +46,15 @@ footer{
 .button{
     background-color: #5f687c;
     border: none;
-    
+    color:#fff;
+    font-size: 10px;
+    cursor: pointer;
+    text-align: center;
+    width: 60px;
+    height: 20px;
+    margin-left: 70%;
 }
 
-
-.profilG{
-    width: 125px;
-    border: 1px solid black;
-    border-radius: 100px;
-    float: left;
-    margin: 5px 15px 0 400px;
-
-}
-
-.profilD{
-    width: 125px;
-    border: 1px solid black;
-    border-radius: 100px;
-    float: right;
-    margin: 5px 400px 0 15px;
-
-}
-
-.texteD{
-    text-align: right;
-    margin: 30px 400px 0 400px;
-}
-
-.texteG{
-    text-align: left;
-    margin: 30px 400px 0 400px;
-}
-
-.encadrement{
-    border: 1px solid black;
-    padding: 5px;
-    margin-left: 50px;
-    margin-right: 50px;
-}
 
 
 
