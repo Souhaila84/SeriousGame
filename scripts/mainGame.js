@@ -15,6 +15,7 @@ import {translateGame, translateGameRules, victoryScreentranslateGame} from "./t
 import {rulesFindTheMurderer, instructionsForTheMurdererGame , findTheMurdererGame, guessTheMurderer,victoryScreenFindTheMurderer,youLooseToFindTheMurderer} from "./findTheMurdererGame.js"
 import {timeRankingPage} from "./timeRanking.js"
 
+
 /**
 * The config of the game wich call all scenes and set the canva size at 800x600
 * @author Alexis Mariotti

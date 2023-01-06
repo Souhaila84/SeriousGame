@@ -1,5 +1,7 @@
 export {startMenu};
 
+
+
 class startMenu extends Phaser.Scene {
 
     constructor () {

@@ -466,7 +466,7 @@ class tryAgainScreenMap extends Phaser.Scene {
              * this line of code will lead the user back to the startMenu scene. 
              * @author Bouveret Victor
              */
-            this.scene.scene.start("startMenu");
+            location.reload();
         });
         
         returnToMenuContainer.on('pointerover', function() {
