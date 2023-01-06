@@ -10,7 +10,7 @@ body {
     padding: 0;
     text-align: justify;
     font-size: 13px;
-    background-color:#fff;
+    background-color: #D5CABC;
     min-height: 100vh;
 }
 
@@ -58,6 +58,37 @@ canvas {
     margin-top: 5vh;
 }
 
+.encadrement{
+    background: #e3dac3;
+    width: 1000px;
+    height: 275px;
+    border-radius: 25px;
+    border: 2px solid #767b96;
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+}
+
+#text{
+    margin: 20px;
+}
+
+.connexionButton{
+    background-color: #5f687c;
+    border: none;
+    color:#fff;
+    text-align: center;
+    width: 100px;
+    height: 20px;
+    margin-left: 60%;
+    margin-bottom: 5px;
+    
+}
+
 .commentTexts{
     font-size: 5 px;
     text-align: left;
@@ -65,8 +96,8 @@ canvas {
 }
 
 #commentInput{
-    min-width : 35vw;
-    height: 8vh;
+    min-width : 40vw;
+    height: 6vh;
     resize : none;
 }
 
@@ -98,3 +129,5 @@ canvas {
     border-color: darkorchid;
     border-style : dashed;
 }
+
+

@@ -29,7 +29,6 @@ BEGINNING OF NAVBAR STYLING
     text-decoration: none;
     font-weight: 700;
     text-align: center;
-    font-family: ;
     font-size: 1.7vw;
     text-shadow: 3px 3px 5px black;
     color: #fff;
@@ -49,6 +48,7 @@ BEGINNING OF NAVBAR STYLING
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
+    z-index: 5;
 }
 
 /*

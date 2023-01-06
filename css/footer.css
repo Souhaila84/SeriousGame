@@ -7,6 +7,8 @@
     text-align: center;
     list-style: none;
     background-color: #5f687c;
+    position: relative;
+    z-index: 2;
 }
 
 #footer li {
@@ -19,7 +21,6 @@
     padding: 1.2vw 1.3vw;
     text-decoration: none;
     text-align: center;
-    font-family: ;
     font-size: 1.5vw;
     color: #fff;
 }
@@ -35,7 +36,6 @@
     display: flex;
     text-decoration: none;
     text-align: center;
-    font-family: ;
     margin-left: 0.5vw;
     margin-right: 0.5vw;
     font-size: 1.3vw;
