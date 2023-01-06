@@ -466,7 +466,7 @@ class tryAgainScreenMap extends Phaser.Scene {
              * this line of code will lead the user back to the startMenu scene. 
              * @author Bouveret Victor
              */
-            this.scene.scene.start("startMenu");
+            location.reload();
         });
         
         returnToMenuContainer.on('pointerover', function() {
@@ -888,7 +888,7 @@ class mapGame extends Phaser.Scene
         
         redping.on('clicked', this.redClickHandler);
         redping2.on('clicked', this.redClickHandler2);
-        redping3.on('clicked', this.redClickHandler3);d
+        redping3.on('clicked', this.redClickHandler3);
         greenping.on('clicked', this.greenClickHandler);
         greenping2.on('clicked', this.greenClickHandler2);
         greenping3.on('clicked', this.greenClickHandler3);
@@ -927,7 +927,7 @@ class mapGame extends Phaser.Scene
                     advertContainer.visible = false;
                 }
                 else if (redping.visible && redping2.visible && redping3.visible) {
-                    advertContainer2.visible = true;
+                    advertContainer2.visible = true;    
                     await sleep(2500);
                     advertContainer2.visible = false;
                 }

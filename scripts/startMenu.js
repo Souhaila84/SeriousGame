@@ -1,5 +1,7 @@
 export {startMenu};
 
+
+
 class startMenu extends Phaser.Scene {
 
     constructor () {
@@ -32,7 +34,7 @@ rules
             startButton.clearTint();
         });
         startButton.on('pointerdown', function() {
-            this.scene.scene.start('rulesGapFill');
+            this.scene.scene.start('rulesFindTheMurderer'); //A changer attention !!!!!!!!!!!!!!!!!!!!!!!!!
         });
        
     }

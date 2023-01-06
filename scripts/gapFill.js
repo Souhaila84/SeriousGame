@@ -3,6 +3,8 @@
  *
  *  @author William Goujon
  */
+var timer = new Date();
+export default timer; // for the timer
 
 export {rulesGapFill,gapFill};
 /*
