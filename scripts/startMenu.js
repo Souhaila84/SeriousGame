@@ -34,7 +34,7 @@ rules
             startButton.clearTint();
         });
         startButton.on('pointerdown', function() {
-            this.scene.scene.start('rulesFindTheMurderer'); //A changer attention !!!!!!!!!!!!!!!!!!!!!!!!!
+            this.scene.scene.start('guessTheMurderer'); //A changer attention !!!!!!!!!!!!!!!!!!!!!!!!!
         });
        
     }
