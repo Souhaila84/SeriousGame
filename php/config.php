@@ -10,10 +10,7 @@
      $bdd = mysqli_connect($servername, 
          $DBusername, $DBpassword, $database);
    
-    if($bdd) {
-        echo "success"; 
-    } 
-    else {
-        die("Error". mysqli_connect_error()); 
-    } 
+    if(!$bdd) {
+        die("Error". mysqli_connect_error());  
+    }
 ?>
