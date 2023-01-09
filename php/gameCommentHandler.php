@@ -16,20 +16,22 @@
                 $userPseudo = $resultGetPseudo->fetch_row()[0];  //user pseudo from DB
             }
             
-            echo "
-            <li class='commentArea'>
-                <div class='profile'>
-                    <img class='profilePicture' src='../images/avatar-default.png'>
-                    <p class='profileName'>$userPseudo</p>
-                </div>
-                <p class = 'commentsTexts'> $commentText </p>
-            </li>
-            ";
-            
             //Inserting new comment in DB
             $insertCommentSql = "INSERT INTO commentaire(id, libellé) VALUES($request_id, '$commentText');";
             $result = mysqli_query($bdd, $insertCommentSql); //executing query
-            $bdd -> close();
+            //$bdd -> close();
+            
+            if ($result){
+                echo "
+                <li class='commentArea'>
+                    <div class='profile'>
+                        <img class='profilePicture' src='../images/avatar-default.png'>
+                        <p class='profileName'>$userPseudo</p>
+                    </div>
+                    <p class = 'commentsTexts'> $commentText </p>
+                </li>
+                ";   
+            }
         }
     } else{
         echo "<section class='mustBeConnected'>
