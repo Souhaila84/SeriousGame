@@ -1,3 +1,10 @@
+/** 
+ *  @fileOverview This file contains 1 class, timeRankingPage. This class represent the timeRanking page and there also is the timePlayed var that imported from "findTheMurdererGame.js"
+ *  
+ *
+ *  @author Bouveret Victor
+ */
+
 export {timeRankingPage}; 
 
 import {timePlayed} from "./findTheMurdererGame.js";
