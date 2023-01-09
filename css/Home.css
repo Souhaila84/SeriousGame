@@ -10,7 +10,7 @@ body {
     margin: 0;
     padding: 0;
     text-align: justify;
-    font-size: 13px;
+    font-size: 0.8vw;
     background-color:#fff;
 }
 
@@ -24,13 +24,13 @@ body {
 }
 
 .comment{
-    font-size: 35px;
+    font-size: 1vw;
     font-weight: bold;
     font-style: italic;
 }
 #commentPseudo{
-    font-size: 22px;
-    margin-top: 10px;
+    font-size: 1.4vw;
+    margin-top: 0.8vw;
 }
 
 /*2e image avec présentation du jeu + image*/
@@ -51,29 +51,29 @@ body {
 
 /*texte de présentation du jeu */
 .textPreview{
-    width:300px;
-    height:450px;
+    width: 19vw;
+    height: 28vw;
     border:1px solid #000;
     background: whitesmoke;
     opacity: 89%;
     background-position: 0%;
-    margin-left: 15%;
+    margin-left: 11vw;
     padding: 0;
     text-align: center;
-    font-size: 15px;
+    font-size: 1vw;
 }
 
 /*bouton pour accéder au jeu */
 
 .boutonJouer{
     background: #767b96; 
-    width: 180px; 
-    height: 60px;
+    width: 11vw; 
+    height: 4vw;
     color: white;
 }
 
 #fondIcons{
-    height: 250px;
+    height: 13.5vw;
     position: relative;
     z-index: 1;
     filter: blur(1px);
@@ -84,14 +84,14 @@ body {
     position: relative;
     z-index: 2;
     background: #e3dac3;
-    width: 900px;
-    height: 350px;
-    border-radius: 25px;
-    border: 8px solid #767b96;
+    width: 64.5vw;
+    height: 23vw;
+    border-radius: 3vw;
+    border: 0.6vw solid #767b96;
     margin: auto;
     display: block;
     margin-bottom: 9.5vw;
-    font-size: 20px;
+    font-size: 1.35vw;
     color: black;
    
 }
@@ -111,19 +111,19 @@ body {
 }
 
 .iconeCerebrale{  /*container icone cerveau texte*/
-    margin-left: 80px;
+    margin-left: 6vw;
 }
 
 .iconeLoupe{ /*container icone loupe*/
-    margin-left: 90px;
+    margin-left: 6vw;
 }
 
 .iconeInspector{ /*container icone inspecteur*/
-    margin-left: 90px;
+    margin-left: 6vw;
 }
 
 .iconeLangue{ /*container icone langue*/
-    margin-left: 90px;
+    margin-left: 6vw;
 }
 
 
@@ -133,15 +133,15 @@ body {
     float: left;
 }
 .slider{
-    width: calc(700px *5);
+    width: calc(70vw *5);
     animation: glisse 30s infinite;
     
 }
 
 .slidecontainer{
-    width: 700px;
+    width: 45.55vw;
     overflow: hidden;
-    margin-left: 200px;
+    margin-left: 15vw;
     position: relative;
     z-index: 2;
 
@@ -156,22 +156,22 @@ body {
         transform: translateX(0);
     }
     25% {
-        transform: translateX(-700px);
+        transform: translateX(-45.57vw);
     }
     35% {
-        transform: translateX(-700px);
+        transform: translateX(-45.57vw);
     }
     50% {
-        transform: translateX(-1400px);
+        transform: translateX(-91.14vw);
     }
     60% {
-        transform: translateX(-1400px);
+        transform: translateX(-91.14vw);
     }
     75% {
-        transform: translateX(-2100px);
+        transform: translateX(-136.72vw);
     }
     85% {
-        transform: translateX(-2100px);
+        transform: translateX(-136.72vw);
     }
 
 }
