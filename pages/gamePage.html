@@ -50,15 +50,22 @@
     <section id="commentsSection">
         <a href="connexion.html"><button class="connexionButton">CONNEXION</button></a>
         <div id="inputCommentArea">
-            <textarea type="textarea" id="commentInput" placeholder="Ajouter un avis..."></textarea>
+            <textarea type="textarea" id="commentInput" name="commentField" placeholder="Ajouter un avis..."></textarea>
             <button id="submitComment" >Soumettre</button>
         
         </div>
 
         <ul id="comments">
-            
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script>
+            $.ajax({
+                 url: '../php/gameCommentReader.php',
+                 success: function(data){
+                    $('#comments').html(data);
+                 }
+            });
+      </script>
         </ul>
-        <script src="../scripts/commentsReader.js"></script>
         <script src="../scripts/commentsHandler.js"></script>
     </section>
       <div id="footer">

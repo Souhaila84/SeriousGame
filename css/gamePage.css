@@ -89,8 +89,35 @@ canvas {
     
 }
 
-.commentTexts{
-    font-size: 5 px;
+.comments{
+    display: flex;
+    flex-direction: column;
+}
+
+.commentArea{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    margin-bottom: 5vh;
+    margin-right: 3vw;
+    background: #d4d0c6;
+}
+
+.profile{
+    margin-right: 40px;
+    
+    padding-right: 10px;
+    
+    border-right: 2px solid;
+    border-color: gray;
+}
+.profileName{
+    margin-top: 0;
+    text-align: center;
+}
+
+.commentsTexts{
+    font-size: 1rem;
     text-align: left;
     word-wrap: break-word;
 }
