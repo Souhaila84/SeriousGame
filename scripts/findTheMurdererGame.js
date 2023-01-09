@@ -1,5 +1,5 @@
 /** 
- *  @fileOverview This file contains 6 classes rulesFindTheMurderer,instructionsForTheMurdererGame ,findTheMurdererGame ,guessTheMurderer ,victoryScreenFindTheMurderer,youLooseToFindTheMurderer. Theses 6 classes represent the findTheMurderer game and there also is the timePlayed that is exported for the timer.
+ *  @fileOverview This file contains 6 classes rulesFindTheMurderer,instructionsForTheMurdererGame ,findTheMurdererGame ,guessTheMurderer ,victoryScreenFindTheMurderer,youLooseToFindTheMurderer. Theses 6 classes represent the findTheMurderer game and there also is the timePlayed var that is exported for the timer.
  *
  *  @author Bouveret Victor
  */
