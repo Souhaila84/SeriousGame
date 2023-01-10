@@ -217,13 +217,30 @@ class hiddenObjects extends Phaser.Scene {
         this.add.image(430, 550, 'flowers'); //flowers
         this.add.image(85, 360, 'timer'); //time
         this.chrono = 300;
-        this.textchrono = this.add.text(400, 300, this.chrono);
-        this.time.addEvent({
+        this.textchrono = this.add.text(65, 370, formatTime(this.chrono));
+        timedEvent = this.time.addEvent({
             delay: 1000,
-            callback: this.chrono(),
+            callback: onEvent,
             callbackScope: this,
             loop: true,
           });
+          function formatTime(seconds){
+            // Minutes
+            var minutes = Math.floor(seconds/60);
+            // Seconds
+            var partInSeconds = seconds%60;
+            // Adds left zeros to seconds
+            partInSeconds = partInSeconds.toString().padStart(2,'0');
+            // Returns formated time
+            return `${minutes}:${partInSeconds}`;
+        }
+        
+        
+        function onEvent ()
+        {
+            this.chrono -= 1; // One second
+            this.textchrono.setText(formatTime(this.chrono));
+        }
        
        /** 
         * The texts are associated with the variables of the same name and are placed in order to form a list 
