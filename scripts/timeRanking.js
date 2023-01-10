@@ -52,14 +52,13 @@ class timeRankingPage extends Phaser.Scene {
         var playingTimeDisplay = (minutes + " min et " + seconds + " secondes");
         console.log(playingTimeDisplay);
         
-        var timeRankString;
+        var timeRankString = "";
         
         $.ajax({
             url: '../php/timeReader.php',
             type : "POST",
+            async: false,
             success: function(data){
-                console.log(data);
-                console.log(typeof data);
                 timeRankString = data;
             }
         });
@@ -120,8 +119,9 @@ class timeRankingPage extends Phaser.Scene {
          * @name rankingText
          * @type {Phaser.GameObjects.Text}
          */
-        var rankingText = this.add.text(-260,-135, timeRankString,{ fontSize : 20, fontFamily: 'Georgia, Times, serif' });
+        var rankingText = this.add.text(-260,-135, timeRankString,{ fontSize : 20, fontFamily: 'Georgia, Times, serif'});
         rankingText.setTint(0xc2baac);
+        rankingText.fontWeight = 'bold';
         
         
          /**

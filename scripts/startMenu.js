@@ -34,7 +34,7 @@ rules
             startButton.clearTint();
         });
         startButton.on('pointerdown', function() {
-            this.scene.scene.start('timeRankingPage'); //change scene
+            this.scene.scene.start('rulesGapFill'); //change scene
         });
        
     }
