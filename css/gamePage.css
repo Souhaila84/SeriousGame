@@ -99,6 +99,7 @@ canvas {
     flex-direction: row;
     padding: 5px;
     margin-bottom: 5vh;
+    margin-right: 3vw;
     background: #d4d0c6;
 }
 
