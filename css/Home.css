@@ -128,14 +128,16 @@ body {
     margin-left: 6vw;
 }
 
-
-
+.slide img{
+    max-height: 32.5vw;
+    max-width: 45.55vw;
+}
 
 .slide{
     float: left;
 }
+
 .slider{
-    height: 32.5vw;
     width: calc(70vw *5);
     animation: glisse 30s infinite;
     
