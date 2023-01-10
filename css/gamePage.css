@@ -119,7 +119,7 @@ canvas {
 .commentsTexts{
     font-size: 1rem;
     text-align: left;
-    word-wrap: break-word;
+    word-wrap: normal;
 }
 
 #commentInput{
