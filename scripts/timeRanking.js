@@ -32,6 +32,17 @@ class timeRankingPage extends Phaser.Scene {
 
     create() {
         
+        //updating time in data base
+        var ajaxData = {
+            "timePlayed" : timePlayed
+        }
+
+        $.ajax({
+            url: '../php/timeWriter.php',
+            type : "POST",
+            data : ajaxData,
+        });
+        
         /**
          * here we are creating two variables, seconds and minutes, we are making some maths to have a good and nice looking time at the end, and after that we end up with the playingTimeDisplay that is our final var to see how much time did the user spend on his run.
          * @author Bouveret Victor
@@ -40,6 +51,17 @@ class timeRankingPage extends Phaser.Scene {
         var minutes = (Math.floor((timePlayed / 1000) / 60));
         var playingTimeDisplay = (minutes + " min et " + seconds + " secondes");
         console.log(playingTimeDisplay);
+        
+        var timeRankString = "";
+        
+        $.ajax({
+            url: '../php/timeReader.php',
+            type : "POST",
+            async: false,
+            success: function(data){
+                timeRankString = data;
+            }
+        });
         
         
         /**
@@ -97,8 +119,9 @@ class timeRankingPage extends Phaser.Scene {
          * @name rankingText
          * @type {Phaser.GameObjects.Text}
          */
-        var rankingText = this.add.text(-260,-135, "Alec6 : 10.08 minutes",{ fontSize : 20, fontFamily: 'Georgia, Times, serif' });
+        var rankingText = this.add.text(-260,-135, timeRankString,{ fontSize : 20, fontFamily: 'Georgia, Times, serif'});
         rankingText.setTint(0xc2baac);
+        rankingText.fontWeight = 'bold';
         
         
          /**
