@@ -149,7 +149,7 @@ body {
 }
 
 .slide img{
-    max-height: 63vh;
+    max-height: 40vw;
     max-width: 45.55vw;
 }
 
@@ -164,7 +164,7 @@ body {
 }
 
 .slidecontainer{
-    height: 63vh;
+    height: 35vw;
     width: 45.4vw;
     overflow: hidden;
     margin-left: 15vw;
