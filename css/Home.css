@@ -69,6 +69,7 @@ body {
     background: #767b96; 
     width: 11vw; 
     height: 4vw;
+    font-size: 1vw;
     color: white;
 }
 
@@ -139,6 +140,7 @@ body {
 }
 
 .slidecontainer{
+    height: auto;
     width: 45.55vw;
     overflow: hidden;
     margin-left: 15vw;
@@ -179,6 +181,6 @@ body {
 
 /*Responsiving Image*/
 .responsive {
-    width: 100%;
+    width: 100vw;
     height: 50vw;
 } 
