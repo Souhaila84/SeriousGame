@@ -179,6 +179,7 @@ class hiddenObjects extends Phaser.Scene {
         this.load.audio("theme", 
                         ["../audio/hidden_objects.ogg",
                          "../audio/hidden_objects.mp3"]);//theme song
+        this.load.image("timer", "../images/game/clock.png")
 
     }
     
@@ -213,6 +214,7 @@ class hiddenObjects extends Phaser.Scene {
         this.add.image(90, 520, 'doll'); //dolls
         this.add.image(300, 120, 'blood'); //blood
         this.add.image(430, 550, 'flowers'); //flowers
+        this.add.image(100, 550, 'timer'); //timer
     
        
        /** 
