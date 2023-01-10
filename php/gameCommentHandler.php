@@ -35,7 +35,7 @@
         }
     } else{
         echo "<section class='mustBeConnected'>
-        You must be connected to post a comment !
+        Vous devez etre connecté pour poster un commentaire !
         <content>
         <a href='../php/connexion.php'><button class='connexionButton'>CONNEXION</button></a>
         </content>
