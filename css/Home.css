@@ -24,12 +24,12 @@ body {
 }
 
 .comment{
-    font-size: 1vw;
+    font-size: 1.2vw;
     font-weight: bold;
     font-style: italic;
 }
 #commentPseudo{
-    font-size: 1.4vw;
+    font-size: 1.7vw;
     margin-top: 0.8vw;
 }
 
