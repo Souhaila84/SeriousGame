@@ -218,7 +218,7 @@ class hiddenObjects extends Phaser.Scene {
         this.add.image(85, 360, 'timer'); //time
         this.chrono = 300;
         this.textchrono = this.add.text(65, 370, formatTime(this.chrono));
-        timedEvent = this.time.addEvent({
+        var timedEvent = this.time.addEvent({
             delay: 1000,
             callback: onEvent,
             callbackScope: this,
@@ -325,11 +325,6 @@ class hiddenObjects extends Phaser.Scene {
         
                 
         
-    }
-
-    chrono() {
-        this.chrono-=1;
-        this.textchrono.text(this.chrono + 'gjgdgdh');
     }
 
 
