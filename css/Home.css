@@ -24,12 +24,12 @@ body {
 }
 
 .comment{
-    font-size: 1vw;
+    font-size: 1.2vw;
     font-weight: bold;
     font-style: italic;
 }
 #commentPseudo{
-    font-size: 1.4vw;
+    font-size: 1.7vw;
     margin-top: 0.8vw;
 }
 
@@ -52,7 +52,7 @@ body {
 /*texte de présentation du jeu */
 .textPreview{
     width: 19vw;
-    height: 28vw;
+    height: 30vw;
     border:1px solid #000;
     background: whitesmoke;
     opacity: 89%;
@@ -67,7 +67,7 @@ body {
 
 .boutonJouer{
     background: #767b96; 
-    margin-top: 1vw;
+    margin-top: 0.1vw;
     width: 11vw; 
     height: 4vw;
     font-size: 1vw;
@@ -87,7 +87,7 @@ body {
     z-index: 2;
     background: #e3dac3;
     width: 64.5vw;
-    height: 23vw;
+    height: 25vw;
     border-radius: 3vw;
     border: 0.6vw solid #767b96;
     margin: auto;
@@ -100,40 +100,62 @@ body {
 
 .imageIcons{
     display: flex;
-    margin-top: 40px;
-    width: 150px;
-    height: 150px;
+    margin-top: 5vw;
+    width: 7vw;
+    height: 7vw;
 }
 
 .textIcons{
     display: flex;
-    width: 90px;
-    height: 80px;
+    width: 5vw;
+    height: 5vw;
+    font-size: 1.36vw;
     text-align: center;
 }
 
-.iconeCerebrale{  /*container icone cerveau texte*/
+
+.imageCerebrale{
+    margin-left: 7.5vw;
+}
+
+.textCerebrale{  /*container icone cerveau texte*/
     margin-left: 6vw;
 }
 
-.iconeLoupe{ /*container icone loupe*/
+.imageLoupe{
+    margin-left: 7.8vw;
+}
+
+.textLoupe{ /*container icone loupe*/
     margin-left: 6vw;
 }
 
-.iconeInspector{ /*container icone inspecteur*/
+.imageInspector{
+    margin-left: 8.8vw;
+}
+
+.textInspector{ /*container icone inspecteur*/
     margin-left: 6vw;
 }
 
-.iconeLangue{ /*container icone langue*/
-    margin-left: 6vw;
+.imageLangue{
+    margin-left: 8.5vw;
 }
 
+.textLangue{ /*container icone langue*/
+    margin-left: 6vw;
+    margin-right: 6vw;
+}
 
-
+.slide img{
+    max-height: 32.5vw;
+    max-width: 45.55vw;
+}
 
 .slide{
     float: left;
 }
+
 .slider{
     width: calc(70vw *5);
     animation: glisse 30s infinite;
@@ -142,10 +164,9 @@ body {
 
 .slidecontainer{
     height: 32.5vw;
-    width: 45.55vw;
+    width: 45.4vw;
     overflow: hidden;
     margin-left: 15vw;
-    position: relative;
     z-index: 2;
 
 
@@ -182,6 +203,6 @@ body {
 
 /*Responsiving Image*/
 .responsive {
-    width: 100vw;
+    width: 100%;
     height: 50vw;
 } 
