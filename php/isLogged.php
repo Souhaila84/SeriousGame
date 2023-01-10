@@ -13,5 +13,5 @@
     }
     $request_token = isset($_COOKIE['login_token']) ? $_COOKIE['login_token'] : '';
 
-    $isLogged = $request_token == $userToken; // test if is connected
+    $isLogged = empty($request_token) ? false : $request_token == $userToken; // test if is connected
 ?>

@@ -2,8 +2,10 @@
 <html> 
     <head>
         <meta charset="UTF-8"/>
-        <title>Support</title>
         <link rel="stylesheet" href="../css/Support.css">
+        <title>Marcel Roquette</title>
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body>
         <div id="wrap">
@@ -14,57 +16,47 @@
           <li><a id="play" href="gamePage.html">Jouer</a></li>
           <li><a id="support" href="Support.html">Support</a></li>
           <li><a id="about us" href="About_us.html">A propos</a></li>
-          <button class="loginbutton" role="button"> <a href="connexion.html">CONNEXION </a></button>
+          <script>
+            $.ajax({
+                 url: '../php/connectButton.php',
+                 success: function(data){
+                    $('#nav').append(data);
+                 }
+            });
+            </script>
            </ul>   
         </nav>
         <h1 class="title"><strong>Bienvenue sur la page Support !</strong></h1>
         <h3 class="title">Si vous venez à rencontrer un problème, n'hésitez pas à nous le remonter</h3>
         <form>
-        </br>
+        <br>
             <p><input type="text" name="adresse mail" placeholder="Adresse mail :"></p>
             <p><input type="text" name="nom" placeholder="Nom :"><input type="text" name="prénom" placeholder="Prénom :"></p>
             <div id="zone">
                 <textarea name="problème" rows="10" cols="100" placeholder="Expliquez le problème :"></textarea>
             </div>
         </form>
-        </br>
+        <br>
         <button class="button">
             <a title="Valider">VALIDER</a>
         </button>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
+        <br>
           <div id="footer">
-                        <ul id="footer">
-                      <li><a id="legal_terms" href="#">Mentions légales</a></li>
-                      <li><p class="pipe"> | </p></li>
-                      <li><a id="about us_bot" href="#">A propos</a></li>
-                      <li><p class="pipe"> | </p></li>
-                      <li><a id="utilisations conditions" href="#">Conditions d'utilisation</a></li>
-                      <li><p class="pipe"> | </p></li>
-                      <li><a id="Contact" href="#">Contact</a></li> 
-                        </ul>
-                    </div>
+            <ul>
+              <li><a id="legal_terms" href="/pages/legalMentions.html">Mentions légales</a></li>
+              <li><p class="pipe"> | </p></li>
+              <li><a id="about us_bot" href="/pages/About_us.html">A propos</a></li>
+              <li><p class="pipe"> | </p></li>
+              <li><a id="utilisations conditions" href="#">Conidtions d\'utilisation</a></li>
+              <li><p class="pipe"> | </p></li>
+              <li><a id="Contact" href="/pages/Support.html">Contact</a></li> 
+            </ul>
+        </div>
                 <div id="legals_terms">
                     <li><a>Copyright © 2022 LorenIpsum Inc. Tous droits réservés.</a></li>
                 </div>
-
-
 </body>
-
+</html>
 
 
 
