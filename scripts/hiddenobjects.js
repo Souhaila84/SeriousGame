@@ -179,9 +179,10 @@ class hiddenObjects extends Phaser.Scene {
         this.load.audio("theme", 
                         ["../audio/hidden_objects.ogg",
                          "../audio/hidden_objects.mp3"]);//theme song
-        this.load.image("timer", "../images/game/clock.png")
+        this.load.image("timer", "../images/game/items/clock.png")//timer
 
     }
+
     
     /*
     This function adds the, previously loaded, images and sets their position on the scene
@@ -214,8 +215,15 @@ class hiddenObjects extends Phaser.Scene {
         this.add.image(90, 520, 'doll'); //dolls
         this.add.image(300, 120, 'blood'); //blood
         this.add.image(430, 550, 'flowers'); //flowers
-        this.add.image(100, 550, 'timer'); //timer
-    
+        this.add.image(85, 360, 'timer'); //time
+        this.chrono = 300;
+        this.textchrono = this.add.text(400, 300, this.chrono);
+        this.time.addEvent({
+            delay: 1000,
+            callback: this.chrono(),
+            callbackScope: this,
+            loop: true,
+          });
        
        /** 
         * The texts are associated with the variables of the same name and are placed in order to form a list 
@@ -301,6 +309,13 @@ class hiddenObjects extends Phaser.Scene {
                 
         
     }
+
+    chrono() {
+        this.chrono-=1;
+        this.textchrono.text(this.chrono + 'gjgdgdh');
+    }
+
+
     /*
      This function is overide from Phaser.Scene and now it makes the "victory screen" scene appear when all the objects are found (count == 8)
     */
@@ -309,6 +324,7 @@ class hiddenObjects extends Phaser.Scene {
             this.scene.start('victoryScreenHiddenObjects');
         }
     }
+
     
 }
 
