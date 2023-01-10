@@ -24,12 +24,12 @@ body {
 }
 
 .comment{
-    font-size: 1vw;
+    font-size: 1.2vw;
     font-weight: bold;
     font-style: italic;
 }
 #commentPseudo{
-    font-size: 1.4vw;
+    font-size: 1.7vw;
     margin-top: 0.8vw;
 }
 
@@ -113,19 +113,36 @@ body {
     text-align: center;
 }
 
-.iconeCerebrale{  /*container icone cerveau texte*/
+
+.imageCerebrale{
+    margin-left: 7.5vw;
+}
+
+.textCerebrale{  /*container icone cerveau texte*/
     margin-left: 6vw;
 }
 
-.iconeLoupe{ /*container icone loupe*/
+.imageLoupe{
+    margin-left: 7.8vw;
+}
+
+.textLoupe{ /*container icone loupe*/
     margin-left: 6vw;
 }
 
-.iconeInspector{ /*container icone inspecteur*/
+.imageInspector{
+    margin-left: 8.8vw;
+}
+
+.textInspector{ /*container icone inspecteur*/
     margin-left: 6vw;
 }
 
-.iconeLangue{ /*container icone langue*/
+.imageLangue{
+    margin-left: 8.5vw;
+}
+
+.textLangue{ /*container icone langue*/
     margin-left: 6vw;
     margin-right: 6vw;
 }
