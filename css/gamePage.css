@@ -60,15 +60,15 @@ canvas {
 
 .encadrement{
     background: #e3dac3;
-    width: 1000px;
-    height: 275px;
-    border-radius: 25px;
-    border: 2px solid #767b96;
+    width: 50vw;
+    height: 25vw;   
+    border-radius: 1vw;
+    border: 0.3vw solid #767b96;
     margin: auto;
     display: block;
-    margin-top: 20px;
-    margin-bottom: 50px;
-    font-size: 20px;
+    margin-top: 2vw;
+    margin-bottom: 5vw;
+    font-size: 1.35vw;
     color: black;
     text-align: center;
 }
@@ -82,11 +82,16 @@ canvas {
     border: none;
     color:#fff;
     text-align: center;
-    width: 100px;
-    height: 20px;
-    margin-left: 60%;
-    margin-bottom: 5px;
-    
+    font-size: 0.9vw;
+    width: 7.5vw;  
+    height: 1.75vw;
+    margin-left: 44%;
+    margin-bottom: 1vw;
+}
+
+.connexionButton:hover{
+    color: #5f687c;
+    background-color: #fff;
 }
 
 .comments{
@@ -105,9 +110,7 @@ canvas {
 
 .profile{
     margin-right: 40px;
-    
     padding-right: 10px;
-    
     border-right: 2px solid;
     border-color: gray;
 }
@@ -130,7 +133,7 @@ canvas {
 
 #inputCommentArea   {
     display: flex;
-    flex-direction: row;
+    flex-direction: row ;
     justify-content: space-between;
     align-items: center;
     margin-left: 25vw;
@@ -141,6 +144,7 @@ canvas {
     background-color: darkorchid;
     border: none;
     color: white;
+    margin-left: 1vw;
     padding: 5px 7px;
     text-align: center;
     text-decoration: none;
