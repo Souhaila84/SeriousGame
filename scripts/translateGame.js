@@ -404,7 +404,7 @@ class victoryScreentranslateGame extends Phaser.Scene {
 
     preload() {
         this.load.image("victoryTranslateBackground","../images/game/background/victoryScreentranslateGameBackground.jpg");
-        this.load.image("detectiveTranslate","../images/game/detective1.png");
+        this.load.image("detectiveTranslate","../images/game/characters/detective1.png");
     }
     
     create() {

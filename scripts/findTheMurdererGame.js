@@ -633,7 +633,7 @@ class guessTheMurderer extends Phaser.Scene {
     //function preload is used to load all the images used for this part of the game.
     preload() {
         this.load.image("guessTheMurdererScreen","../images/game/background/findTheMurdererBackground.jpg");
-        this.load.image("firstSuspect","../images/yellowpepper.png");
+        this.load.image("firstSuspect","../images/game/characters/noblewomen.png");
         this.load.image("secondSuspect","../images/radish.png");
         this.load.image("thirdSuspect","../images/broccoli.png");
         this.load.image("fourthSuspect","../images/eggplant.png");
@@ -661,6 +661,7 @@ class guessTheMurderer extends Phaser.Scene {
          * @name {Phaser.GameObjects.Text}
          */
         var guessTheMurdererText = this.add.text(-240,-40, "Remember the description that the witness gave\nyou ? Now we need to find the murderer between \nthese four suspects !",{ fontSize : 22 , fontFamily: 'Georgia, Times, serif'});
+        guessTheMurdererText.setTint(0xc2baac);
         
         
         /**
@@ -670,7 +671,6 @@ class guessTheMurderer extends Phaser.Scene {
          * @type {Phaser.Geom.Rectangle}
          */
         var guessTheMurdererRect = this.add.rectangle(0,0,500,100,0x032d3d, 0.85);
-        guessTheMurdererText.setTint(0xc2baac);
         guessTheMurdererRect.setName("guessTheMurdererRect");
         
         
@@ -693,6 +693,37 @@ class guessTheMurderer extends Phaser.Scene {
         var guessTheMurdererContainer = this.add.container(400,100,[guessTheMurdererRect ,guessTheMurdererText,guessTheMurdererRectStyle]);
         guessTheMurdererContainer.setInteractive(new Phaser.Geom.Rectangle(-250,-75,500,150), Phaser.Geom.Rectangle.Contains);
         guessTheMurdererContainer.setName("guessTheMurdererContainer");
+        
+        
+        /**
+         * This rectangle will be contained in the suspectContainer.
+         * @author Bouveret Victor
+         * @name suspectRect
+         * @type {Phaser.Geom.Rectangle}
+         */
+        var suspectRect = this.add.rectangle(0,0,200,250,0x032d3d, 0.95);
+        suspectRect.setName("suspectRect");
+        
+        
+        /**
+         * This rectangle will add some effects to the guessTheMurdererRect that will be contained in the suspectContainer.
+         * @author Bouveret Victor
+         * @name suspectRectStyle
+         * @type {Phaser.Geom.Rectangle}
+         */
+        var suspectRectStyle = this.add.rectangle(0,0,200,250);
+        suspectRectStyle.setStrokeStyle(3,0xffff00);
+        
+        
+        /**
+         * this is the container that will explain what you need to do in this part of the game.
+         * @author Bouveret Victor
+         * @name guessTheMurdererContainer
+         * @type {Phaser.GameObjects.Container}
+         */
+        var suspectContainer = this.add.container(400,350,[suspectRect, suspectRectStyle]);
+        suspectContainer.setInteractive(new Phaser.Geom.Rectangle(0,0,500,150), Phaser.Geom.Rectangle.Contains);
+        suspectContainer.setName("suspectContainer");
         
         
         /**
@@ -896,7 +927,7 @@ class victoryScreenFindTheMurderer extends Phaser.Scene {
 
     preload() {
         this.load.image("victoryFindtheMurderer","../images/game/background/victoryScreentranslateGameBackground.jpg");
-        this.load.image("detectiveTranslate","../images/game/detective1.png");
+        this.load.image("detective","../images/game/characters/detective1.png");
     }
 
     create() {
@@ -1037,7 +1068,7 @@ class youLooseToFindTheMurderer extends Phaser.Scene {
 
     preload() {
         this.load.image("youLooseToFindTheMurdererScreen","../images/game/background/youLooseToFindTheMurderer.jpg");
-        this.load.image("detectiveTranslate","../images/game/detective1.png");
+        this.load.image("detective","../images/game/characters/detective1.png");
     }
 
     create() {

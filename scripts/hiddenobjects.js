@@ -179,9 +179,10 @@ class hiddenObjects extends Phaser.Scene {
         this.load.audio("theme", 
                         ["../audio/hidden_objects.ogg",
                          "../audio/hidden_objects.mp3"]);//theme song
-        this.load.image("timer", "../images/game/clock.png")
+        this.load.image("timer", "../images/game/items/clock.png")//timer
 
     }
+
     
     /*
     This function adds the, previously loaded, images and sets their position on the scene
@@ -214,8 +215,32 @@ class hiddenObjects extends Phaser.Scene {
         this.add.image(90, 520, 'doll'); //dolls
         this.add.image(300, 120, 'blood'); //blood
         this.add.image(430, 550, 'flowers'); //flowers
-        this.add.image(100, 550, 'timer'); //timer
-    
+        this.add.image(85, 360, 'timer'); //time
+        this.chrono = 300;
+        this.textchrono = this.add.text(65, 370, formatTime(this.chrono));
+        var timedEvent = this.time.addEvent({
+            delay: 1000,
+            callback: onEvent,
+            callbackScope: this,
+            loop: true,
+          });
+          function formatTime(seconds){
+            // Minutes
+            var minutes = Math.floor(seconds/60);
+            // Seconds
+            var partInSeconds = seconds%60;
+            // Adds left zeros to seconds
+            partInSeconds = partInSeconds.toString().padStart(2,'0');
+            // Returns formated time
+            return `${minutes}:${partInSeconds}`;
+        }
+        
+        
+        function onEvent ()
+        {
+            this.chrono -= 1; // One second
+            this.textchrono.setText(formatTime(this.chrono));
+        }
        
        /** 
         * The texts are associated with the variables of the same name and are placed in order to form a list 
@@ -301,6 +326,8 @@ class hiddenObjects extends Phaser.Scene {
                 
         
     }
+
+
     /*
      This function is overide from Phaser.Scene and now it makes the "victory screen" scene appear when all the objects are found (count == 8)
     */
@@ -309,6 +336,7 @@ class hiddenObjects extends Phaser.Scene {
             this.scene.start('victoryScreenHiddenObjects');
         }
     }
+
     
 }
 
