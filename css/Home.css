@@ -16,7 +16,7 @@ body {
 
 /*espace commentaires*/
 #commentaire{
-    font-size: 3vw;
+    font-size: 4vw;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -25,12 +25,12 @@ body {
 }
 
 .comment{
-    font-size: 1vw;
+    font-size: 5vw;
     font-weight: bold;
     font-style: italic;
 }
 #commentPseudo{
-    font-size: 2vw;
+    font-size: 1vw;
     margin-top: 0.8vw;
 }
 
