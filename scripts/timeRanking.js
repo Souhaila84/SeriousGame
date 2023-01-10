@@ -32,6 +32,17 @@ class timeRankingPage extends Phaser.Scene {
 
     create() {
         
+        //updating time in data base
+        var ajaxData = {
+            "timePlayed" : timePlayed
+        }
+
+        $.ajax({
+            url: '../php/timeWriter.php',
+            type : "POST",
+            data : ajaxData,
+        });
+        
         /**
          * here we are creating two variables, seconds and minutes, we are making some maths to have a good and nice looking time at the end, and after that we end up with the playingTimeDisplay that is our final var to see how much time did the user spend on his run.
          * @author Bouveret Victor
