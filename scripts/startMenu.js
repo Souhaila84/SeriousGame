@@ -34,7 +34,25 @@ rules
             startButton.clearTint();
         });
         startButton.on('pointerdown', function() {
-            this.scene.scene.start('rulesGapFill'); //change scene
+            var allScenes = ['rulesGapFill','rulesMap','rulesHiddenObjects','translateGameRules','rulesFindTheMurderer']; // all progression lvl strating scene
+            var nextSceneIndex;
+            
+            // get the progression lvl from data base
+            $.ajax({
+                url: '../php/progressLevel.php',
+                type : "POST",
+                async: false,
+                success: function(data){
+                    nextSceneIndex = parseInt(data);
+                }
+            });
+            
+            // prevent errors
+            if (nextSceneIndex > 4){
+                nextSceneIndex = 0;
+            }
+            
+            this.scene.scene.start(allScenes[nextSceneIndex]); //change scene whit progression or not
         });
        
     }
