@@ -126,7 +126,7 @@ class gapFill extends Phaser.Scene {
     /*This function loads the image of the game*/
     preload(){
         this.load.image('living', '../images/game/background/gapFillBackground.jpg');/*Load background */
-        this.load.image('detec', '../images/game/detective1.png');/*Load the detective image */
+        this.load.image('detec', '../images/game/characters/detective1.png');/*Load the detective image */
         this.load.image('sprite', '../images/game/_.png');/*Load the sprite image */
         this.load.image('skipArrow', '../images/game/skipArrow.png');/*Load the skip image */
     }
