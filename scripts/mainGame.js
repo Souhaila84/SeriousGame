@@ -10,7 +10,7 @@
 import {startMenu} from "./startMenu.js"
 import {gapFill,rulesGapFill} from "./gapFill.js"
 import {rulesMap, victoryScreenMap, tryAgainScreenMap, mapGame} from "./mapGame.js"
-import {rulesHiddenObjects,hiddenObjects,outOfTime victoryScreenHiddenObjects} from "./hiddenobjects.js"
+import {rulesHiddenObjects,hiddenObjects,outOfTime, victoryScreenHiddenObjects} from "./hiddenobjects.js"
 import {translateGame, translateGameRules, victoryScreentranslateGame} from "./translateGame.js"
 import {rulesFindTheMurderer, instructionsForTheMurdererGame , findTheMurdererGame, guessTheMurderer,victoryScreenFindTheMurderer,youLooseToFindTheMurderer} from "./findTheMurdererGame.js"
 import {timeRankingPage} from "./timeRanking.js"
