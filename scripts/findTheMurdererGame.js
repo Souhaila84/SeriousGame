@@ -633,10 +633,10 @@ class guessTheMurderer extends Phaser.Scene {
     //function preload is used to load all the images used for this part of the game.
     preload() {
         this.load.image("guessTheMurdererScreen","../images/game/background/findTheMurdererBackground.jpg");
-        this.load.image("firstSuspect","../images/game/characters/noblewomen.png");
-        this.load.image("secondSuspect","../images/radish.png");
-        this.load.image("thirdSuspect","../images/broccoli.png");
-        this.load.image("fourthSuspect","../images/eggplant.png");
+        this.load.image("firstSuspect","../images/game/characters/firstsuspect.png");
+        this.load.image("secondSuspect","../images/game/characters/secondsuspect.png");
+        this.load.image("thirdSuspect","../images/game/characters/thirdsuspect.png");
+        this.load.image("fourthSuspect","../images/game/characters/fourthsuspect.png");
         this.load.image("leftarrow","../images/leftarrow.png");
         this.load.image("rightarrow","../images/rightarrow.png");
     }
@@ -701,8 +701,9 @@ class guessTheMurderer extends Phaser.Scene {
          * @name suspectRect
          * @type {Phaser.Geom.Rectangle}
          */
-        var suspectRect = this.add.rectangle(0,0,200,250,0x032d3d, 0.95);
+        var suspectRect = this.add.rectangle(0,24,200,236,0x032d3d, 0.95);
         suspectRect.setName("suspectRect");
+        
         
         
         /**
@@ -711,8 +712,18 @@ class guessTheMurderer extends Phaser.Scene {
          * @name suspectRectStyle
          * @type {Phaser.Geom.Rectangle}
          */
-        var suspectRectStyle = this.add.rectangle(0,0,200,250);
+        var suspectRectStyle = this.add.rectangle(0,0,200, 185);
         suspectRectStyle.setStrokeStyle(3,0xffff00);
+        
+        
+        /**
+         * This second rectangle will add some effects to the guessTheMurdererRect that will be contained in the suspectContainer.
+         * @author Bouveret Victor
+         * @name suspectRectStyle
+         * @type {Phaser.Geom.Rectangle}
+         */
+        var suspectRectStyle2 = this.add.rectangle(0,117.5,200, 50);
+        suspectRectStyle2.setStrokeStyle(3,0xffff00);
         
         
         /**
@@ -721,7 +732,7 @@ class guessTheMurderer extends Phaser.Scene {
          * @name guessTheMurdererContainer
          * @type {Phaser.GameObjects.Container}
          */
-        var suspectContainer = this.add.container(400,350,[suspectRect, suspectRectStyle]);
+        var suspectContainer = this.add.container(400,334,[suspectRect, suspectRectStyle, suspectRectStyle2]);
         suspectContainer.setInteractive(new Phaser.Geom.Rectangle(0,0,500,150), Phaser.Geom.Rectangle.Contains);
         suspectContainer.setName("suspectContainer");
         
@@ -734,18 +745,52 @@ class guessTheMurderer extends Phaser.Scene {
          */
         var firstSuspect = this.add.image(400,350, 'firstSuspect');
         firstSuspect.setName("firstSuspect");
+        
+        var firstSuspectText = this.add.text(350,440,"Andrew P.", { fontSize : 22 , fontFamily: 'Georgia, Times, serif'});
+        firstSuspectText.setTint(0xc2baac);
+        
+        var firstSuspectContainer = this.add.container(0,0,[firstSuspect, firstSuspectText]);
+        firstSuspectContainer.setInteractive(new Phaser.Geom.Rectangle(0,0,400,350), Phaser.Geom.Rectangle.Contains);
+        firstSuspectContainer.setName("firstSuspectContainer");
+        
+        
         var secondSuspect = this.add.image(400,350, 'secondSuspect');
         secondSuspect.setName("secondSuspect");
+        
+        var secondSuspectText = this.add.text(365,440,"Alice E.", { fontSize : 22 , fontFamily: 'Georgia, Times, serif'});
+        secondSuspectText.setTint(0xc2baac);
+        
+        var secondSuspectContainer = this.add.container(0,0,[secondSuspect, secondSuspectText]);
+        secondSuspectContainer.setInteractive(new Phaser.Geom.Rectangle(0,0,400,350), Phaser.Geom.Rectangle.Contains);
+        secondSuspectContainer.setName("secondSuspectContainer");
+        
+        
         var thirdSuspect = this.add.image(400,350, 'thirdSuspect');
         thirdSuspect.setName("thirdSuspect");
+        
+        var thirdSuspectText = this.add.text(335,440,"Guillaume K.", { fontSize : 22 , fontFamily: 'Georgia, Times, serif'});
+        thirdSuspectText.setTint(0xc2baac);
+        
+        var thirdSuspectContainer = this.add.container(0,0,[thirdSuspect, thirdSuspectText]);
+        thirdSuspectContainer.setInteractive(new Phaser.Geom.Rectangle(0,0,400,350), Phaser.Geom.Rectangle.Contains);
+        thirdSuspectContainer.setName("thirdSuspectContainer");
+        
+        
         var fourthSuspect = this.add.image(400,350, 'fourthSuspect');
         fourthSuspect.setName("fourthSuspect");
         
+        var fourthSuspectText = this.add.text(368,440,"Rosa F.", { fontSize : 22 , fontFamily: 'Georgia, Times, serif'});
+        fourthSuspectText.setTint(0xc2baac);
+        
+        var fourthSuspectContainer = this.add.container(0,0,[fourthSuspect, fourthSuspectText]);
+        fourthSuspectContainer.setInteractive(new Phaser.Geom.Rectangle(0,0,400,350), Phaser.Geom.Rectangle.Contains);
+        fourthSuspectContainer.setName("fourthSuspectContainer");
+        
         
         //setting all the suspects visibility to false except the first one.
-        this.children.getByName("secondSuspect").visible = false;
-        this.children.getByName("thirdSuspect").visible = false;
-        this.children.getByName("fourthSuspect").visible = false;
+        this.children.getByName("secondSuspectContainer").visible = false;
+        this.children.getByName("thirdSuspectContainer").visible = false;
+        this.children.getByName("fourthSuspectContainer").visible = false;
         
         
         /**
@@ -852,7 +897,7 @@ class guessTheMurderer extends Phaser.Scene {
          * @name guessTheMurdererContainer
          * @type {Phaser.GameObjects.Container}
          */
-        var confirmTheGuessContainer = this.add.container(400,520,[confirmTheGuessRect ,confirmTheGuessText ,confirmTheGuessRectStyle]);
+        var confirmTheGuessContainer = this.add.container(400,530,[confirmTheGuessRect ,confirmTheGuessText ,confirmTheGuessRectStyle]);
         confirmTheGuessContainer.setInteractive(new Phaser.Geom.Rectangle(-150,-25,300,50), Phaser.Geom.Rectangle.Contains);
         confirmTheGuessContainer.setName("confirmTheGuessContainer");   
 
@@ -893,24 +938,24 @@ class guessTheMurderer extends Phaser.Scene {
          */
         switch (suspectNumber) {
             case 0:
-                this.children.getByName("firstSuspect").visible = true;
-                this.children.getByName("fourthSuspect").visible = false;
-                this.children.getByName("secondSuspect").visible = false;
+                this.children.getByName("firstSuspectContainer").visible = true;
+                this.children.getByName("fourthSuspectContainer").visible = false;
+                this.children.getByName("secondSuspectContainer").visible = false;
                 break;
             case 1:
-                this.children.getByName("secondSuspect").visible = true;
-                this.children.getByName("thirdSuspect").visible = false;
-                this.children.getByName("firstSuspect").visible = false;
+                this.children.getByName("secondSuspectContainer").visible = true;
+                this.children.getByName("thirdSuspectContainer").visible = false;
+                this.children.getByName("firstSuspectContainer").visible = false;
                 break;
             case 2:
-                this.children.getByName("thirdSuspect").visible = true;
-                this.children.getByName("fourthSuspect").visible = false;
-                this.children.getByName("secondSuspect").visible = false;
+                this.children.getByName("thirdSuspectContainer").visible = true;
+                this.children.getByName("fourthSuspectContainer").visible = false;
+                this.children.getByName("secondSuspectContainer").visible = false;
                 break;
             case 3:
-                this.children.getByName("fourthSuspect").visible = true;
-                this.children.getByName("thirdSuspect").visible = false;
-                this.children.getByName("firstSuspect").visible = false;
+                this.children.getByName("fourthSuspectContainer").visible = true;
+                this.children.getByName("thirdSuspectContainer").visible = false;
+                this.children.getByName("firstSuspectContainer").visible = false;
                 break;
         }
     }
