@@ -34,6 +34,13 @@ class rulesHiddenObjects extends Phaser.Scene {
     */
     create() {
         
+        // set the progression lvl from data base
+        $.ajax({
+            url: '../php/progressLevel.php',
+            type : "POST",
+            data: {'fuction': "increaseLevel", 'lvl' : 2},
+        });
+        
         //Rules Part 
         /**
          * This var contains the "rules" background that is added

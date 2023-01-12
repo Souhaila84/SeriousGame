@@ -42,6 +42,7 @@ rules
                 url: '../php/progressLevel.php',
                 type : "POST",
                 async: false,
+                data: {'fuction': "readLevel"},
                 success: function(data){
                     nextSceneIndex = parseInt(data);
                 }
@@ -51,7 +52,6 @@ rules
             if (nextSceneIndex > 4){
                 nextSceneIndex = 0;
             }
-            
             this.scene.scene.start(allScenes[nextSceneIndex]); //change scene whit progression or not
         });
        
