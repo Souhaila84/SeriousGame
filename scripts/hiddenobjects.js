@@ -216,7 +216,7 @@ class hiddenObjects extends Phaser.Scene {
         this.add.image(300, 120, 'blood'); //blood
         this.add.image(430, 550, 'flowers'); //flowers
         this.add.image(85, 360, 'timer'); //time
-        this.chrono = 5; /*initialise chrono of 300 seconds (5min)*/
+        this.chrono = 180; /*initialise chrono of 300 seconds (3min)*/
         this.textchrono = this.add.text(65, 365, formatTime(this.chrono),{ fontSize : 18 , fontFamily: 'Georgia, Times, serif'});
         var timedEvent = this.time.addEvent({
             delay: 1000,
@@ -340,6 +340,7 @@ class hiddenObjects extends Phaser.Scene {
             this.textchrono.setTint(0xff0000);
         }
         if(this.chrono == 0){
+            count = 0;
             this.scene.start('outOfTime');
         }
     }
@@ -361,8 +362,65 @@ class outOfTime extends Phaser.Scene {
     create() {
         this.add.image(400, 300, 'outOfTimeBg');
 
-        var rectOFT = this.add.rectangle(400,300,500,350,0x351d0d, 0.85);
-        rectOFT.setTint(0xc2baac);
+        /*big rectangle that will contain every elements */
+        var rectOFT = this.add.rectangle(5,35,500,350,0x351d0d, 0.85);
+        /*"you lost" text*/
+        var perdu = this.add.text(-200,-60, "You took too much time to search this house, \n\nnow the murderer ran away !",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
+        /* tint of the "you lost" text*/
+        perdu.setTint(0xc2baac);
+        rectOFT.setStrokeStyle(2,0x000000);
+
+        var tasperdu = this.add.container(400,250,[rectOFT ,perdu]);
+
+        /*small rectangle with the try again text*/
+        var recommencerRect = this.add.rectangle(0,0,200,50,0x351d0d, 0.85);
+        var recommencer = this.add.text(-40,-10, "Try again !",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
+        recommencer.setTint(0xc2baac);
+        var recommencerRectStyle = this.add.rectangle(0,0,200,50);
+        recommencerRectStyle.setStrokeStyle(2,0x000000);
+
+        /*container "recommencer" */
+        var recommencerContainer = this.add.container(290,400,[recommencerRect ,recommencer,recommencerRectStyle]);
+        recommencerContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
+
+        /*small rectangle with the try again text*/
+        var retourMenuRect = this.add.rectangle(0,0,200,50,0x351d0d, 0.85);
+        var retourMenu = this.add.text(-45,-10, "Main Menu",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
+        retourMenu.setTint(0xc2baac);
+        var retournMenuRectStyle = this.add.rectangle(0,0,200,50);
+        retournMenuRectStyle.setStrokeStyle(2,0x000000);
+
+        /*container "retourMenu" */
+        var retournMenuContainer = this.add.container(520, 400,[retourMenuRect ,retourMenu,retournMenuRectStyle]);
+        retournMenuContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
+
+
+        retournMenuContainer.on("pointerdown", function () {
+            location.reload();
+        });
+
+        retournMenuContainer.on('pointerover', function () {
+            retourMenuRect.setFillStyle(0x5d4a3d, 0.85)
+        });
+
+        retournMenuContainer.on('pointerout', function () {
+            retourMenuRect.setFillStyle(0x351d0d, 0.85)
+        });
+
+        recommencerContainer.on("pointerdown", function () {
+            this.scene.scene.start('hiddenObjects');
+        });
+
+        recommencerContainer.on('pointerover', function () {
+            recommencerRect.setFillStyle(0x5d4a3d, 0.85)
+        });
+
+        recommencerContainer.on('pointerout', function () {
+            recommencerRect.setFillStyle(0x351d0d, 0.85)
+        });
+
+    
+        
     }
 
     update() {
