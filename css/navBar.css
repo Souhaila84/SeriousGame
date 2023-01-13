@@ -17,6 +17,12 @@ BEGINNING OF NAVBAR STYLING
 	position: sticky;
 }
 
+#logo{
+    width: 3vw;
+    height: 3vw;
+    padding: 0.5vw;
+}
+
 #nav li {
     display: inline-block;
     text-align: center;

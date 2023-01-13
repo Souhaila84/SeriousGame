@@ -4,6 +4,7 @@
         <meta charset="UTF-8"/>
         <title>Support</title>
         <link rel="stylesheet" href="../css/Support.css">
+        <link rel="shortcut icon" type="image/png" href="images/Favicon.png"/>
     </head>
     <body>
         <div id="wrap">
@@ -19,18 +20,20 @@
         </nav>
         <h1 class="title"><strong>Bienvenue sur la page Support !</strong></h1>
         <h3 class="title">Si vous venez à rencontrer un problème, n'hésitez pas à nous le remonter</h3>
-        <form>
+        <form action="mailto:william.bulls@orange.fr?content-type=text/html&subject=Site%20Web" method="get" enctype="text/plain">
+
         </br>
             <p><input type="text" name="adresse mail" placeholder="Adresse mail :"></p>
             <p><input type="text" name="nom" placeholder="Nom :"><input type="text" name="prénom" placeholder="Prénom :"></p>
             <div id="zone">
                 <textarea name="problème" rows="10" cols="100" placeholder="Expliquez le problème :"></textarea>
             </div>
+            <button class="button">
+                <input type="submit" value="Envoyer">
+            </button>
         </form>
         </br>
-        <button class="button">
-            <a title="Valider">VALIDER</a>
-        </button>
+        
         </br>
         </br>
         </br>
