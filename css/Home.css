@@ -65,11 +65,15 @@ body {
     font-size: 1vw;
 }
 
+.textexplanation {
+    margin-top: 4vw;
+}
+
 /*bouton pour accéder au jeu */
 
 .boutonJouer{
     background: #767b96; 
-    margin-top: 0.1vw;
+    margin-top: 5vw;
     width: 11vw; 
     height: 4vw;
     font-size: 1vw;
