@@ -12,25 +12,28 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <title>Marcel Roquette</title>
    
+   <link rel="shortcut icon" type="image/png" href="/images/faviconn.png"/>
+   
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
  </head>
  <body>
     <nav class="sticky">
            <ul id="nav">
+          <img id="logo" src="/images/Logo.png" alt="example" class="responsive">
           <li><a id="home" href="/index.html">Accueil</a></li>
           <li><a id="play" href="/pages/gamePage.html">Jouer</a></li>
           <li><a id="support" href="/pages/Support.html">Support</a></li>
-          <li><a id="about us" href="/pages/About_us.html">A propos</a></li>
+          <li><a id="about_us" href="/pages/About_us.html">A propos</a></li>
           <script>
             $.ajax({
-                 url: \'../php/connectButton.php\',
+                 url: \'/php/connectButton.php\',
                  success: function(data){
                     $(\'#nav\').append(data);
                  }
             });
             </script>
            </ul>   
-    </nav>';
+       </nav>';
 
     if (isset($_GET["reg_err"])){
         switch ($_GET["reg_err"]) {
@@ -45,6 +48,13 @@
                 echo ' 
                 <div class="alert-warning">
                 Attention! Le mot de passe ne correspond pas avec le mot de passe de confirmation. 
+                </div> 
+                </html>';
+                break;
+            case "passwordIlegalChar" :
+                echo ' 
+                <div class="alert-warning">
+                Attention! Le mot de passe contient un charactere interdit ( \'&\'). 
                 </div> 
                 </html>';
                 break;

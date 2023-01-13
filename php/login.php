@@ -12,14 +12,14 @@
             $isExistSql = "SELECT id FROM user WHERE email = '$email'";
             $resultIsExist = mysqli_query($bdd, $isExistSql);
 
-            if($resultIsExist){
+            if(mysqli_num_rows($resultIsExist) > 0){
                 $userId = $resultIsExist->fetch_row()[0];
                 $getPasswordSql = "SELECT password FROM user WHERE id = $userId";
                 $getPasswordResult = mysqli_query($bdd, $getPasswordSql);
                 if ($getPasswordResult){
                     $userPassword = $getPasswordResult->fetch_row()[0];
                 }
-                if (strcmp($password, $userPassword) == 0){
+                if (password_verify($password, $userPassword) || strcmp($password, $userPassword) == 0){
                     
                     // Generate a secure random token
                     $token = bin2hex(openssl_random_pseudo_bytes(32));

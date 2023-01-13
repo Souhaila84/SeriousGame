@@ -24,19 +24,22 @@
                     if(strlen($pseudo) <= 50){ // verifiying pseudo size
                         if(strlen($email) <= 50){ // verifiying mail size
                             if(filter_var($email, FILTER_VALIDATE_EMAIL)){ // If email maches the format
-                                if(strcmp($password, $confirm_password) == 0){ // if passwords are sames
+                                if( strpos($password, '&') ===false ){ // if illegal chars for hash
+                                    if(strcmp($password, $confirm_password) == 0){ // if passwords are sames
 
-                                    // Inserting in DB
-                                    $insert = "INSERT INTO user(pseudo, email, password) VALUES('$pseudo', '$email', '$password')";
-                                    $result = mysqli_query($bdd, $insert);
+                                        $hash = password_hash($password, PASSWORD_DEFAULT);
+                                        // Inserting in DB
+                                        $insert = "INSERT INTO user(pseudo, email, password) VALUES('$pseudo', '$email', '$hash')";
+                                        $result = mysqli_query($bdd, $insert);
 
-                                    // Redirecting
-                                    if ($result) {
-                                        header('Location: connexion.php?reg_err=succes');
-                                        $bdd -> close();
-                                        die();
-                                    }
-                                }else{ header('Location: connexion.php?reg_err=password'); $bdd -> close(); die();}
+                                        // Redirecting
+                                        if ($result) {
+                                            header('Location: connexion.php?reg_err=succes');
+                                            $bdd -> close();
+                                            die();
+                                        }
+                                    }else{ header('Location: connexion.php?reg_err=password'); $bdd -> close(); die();}
+                                }else{ header('Location: connexion.php?reg_err=passwordIlegalChar'); $bdd -> close(); die();}
                             }else{ header('Location: connexion.php?reg_err=email'); $bdd -> close(); die();}
                         }else{ header('Location: connexion.php?reg_err=email_length'); $bdd -> close(); die();}
                     }else{ header('Location: connexion.php?reg_err=pseudo_length'); $bdd -> close(); die();}
