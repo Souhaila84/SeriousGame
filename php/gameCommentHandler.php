@@ -35,10 +35,7 @@
         }
     } else{
         echo "<section class='mustBeConnected'>
-        Vous devez etre connecté pour poster un commentaire !
-        <content>
-        <a href='../php/connexion.php'><button class='connexionButton'>CONNEXION</button></a>
-        </content>
+        Vous devez etre connecté pour poster un commentaire ! Pour vous connectez utiliser le bouton en haut à droite.
         </section>";
     }
 ?> 

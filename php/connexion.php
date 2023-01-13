@@ -37,7 +37,7 @@
             case "succes" :
                 echo ' 
                 <div class="alert-success">
-                Bravo! Votre compte a bien été créé.
+                Bravo! Votre compte a bien été créé. Vous pouvez maintenant vous connectez !
                 </div> 
                 </html>';
                 break;
