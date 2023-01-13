@@ -945,21 +945,25 @@ class guessTheMurderer extends Phaser.Scene {
                 this.children.getByName("firstSuspectContainer").visible = true;
                 this.children.getByName("fourthSuspectContainer").visible = false;
                 this.children.getByName("secondSuspectContainer").visible = false;
+                this.children.getByName("thirdSuspectContainer").visible = false;
                 break;
             case 1:
                 this.children.getByName("secondSuspectContainer").visible = true;
                 this.children.getByName("thirdSuspectContainer").visible = false;
+                this.children.getByName("firstSuspectContainer").visible = false;
                 this.children.getByName("firstSuspectContainer").visible = false;
                 break;
             case 2:
                 this.children.getByName("thirdSuspectContainer").visible = true;
                 this.children.getByName("fourthSuspectContainer").visible = false;
                 this.children.getByName("secondSuspectContainer").visible = false;
+                this.children.getByName("firstSuspectContainer").visible = false;
                 break;
             case 3:
                 this.children.getByName("fourthSuspectContainer").visible = true;
                 this.children.getByName("thirdSuspectContainer").visible = false;
                 this.children.getByName("firstSuspectContainer").visible = false;
+                this.children.getByName("secondSuspectContainer").visible = false;
                 break;
         }
     }
