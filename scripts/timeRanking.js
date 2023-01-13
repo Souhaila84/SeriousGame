@@ -32,15 +32,42 @@ class timeRankingPage extends Phaser.Scene {
 
     create() {
         
+        // the game is finished, so reset the progression lvl in data base
+        $.ajax({
+            url: '../php/progressLevel.php',
+            type : "POST",
+            data: {'fuction': "resetLevel"},
+        });
+        
+        //updating time in data base
+        var ajaxData = {
+            "timePlayed" : timePlayed
+        }
+
+        $.ajax({
+            url: '../php/timeWriter.php',
+            type : "POST",
+            data : ajaxData,
+        });
+        
         /**
          * here we are creating two variables, seconds and minutes, we are making some maths to have a good and nice looking time at the end, and after that we end up with the playingTimeDisplay that is our final var to see how much time did the user spend on his run.
          * @author Bouveret Victor
          */
-        var seconds = ((timePlayed / 1000)% 60);
+        var seconds = Math.floor((timePlayed / 1000)% 60);
         var minutes = (Math.floor((timePlayed / 1000) / 60));
         var playingTimeDisplay = (minutes + " min et " + seconds + " secondes");
-        console.log(playingTimeDisplay);
         
+        var timeRankString = "Il n'y a pas de score"; //init the timeRankString if theire is no raw in DB
+        
+        $.ajax({
+            url: '../php/timeReader.php',
+            type : "POST",
+            async: false,
+            success: function(data){
+                timeRankString = data;
+            }
+        });
         
         /**
          * adding the background to the timeRankingPage scene.
@@ -97,8 +124,9 @@ class timeRankingPage extends Phaser.Scene {
          * @name rankingText
          * @type {Phaser.GameObjects.Text}
          */
-        var rankingText = this.add.text(-260,-135, "Alec6 : 10.08 minutes",{ fontSize : 20, fontFamily: 'Georgia, Times, serif' });
+        var rankingText = this.add.text(-260,-135, timeRankString,{ fontSize : 20, fontFamily: 'Georgia, Times, serif'});
         rankingText.setTint(0xc2baac);
+        rankingText.fontWeight = 'bold';
         
         
          /**
@@ -120,13 +148,17 @@ class timeRankingPage extends Phaser.Scene {
         rankingRectStyle.setStrokeStyle(2,0x000000);
         
         
+        var yourRankingText = this.add.text(-260, 110, "Vous avez fini le jeu en " + minutes + " minutes et " + seconds + " secondes." ,{ fontSize : 20, fontFamily: 'Georgia, Times, serif'});
+        yourRankingText.setTint(0xc2baac);
+        yourRankingText.fontWeight = 'bold';
+        
          /**
          * this is the container that will contain the user username and his best time to finish the game.
          * @author Bouveret Victor
          * @name rankingContainer
          * @type {Phaser.GameObjects.Container}
          */
-        var rankingContainer = this.add.container(400,200,[rankingRect ,rankingText,rankingRectStyle]);
+        var rankingContainer = this.add.container(400,200,[rankingRect ,rankingText, yourRankingText, rankingRectStyle]);
         
         
          /**

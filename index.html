@@ -9,6 +9,8 @@
    <link rel="stylesheet" href="../css/Home.css" />
    <link rel="shortcut icon" type="image/png" href="images/Favicon.png"/>
    <title>Marcel Roquette</title>
+     
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
  </head>
      <body>
        <nav class="sticky">
@@ -18,7 +20,14 @@
           <li><a id="play" href="/pages/gamePage.html">Jouer</a></li>
           <li><a id="support" href="/pages/Support.html">Support</a></li>
           <li><a id="about us" href="/pages/About_us.html">A propos</a></li>
-          <button class="loginbutton" role="button" ><a href="./pages/connexion.html">CONNEXION</a></button>
+          <script>
+            $.ajax({
+                 url: '../php/connectButton.php',
+                 success: function(data){
+                    $('#nav').append(data);
+                 }
+            });
+            </script>
            </ul>   
        </nav>
     <div id="content"> <!----1ère photo accueil--->
@@ -43,7 +52,6 @@
      </div>
     <br>
     <br>  
-    <div>
     <div id="imagePreview">
       <img src="images/preview.jpg" class="responsive">
     </div>
@@ -52,10 +60,8 @@
           <br>
           <br>
           <br>
-          <h2>Loren Ipsum</h2>
-          simply dummy text of the printing and<br> typesetting industry. Lorem Ipsum<br>
-          has been the industry's standard <br> dummy text ever since the 1500s, when<br>
-          an unknown printer took a galley of <br> type and scrambled it to make a type<br>
+          <h2>Meurtres et Cie</h2>
+          Un jeu captivant mettant en scène une <br>enquête inédite au sein d'une époque  <br> intéréssante, l'époque Victorienne. <br><br>Cette aventure sera menée par vos soins <br>en tant que l'assistant du fameux détéctive<br>Roquette, un enquêteur Français que <br>vous aiderez avec l'anglais de manière <br>ludique et pleine d'action !
           <br>
           <br>
           <br>
@@ -80,50 +86,38 @@
       <div class="gameIcons"> <!---rectangle avec icones + petit textes-->
         <!--images des icones-->
         <div class="imageIcons">
-          <img src="/images/brain.png" style="margin-left: 75px">
-          <img src="/images/loupe.png" style="margin-left: 85px">
-          <img src="/images/inspector.png" style="margin-left: 85px">
-          <img src="/images/langue.png" style="margin-left: 85px">
+          <img src="./images/brain.png" class="imageCerebrale">
+          <img src="./images/loupe.png" class="imageLoupe">
+          <img src="./images/inspector.png" class="imageInspector">
+          <img src="./images/langue.png" class="imageLangue">
         </div>
-        
         <div class="textIcons">
-        <div class="iconeCerebrale"><!---texte cerebrale-->
-          <br>
-          <p>and typesetting
-          industry.Lorem
-          Ipsum has been</p>
+        <div class="textCerebrale"><!---texte cerebrale-->
+          <p>Un serious game captivant
+             qui vous fera réfléchir !</p>
         </div>
-        <div class="iconeLoupe"><!---texte loupe-->
-          <br>
-          <p>and typesetting
-            industry.Lorem
-            Ipsum has been</p>
+        <div class="textLoupe"><!---texte loupe-->
+          <p>Une enquête inédite qui vous plongeras à l'époque Victorienne</p>
         </div>
-        <div class="iconeInspector"><!---texte inspecteur-->
-          <br>
-          <p>and typesetting
-            industry.Lorem
-            Ipsum has been</p>
+        <div class="textInspector"><!---texte inspecteur-->
+          <p>Aidez l'inspecteur à résoudre cette enquête remplie d'action !</p>
         </div>
-        <div class="iconeLangue"><!---texte Langue-->
-          <br>
-          <p>and typesetting
-            industry.Lorem
-            Ipsum has been</p>
+        <div class="textLangue"><!---texte Langue-->
+          <p>Apprendre l'anglais tout en s'amusant, Tel est le but de ce Serious game</p>
         </div>
       </div>
-    </div>  
+    </div>
   </div>
 
     <div id="footer">
-        <ul id="footer">
-      <li><a id="legal_terms" href="#">Mentions légales</a></li>
-      <li><p class="pipe"> | </p></li>
-      <li><a id="about us_bot" href="#">A propos</a></li>
-      <li><p class="pipe"> | </p></li>
-      <li><a id="utilisations conditions" href="#">Conidtions d'utilisation</a></li>
-      <li><p class="pipe"> | </p></li>
-      <li><a id="Contact" href="#">Contact</a></li> 
+        <ul>
+          <li><a id="legal_terms" href="/pages/legalMentions.html">Mentions légales</a></li>
+          <li><p class="pipe"> | </p></li>
+          <li><a id="about us_bot" href="/pages/About_us.html">A propos</a></li>
+          <li><p class="pipe"> | </p></li>
+          <li><a id="utilisations conditions" href="#">Conditions d'utilisation</a></li>
+          <li><p class="pipe"> | </p></li>
+          <li><a id="Contact" href="/pages/Support.html">Contact</a></li> 
         </ul>
     </div>
     <div id="legals_terms">

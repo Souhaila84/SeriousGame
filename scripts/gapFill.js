@@ -32,6 +32,13 @@ class rulesGapFill extends Phaser.Scene {
     /*This function create the functionality of the scene*/
     create() {
         
+        // set the progression lvl from data base
+        $.ajax({
+            url: '../php/progressLevel.php',
+            type : "POST",
+            data: {'fuction': "increaseLevel", 'lvl' : 0},
+        });
+        
         //Rules Part 
         //adding the rules background
         var gapFillRulesBackground = this.add.image(400,300, 'Rulesbackground'); //Add the image 
@@ -126,7 +133,7 @@ class gapFill extends Phaser.Scene {
     /*This function loads the image of the game*/
     preload(){
         this.load.image('living', '../images/game/background/gapFillBackground.jpg');/*Load background */
-        this.load.image('detec', '../images/game/detective1.png');/*Load the detective image */
+        this.load.image('detec', '../images/game/characters/detective1.png');/*Load the detective image */
         this.load.image('sprite', '../images/game/_.png');/*Load the sprite image */
         this.load.image('skipArrow', '../images/game/skipArrow.png');/*Load the skip image */
     }

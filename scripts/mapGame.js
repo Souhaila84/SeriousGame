@@ -42,6 +42,13 @@ class rulesMap extends Phaser.Scene {
     
     create() {
         
+        // set the progression lvl from data base
+        $.ajax({
+            url: '../php/progressLevel.php',
+            type : "POST",
+            data: {'fuction': "increaseLevel", 'lvl' : 1},
+        });
+        
         //Rules Part 
         /**
          * adding the background to the rulesMap scene.
