@@ -176,9 +176,7 @@ class hiddenObjects extends Phaser.Scene {
         this.load.image("painting", "../images/game/items/painting.png") //painting
         this.load.image("blood", "../images/game/items/sang.png") //blood
         this.load.image("flowers", "../images/game/items/flowers2.png") //flowers
-        this.load.audio("theme", 
-                        ["../audio/hidden_objects.ogg",
-                         "../audio/hidden_objects.mp3"]);//theme song
+        this.load.audio("theme",  "../audio/hidden_objects.mp3");//theme song
         this.load.image("timer", "../images/game/items/clock.png")//timer
 
     }
@@ -216,6 +214,10 @@ class hiddenObjects extends Phaser.Scene {
         this.add.image(300, 120, 'blood'); //blood
         this.add.image(430, 550, 'flowers'); //flowers
         this.add.image(85, 360, 'timer'); //time
+        var song = this.add.audio('theme');
+        song.play();
+         
+        
         this.chrono = 180; /*initialise chrono of 300 seconds (3min)*/
         this.textchrono = this.add.text(65, 365, formatTime(this.chrono),{ fontSize : 18 , fontFamily: 'Georgia, Times, serif'});
         var timedEvent = this.time.addEvent({
@@ -336,7 +338,7 @@ class hiddenObjects extends Phaser.Scene {
         if(count == 8){  
             this.scene.start('victoryScreenHiddenObjects');
         }
-        if(this.chrono <= 10){ /*the chrono numbers become red when there's 30 seconds or less left*/ 
+        if(this.chrono <= 60){ /*the chrono numbers become red when there's 30 seconds or less left*/ 
             this.textchrono.setTint(0xff0000);
         }
         if(this.chrono == 0){

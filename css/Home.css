@@ -74,6 +74,12 @@ body {
     height: 4vw;
     font-size: 1vw;
     color: white;
+    cursor: pointer;
+}
+
+.boutonJouer:hover{
+    background: whitesmoke;
+    color: black;
 }
 
 #fondIcons{
@@ -113,6 +119,7 @@ body {
     height: 5vw;
     font-size: 1.36vw;
     text-align: center;
+    
 }
 
 
