@@ -18,7 +18,7 @@ var countOfVictory = 0;
 * @author Alexis Mariotti
 */
 var allProposals =[["There was a murder last night","Il y a eu un meurtre hier soir","Il y avais eu un meurtre hier soir","Il y a eu un menteur hier soir","il y a des meurtriers dans la nuit derniére"],
-                   ["Bonjour, je cherche un homme de petite taille avec un sourire narquois et une calvitie avancée.","Hello, I am looking for a short and smirk man with a advanced baldness.","Hello, I am looking for a short and sly man with a advanced baldness.","Hello, I am looking for a short man with a sly and advanced bat.","Hello, I am looking for a tall man with a smirk."],
+                   ["Bonjour, je cherche un homme de petite taille avec un sourire narquois et une calvitie avancée.","Hello, I am looking for a short man with a smirk and an advanced baldness.","Hello, I am looking for a short and sly man with a advanced baldness.","Hello, I am looking for a short man with a sly and advanced bat.","Hello, I am looking for a tall man with a smirk."],
                    ["Monsieur Roquette est un enquêteur de renom en France","Mr. Roquette is a renowned investigator in France","Mr. Roquette is a popular investigator in France","Mr. Roquette is a celebrity in Yugoslavia","Mr. Roquette were a renowned alligator at France"]];
 /** 
 * The string array of current proposal
@@ -362,7 +362,7 @@ class translateGameRules extends Phaser.Scene {
          * @type {Phaser.GameObjects.Text}
          * @author Alexis Mariotti
          */
-        var rulesText = this.add.text(-195,-75, "For this game, you have to chose \nthe most apropriated traduction \namong the 4 proposed. \nThere are 3 traductions to do.\n\nGood Luck !",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif' });
+        var rulesText = this.add.text(-195,-75, "For this game, you have to choose \nthe most appropriate translation \namong the 4 proposed. \nThere are 3 sentences to translate.\n\nGood Luck !",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif' });
         /**
          * this is the rectangle that will be in the rules Container of the translate rules scene. 
          * @name rulesRect

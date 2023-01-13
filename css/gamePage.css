@@ -161,4 +161,9 @@ canvas {
     border-style : dashed;
 }
 
+.mustBeConnected{
+    font-size: 1.5rem;
+    color: red;
+    text-align: center;
+}
 
