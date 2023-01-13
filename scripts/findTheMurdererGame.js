@@ -465,8 +465,6 @@ class findTheMurdererGame extends Phaser.Scene {
              */
             var music = this.sound.add("audiotheme"+proposalNumber);
             
-            console.log("audiotheme"+proposalNumber);
-            
         
             /**
              * this function will allow the user to play the audio by clicking on the playButtonContainer2 or to resume it after it has been paused.
