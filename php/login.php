@@ -34,7 +34,7 @@
                     $insertSession = "INSERT INTO session(sessionToken, idUser) VALUES('$token', '$userId')";
                     $result = mysqli_query($bdd, $insertSession);
 
-                    header('Location: connexion.php'); $bdd -> close(); die();
+                    header('Location: /index.html'); $bdd -> close(); die();
 
                     
                 }else{ header('Location: connexion.php?conn_err=password'); $bdd -> close(); die();}

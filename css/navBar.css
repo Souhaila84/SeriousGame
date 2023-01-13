@@ -101,6 +101,11 @@ BEGINNING OF BUTTONS STYLING
     color: #5f687c;
 }
 
+.loginbutton a:hover{
+    background-color: #fff;
+    color: #5f687c;
+}
+
 /*
 END OF BUTTONS STYLING 
 */
