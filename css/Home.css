@@ -109,9 +109,9 @@ body {
 
 .textIcons{
     display: flex;
-    width: 5vw;
+    width: auto;
     height: 5vw;
-    font-size: 1.36vw;
+    font-size: 1.3vw;
     text-align: center;
 }
 
