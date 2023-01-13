@@ -32,6 +32,13 @@ class rulesGapFill extends Phaser.Scene {
     /*This function create the functionality of the scene*/
     create() {
         
+        // set the progression lvl from data base
+        $.ajax({
+            url: '../php/progressLevel.php',
+            type : "POST",
+            data: {'fuction': "increaseLevel", 'lvl' : 0},
+        });
+        
         //Rules Part 
         //adding the rules background
         var gapFillRulesBackground = this.add.image(400,300, 'Rulesbackground'); //Add the image 
