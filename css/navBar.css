@@ -98,7 +98,12 @@ BEGINNING OF BUTTONS STYLING
 
 .loginbutton:hover {
     background-color: #fff;
-    color: black;
+    color: #5f687c;
+}
+
+.loginbutton a:hover{
+    background-color: #fff;
+    color: #5f687c;
 }
 
 /*
