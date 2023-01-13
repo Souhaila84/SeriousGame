@@ -103,7 +103,7 @@ class rulesFindTheMurderer extends Phaser.Scene {
          * @name rulesText
          * @name {Phaser.GameObjects.Text}
          */
-        var rulesText = this.add.text(-190,-90, "In this game you have listen to \nthe person speaking and find \nwho is the murderer between all the\ncharacters that will be displayed \non your screen, then click on the \nsuspect and finish the investigation !\n\nGood luck !",{ fontSize : 20, fontFamily: 'Georgia, Times, serif' });
+        var rulesText = this.add.text(-190,-90, "In this game you have to listen to \nthe person speaking and find \nwho is the murderer between all the\ncharacters that will be displayed \non your screen, then click on the \nsuspect and finish the investigation !\n\nGood luck !",{ fontSize : 20, fontFamily: 'Georgia, Times, serif' });
         rulesText.setTint(0xc2baac);
         
         
@@ -232,8 +232,8 @@ class instructionsForTheMurdererGame extends Phaser.Scene {
          * @name instructionsText
          * @name {Phaser.GameObjects.Text}
          */
-        var instructionsText = this.add.text(-240 ,-110, "Now we need to listen what the witness \nhave to tell us ! \nShe/He is going to describe the murderer \nand we will need to find him/her \nbetween four suspects according to the \ndescription that the witness gave us.",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
-        var instructionsText2 = this.add.text(-240, 50, "Listen what does she/he have to \nsay by clicking the play button.", { fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
+        var instructionsText = this.add.text(-240 ,-110, "Now we need to listen to what the witness \nhave to tell us ! \nShe/He is going to describe the murderer \nand we will need to find him/her \nbetween the four suspects according to the \ndescription that the witness gave us.",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
+        var instructionsText2 = this.add.text(-240, 50, "Listen to what does she/he have to \nsay by clicking the play button.", { fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
         
         
          /**
@@ -945,21 +945,25 @@ class guessTheMurderer extends Phaser.Scene {
                 this.children.getByName("firstSuspectContainer").visible = true;
                 this.children.getByName("fourthSuspectContainer").visible = false;
                 this.children.getByName("secondSuspectContainer").visible = false;
+                this.children.getByName("thirdSuspectContainer").visible = false;
                 break;
             case 1:
                 this.children.getByName("secondSuspectContainer").visible = true;
                 this.children.getByName("thirdSuspectContainer").visible = false;
+                this.children.getByName("firstSuspectContainer").visible = false;
                 this.children.getByName("firstSuspectContainer").visible = false;
                 break;
             case 2:
                 this.children.getByName("thirdSuspectContainer").visible = true;
                 this.children.getByName("fourthSuspectContainer").visible = false;
                 this.children.getByName("secondSuspectContainer").visible = false;
+                this.children.getByName("firstSuspectContainer").visible = false;
                 break;
             case 3:
                 this.children.getByName("fourthSuspectContainer").visible = true;
                 this.children.getByName("thirdSuspectContainer").visible = false;
                 this.children.getByName("firstSuspectContainer").visible = false;
+                this.children.getByName("secondSuspectContainer").visible = false;
                 break;
         }
     }

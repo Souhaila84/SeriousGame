@@ -104,7 +104,7 @@ class rulesMap extends Phaser.Scene {
          * @name rulesText
          * @type {Phaser.GameObjects.Text}
          */
-        var rulesText = this.add.text(-190,-110, "In this game you have to find the \nright path with the help of \ninstructions that will be displayed\non the right of your screen. After \nthat, click on the location you \nthink right and submit your choice, \nyou only have one right location per try. \n\nGood luck !",
+        var rulesText = this.add.text(-190,-110, "In this game you have to find the \nright path with the help of \ninstructions that will be displayed\non the right of your screen. After \nthat, click on the location you \nthink is right and submit your choice, \nyou only have one right location per try. \n\nGood luck !",
         { fontSize : 20, fontFamily: 'Georgia, Times, serif'});
         
         rulesText.setTint(0xc2baac);

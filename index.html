@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+<html lang ="en">
+
 <link href="./css/Home.css" rel="stylesheet">
 
-<html lang="en">
  <head>
-   <meta charset="UTF-8" />
-   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <link rel="stylesheet" href="../css/Home.css" />
-   <link rel="shortcut icon" type="image/png" href="/images/faviconn.png"/>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="../css/Home.css">
+   <link rel="shortcut icon" type="image/png" href="/images/faviconn.png">
    <title>Marcel Roquette</title>
      
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -19,7 +20,7 @@
           <li><a id="home" href="/index.html">Accueil</a></li>
           <li><a id="play" href="/pages/gamePage.html">Jouer</a></li>
           <li><a id="support" href="/pages/Support.html">Support</a></li>
-          <li><a id="about us" href="/pages/About_us.html">A propos</a></li>
+          <li><a id="about_us" href="/pages/About_us.html">A propos</a></li>
           <script>
             $.ajax({
                  url: '/php/connectButton.php',
@@ -30,13 +31,12 @@
             </script>
            </ul>   
        </nav>
-    <div id="content"> <!----1ère photo accueil--->
-        <img src="images/The 1884's murder.png" alt="example" class="responsive">
+    <div id="content">
+        <img src="images/The_1884's_murder.png" alt="Fond d'écran d'accueil" class="responsive">
     </div>  
     <br>
     <div id='commentaire'>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <div id='commentaire' ></div>
       <script>
          function genererComment(){
              $.ajax({
@@ -53,55 +53,50 @@
     <br>
     <br>  
     <div id="imagePreview">
-      <img src="images/preview.jpg" class="responsive">
+      <img src="images/preview.jpg" alt="preview" class="responsive">
     </div>
         <div id="gamePreview" class="responsive"> 
           <div class = "textPreview">
-          <br>
-          <br>
-          <br>
           <h2>Un meurtre à Londres</h2>
           Plongez en pleine Angleterre Victorienne<br> où votre but sera de résoudre le meurtre 
           <br>du jeune Edward O'Neill <br> Mais attention, il faudra être très attentif <br>aux instructions du détéctive
           <br>et être rapide avant que le meurtrier vous échappe !<br>Saurez-vous y parvenir ?<br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <a href="/pages/gamePage.html">
           <button class="boutonJouer">JOUER</button>
-          </a>
           </div>
           <div class="slidecontainer">
           <div class ="slider"> <!--slider avec images du jeu-->
-          <div class="slide"><img src="images/game/hidden.png"></div>
-          <div class="slide"><img src="images/game/menustart.png"></div>
-          <div class="slide"><img src="images/game/map.png"></div>
-          <div class="slide"><img src="images/game/instructions.png"></div>
+          <div class="slide"><img src="images/game/hidden.png" alt="Image de fond"></div>
+          <div class="slide"><img src="images/game/menustart.png" alt="Image de fond du menu de démarage"></div>
+          <div class="slide"><img src="images/game/map.png" alt="Carte"></div>
+          <div class="slide"><img src="images/game/instructions.png" alt="Fond des instructions"></div>
           </div>
         </div> 
       </div>
       <div>
       <div id="fondIcons">
-        <img src="images/london-g7db731864_1920.jpg" class="responsive">
+        <img src="images/london-g7db731864_1920.jpg" alt="Fond de Londres" class="responsive">
       </div>
       <div class="gameIcons"> <!---rectangle avec icones + petit textes-->
         <div class="Cerebrale">
-            <img src="./images/brain.png" class="images">
+            <img src="./images/brain.png" alt="Image de cerveau" class="images">
             <p>Un serious game captivant qui vous fera réfléchir !</p>
         </div>
         <div class="Loupe">
-            <img src="./images/loupe.png" class="images">
+            <img src="./images/loupe.png" alt="Image de loupe" class="images">
             <p>Une enquête inédite qui vous plongera à l'époque Victorienne</p>
         </div>
         <div class="Inspector">
-            <img src="./images/inspector.png" class="images">
+            <img src="./images/inspector.png" alt="Image d'inspecteur" class="images">
             <p>Aidez l'inspecteur à résoudre cette enquête remplie d'action !</p>
         </div>
         <div class="Langue"><!---texte Langue-->
-            <img src="./images/langue.png" class="images">
+<<<<<<< HEAD
+            <img src="./images/langue.png" alt="Image de dictionnaire" class="images">
             <p>Apprendre l'anglais tout en s'amusant, Tel est le but de ce Serious game</p>
+=======
+            <img src="./images/langue.png" class="images">
+            <p>Apprendre l'anglais tout en s'amusant, tel est le but de ce Serious game</p>
+>>>>>>> 987ee26cceacb19714bc8ac4abfe4d58485a95c1
         </div>
       </div>
     </div>
@@ -110,15 +105,19 @@
         <ul>
           <li><a id="legal_terms" href="/pages/legalMentions.html">Mentions légales</a></li>
           <li><p class="pipe"> | </p></li>
-          <li><a id="about us_bot" href="/pages/About_us.html">A propos</a></li>
+          <li><a id="about_us_bot" href="/pages/About_us.html">A propos</a></li>
           <li><p class="pipe"> | </p></li>
-          <li><a id="utilisations conditions" href="#">Conditions d'utilisation</a></li>
+          <li><a id="utilisations_conditions" href="#">Conditions d'utilisation</a></li>
           <li><p class="pipe"> | </p></li>
           <li><a id="Contact" href="/pages/Support.html">Contact</a></li> 
         </ul>
     </div>
     <div id="legals_terms">
-        <li><a>Copyright © 2022 LorenIpsum Inc. Tous droits réservés.</a></li>
+<<<<<<< HEAD
+        <a>Copyright © 2022 LorenIpsum Inc. Tous droits réservés.</a>
+=======
+        <li><a>Copyright © 2022 TheMurder Inc. Tous droits réservés.</a></li>
+>>>>>>> 987ee26cceacb19714bc8ac4abfe4d58485a95c1
     </div>
  </body>
 </html>
