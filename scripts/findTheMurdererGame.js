@@ -12,9 +12,7 @@ export {rulesFindTheMurderer,instructionsForTheMurdererGame ,findTheMurdererGame
  *
  *  @author Bouveret Victor
  */
-
 import timer from "./gapFill.js";
-
 
 var suspectNumber = 0;
 var proposalNumber = 0;
@@ -38,6 +36,13 @@ class rulesFindTheMurderer extends Phaser.Scene {
     }
 
     create() {
+        
+        // set the progression lvl from data base
+        $.ajax({
+            url: '../php/progressLevel.php',
+            type : "POST",
+            data: {'fuction': "increaseLevel", 'lvl' : 4},
+        });
         
         //Rules Part 
         //adding the rules background
@@ -463,7 +468,6 @@ class findTheMurdererGame extends Phaser.Scene {
              * @author Bouveret Victor
              */
             playButtonContainer2.on('pointerdown', function() {
-                console.log(proposalNumber);
                 playButtonContainer2.visible = false;
                 pauseButtonContainer.visible = true;
                 if(music.isPaused) {

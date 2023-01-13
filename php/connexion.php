@@ -76,6 +76,13 @@
                 </div> 
                 </html>';
                 break;
+            case "pseudo_not_available":
+                echo ' 
+                <div class="alert-warning">
+                Attention! Ce pseudo est déja utilisé par un autre joueur. 
+                </div> 
+                </html>';
+                break;
         } 
     }
     else if (isset($_GET["err"])){
