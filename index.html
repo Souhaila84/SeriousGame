@@ -15,14 +15,14 @@
      <body>
        <nav class="sticky">
            <ul id="nav">
-          <img id="logo" src="images/Logo.png" alt="example" class="responsive">
+          <img id="logo" src="/images/Logo.png" alt="example" class="responsive">
           <li><a id="home" href="/index.html">Accueil</a></li>
           <li><a id="play" href="/pages/gamePage.html">Jouer</a></li>
           <li><a id="support" href="/pages/Support.html">Support</a></li>
           <li><a id="about us" href="/pages/About_us.html">A propos</a></li>
           <script>
             $.ajax({
-                 url: '../php/connectButton.php',
+                 url: '/php/connectButton.php',
                  success: function(data){
                     $('#nav').append(data);
                  }
