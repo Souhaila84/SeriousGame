@@ -374,7 +374,10 @@ class findTheMurdererGame extends Phaser.Scene {
             this.load.image("witessInterrogation","../images/game/background/witnessinterrogation1.2.png");
             this.load.image("playButtonImg2","../images/playbutton.png");
             this.load.image("pauseButton","../images/pausebutton.png");
-            this.load.audio("audiotheme",audioproposals[proposalNumber]);
+            this.load.audio("audiotheme0",audioproposals[0]);
+            this.load.audio("audiotheme1",audioproposals[1]);
+            this.load.audio("audiotheme2",audioproposals[2]);
+            this.load.audio("audiotheme3",audioproposals[3]);
         }
 
         create() {
@@ -460,7 +463,9 @@ class findTheMurdererGame extends Phaser.Scene {
              * @name music
              * @type {Phaser.Audio}
              */
-            var music = this.sound.add("audiotheme");
+            var music = this.sound.add("audiotheme"+proposalNumber);
+            
+            console.log("audiotheme"+proposalNumber);
             
         
             /**
