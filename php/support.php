@@ -6,7 +6,7 @@
 </head>
 <body>
     <?php
-    $retour = mail('lesinactifs13@gmail.com', 'Envoie depuis la page Suppor', $_POST['problème'], 'From : willylebigi@gmail.com');
+    $retour = mail('the1884murder@gmail.com', 'Envoie depuis la page Suppor', $_POST['problème'], 'From : the1884murder@gmail.com');
     if($retour)
         echo '<p>Votre message a été envoyé<p>';
     ?>
