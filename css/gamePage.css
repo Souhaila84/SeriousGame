@@ -68,7 +68,7 @@ canvas {
     display: block;
     margin-top: 2vw;
     margin-bottom: 5vw;
-    font-size: 1.35vw;
+    font-size: 1.25vw;
     color: black;
     text-align: center;
 }
@@ -141,24 +141,23 @@ canvas {
 }
 
 #submitComment{
-    background-color: darkorchid;
+    background-color: #5f687c;
     border: none;
     color: white;
     margin-left: 1vw;
-    padding: 5px 7px;
+    padding: 0.5vw 1vw;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 1rem;
-    
-    transition-duration: 0.4s;
+    font-size: 1.2vw;
+    transition-duration: 0.2s;
 }
 
 #submitComment:hover{
     background-color: white;
-    color: black;
-    border-color: darkorchid;
-    border-style : dashed;
+    color: #5f687c;
+    border-color: #5f687c;
+    border-style: solid;
 }
 
 .mustBeConnected{
