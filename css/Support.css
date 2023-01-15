@@ -23,19 +23,20 @@ input[type="text"]{
     background: transparent;
     outline: none;
     height: 4vh;
-    width: 20vw%;
+    width: 20vw;
 }
 
 #zone{
     margin-left: 25%;
-
-}
+    margin-right: 25%;
+}   
 
 .wrapper{
     text-align: center;
 }
 
 .title{
+    font-size: 2vw;
     text-align: center;
 }
 
