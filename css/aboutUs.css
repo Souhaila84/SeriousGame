@@ -9,64 +9,87 @@ body {
     margin: 0;
     padding: 0;
     text-align: justify;
-    font-size: 13px;
+    font-size: 1vw;
     background-color:#fff;
 }
 
 .encadrement{
     background: white;
     width: 80%;
-    height: 150px;
-    border-radius: 10px;
+    height: 11vw;
+    border-radius: 0.6vw;
     border: 1px solid black;
-    margin: auto;
-    display: block;
-    margin-top: 20px;
-    font-size: 15px;
+    margin-top: 2vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
     color: black;
     text-align: center;
+    font-size: 1vw;
 }
 
 .text{
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 1vw;
+    margin-right: 1vw;
 }
 
 .profilG{
-    width: 125px;
+    width: 8vw;
     border: 1px solid black;
-    border-radius: 100px;
-    float: left;
-    margin: 1vh 2vw 0 20vw;
-
+    border-radius: 5vw;
 }
 
 .profilD{
-    width: 125px;
+    width: 8vw;
     border: 1px solid black;
-    border-radius: 100px;
-    float: right;
-    margin: 1vh 20vw 0 2vw;
-
+    border-radius: 5vw;
 }
 
-.texteD{
+.allprofiles {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20vw;
+    margin-left: 20vw;
+}
+
+.firstprofile {
+    margin-top: 1vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.secondprofile {
+    margin-top: 2vw;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.thirdprofile {
+    margin-top: 2vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.fourthprofile {
+    margin-top: 2vw;
+    display: flex;
+    flex-direction: row-reverse
+}
+
+.textleftprofiles {
+    margin-left: 2.5vw;
+    text-align: left
+}
+
+.textrightprofiles {
+    margin-right: 2.5vw;
+    margin-top: 2vw;
     text-align: right;
-    margin: 4vh 2vw 0 20vw;
-}
-
-.texteG{
-    text-align: left;
-    margin: 4vh 5vw 0 20vw;
 }
 
 .titre{
     text-align: center;
-}
+} 
 
 #footer{
     margin-top: 5vh;
 }
-
-
-
