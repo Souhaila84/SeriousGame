@@ -78,10 +78,12 @@ body {
 
 .textleftprofiles {
     margin-left: 2.5vw;
-    text-align: left
+    height: 100%;
+    text-align: left;
 }
 
 .textrightprofiles {
+    height: 100%;
     margin-right: 2.5vw;
     margin-top: 2vw;
     text-align: right;
