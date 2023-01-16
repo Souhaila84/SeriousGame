@@ -9,7 +9,7 @@ body {
     margin: 0;
     padding: 0;
     text-align: justify;
-    font-size: 1vw;
+    font-size: 0.95vw;
     background-color:#fff;
 }
 
@@ -24,7 +24,7 @@ body {
     margin-right: 10vw;
     color: black;
     text-align: center;
-    font-size: 1vw;
+    font-size: 0.85vw;
 }
 
 .text{
@@ -90,6 +90,7 @@ body {
 
 .titre{
     text-align: center;
+    
 } 
 
 #footer{
