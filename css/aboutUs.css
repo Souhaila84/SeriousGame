@@ -8,6 +8,7 @@ IMPORTING NAVBAR STYLE
 body {
     margin: 0;
     padding: 0;
+    font-family: "Verdana", "Arial", "Tahoma", "Serif";
     text-align: justify;
     font-size: 0.95vw;
     background-color:#fff;
