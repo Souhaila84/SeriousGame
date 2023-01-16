@@ -30,7 +30,6 @@ BEGINNING OF NAVBAR STYLING
 
 /*Navbar text styling*/
 #nav li a {
-    margin-top: 0.2vw;
     display: flex;
     padding: 1vw 3vw;
     text-decoration: none;
