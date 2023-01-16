@@ -554,7 +554,8 @@ class gapFill extends Phaser.Scene {
     }
     /*This function update the scene*/ 
     update(){
-        if (score > 0) { 
+        //if (score > 0) { //for skip
+        if (score > 8) { 
             /*
             * Add text if all answer are correct in GapFill game
             * @type {Phaser.GameObject.text}
