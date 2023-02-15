@@ -1,7 +1,7 @@
 <?php
-    include 'isLogged.php';
+    include 'configPDO.php';
     
-    if($isLogged){
+    if(ConnexionDBRead::getInstance()->isLogged()){
         echo "<button class=\"loginbutton\" role=\"button\" id=\"disconnectButton\">DECONNEXION</button>
         <script src=\"/scripts/disconnect.js\"></script>";
     }

@@ -1,6 +1,4 @@
 <?php
-    
-    include 'isLogged.php';
 
     echo '<!DOCTYPE html>
 <link href="../css/connexion.css" rel="stylesheet">

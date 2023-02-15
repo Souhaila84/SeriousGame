@@ -1,5 +1,7 @@
 <?php
 
+include 'configPDO.php'; // including DB connexion
+
     //parsing ajax requests
     if(isset($_POST['fuction'])){
         if ($_POST['fuction'] == "readLevel") { readLevel(); }
@@ -8,17 +10,14 @@
     }
 
     function readLevel(){
-        include 'isLogged.php';
 
         $progressLvl = 0; // initialising progressLevel
 
-        if($isLogged){
-            include 'config.php'; // including DB connexion
+        if(ConnexionDBRead::getInstance()->isLogged()){
 
-            $getProgressLvlSql = "SELECT nv_progression FROM `user` WHERE id = $request_id"; // ussing id from isLogged.php
-            $resultProgressLvl = mysqli_query($bdd, $getProgressLvlSql); //executing query
-            if (mysqli_num_rows($resultProgressLvl) == 1){
-                $progressLvl = $resultProgressLvl->fetch_row()[0];
+            $resultProgressLvl = ConnexionDBRead::getInstance()->progressLvlFromId($_COOKIE['id_user'] ?? '');
+            if ($resultProgressLvl->rowCount() == 1){
+                $progressLvl = $resultProgressLvl->fetch()->lvl;
             }
         }
 
@@ -26,25 +25,21 @@
     }
 
     function increaseLevel(){
-        include 'isLogged.php';
         
-        if($isLogged){
+        if(ConnexionDBRead::getInstance()->isLogged()){
             
             if(isset($_POST["lvl"])){
                 $lvl = $_POST['lvl'];
-                $increaseLevelSql = "UPDATE user SET nv_progression = $lvl WHERE id = $request_id"; // ussing id from isLogged.php
-                mysqli_query($bdd, $increaseLevelSql); //executing query
+                ConnexionDBWrite::getInstance()->setProgressLvl($_COOKIE['id_user'] ?? '', $lvl);
             }
         }
     }
 
     function resetLevel(){
-        include 'isLogged.php';
         
-        if($isLogged){
+        if(ConnexionDBRead::getInstance()->isLogged()){
 
-            $resetLevel = "UPDATE user SET nv_progression = 0 WHERE id = $request_id"; // ussing id from isLogged.php
-            mysqli_query($bdd, $resetLevel); //executing query
+            ConnexionDBWrite::getInstance()->setProgressLvl($_COOKIE['id_user'] ?? '', 0); //set with 0 for reset
 
         }
     }
