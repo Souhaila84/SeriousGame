@@ -1,11 +1,10 @@
 <?php
-    include 'configPDO.php';
+    include 'configPDO.php'; // including DB connexion
     
     if(ConnexionDBRead::getInstance()->isLogged()){
         
         $commentText = $_POST['commentValue'];
         if ($commentText != ""){
-            include 'config.php'; // including DB connexion
             
             $request_id = isset($_COOKIE['id_user']) ? $_COOKIE['id_user'] : '';  //user id
 

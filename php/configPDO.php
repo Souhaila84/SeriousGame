@@ -9,7 +9,7 @@ class ConnexionDBRead {
     const DEFAULT_SQL_HOST = "mysql-enqueteroquette.alwaysdata.net";
     const DEFAULT_SQL_DTB = "enqueteroquette_db";
 
-    const READ_SQL_USER = '289405_a'; // ATTENTION CHANGER LES LOG ICI C4EST ROOT 
+    const READ_SQL_USER = '289405_a'; // ATTENTION CHANGER LES LOG ICI C4EST ROOT
     const READ_SQL_PASS = '%Admin0!';
 
     private $readGameCommStatement;
@@ -23,6 +23,12 @@ class ConnexionDBRead {
     private $userPasswordFromIdStatement;
 
     private $progressLvlFromIdStatement;
+
+    private $isEmailExistStatement;
+
+    private $isPseudoExistStatement;
+
+    private $bestGameTimesStatement;
 
     private function __construct()
     {
@@ -39,7 +45,13 @@ class ConnexionDBRead {
 
         $this->userPasswordFromIdStatement = $this->PDOInstance->prepare("SELECT password FROM user WHERE id = ?");
 
-        $this->progressLvlFromIdStatement = $this->PDOInstance->prepare("SELECT nv_progression AS lvl FROM `user` WHERE id = ?");
+        $this->progressLvlFromIdStatement = $this->PDOInstance->prepare("SELECT nv_progression AS lvl FROM user WHERE id = ?");
+
+        $this->isEmailExistStatement = $this->PDOInstance->prepare("SELECT pseudo, email, password FROM user WHERE email = ?");
+
+        $this->isPseudoExistStatement = $this->PDOInstance->prepare("SELECT pseudo, email, password FROM user WHERE pseudo = ?");
+
+        $this->bestGameTimesStatement = $this->PDOInstance->prepare("SELECT pseudo, bestTime FROM user WHERE bestTime IS NOT NULL ORDER BY bestTime LIMIT 5");
     }
 
     public static function getInstance()
@@ -103,6 +115,27 @@ class ConnexionDBRead {
         $statement->execute(array($id));
         return $statement;
     }
+
+    public function isEmailExist($email){
+        $statement = $this->isEmailExistStatement;
+        $statement->setFetchMode(PDO::FETCH_OBJ);
+        $statement->execute(array($email));
+        return $statement;
+    }
+
+    public function isPseudoExist($pseudo){
+        $statement = $this->isPseudoExistStatement;
+        $statement->setFetchMode(PDO::FETCH_OBJ);
+        $statement->execute(array($pseudo));
+        return $statement;
+    }
+
+    public function bestGameTimes(){
+        $statement = $this->bestGameTimesStatement;
+        $statement->setFetchMode(PDO::FETCH_OBJ);
+        $statement->execute();
+        return $statement;
+    }
 }
 
 class ConnexionDBWrite {
@@ -125,6 +158,10 @@ class ConnexionDBWrite {
 
     private $setProgressLvlStatement;
 
+    private $insertNewAccountStatement;
+
+    private $updatePlayerTimeStatement;
+
     private function __construct()
     {
         $this->PDOInstance = new PDO('mysql:dbname=' . self::DEFAULT_SQL_DTB . ';host=' . self::DEFAULT_SQL_HOST, self::WRITE_SQL_USER, self::WRITE_SQL_PASS);
@@ -136,6 +173,10 @@ class ConnexionDBWrite {
         $this->insertSessionStatement = $this->getPdo()->prepare("INSERT INTO session(sessionToken, idUser) VALUES(?, ?)");
 
         $this->setProgressLvlStatement = $this->getPdo()->prepare("UPDATE user SET nv_progression = ? WHERE id = ?");
+
+        $this->insertNewAccountStatement = $this->getPdo()->prepare("INSERT INTO user(pseudo, email, password) VALUES(?, ?, ?)");
+
+        $this->updatePlayerTimeStatement = $this->getPdo()->prepare("UPDATE user SET bestTime=? WHERE id=? AND (bestTime > ? OR bestTime IS NULL)");
     }
 
     public static function getInstance()
@@ -173,6 +214,18 @@ class ConnexionDBWrite {
     public function setProgressLvl($id, $lvl){
         $statement = $this->setProgressLvlStatement;
         $statement->execute(array($lvl,$id));
+        return $statement;
+    }
+
+    public function insertNewAccount($pseudo, $email, $hash){
+        $statement = $this->insertNewAccountStatement;
+        $statement->execute(array($pseudo,$email,$hash));
+        return $statement;
+    }
+
+    public function updatePlayerTime($timeValue, $id){
+        $statement = $this->updatePlayerTimeStatement;
+        $statement->execute(array($timeValue,$id,$timeValue));
         return $statement;
     }
 }
