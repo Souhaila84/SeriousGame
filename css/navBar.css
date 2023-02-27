@@ -17,10 +17,16 @@ BEGINNING OF NAVBAR STYLING
 	position: sticky;
 }
 
+.managingnavbar {
+    display:flex;
+    flex-direction: row;
+}
+
 #logo{
     width: 3vw;
     height: 3vw;
     padding: 0.5vw;
+    background: #5f687c;
 }
 
 #nav li {

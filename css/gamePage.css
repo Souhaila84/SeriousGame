@@ -15,6 +15,15 @@ body {
     min-height: 100vh;
 }
 
+.managingnavbar {
+    display:flex;
+    flex-direction: row;
+}
+
+#logo {
+    background: #5f687c;
+}
+
 
 /* DROPDOWN MENU */
 .support {
@@ -49,7 +58,7 @@ body {
 }
 
 .profilePicture {
-    width: 5 vw;
+    width: 5vw;
     height: 5vh;
 }
 
