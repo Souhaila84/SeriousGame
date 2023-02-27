@@ -30,6 +30,8 @@ class ConnexionDBRead {
 
     private $bestGameTimesStatement;
 
+    private $commGeneratedStatement;
+
     private function __construct()
     {
         $this->PDOInstance = new PDO('mysql:dbname=' . self::DEFAULT_SQL_DTB . ';host=' . self::DEFAULT_SQL_HOST, self::READ_SQL_USER, self::READ_SQL_PASS);
@@ -52,6 +54,8 @@ class ConnexionDBRead {
         $this->isPseudoExistStatement = $this->PDOInstance->prepare("SELECT pseudo, email, password FROM user WHERE pseudo = ?");
 
         $this->bestGameTimesStatement = $this->PDOInstance->prepare("SELECT pseudo, bestTime FROM user WHERE bestTime IS NOT NULL ORDER BY bestTime LIMIT 5");
+
+        $this->commGeneratedStatement = $this->PDOInstance->prepare("SELECT libelle, pseudo FROM commGenere ORDER BY rand()");
     }
 
     public static function getInstance()
@@ -132,6 +136,13 @@ class ConnexionDBRead {
 
     public function bestGameTimes(){
         $statement = $this->bestGameTimesStatement;
+        $statement->setFetchMode(PDO::FETCH_OBJ);
+        $statement->execute();
+        return $statement;
+    }
+
+    public function commGenerated(){
+        $statement = $this->commGeneratedStatement;
         $statement->setFetchMode(PDO::FETCH_OBJ);
         $statement->execute();
         return $statement;
