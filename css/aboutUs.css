@@ -8,9 +8,8 @@ IMPORTING NAVBAR STYLE
 body {
     margin: 0;
     padding: 0;
-    font-family: "Verdana", "Arial", "Tahoma", "Serif";
     text-align: justify;
-    font-size: 0.95vw;
+    font-size: 0.8vw;
     background-color:#fff;
 }
 
@@ -28,9 +27,10 @@ body {
     font-size: 0.85vw;
 }
 
-.text{
+.mainText{
     margin-left: 1vw;
     margin-right: 1vw;
+    font-size: 1vw;
 }
 
 .profilG{
@@ -50,6 +50,7 @@ body {
     flex-direction: column;
     margin-right: 20vw;
     margin-left: 20vw;
+    font-size: 1vw;
 }
 
 .firstprofile {

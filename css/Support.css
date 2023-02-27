@@ -10,7 +10,12 @@ body {
     padding: 0;
     text-align: justify;
     font-size: 13px;
-    background-color:#fff;
+    background-color:#fff;  
+    background-attachment: fixed;
+    text-align:center;
+    display:grid;
+    grid-template-rows: auto 1fr auto; 
+    min-height:100vh;
 }
 
 input[type="text"]{
@@ -24,6 +29,15 @@ input[type="text"]{
     outline: none;
     height: 4vh;
     width: 20vw;
+}
+
+.managingnavbar {
+    display:flex;
+    flex-direction: row;
+}
+
+#logo {
+    background: #5f687c;
 }
 
 #zone{
@@ -44,15 +58,19 @@ input[type="text"]{
     text-align: center;
 }
 
-.button{
-    border: none;
-    color:#fff;
-    font-size: 10px;
+.supportButton{
+    background: #767b96; 
+    font-size: 0.8vw;
+    color: white;
     cursor: pointer;
-    text-align: center;
-    width: 60px;
-    height: 20px;
+    width: 5vw;
+    height: 2vw;
     margin-left: 70%;
+    text-align: center;
+}
+
+.supportButton:hover{
+    background: #a1a5b7;
 }
 
 #footer{

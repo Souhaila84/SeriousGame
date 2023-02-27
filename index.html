@@ -1,40 +1,38 @@
 <!DOCTYPE html>
 <html lang ="en">
 
-<link href="./css/Home.css" rel="stylesheet">
-
- <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="../css/Home.css">
-   <link rel="shortcut icon" type="image/png" href="/images/faviconn.png">
-   <title>Marcel Roquette</title>
-     
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- </head>
-     <body>
-       <nav class="sticky">
-           <ul id="nav">
-          <img id="logo" src="/images/Logo.png" alt="example" class="responsive">
-          <li><a id="home" href="/index.html">Accueil</a></li>
-          <li><a id="play" href="/pages/gamePage.html">Jouer</a></li>
-          <li><a id="support" href="/pages/Support.html">Support</a></li>
-          <li><a id="about_us" href="/pages/About_us.html">A propos</a></li>
-          <script>
-            $.ajax({
-                 url: '/php/connectButton.php',
-                 success: function(data){
-                    $('#nav').append(data);
-                 }
-            });
-            </script>
-           </ul>   
-       </nav>
-    <div id="content">
-        <img src="images/The_1884's_murder.png" alt="Fond d'écran d'accueil" class="responsive">
-    </div>  
-    <br>
+        <head>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href="../css/Home.css">
+            <link rel="shortcut icon" type="image/png" href="/images/faviconn.png">
+            <title>Marcel Roquette</title>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        </head>
+    
+    <body>
+        <link href="./css/Home.css" rel="stylesheet">
+            <nav class="sticky">
+                    <div class="managingnavbar">
+                        <img id="logo" src="/images/Logo.png" alt="example">
+                        <ul id="nav">
+                        <li><a id="home" href="/index.html">Accueil</a></li>
+                        <li><a id="play" href="/pages/gamePage.html">Jouer</a></li>
+                        <li><a id="support" href="/pages/Support.html">Support</a></li>
+                        <li><a id="about_us" href="/pages/About_us.html">A propos</a></li>
+                        <script>
+                            $.ajax({
+                                 url: '/php/connectButton.php',
+                                 success: function(data){
+                                    $('#nav').append(data);
+                                 }
+                            });
+                        </script>
+                        </ul>   
+                    </div>
+                </nav>
+        <div id="content">
+            <img src="images/The_1884's_murder.png" alt="Fond d'écran d'accueil" class="responsive">
+        </div>  
     <!--Bot générateur de commentaires-->
     <div id='commentaire'>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -61,8 +59,10 @@
           <h2>Un meurtre à Londres</h2>
           <p class ="textexplanation">Plongez en pleine Angleterre Victorienne<br> où votre but sera de résoudre le meurtre 
           <br>du jeune Edward O'Neill <br> Mais attention, il faudra être très attentif <br>aux instructions du détéctive
-          <br>et être rapide avant que le meurtrier vous échappe !<br>Saurez-vous y parvenir ?<br><p>
-          <a href="/pages/gamePage.html"><button class="boutonJouer" >JOUER</button></a>
+          <br>et être rapide avant que le meurtrier vous échappe !<br>Saurez-vous y parvenir ?<br>
+              <p class="marginBoutonJouer">
+                  <a href="/pages/gamePage.html" class="boutonJouer">JOUER</a>
+              </p>
           </div>
           <div class="slidecontainer">
           <div class ="slider"> <!--slider avec images du jeu-->
@@ -107,7 +107,7 @@
         </ul>
     </div>
     <div id="legals_terms">
-        <li><a>Copyright © 2022 enqueteroquette Inc. Tous droits réservés.</a></li>
+        <a>Copyright © 2022 enqueteroquette Inc. Tous droits réservés.</a>
     </div>
  </body>
 </html>
