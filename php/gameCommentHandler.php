@@ -1,25 +1,22 @@
 <?php
-    include 'isLogged.php';
+    include 'configPDO.php';
     
-    if($isLogged){
+    if(ConnexionDBRead::getInstance()->isLogged()){
         
         $commentText = $_POST['commentValue'];
         if ($commentText != ""){
             include 'config.php'; // including DB connexion
             
             $request_id = isset($_COOKIE['id_user']) ? $_COOKIE['id_user'] : '';  //user id
+
+            $resultGetPseudo = ConnexionDBRead::getInstance()->userPseudoFromId($request_id);
             
-            $getPseudoSql = "SELECT pseudo FROM user WHERE id = $request_id";
-            $resultGetPseudo = mysqli_query($bdd, $getPseudoSql); //searching pseudo for this id in DB
-            
-            if($resultGetPseudo->num_rows == 1){
-                $userPseudo = $resultGetPseudo->fetch_row()[0];  //user pseudo from DB
+            if($resultGetPseudo->rowCount() == 1){
+                $userPseudo = $resultGetPseudo->fetch()->pseudo;  //user pseudo from DB
             }
             
             //Inserting new comment in DB
-            $insertCommentSql = "INSERT INTO commentaire(id, libellé) VALUES($request_id, '$commentText');";
-            $result = mysqli_query($bdd, $insertCommentSql); //executing query
-            //$bdd -> close();
+            $result = ConnexionDBWrite::getInstance()->writeGameComment($request_id,$commentText);
             
             if ($result){
                 echo "

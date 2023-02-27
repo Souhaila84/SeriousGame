@@ -1,6 +1,4 @@
 <?php
-    
-    include 'isLogged.php';
 
     echo '<!DOCTYPE html>
 <link href="../css/connexion.css" rel="stylesheet">
@@ -153,9 +151,6 @@
                   <li><a id="Contact" href="/pages/Support.html">Contact</a></li> 
                     </ul>
                 </div>
-            <div id="legals_terms">
-            <li><a>Copyright © 2022 LorenIpsum Inc. Tous droits réservés.</a></li>
-        </div>
     </body>';
 ?>
 

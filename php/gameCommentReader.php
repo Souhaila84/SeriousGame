@@ -1,13 +1,12 @@
 <?php
-    include 'config.php'; // including DB connexion 
+    include 'configPDO.php'; // including DB connexion
 
     // Getting comments from data base
-    $gameCommentsSql = "SELECT pseudo, libellé FROM user, commentaire WHERE user.id = commentaire.id";
-    $resultGameComments = mysqli_query($bdd, $gameCommentsSql);
-    
-    while($commentRow = $resultGameComments->fetch_row()){
-        $pseudo = $commentRow[0];
-        $content = $commentRow[1];
+    $resultGameComments = ConnexionDBRead::getInstance()->readGameComm();
+
+    while($commentRow = $resultGameComments->fetch()){
+        $pseudo = $commentRow->pseudo;
+        $content = $commentRow->libellé;
         
         echo "
         <li class='commentArea'>
