@@ -11,6 +11,10 @@
     z-index: 2;
 }
 
+#footer ul {
+    padding: 0;
+}
+
 #footer li {
     display: inline-block;
     text-align: center;
@@ -62,3 +66,35 @@
 /*
 END OF FOOTER STYLING
 */
+
+@media (max-width: 805px) {
+    
+    #footer li a 
+    {
+        display: flex;
+        padding: 1.2vw 1.3vw;
+        text-decoration: none;
+        text-align: center;
+        font-size: 2.75vw;
+        color: #fff;
+    }
+    
+    #footer li p 
+    {
+        display: flex;
+        text-decoration: none;
+        text-align: center;
+        margin-left: 0.5vw;
+        margin-right: 0.5vw;
+        font-size: 2.75vw;
+        color: #fff;
+    }
+}
+
+@media only screen and (min-width: 805px) {
+    
+}
+
+@media only screen and (min-width: 992px) {
+    
+}
