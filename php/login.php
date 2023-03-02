@@ -6,19 +6,16 @@
             $password = $_POST['password'];
             $email = strtolower($email); // We don't need caps mail address
 
-            include 'config.php'; // including DB connexion 
+            include 'configPDO.php'; // including DB connexion
 
             // Verifying if user already exist
-            $isExistSql = "SELECT id FROM user WHERE email = '$email'";
-            $resultIsExist = mysqli_query($bdd, $isExistSql);
+            $resultIsExist = ConnexionDBRead::getInstance()->userIdFromMail($email);
 
-            if(mysqli_num_rows($resultIsExist) > 0){
-                $userId = $resultIsExist->fetch_row()[0];
-                $getPasswordSql = "SELECT password FROM user WHERE id = $userId";
-                $getPasswordResult = mysqli_query($bdd, $getPasswordSql);
-                if ($getPasswordResult){
-                    $userPassword = $getPasswordResult->fetch_row()[0];
-                }
+            if( $resultIsExist->rowCount() > 0){
+                $userId = $resultIsExist->fetch()->id;
+
+                $getPasswordResult = ConnexionDBRead::getInstance()->userPasswordFromId($userId);
+                $userPassword = $getPasswordResult->fetch()->password;
                 if (password_verify($password, $userPassword) || strcmp($password, $userPassword) == 0){
                     
                     // Generate a secure random token
@@ -28,17 +25,15 @@
                     setcookie('login_token', $token);
                     setcookie('id_user', $userId);
                     
-                    $deleteHoldToken = "DELETE FROM session WHERE idUser = $userId";
-                    mysqli_query($bdd, $deleteHoldToken);
+                    ConnexionDBWrite::getInstance()->deleteSession($userId); //deleting the hold session
                     
-                    $insertSession = "INSERT INTO session(sessionToken, idUser) VALUES('$token', '$userId')";
-                    $result = mysqli_query($bdd, $insertSession);
+                    ConnexionDBWrite::getInstance()->insertSession($token,$userId); //inserting the new session
 
-                    header('Location: /index.html'); $bdd -> close(); die();
+                    header('Location: /index.html'); die();
 
-                    
-                }else{ header('Location: connexion.php?conn_err=password'); $bdd -> close(); die();}
-            }else{ header('Location: connexion.php?conn_err=email'); $bdd -> close(); die();}
+
+                }else{ header('Location: connexion.php?conn_err=password'); die();}
+            }else{ header('Location: connexion.php?conn_err=email'); die();}
         }
     } else { header('Location: connexion.php?err=formNotComplete'); die(); }
 

@@ -10,6 +10,7 @@ body {
     margin: 0;
     padding: 0;
     text-align: justify;
+    font-family: "Verdana", "Arial", "Tahoma", "Serif";
     font-size: 0.8vw;
     background-color:#fff;
 }
@@ -71,19 +72,21 @@ body {
 
 /*bouton pour accéder au jeu */
 
+.marginBoutonJouer{
+    margin-top: 5vw;
+}
+
 .boutonJouer{
     background: #767b96; 
-    margin-top: 5vw;
-    width: 11vw; 
-    height: 4vw;
     font-size: 1vw;
     color: white;
     cursor: pointer;
+    padding: 15px 25px;
+    text-decoration: none;
 }
 
 .boutonJouer:hover{
-    background: whitesmoke;
-    color: black;
+    background: #a1a5b7;
 }
 
 #fondIcons{

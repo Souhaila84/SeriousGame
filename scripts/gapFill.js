@@ -155,7 +155,7 @@ class gapFill extends Phaser.Scene {
         });
         text1.setName("text1"); //set a name of text1
         
-        var text2 = this.add.text(325,60, "List of Words ",{
+        var text2 = this.add.text(325,60, "List of Words : ",{
             color: "white",  
         });
         /* 
@@ -163,7 +163,7 @@ class gapFill extends Phaser.Scene {
         * @type {Phaser.GameObject.Text}
         * @author William Goujon
         */
-        var text3 = this.add.text(200,90, "-ruckus -known -bullet -decided -eyes -flat \n         -safety -dead -mess",{
+        var text3 = this.add.text(200,90, "ruckus  known  bullet  decided  eyes  flat \n         safety  dead  mess",{
             color: "white",   
         });
         /* 
@@ -205,7 +205,7 @@ class gapFill extends Phaser.Scene {
             * @type {String}
             * @author William Goujon
             */ 
-            let person = prompt("entre le mot", ""); 
+            let person = prompt("enter a word", ""); 
             
             if (person == "dead") {
                 var textSprite1 = this.scene.add.text(440,175,person,{ 
@@ -257,7 +257,7 @@ class gapFill extends Phaser.Scene {
         var isFalse2 = false    
 
         sprite2.on('pointerdown', function(pointer){
-            let person = prompt("entre le mot", "");
+            let person = prompt("enter a word", "");
             if (person == "ruckus") {
                 var textSprite2 = this.scene.add.text(390,203,person,{
                     color: "white",
@@ -294,7 +294,7 @@ class gapFill extends Phaser.Scene {
         var isFalse3 = false
 
         sprite3.on('pointerdown', function(pointer){
-            let person = prompt("entre le mot", "");
+            let person = prompt("enter a word", "");
             if (person == "bullet") {
                 var textSprite3 = this.scene.add.text(263,228,person,{
                     color: "white",
@@ -331,7 +331,7 @@ class gapFill extends Phaser.Scene {
         var isFalse4 = false
 
         sprite4.on('pointerdown', function(pointer){
-            let person = prompt("entre le mot", "");
+            let person = prompt("enter a word", "");
             if (person == "eyes") {
                 var textSprite4 = this.scene.add.text(440,228,person,{
                     color: "white",
@@ -368,7 +368,7 @@ class gapFill extends Phaser.Scene {
         var isFalse5 = false 
 
         sprite5.on('pointerdown', function(pointer){
-            let person = prompt("entre le mot", "");
+            let person = prompt("enter a word", "");
             if (person == "flat") {
                 var textSprite5 = this.scene.add.text(500,285,person,{
                     color: "white",
@@ -405,7 +405,7 @@ class gapFill extends Phaser.Scene {
         var isFalse6 = false
 
         sprite6.on('pointerdown', function(pointer){
-            let person = prompt("entre le mot", "");
+            let person = prompt("enter a word", "");
             if (person == "mess") {
                 var textSprite6 = this.scene.add.text(680,285,person,{
                     color: "white",
@@ -442,7 +442,7 @@ class gapFill extends Phaser.Scene {
         var isFalse7 = false
 
         sprite7.on('pointerdown', function(pointer){
-            let person = prompt("entre le mot", "");
+            let person = prompt("enter a word", "");
             if (person == "safety") {
                 var textSprite7 = this.scene.add.text(440,330,person,{
                     color: "white",
@@ -479,7 +479,7 @@ class gapFill extends Phaser.Scene {
         var isFalse8 = false;
 
         sprite8.on('pointerdown', function(pointer){
-            let person = prompt("entre le mot", "");
+            let person = prompt("enter a word", "");
             if (person == "decided") {
                 var textSprite8 = this.scene.add.text(305,358,person,{
                     color: "white",
@@ -517,7 +517,7 @@ class gapFill extends Phaser.Scene {
         var isFalse9 = false
 
         sprite9.on('pointerdown', function(pointer){
-            let person = prompt("entre le mot", "");
+            let person = prompt("enter a word", "");
             if (person == "known") {
                 var textSprite9 = this.scene.add.text(530,358,person,{
                     color: "white",
@@ -554,7 +554,8 @@ class gapFill extends Phaser.Scene {
     }
     /*This function update the scene*/ 
     update(){
-        if (score > 0) { 
+        //if (score > 8) { 
+        if (score > 0) { //for skip
             /*
             * Add text if all answer are correct in GapFill game
             * @type {Phaser.GameObject.text}

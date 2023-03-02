@@ -17,10 +17,16 @@ BEGINNING OF NAVBAR STYLING
 	position: sticky;
 }
 
+.managingnavbar {
+    display:flex;
+    flex-direction: row;
+}
+
 #logo{
     width: 3vw;
     height: 3vw;
     padding: 0.5vw;
+    background: #5f687c;
 }
 
 #nav li {
@@ -30,7 +36,6 @@ BEGINNING OF NAVBAR STYLING
 
 /*Navbar text styling*/
 #nav li a {
-    margin-top: 0.2vw;
     display: flex;
     padding: 1vw 3vw;
     text-decoration: none;

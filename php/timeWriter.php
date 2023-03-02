@@ -1,14 +1,13 @@
 <?php
-    include 'isLogged.php';
+    include 'configPDO.php'; // including DB connexion
 
-    if($isLogged){
-        include 'config.php'; // including DB connexion
+    $request_id = $_COOKIE['id_user'] ?? ''; // the id to test
+
+    if(ConnexionDBRead::getInstance()->isLogged()){
         
         $timeValue = $_POST['timePlayed'];
-        
-        $updateTimeSql = "UPDATE user SET bestTime=$timeValue WHERE id=$request_id AND (bestTime > $timeValue OR bestTime IS NULL)"; //using user id from isLogged.php
-        $resultUpdateTime = mysqli_query($bdd, $updateTimeSql); // updating time in DB
-        
-        $bdd->close();
+
+        ConnexionDBWrite::getInstance()->updatePlayerTime($timeValue,$request_id); // updating time in DB
+
     }
 ?>

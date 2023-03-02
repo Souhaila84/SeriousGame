@@ -9,7 +9,7 @@ body {
     margin: 0;
     padding: 0;
     text-align: justify;
-    font-size: 1vw;
+    font-size: 0.8vw;
     background-color:#fff;
 }
 
@@ -24,12 +24,13 @@ body {
     margin-right: 10vw;
     color: black;
     text-align: center;
-    font-size: 1vw;
+    font-size: 0.85vw;
 }
 
-.text{
+.mainText{
     margin-left: 1vw;
     margin-right: 1vw;
+    font-size: 1vw;
 }
 
 .profilG{
@@ -49,6 +50,7 @@ body {
     flex-direction: column;
     margin-right: 20vw;
     margin-left: 20vw;
+    font-size: 1vw;
 }
 
 .firstprofile {
@@ -77,10 +79,12 @@ body {
 
 .textleftprofiles {
     margin-left: 2.5vw;
-    text-align: left
+    height: 100%;
+    text-align: left;
 }
 
 .textrightprofiles {
+    height: 100%;
     margin-right: 2.5vw;
     margin-top: 2vw;
     text-align: right;
@@ -88,6 +92,7 @@ body {
 
 .titre{
     text-align: center;
+    
 } 
 
 #footer{
