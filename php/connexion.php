@@ -33,6 +33,7 @@
            </ul>   
        </nav>';
 
+    print_r(unserialize($_GET["passwordValidity"]));
     if (isset($_GET["reg_err"])){
         switch ($_GET["reg_err"]) {
             case "succes" :
@@ -77,6 +78,13 @@
                 </div> 
                 </html>';
                 break;
+            case "password_length":
+                echo ' 
+                <div class="alert-warning">
+                Attention! Le mot de passe est trop long. 
+                </div> 
+                </html>';
+                break;
             case "already":
                 echo ' 
                 <div class="alert-warning">
@@ -89,6 +97,28 @@
                 <div class="alert-warning">
                 Attention! Ce pseudo est déja utilisé par un autre joueur. 
                 </div> 
+                </html>';
+                break;
+            case "passwordValidity":
+                $passwordValidity = unserialize($_GET["passwordValidity"]);
+                echo '
+                <div class="alert-warning">
+                Attention! Votre mot de passe doit remplir ces conditions : ';
+
+                if ($passwordValidity[0]){
+                    echo '<p> Contenir un caractere majuscule minimum. </p>';
+                }
+                if ($passwordValidity[1]){
+                    echo '<p> Contenir un chifre minimum. </p>';
+                }
+                if ($passwordValidity[2]){
+                    echo '<p> Contenir un caractere special minimum. </p>';
+                }
+                if ($passwordValidity[3]){
+                    echo '<p> Contenir au moin 12 caracteres. </p>';
+                }
+
+                echo '</div> 
                 </html>';
                 break;
         } 
@@ -104,7 +134,7 @@
     }
     else if (isset($_GET["conn_err"])){
         switch ($_GET["conn_err"]) {
-            case "password" :
+            case "passwordMatch" :
                 echo " 
                 <div class='alert-warning'>
                 Attention! Le mot de passe ne correspond pas avec l'email. 
