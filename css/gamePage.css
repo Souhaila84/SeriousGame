@@ -24,7 +24,7 @@ body {
     display: none;
     background: #e3dac3;
     width: 80vw;
-    height: 41vw;
+    height: 50vw;
     border-radius: 1vw;
     border: 0.3vw solid #5f687c;
     margin: auto;
@@ -199,7 +199,7 @@ canvas {
 }
 
 /*Media Query for mobile*/
-@media (max-width: 805px) {
+@media (max-width: 805px), (max-height: 700px){ 
     
     #game {
         display: none;
@@ -231,6 +231,10 @@ canvas {
     #commentsSection {
         display: none;
     }
+}
+
+@media (max-height: 805) {
+    
 }
 
 @media (min-width: 805px) {
