@@ -134,7 +134,7 @@
     }
     else if (isset($_GET["conn_err"])){
         switch ($_GET["conn_err"]) {
-            case "passwordMatch" :
+            case "password" :
                 echo " 
                 <div class='alert-warning'>
                 Attention! Le mot de passe ne correspond pas avec l'email. 

@@ -7,7 +7,8 @@
     while($commentRow = $resultGameComments->fetch()){
         $pseudo = $commentRow->pseudo;
         $content = $commentRow->libellé;
-        
+        $rate = $commentRow->note; //implement rate display
+
         echo "
         <li class='commentArea'>
             <div class='profile'>

@@ -4,6 +4,7 @@
     if(ConnexionDBRead::getInstance()->isLogged()){
         
         $commentText = $_POST['commentValue'];
+        $commentRate = $_POST['ratingValue'];
         if ($commentText != ""){
             
             $request_id = isset($_COOKIE['id_user']) ? $_COOKIE['id_user'] : '';  //user id
@@ -15,7 +16,7 @@
             }
             
             //Inserting new comment in DB
-            $result = ConnexionDBWrite::getInstance()->writeGameComment($request_id,$commentText);
+            $result = ConnexionDBWrite::getInstance()->writeGameComment($request_id,$commentText,$commentRate);
             
             if ($result){
                 echo "

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
     
     <head>
         <meta charset="UTF-8">
@@ -23,7 +23,7 @@
     </head>
     
        <body>
-            <link href="./css/gamePage.css" rel="stylesheet">
+            <link href="/css/gamePage.css" rel="stylesheet">
                 <nav class="sticky">
                     <div class="managingnavbar">
                         <img id="logo" src="/images/Logo.png" alt="example">
@@ -63,22 +63,26 @@
         </div>
 
         <div id="commentsSection">
-            <div id="inputCommentArea">
-                <textarea id="commentInput" name="commentField" placeholder="Ajouter un avis..."></textarea>
-                <button id="submitComment" >Soumettre</button>
-            </div>
 
             <ul id="comments">
                 <script>
-                $.ajax({
-                     url: '../php/gameCommentReader.php',
-                     success: function(data){
-                        $('#comments').html(data);
-                     }
-                });
+                    $.ajax({
+                        url: '/php/gameCommentField.php',
+                        success: function(data){
+                            $('#commentsSection').prepend(data);
+                        }
+                    });
+                </script>
+
+                <script>
+                    $.ajax({
+                        url: '/php/gameCommentReader.php',
+                        success: function(data){
+                            $('#comments').html(data);
+                        }
+                    });
                 </script>
             </ul>
-            <script src="../scripts/commentsHandler.js"></script>
         </div>
         <div id="footer">
             <ul>

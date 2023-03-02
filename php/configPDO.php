@@ -37,7 +37,7 @@ class ConnexionDBRead {
         $this->PDOInstance = new PDO('mysql:dbname=' . self::DEFAULT_SQL_DTB . ';host=' . self::DEFAULT_SQL_HOST, self::READ_SQL_USER, self::READ_SQL_PASS);
 
         //preparing all the queries
-        $this->readGameCommStatement = $this->PDOInstance->prepare("SELECT pseudo, libellé FROM user, commentaire WHERE user.id = commentaire.id");
+        $this->readGameCommStatement = $this->PDOInstance->prepare("SELECT pseudo, libellé, note FROM user, commentaire WHERE user.id = commentaire.id ORDER BY date DESC");
 
         $this->userPseudoFromIdStatement = $this->PDOInstance->prepare("SELECT pseudo FROM user WHERE id = ?");
 
@@ -177,7 +177,7 @@ class ConnexionDBWrite {
     {
         $this->PDOInstance = new PDO('mysql:dbname=' . self::DEFAULT_SQL_DTB . ';host=' . self::DEFAULT_SQL_HOST, self::WRITE_SQL_USER, self::WRITE_SQL_PASS);
 
-        $this->writeGameCommentStatement = $this->getPdo()->prepare("INSERT INTO commentaire(id, libellé) VALUES(?, ?);");
+        $this->writeGameCommentStatement = $this->getPdo()->prepare("INSERT INTO commentaire(id, libellé, note) VALUES(?, ?, ?);");
 
         $this->deleteSessionStatement = $this->getPdo()->prepare("DELETE FROM session WHERE idUser = ?");
 
@@ -203,9 +203,9 @@ class ConnexionDBWrite {
         return $this->PDOInstance;
     }
 
-    public function writeGameComment($id, $comment){
+    public function writeGameComment($id, $comment, $note){
         $statement = $this->writeGameCommentStatement;
-        $statement->execute(array($id, $comment));
+        $statement->execute(array($id, $comment, $note));
 
         return $statement;
     }
