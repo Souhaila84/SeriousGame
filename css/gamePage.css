@@ -20,10 +20,30 @@ body {
     flex-direction: row;
 }
 
-#logo {
-    background: #5f687c;
+.encadrementErrorMessage {
+    display: none;
+    background: #e3dac3;
+    width: 80vw;
+    height: 41vw;
+    border-radius: 1vw;
+    border: 0.3vw solid #5f687c;
+    margin: auto;
+    margin-top: 2vw;
+    margin-bottom: 5vw;
+    font-size: 2.25vw;
+    color: black;
+    text-align: center;
 }
 
+.textErrorMessage {
+    margin: 1vw;
+    height: 100%;
+    font-size: 2.75vw;
+}
+
+#errorMessage {
+    display: none;
+}
 
 /* DROPDOWN MENU */
 .support {
@@ -68,12 +88,12 @@ canvas {
     margin-top: 5vh;
 }
 
-.encadrement{
+.encadrementScenario{
     background: #e3dac3;
     width: 50vw;
     height: 25vw;   
     border-radius: 1vw;
-    border: 0.3vw solid #767b96;
+    border: 0.3vw solid #5f687c;
     margin: auto;
     display: block;
     margin-top: 2vw;
@@ -83,7 +103,7 @@ canvas {
     text-align: center;
 }
 
-#text{
+.textScenario{
     margin: 1vw;
     height: 100%;
 }
@@ -178,3 +198,45 @@ canvas {
     margin-bottom: 10px;
 }
 
+/*Media Query for mobile*/
+@media (max-width: 805px) {
+    
+    #game {
+        display: none;
+    }
+    
+    .encadrementErrorMessage {
+        margin-top: 5vw;
+        margin-bottom: 10vw;
+        display: block;
+    }
+    
+    #errorMessage {
+        display: block;
+    }
+    
+    .encadrementScenario{
+        width: 80vw;
+        height: 65vw;
+        font-size: 2.5vw;
+        margin-top: 5vw;
+        margin-bottom: 10vw;
+    }
+    
+    .textScenario{
+        font-size: 2.8vw;
+        padding: 1vw;
+    }
+    
+    #commentsSection {
+        display: none;
+    }
+}
+
+@media (min-width: 805px) {
+    
+}
+
+@media (min-width: 992px) {
+    
+}
