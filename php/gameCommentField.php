@@ -17,13 +17,14 @@ if (ConnexionDBRead::getInstance()->isLogged()){
               </script>
               
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                
-              <span id="0" class="fa fa-star editable checked" onclick="changeStar(0)"></span>
-              <span id="1" class="fa fa-star editable" onclick="changeStar(1)"></span>
-              <span id="2" class="fa fa-star editable" onclick="changeStar(2)"></span>
-              <span id="3" class="fa fa-star editable" onclick="changeStar(3)"></span>
-              <span id="4" class="fa fa-star editable" onclick="changeStar(4)"></span>
               <div id="inputCommentArea">
+                    <div>  
+                        <span id="0" class="fa fa-star editable checked" onclick="changeStar(0)"></span>
+                        <span id="1" class="fa fa-star editable" onclick="changeStar(1)"></span>
+                        <span id="2" class="fa fa-star editable" onclick="changeStar(2)"></span>
+                        <span id="3" class="fa fa-star editable" onclick="changeStar(3)"></span>
+                        <span id="4" class="fa fa-star editable" onclick="changeStar(4)"></span>
+                    </div>
                     <textarea id="commentInput" name="commentField" placeholder="Ajouter un avis..."></textarea>
                     <button id="submitComment" >Soumettre</button>
               </div>
