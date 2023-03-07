@@ -3,8 +3,8 @@
     
     if(ConnexionDBRead::getInstance()->isLogged()){
         
-        $commentText = $_POST['commentValue'];
-        $commentRate = $_POST['ratingValue'];
+        $commentText = $_POST['commentValue'];  // the text of the new comment
+        $commentRate = intval($_POST['ratingValue']); // the star rating value of the new comment
         if ($commentText != ""){
             
             $request_id = isset($_COOKIE['id_user']) ? $_COOKIE['id_user'] : '';  //user id
@@ -24,8 +24,14 @@
                     <div class='profile'>
                         <img class='profilePicture' src='../images/avatar-default.png'>
                         <p class='profileName'>$userPseudo</p>
-                    </div>
-                    <p class = 'commentsTexts'> $commentText </p>
+                    </div>";
+                for ($i=0; $i<=$commentRate; ++$i){
+                    echo '<span id="i" class="fa fa-star checked"></span>';
+                }
+                for ($i=$commentRate+1; $i < 5; ++$i) {
+                    echo '<span id="i" class="fa fa-star"></span>';
+                }
+                echo "<p class = 'commentsTexts'> $commentText </p>
                 </li>
                 ";   
             }

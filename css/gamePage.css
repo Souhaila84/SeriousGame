@@ -139,6 +139,10 @@ canvas {
     background: #d4d0c6;
 }
 
+.checked {
+    color: orange;
+}
+
 .profile{
     margin-right: 40px;
     padding-right: 10px;
