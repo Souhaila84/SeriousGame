@@ -203,13 +203,15 @@ canvas {
 }
 
 #entofr{
-    background-color: rgb(0, 0, 78);
+    border-radius: 0.3vw;
+    border: 0.2vw solid #5f687c;
     cursor: pointer;
     text-decoration: none;
 }
 
 #frtoen{
-    background-color: rgb(0, 0, 78);
+    border-radius: 0.3vw;
+    border: 0.2vw solid #5f687c;
     cursor: pointer;
     text-decoration: none;
 }
