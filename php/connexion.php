@@ -33,7 +33,6 @@
            </ul>   
        </nav>';
 
-    print_r(unserialize($_GET["passwordValidity"]));
     if (isset($_GET["reg_err"])){
         switch ($_GET["reg_err"]) {
             case "succes" :
