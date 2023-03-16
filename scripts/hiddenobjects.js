@@ -185,6 +185,7 @@ class hiddenObjects extends Phaser.Scene {
         this.load.image("flowers", "../images/game/items/flowers2.png") //flowers
         this.load.audio("theme",  "../audio/hidden_objects.mp3");//theme song
         this.load.image("timer", "../images/game/items/clock.png")//timer
+        this.load.audio("sfx", "../audio/soundeffect.mp3")//audioeffect
 
     }
 
@@ -221,6 +222,8 @@ class hiddenObjects extends Phaser.Scene {
         this.add.image(300, 120, 'blood'); //blood
         this.add.image(430, 550, 'flowers'); //flowers
         this.add.image(85, 360, 'timer'); //time
+        console.log(this); //audioeffect
+        var fx =this.sound.add("sfx");
         
         this.chrono = 180; /*initialise chrono of 300 seconds (3min)*/
         this.textchrono = this.add.text(65, 365, formatTime(this.chrono),{ fontSize : 18 , fontFamily: 'Georgia, Times, serif'});
@@ -272,10 +275,13 @@ class hiddenObjects extends Phaser.Scene {
         * @author Souhaila Moumane
         */
         wine.on('pointerdown', function (pointer) { 
-
+    
         this.setVisible(false);
         textw.setVisible(false);
         count += 1;
+        fx.play();
+
+
     });
         
          gloves.on('pointerdown', function (pointer) { 
@@ -283,6 +289,7 @@ class hiddenObjects extends Phaser.Scene {
          this.setVisible(false);
          textg.setVisible(false);
          count += 1;
+         fx.play();
     });
         
         
@@ -291,6 +298,7 @@ class hiddenObjects extends Phaser.Scene {
          this.setVisible(false);
          textn.setVisible(false);
          count += 1;
+         fx.play();
 
     });
         
@@ -299,6 +307,7 @@ class hiddenObjects extends Phaser.Scene {
             this.setVisible(false);
             textc.setVisible(false);
             count += 1;
+            fx.play();
     });
         
             sunglasses.on('pointerdown', function (pointer) { 
@@ -306,6 +315,7 @@ class hiddenObjects extends Phaser.Scene {
             this.setVisible(false);
             texts.setVisible(false);
             count += 1;
+            fx.play();
     });
         
             gun.on('pointerdown', function (pointer) { 
@@ -313,6 +323,7 @@ class hiddenObjects extends Phaser.Scene {
             this.setVisible(false);
             textgu.setVisible(false);
             count += 1;
+            fx.play();
     });
         
 
@@ -321,6 +332,7 @@ class hiddenObjects extends Phaser.Scene {
             this.setVisible(false);
             textsc.setVisible(false);
             count += 1;
+            fx.play();
     });
         
             rope.on('pointerdown', function (pointer) { 
@@ -328,6 +340,7 @@ class hiddenObjects extends Phaser.Scene {
             this.setVisible(false);
             textr.setVisible(false);
             count += 1;
+            fx.play();
     });    
         
                 
