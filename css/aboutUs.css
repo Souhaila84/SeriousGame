@@ -101,7 +101,6 @@ body {
 
 .titre{
     text-align: center;
-    
 } 
 
 #footer{
@@ -114,6 +113,10 @@ body {
         height: 50vw;
     }
     
+    .titre {
+        font-size: 5vw;
+    }
+
     .mainText {
         font-size: 2.75vw;
     }
@@ -148,6 +151,51 @@ body {
 
     .textfourthprofile {
         margin-top: 5vw;
+        margin-right: 3.5vw;
+        margin-left: 5vw;
+    }
+}
+
+@media (min-width:806px) and (max-width:1200px) {
+
+        .encadrement{
+        height: 30vw;
+    }
+    
+    .mainText {
+        font-size: 2vw;
+    }
+
+    .allprofiles {
+        margin-left: 4vw;
+        margin-right: 4vw;
+        font-size: 1.8vw;
+    }
+
+    .profilpictures {
+        width: 15vw;
+        border-radius: 7.5vw;
+    }
+
+    .textfirstprofile {
+        margin-top: 1/5vw;
+        margin-left: 3.5vw;
+    }
+
+    .textsecondprofile {
+        margin-top: 3vw;
+        margin-right: 3.5vw;
+        margin-left: 7vw;
+    }
+
+    .textthirdprofile {
+        margin-top: 2.5vw;
+        margin-left: 3.5vw;
+        margin-right: 5vw;
+    }
+
+    .textfourthprofile {
+        margin-top: 4vw;
         margin-right: 3.5vw;
         margin-left: 5vw;
     }
