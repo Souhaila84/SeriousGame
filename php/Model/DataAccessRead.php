@@ -16,7 +16,7 @@ class DataAccessRead {
 
     private $userPseudoFromIdStatement;
 
-    private $isLoggedStatement;
+    private $sessionTokenStatement;
 
     private $userIdFromMailStatement;
 
@@ -41,7 +41,7 @@ class DataAccessRead {
 
         $this->userPseudoFromIdStatement = $this->PDOInstance->prepare("SELECT pseudo FROM user WHERE id = ?");
 
-        $this->isLoggedStatement = $this->PDOInstance->prepare("SELECT sessionToken FROM session WHERE idUser = ?");
+        $this->sessionTokenStatement = $this->PDOInstance->prepare("SELECT sessionToken FROM session WHERE idUser = ?");
 
         $this->userIdFromMailStatement = $this->PDOInstance->prepare("SELECT id FROM user WHERE email = ?");
 
@@ -85,18 +85,11 @@ class DataAccessRead {
         return $statement;
     }
 
-    public function isLogged(){
-        $request_id = $_COOKIE['id_user'] ?? ''; // the id to test
-        $statement = $this->isLoggedStatement;
+    public function getSessionToken($id){
+        $statement = $this->sessionTokenStatement;
         $statement->setFetchMode(PDO::FETCH_OBJ);
-        $statement->execute(array($request_id));
-
-        if($statement->rowCount() == 1){
-            $userToken = $statement->fetch()->sessionToken;
-        }
-        $request_token = $_COOKIE['login_token'] ?? '';
-
-        return (empty($request_token) ? false : $request_token == $userToken); // test if is connected
+        $statement->execute(array($id));
+        return $statement;
     }
 
     public function userIdFromMail($mail){
