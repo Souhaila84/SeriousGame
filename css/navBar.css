@@ -15,6 +15,7 @@ BEGINNING OF NAVBAR STYLING
     background-color: #5f687c;
     position: -webkit-sticky;
 	position: sticky;
+    font-family: none;
 }
 
 .managingnavbar {
@@ -23,8 +24,8 @@ BEGINNING OF NAVBAR STYLING
 }
 
 #logo{
-    width: 3.5vw;
-    height: 3.5vw;
+    width: 3vw;
+    height: 3vw;
     padding: 0.5vw;
     background: #5f687c;
 }
