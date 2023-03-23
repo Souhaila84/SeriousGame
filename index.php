@@ -159,6 +159,15 @@ elseif('/index.php/connexion' == $uri && isset($_GET["reg_err"])){
     $controller->registerActsion($_POST, $userChecking, $userInsertion);
 
     echo 'registred';
+}elseif('/index.php/disconnect' == $uri && $userChecking->isLogged()){
+
+    $userInsertion->deleteSession($_COOKIE["id_user"]); //detruit le token dans la base de donnée
+
+    //retire les coockies de connection
+    setCookie("id_user","", time() - 3600);
+    unset($_COOKIE["id_user"]);
+    setCookie("login_token","", time() - 3600);
+    unset($_COOKIE["login_token"]);
 }
 else {
     header('Status: 404 Not Found');
