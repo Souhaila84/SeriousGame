@@ -156,9 +156,13 @@ elseif('/index.php/connexion' == $uri && isset($_GET["reg_err"])){
 
 }elseif('/index.php/register' == $uri){
 
-    $controller->registerAction($_POST, $userChecking, $userInsertion);
+    $controller->registerActsion($_POST, $userChecking, $userInsertion);
 
     echo 'registred';
+}
+else {
+    header('Status: 404 Not Found');
+    echo '<html><body><h1>My Page NotFound</h1></body></html>';
 }
 
 echo $uri;
