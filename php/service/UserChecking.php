@@ -6,7 +6,8 @@ use DataAccessRead;
 
 class UserChecking
 {
-    public static function isLogged(){
+
+    public function isLogged(){
         $request_id = $_COOKIE['id_user'] ?? ''; // the id to test
 
         $dataAccess = DataAccessRead::getInstance();
@@ -21,18 +22,18 @@ class UserChecking
     }
 
     // this function verify if user already exist
-    public static function isExist($email){
+    public function isExist($email){
         $resultIsExist = DataAccessRead::getInstance()->userIdFromMail($email);
         return ($resultIsExist->rowCount() > 0);
     }
 
-    public static function userId($email){
+    public function userId($email){
         // BEWARE, the mail must exist in DB
         $resultIsExist = DataAccessRead::getInstance()->userIdFromMail($email);
         return $resultIsExist->fetch()->id;
     }
 
-    public static function userPassword($userId){
+    public function userPassword($userId){
         // BEWARE, the user must exist in DB
         $getPasswordResult = DataAccessRead::getInstance()->userPasswordFromId($userId);
         return $getPasswordResult->fetch()->password;

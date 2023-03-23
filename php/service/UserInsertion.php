@@ -7,11 +7,15 @@ use DataAccessWrite;
 class UserInsertion
 {
 
-    public static function deleteSession($userId){
+    public function deleteSession($userId){
         return (DataAccessWrite::getInstance()->deleteSession($userId) != false);
     }
 
-    public static function insertSession($token, $userId){
+    public function insertSession($token, $userId){
         return (DataAccessWrite::getInstance()->insertSession($token,$userId) != false);
+    }
+
+    public function insertAccount($pseudo, $email, $hash){
+        return (DataAccessWrite::getInstance()->insertNewAccount($pseudo,$email,$hash) != false);
     }
 }
