@@ -156,7 +156,7 @@ elseif('/index.php/connexion' == $uri && isset($_GET["reg_err"])){
 
 }elseif('/index.php/register' == $uri){
 
-    $controller->registerActsion($_POST, $userChecking, $userInsertion);
+    $controller->registerAction($_POST, $userChecking, $userInsertion);
 
     echo 'registred';
 }elseif('/index.php/disconnect' == $uri && $userChecking->isLogged()){
