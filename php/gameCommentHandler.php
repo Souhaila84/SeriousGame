@@ -1,5 +1,4 @@
 <?php
-    include 'configPDO.php'; // including DB connexion
     
     if(ConnexionDBRead::getInstance()->isLogged()){
         

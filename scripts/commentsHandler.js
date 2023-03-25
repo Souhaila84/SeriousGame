@@ -7,7 +7,7 @@ comment.addEventListener("click", function(){
     }
     
     $.ajax({
-        url: '../php/gameCommentHandler.php',
+        url: '/index.php/gameCommentHandler',
         type : "POST",
         data : ajaxData,
         success: function(data){

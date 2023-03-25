@@ -4,7 +4,7 @@ namespace Control;
 
 class Controllers
 {
-    public function loginAction($post, $userCheking, $userInsert){
+    public function loginAction($post, $userChecking, $userInsert){
         if (!empty($post['email']) && !empty($post['password'])){  // !empty() and not isset() becaue $_POST can be empty but set
 
                 $email = $post['email'];
@@ -12,10 +12,10 @@ class Controllers
                 $email = strtolower($email); // We don't need caps mail address
 
                 // Verifying if user already exist
-                if( $userCheking->isExist($email)){
-                    $userId = $userCheking->userId($email);
+                if( $userChecking->isExist($email)){
+                    $userId = $userChecking->userId($email);
 
-                    $userPassword = $userCheking->userPassword($userId);
+                    $userPassword = $userChecking->userPassword($userId);
                     if (password_verify($password, $userPassword) || strcmp($password, $userPassword) == 0){
 
                         // Generate a secure random token
@@ -38,7 +38,7 @@ class Controllers
         } else { header('Location: connexion?err=formNotComplete'); die(); } // ATTENTION FAIRE LE HEADER BIEN
     }
 
-    public function registerAction($post, $userCheking, $userInsert){
+    public function registerAction($post, $userChecking, $userInsert){
         if (!empty($post['pseudo']) && !empty($post['email']) && !empty($post['password']) && !empty($post['confirm_password'])){
 
                 $pseudo = htmlspecialchars($post['pseudo']);
@@ -48,10 +48,10 @@ class Controllers
                 $email = strtolower($email); // We don't need caps mail address
 
                 // Verifying if user already exist
-                $resultIsExist = $userCheking->isEmailExist($email);
+                $resultIsExist = $userChecking->isEmailExist($email);
 
                 //Verifying if the pseudo is available
-                $resultIsPseudo = $userCheking->isPseudoExist($pseudo);
+                $resultIsPseudo = $userChecking->isPseudoExist($pseudo);
 
                 if($resultIsExist->rowCount() == 0){
                     if($resultIsPseudo->rowCount() == 0){
@@ -92,5 +92,40 @@ class Controllers
                 }else{ header('Location: connexion?reg_err=already'); die();} // ATTENTION FAIRE LE HEADER BIEN
         }
         else { header('Location: connexion?err=formNotComplete'); die(); } // ATTENTION FAIRE LE HEADER BIEN
+    }
+
+    public function gameCommentHandlerAction($post, $userChecking, $userInsert){
+        if($userChecking->isLogged()){
+
+            $commentText = $post['commentValue'];
+            if ($commentText != ""){
+
+                $request_id = isset($_COOKIE['id_user']) ? $_COOKIE['id_user'] : '';  //user id
+
+                $userPseudo = $userChecking->pseudoFromID($request_id);
+
+                //Inserting new comment in DB
+                $result = $userInsert->writeGameComment($request_id,$commentText);
+
+
+                //FAIRE APPEL A LA VIEW
+
+                if ($result){
+                    echo "
+                <li class='commentArea'>
+                    <div class='profile'>
+                        <img class='profilePicture' src='../images/avatar-default.png'>
+                        <p class='profileName'>$userPseudo</p>
+                    </div>
+                    <p class = 'commentsTexts'> $commentText </p>
+                </li>
+                ";
+                }
+            }
+        } else{
+            echo "<section class='mustBeConnected'>
+        Vous devez etre connecté pour poster un commentaire ! Pour vous connectez utiliser le bouton en haut à droite.
+        </section>";
+        }
     }
 }

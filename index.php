@@ -169,6 +169,11 @@ elseif('/index.php/connexion' == $uri && isset($_GET["reg_err"])){
     setCookie("login_token","", time() - 3600);
     unset($_COOKIE["login_token"]);
 }
+elseif('/index.php/gameCommentHandler' == $uri){
+
+    $controller->gameCommentHandlerAction($_POST,$userChecking,$userInsertion);
+
+}
 else {
     header('Status: 404 Not Found');
     echo '<html><body><h1>My Page NotFound</h1></body></html>';

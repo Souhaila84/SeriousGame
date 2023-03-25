@@ -18,4 +18,8 @@ class UserInsertion
     public function insertAccount($pseudo, $email, $hash){
         return (DataAccessWrite::getInstance()->insertNewAccount($pseudo,$email,$hash) != false);
     }
+
+    public function writeGameComment($id,$comment){
+        return(DataAccessWrite::getInstance()->writeGameComment($id,$comment) != false);
+    }
 }

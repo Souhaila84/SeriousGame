@@ -2,6 +2,9 @@
 
 namespace service;
 
+include_once ('php/Model/DataAccessWrite.php');
+include_once ('php/Model/DataAccessRead.php');
+
 use DataAccessRead;
 
 class UserChecking
@@ -37,5 +40,11 @@ class UserChecking
         // BEWARE, the user must exist in DB
         $getPasswordResult = DataAccessRead::getInstance()->userPasswordFromId($userId);
         return $getPasswordResult->fetch()->password;
+    }
+
+    public function pseudoFromID($userId){
+        // BEWARE, the user must exist in DB
+        $getPseudoResult = DataAccessRead::getInstance()->userPseudoFromId($userId);
+        return $getPseudoResult->fetch()->pseudo;
     }
 }
