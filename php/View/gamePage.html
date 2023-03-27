@@ -81,7 +81,7 @@
             <ul id="comments">
                 <script>
                 $.ajax({
-                     url: '../php/gameCommentReader.php',
+                     url: '/index.php/gameCommentReader',
                      success: function(data){
                         $('#comments').html(data);
                      }

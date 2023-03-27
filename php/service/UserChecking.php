@@ -47,4 +47,19 @@ class UserChecking
         $getPseudoResult = DataAccessRead::getInstance()->userPseudoFromId($userId);
         return $getPseudoResult->fetch()->pseudo;
     }
+
+    public function allGameComments(){
+        // Getting comments from database
+        $resultGameComments = DataAccessRead::getInstance()->readGameComm();
+
+        $allComments = array(array());
+
+        while ($commentRow = $resultGameComments->fetch()) {
+            $pseudo = $commentRow->pseudo;
+            $content = $commentRow->libellé;
+            $allComments[] = array($pseudo,$content);
+        }
+
+        return $allComments;
+    }
 }

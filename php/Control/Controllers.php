@@ -108,7 +108,7 @@ class Controllers
                 $result = $userInsert->writeGameComment($request_id,$commentText);
 
 
-                //FAIRE APPEL A LA VIEW
+                //TODO FAIRE APPEL A LA VIEW
 
                 if ($result){
                     echo "
@@ -127,5 +127,24 @@ class Controllers
         Vous devez etre connecté pour poster un commentaire ! Pour vous connectez utiliser le bouton en haut à droite.
         </section>";
         }
+    }
+
+    public function connectButtonAction($userChecking){
+        if($userChecking->isLogged()){
+            echo "<button class=\"loginbutton\" role=\"button\" id=\"disconnectButton\">DECONNEXION</button>
+        <script src=\"/scripts/disconnect.js\"></script>";
+        }
+        else {
+            header('Status: 404 Not Found');
+            echo '<html><body><h1>My Page NotFound</h1></body></html>';
+        }
+    }
+
+    public function gameCommentReaderAction($userChecking){
+        $allComments = $userChecking->allGameComments();
+
+
+        //TODO: THE VIEW
+        echo $allComments;
     }
 }

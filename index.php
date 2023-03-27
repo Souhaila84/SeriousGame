@@ -4,6 +4,7 @@ include_once 'php/Control/Controllers.php';
 
 include_once 'php/service/UserChecking.php';
 include_once 'php/service/UserInsertion.php';
+include_once 'php/View/Connexion.php';
 
 use Control\Controllers;
 use service\{UserChecking,UserInsertion};
@@ -116,7 +117,9 @@ elseif('/index.php/connexion' == $uri && isset($_GET["reg_err"])){
 
 
     }
-    echo $errorMsg;
+    $connexionView = new Connexion('php/View/connexion.html');
+
+    $connexionView->display($errorMsg);
 
 }elseif('/index.php/connexion' == $uri && isset($_GET["conn_err"])){
     $errorMsg = "";
@@ -138,7 +141,10 @@ elseif('/index.php/connexion' == $uri && isset($_GET["reg_err"])){
             break;
     }
 
-    echo $errorMsg;
+
+    $connexionView = new Connexion('php/View/connexion.html');
+
+    $connexionView->display($errorMsg);
 
 }elseif('/index.php/connexion' == $uri && isset($_GET["err"])){
     $errorMsg = "";
@@ -151,10 +157,16 @@ elseif('/index.php/connexion' == $uri && isset($_GET["reg_err"])){
                 </html>';
     }
 
-    echo $errorMsg;
 
+    $connexionView = new Connexion('php/View/connexion.html');
 
-}elseif('/index.php/register' == $uri){
+    $connexionView->display($errorMsg);
+
+}elseif('/index.php/connexion' == $uri){ //with not post
+    $connexionView = new Connexion('php/View/connexion.html');
+
+    $connexionView->display('');
+} elseif('/index.php/register' == $uri){
 
     $controller->registerAction($_POST, $userChecking, $userInsertion);
 
@@ -174,9 +186,15 @@ elseif('/index.php/gameCommentHandler' == $uri){
     $controller->gameCommentHandlerAction($_POST,$userChecking,$userInsertion);
 
 }
-else {
-    header('Status: 404 Not Found');
-    echo '<html><body><h1>My Page NotFound</h1></body></html>';
+elseif('/index.php/gameCommentReader' == $uri){
+
+    $controller->gameCommentReaderAction($userChecking);
+
+}
+elseif('/index.php/connectButton' == $uri){
+
+    $controller->connectButtonAction($userChecking);
+
 }
 
 echo $uri;

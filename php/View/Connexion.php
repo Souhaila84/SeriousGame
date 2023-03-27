@@ -1,6 +1,6 @@
 <?php
 
-class Layout
+class Connexion
 {
     protected $templateFile;
 
@@ -9,12 +9,11 @@ class Layout
         $this->templateFile = $templateFile;
     }
 
-    public function display( $title, $content )
+    public function display( $error )
     {
         $page = file_get_contents( $this->templateFile );
-        //$page = str_replace( ['%title%','%content%'], [$title,$content], $page);
+        $page = str_replace( ['%error%'], [$error], $page);
         echo $page;
     }
 
 }
-?>

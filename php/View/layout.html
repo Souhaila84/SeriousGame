@@ -16,7 +16,7 @@
                 <li><a id="about_us" href="../View/About_us.html">A propos</a></li>
                 <script>
                     $.ajax({
-                         url: '..\connectButton.php',
+                         url: '/index.php/connectButton',
                          success: function(data){
                             $('#nav').append(data);
                          }
