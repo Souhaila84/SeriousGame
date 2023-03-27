@@ -62,4 +62,19 @@ class UserChecking
 
         return $allComments;
     }
+
+    public function bestGameTime(){
+        $bestsTimes = array(array());
+
+        $resultBestTime = DataAccessRead::getInstance()->bestGameTimes();
+        if ($resultBestTime){
+            while($row = $resultBestTime->fetch()){
+                $seconds = ($row->bestTime / 1000)% 60;
+                $minutes = floor(($row->bestTime / 1000) / 60);
+                $bestsTimes[] = array($row->pseudo, $minutes, $seconds);
+            }
+        }
+
+        return $bestsTimes;
+    }
 }

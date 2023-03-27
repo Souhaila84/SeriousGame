@@ -22,4 +22,8 @@ class UserInsertion
     public function writeGameComment($id,$comment){
         return(DataAccessWrite::getInstance()->writeGameComment($id,$comment) != false);
     }
+
+    public function updatePlayerTime($timeValue,$id){
+        return(DataAccessWrite::getInstance()->updatePlayerTime($timeValue,$id) != false);
+    }
 }

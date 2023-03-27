@@ -1,12 +1,14 @@
 <?php
 
 include_once 'php/Control/Controllers.php';
+include_once 'php/Control/AjaxControllers.php';
 
 include_once 'php/service/UserChecking.php';
 include_once 'php/service/UserInsertion.php';
 include_once 'php/View/Connexion.php';
 include_once 'php/View/Layout.php';
 
+use Control\AjaxControllers;
 use Control\Controllers;
 use service\{UserChecking,UserInsertion};
 use View\{Layout,Connexion};
@@ -18,6 +20,7 @@ $userInsertion = new UserInsertion();
 
 //Initialisation of controllers
 $controller = new Controllers();
+$ajaxController = new AjaxControllers();
 
 //url path
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -186,18 +189,20 @@ elseif('/index.php/connexion' == $uri && isset($_GET["reg_err"])){
     unset($_COOKIE["login_token"]);
 }
 elseif('/index.php/gameCommentHandler' == $uri){
+    $ajaxController->gameCommentHandlerAction($_POST,$userChecking,$userInsertion);
 
-    $controller->gameCommentHandlerAction($_POST,$userChecking,$userInsertion);
+} elseif('/index.php/gameCommentReader' == $uri){
+    $ajaxController->gameCommentReaderAction($userChecking);
 
-}
-elseif('/index.php/gameCommentReader' == $uri){
+} elseif('/index.php/connectButton' == $uri){
+    $ajaxController->connectButtonAction($userChecking);
 
-    $controller->gameCommentReaderAction($userChecking);
+}elseif('/index.php/timeReader' == $uri){
+    $ajaxController->timeReaderAction($userChecking);
 
-}
-elseif('/index.php/connectButton' == $uri){
-
-    $controller->connectButtonAction($userChecking);
+}elseif('/index.php/timeWriter' == $uri){
+    $ajaxController->timeWriterAction($userChecking,$userInsertion);
+}else{
 
 }
 

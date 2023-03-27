@@ -1,11 +1,11 @@
 var disconnectButton= document.getElementById("disconnectButton");
 disconnectButton.addEventListener("click", function(){
     $.ajax({
-        url: '../php/disconnect.php',
+        url: '/index.php/disconnect',
         type : "POST",
         success: function(data){
             $.ajax({
-                 url: '../php/connectButton.php',
+                 url: '/index.php/connectButton',
                  success: function(data){
                     $('#disconnectButton').replaceWith(data);
                  }
