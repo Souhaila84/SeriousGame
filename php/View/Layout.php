@@ -1,4 +1,5 @@
 <?php
+namespace View;
 
 class Layout
 {
@@ -12,7 +13,7 @@ class Layout
     public function display( $title, $content )
     {
         $page = file_get_contents( $this->templateFile );
-        //$page = str_replace( ['%title%','%content%'], [$title,$content], $page);
+        $page = str_replace( ['%title%','%content%'], [$title,$content], $page);
         echo $page;
     }
 

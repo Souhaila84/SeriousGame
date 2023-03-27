@@ -1,5 +1,5 @@
 <?php
-
+namespace View;
 include_once "View.php";
 
 class ViewAbout_us extends View

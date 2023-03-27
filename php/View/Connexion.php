@@ -1,19 +1,19 @@
 <?php
+namespace View;
 
-class Connexion
+include_once 'View.php';
+class Connexion extends View
 {
     protected $templateFile;
 
-    public function __construct( $templateFile )
+    public function __construct( $layout, $error )
     {
-        $this->templateFile = $templateFile;
-    }
+        parent::__construct($layout);
 
-    public function display( $error )
-    {
-        $page = file_get_contents( $this->templateFile );
+        $page = file_get_contents( 'php/View/connexion.html' );
         $page = str_replace( ['%error%'], [$error], $page);
-        echo $page;
+
+        $this->content = $page;
     }
 
 }

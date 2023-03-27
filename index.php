@@ -5,9 +5,11 @@ include_once 'php/Control/Controllers.php';
 include_once 'php/service/UserChecking.php';
 include_once 'php/service/UserInsertion.php';
 include_once 'php/View/Connexion.php';
+include_once 'php/View/Layout.php';
 
 use Control\Controllers;
 use service\{UserChecking,UserInsertion};
+use View\{Layout,Connexion};
 
 
 //initialisation of services
@@ -117,9 +119,10 @@ elseif('/index.php/connexion' == $uri && isset($_GET["reg_err"])){
 
 
     }
-    $connexionView = new Connexion('php/View/connexion.html');
+    $layout = new Layout('php/View/layout.html');
+    $connexionView = new Connexion($layout, $errorMsg);
 
-    $connexionView->display($errorMsg);
+    $connexionView->display();
 
 }elseif('/index.php/connexion' == $uri && isset($_GET["conn_err"])){
     $errorMsg = "";
@@ -141,10 +144,10 @@ elseif('/index.php/connexion' == $uri && isset($_GET["reg_err"])){
             break;
     }
 
+    $layout = new Layout('php/View/layout.html');
+    $connexionView = new Connexion($layout, $errorMsg);
 
-    $connexionView = new Connexion('php/View/connexion.html');
-
-    $connexionView->display($errorMsg);
+    $connexionView->display();
 
 }elseif('/index.php/connexion' == $uri && isset($_GET["err"])){
     $errorMsg = "";
@@ -157,15 +160,16 @@ elseif('/index.php/connexion' == $uri && isset($_GET["reg_err"])){
                 </html>';
     }
 
+    $layout = new Layout('php/View/layout.html');
+    $connexionView = new Connexion($layout, $errorMsg);
 
-    $connexionView = new Connexion('php/View/connexion.html');
-
-    $connexionView->display($errorMsg);
+    $connexionView->display();
 
 }elseif('/index.php/connexion' == $uri){ //with not post
-    $connexionView = new Connexion('php/View/connexion.html');
+    $layout = new Layout('php/View/layout.html');
+    $connexionView = new Connexion($layout, '');
 
-    $connexionView->display('');
+    $connexionView->display();
 } elseif('/index.php/register' == $uri){
 
     $controller->registerAction($_POST, $userChecking, $userInsertion);
