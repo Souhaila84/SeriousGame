@@ -1,6 +1,7 @@
 <?php
 namespace View;
 
+
 class Layout
 {
     protected $templateFile;
