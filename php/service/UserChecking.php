@@ -24,9 +24,15 @@ class UserChecking
         return (empty($request_token) ? false : $request_token == $userToken); // test if is connected
     }
 
-    // this function verify if user already exist
-    public function isExist($email){
+    // this function verify if user mail already exist
+    public function isEmailExist($email){
         $resultIsExist = DataAccessRead::getInstance()->userIdFromMail($email);
+        return ($resultIsExist->rowCount() > 0);
+    }
+
+    // this function verify if user pseudo already exist
+    public function isPseudoExist($pseudo){
+        $resultIsExist = DataAccessRead::getInstance()->isPseudoExist($pseudo);
         return ($resultIsExist->rowCount() > 0);
     }
 

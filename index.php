@@ -47,7 +47,7 @@ elseif('/index.php/connexion' == $uri && isset($_GET["reg_err"])){
                 </div> 
                 </html>';
             break;
-        case "password" :
+        case "passwordMatch" :
             $errorMsg = ' 
                 <div class="alert-warning">
                 Attention! Le mot de passe ne correspond pas avec le mot de passe de confirmation. 
@@ -137,7 +137,7 @@ elseif('/index.php/connexion' == $uri && isset($_GET["reg_err"])){
     $errorMsg = "";
 
     switch ($_GET["conn_err"]) {
-        case "passwordMatch" :
+        case "password" :
             $errorMsg = " 
                 <div class='alert-warning'>
                 Attention! Le mot de passe ne correspond pas avec l'email. 

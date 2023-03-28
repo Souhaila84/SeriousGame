@@ -12,7 +12,7 @@ class Controllers
                 $email = strtolower($email); // We don't need caps mail address
 
                 // Verifying if user already exist
-                if( $userChecking->isExist($email)){
+                if( $userChecking->isEmailExist($email)){
                     $userId = $userChecking->userId($email);
 
                     $userPassword = $userChecking->userPassword($userId);
@@ -29,13 +29,13 @@ class Controllers
 
                         $userInsert->insertSession($token,$userId); //inserting the new session
 
-                        header('Location: /index.html'); die(); // ATTENTION FAIRE LE HEADER BIEN
+                        header('Location: /index.php/accueil'); die();
 
 
-                    }else{ header('Location: connexion?conn_err=password'); die();} // ATTENTION FAIRE LE HEADER BIEN
-                }else{ header('Location: connexion?conn_err=email'); die();} // ATTENTION FAIRE LE HEADER BIEN
+                    }else{ header('Location: connexion?conn_err=password'); die();}
+                }else{ header('Location: connexion?conn_err=email'); die();}
 
-        } else { header('Location: connexion?err=formNotComplete'); die(); } // ATTENTION FAIRE LE HEADER BIEN
+        } else { header('Location: connexion?err=formNotComplete'); die(); }
     }
 
     public function registerAction($post, $userChecking, $userInsert){
@@ -47,14 +47,8 @@ class Controllers
                 $confirm_password = htmlspecialchars($post['confirm_password']);
                 $email = strtolower($email); // We don't need caps mail address
 
-                // Verifying if user already exist
-                $resultIsExist = $userChecking->isEmailExist($email);
-
-                //Verifying if the pseudo is available
-                $resultIsPseudo = $userChecking->isPseudoExist($pseudo);
-
-                if($resultIsExist->rowCount() == 0){
-                    if($resultIsPseudo->rowCount() == 0){
+                if(!$userChecking->isEmailExist($email)){ // Verifying if mail not exist
+                    if(!$userChecking->isPseudoExist($pseudo)){  //Verifying if the pseudo iss available
                         if(strlen($pseudo) <= 50){ // verifying pseudo size
                             if(strlen($email) <= 50){ // verifying mail size
                                 if(strlen($password) <=60){ // verifying password size
