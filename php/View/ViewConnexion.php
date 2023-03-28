@@ -2,7 +2,7 @@
 namespace View;
 
 include_once 'View.php';
-class Connexion extends View
+class ViewConnexion extends View
 {
     protected $templateFile;
 
@@ -15,7 +15,7 @@ class Connexion extends View
                 '<div id="connect">
                 
                     <form action="/index.php/login" method="post">
-                        <h3>Se connecter</h3> <!--Connexion-->
+                        <h3>Se connecter</h3> <!--ViewConnexion-->
                         <input name="email" type="email" placeholder="E-MAIL">
                         <input name="password" type="password" placeholder="MOT DE PASSE">
                         <button class="boutonlog" type="submit">CONNEXION</button>

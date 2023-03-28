@@ -2,15 +2,15 @@
 namespace View;
 include_once 'View.php';
 
-class ViewAccueil extends View
+class ViewGamePage extends View
 {
     public function __construct($layout)
     {
         parent::__construct($layout);
 
-        $this->title= 'Accueil';
+        $this->title= 'Jouer';
 
-        $this->content = "<p>Voici la page d'accueil</p>";
+        $this->content = "<p>jouer au jeu</p>";
 
     }
 }
