@@ -5,13 +5,20 @@ include_once 'php/Control/AjaxControllers.php';
 
 include_once 'php/service/UserChecking.php';
 include_once 'php/service/UserInsertion.php';
-include_once 'php/View/Connexion.php';
+
+include_once 'php/View/ViewConnexion.php';
 include_once 'php/View/Layout.php';
+include_once 'php/View/View.php';
+include_once 'php/View/ViewAbout_us.php';
+include_once 'php/View/ViewAccueil.php';
+include_once 'php/View/ViewGamePage.php';
+include_once 'php/View/ViewMentionsLegales.php';
+include_once 'php/View/ViewSupport.php';
 
 use Control\AjaxControllers;
 use Control\Controllers;
 use service\{UserChecking,UserInsertion};
-use View\{Layout,Connexion};
+use View\{Layout,ViewConnexion, ViewAbout_us, ViewAccueil, ViewGamePage, ViewMentionsLegales, ViewSupport};
 
 
 //initialisation of services
@@ -123,7 +130,7 @@ elseif('/index.php/connexion' == $uri && isset($_GET["reg_err"])){
 
     }
     $layout = new Layout('php/View/layout.html');
-    $connexionView = new Connexion($layout, $errorMsg);
+    $connexionView = new ViewConnexion($layout, $errorMsg);
 
     $connexionView->display();
 
@@ -148,7 +155,7 @@ elseif('/index.php/connexion' == $uri && isset($_GET["reg_err"])){
     }
 
     $layout = new Layout('php/View/layout.html');
-    $connexionView = new Connexion($layout, $errorMsg);
+    $connexionView = new ViewConnexion($layout, $errorMsg);
 
     $connexionView->display();
 
@@ -164,13 +171,13 @@ elseif('/index.php/connexion' == $uri && isset($_GET["reg_err"])){
     }
 
     $layout = new Layout('php/View/layout.html');
-    $connexionView = new Connexion($layout, $errorMsg);
+    $connexionView = new ViewConnexion($layout, $errorMsg);
 
     $connexionView->display();
 
 }elseif('/index.php/connexion' == $uri){ //with not post
     $layout = new Layout('php/View/layout.html');
-    $connexionView = new Connexion($layout, '');
+    $connexionView = new ViewConnexion($layout, '');
 
     $connexionView->display();
 } elseif('/index.php/register' == $uri){
@@ -202,8 +209,49 @@ elseif('/index.php/gameCommentHandler' == $uri){
 
 }elseif('/index.php/timeWriter' == $uri){
     $ajaxController->timeWriterAction($userChecking,$userInsertion);
-}else{
+}if ('/' == $uri || '/index.php' == $uri || '/index.php/accueil' == $uri) {
+    $layout = new Layout("php/View/layout.html" );
+    $vueAccueil = new ViewAccueil($layout);
 
+    $vueAccueil->display();
 }
+
+//page about us
+elseif ( '/index.php/About_us' == $uri) {
+    $layout = new Layout("php/View/layout.html" );
+    $vueAboutUs = new ViewAbout_us($layout);
+
+    $vueAboutUs->display();
+}
+
+//page jouer
+elseif ('/index.php/jouer' == $uri){
+    $layout = new Layout("php/View/layout.html" );
+    $vueGamePage = new ViewGamePage($layout);
+
+    $vueGamePage->display();
+}
+
+//page support
+elseif ('/index.php/support' == $uri){
+    $layout = new Layout("php/View/layout.html" );
+    $vueSupport = new ViewSupport($layout);
+
+    $vueSupport->display();
+}
+
+//page mentions légales
+elseif ('/index.php/mentionsLegales' == $uri){
+    $layout = new Layout("php/View/layout.html" );
+    $vueMentionsLégales = new ViewMentionsLegales($layout);
+
+    $vueMentionsLégales->display();
+}
+
+else {
+    header('Status: 404 Not Found');
+    echo '<html><body><h1>My Page NotFound</h1></body></html>';
+}
+
 
 echo $uri;
