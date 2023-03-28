@@ -26,7 +26,7 @@ class DataAccessWrite {
 
     private function __construct()
     {
-        $this->PDOInstance = new PDO('mysql:dbname=' . self::DEFAULT_SQL_DTB . ';host=' . self::DEFAULT_SQL_HOST, self::WRITE_SQL_USER, self::WRITE_SQL_PASS);
+        $this->PDOInstance = new PDO('mysql:host=' . self::DEFAULT_SQL_HOST . ';dbname=' . self::DEFAULT_SQL_DTB, self::WRITE_SQL_USER, self::WRITE_SQL_PASS);
 
         $this->writeGameCommentStatement = $this->getPdo()->prepare("INSERT INTO commentaire(id, libellé) VALUES(?, ?);");
 
