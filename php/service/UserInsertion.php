@@ -26,4 +26,8 @@ class UserInsertion
     public function updatePlayerTime($timeValue,$id){
         return(DataAccessWrite::getInstance()->updatePlayerTime($timeValue,$id) != false);
     }
+
+    public function setProgressLvl($id, $lvl){
+        return (DataAccessWrite::getInstance()->setProgressLvl($id,$lvl) != false);
+    }
 }

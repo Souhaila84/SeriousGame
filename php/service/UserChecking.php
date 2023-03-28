@@ -24,9 +24,15 @@ class UserChecking
         return (empty($request_token) ? false : $request_token == $userToken); // test if is connected
     }
 
-    // this function verify if user already exist
-    public function isExist($email){
+    // this function verify if user mail already exist
+    public function isEmailExist($email){
         $resultIsExist = DataAccessRead::getInstance()->userIdFromMail($email);
+        return ($resultIsExist->rowCount() > 0);
+    }
+
+    // this function verify if user pseudo already exist
+    public function isPseudoExist($pseudo){
+        $resultIsExist = DataAccessRead::getInstance()->isPseudoExist($pseudo);
         return ($resultIsExist->rowCount() > 0);
     }
 
@@ -76,5 +82,15 @@ class UserChecking
         }
 
         return $bestsTimes;
+    }
+
+    public function progressLvlFromId($id){
+        $progressLvl = 0;
+        $resultProgressLvl = DataAccessRead::getInstance()->progressLvlFromId($_COOKIE['id_user'] ?? '');
+        if ($resultProgressLvl->rowCount() == 1){
+            $progressLvl = $resultProgressLvl->fetch()->lvl;
+        }
+
+        return $progressLvl;
     }
 }

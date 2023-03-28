@@ -34,7 +34,7 @@ class rulesGapFill extends Phaser.Scene {
         
         // set the progression lvl from data base
         $.ajax({
-            url: '/index.php/progressLevel',
+            url: '../index.php/progressLevel',
             type : "POST",
             data: {'fuction': "increaseLevel", 'lvl' : 0},
         });

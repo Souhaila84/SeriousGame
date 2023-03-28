@@ -44,8 +44,7 @@ class AjaxControllers //this controller is used for ajax queries and don't use a
         <script src=\"/scripts/disconnect.js\"></script>";
         }
         else {
-            header('Status: 404 Not Found');
-            echo '<html><body><h1>My Page NotFound</h1></body></html>';
+            echo "<button class=\"loginbutton\" role=\"button\"><a href=\"/index.php/connexion\">CONNEXION</a></button>";
         }
     }
 
@@ -76,5 +75,37 @@ class AjaxControllers //this controller is used for ajax queries and don't use a
 
             $userInsert->updatePlayerTime($timeValue,$request_id); // updating time in DB
         }
+    }
+
+    public function progressLevelAction($userChecking, $userInsert, $post){
+        //parsing ajax requests
+        if(isset($post['fuction'])){
+            switch ($post['fuction']){
+                case "readLevel" :
+                    $progressLvl = 0; // initialising progressLevel
+
+                    if($userChecking->isLogged()){
+                        $progressLvl = $userChecking->progressLvlFromId($_COOKIE['id_user']);
+                    }
+                    echo $progressLvl; //return the associated progress level
+                    break;
+                case "increaseLevel" :
+                    if($userChecking->isLogged()){ //only for logged users
+
+                        if(isset($_POST["lvl"])){
+                            $lvl = $_POST['lvl'];
+                            $userInsert->setProgressLvl($_COOKIE['id_user'] ?? '', $lvl);
+                        }
+                    }
+                    break;
+                case "resetLevel" :
+                    if($userChecking->isLogged()){ //only for logged users
+                        $userInsert->setProgressLvl($_COOKIE['id_user'] ?? '', 0);
+                    }
+                    break;
+            }
+
+        }
+
     }
 }
