@@ -35,11 +35,11 @@ class rulesHiddenObjects extends Phaser.Scene {
     create() {
         
         // set the progression lvl from data base
-        $.ajax({
+        /*$.ajax({
             url: '../php/progressLevel.php',
             type : "POST",
             data: {'fuction': "increaseLevel", 'lvl' : 2},
-        });
+        });*/
         
         //Rules Part 
         /**
@@ -186,7 +186,8 @@ class hiddenObjects extends Phaser.Scene {
         this.load.audio("theme",  "../audio/hidden_objects.mp3");//theme song
         this.load.image("timer", "../images/game/items/clock.png")//timer
         this.load.audio("sfx", "../audio/soundeffect.mp3")//audioeffect
-
+        this.load.audio("music", "../audio/Music_hidden_objects")
+        
     }
 
     
@@ -202,6 +203,9 @@ class hiddenObjects extends Phaser.Scene {
          * @author Souhaila Moumane
          * @name itemsGameObjectsImages
         */
+
+
+
         var wine = this.add.image(400, 300, 'wine').setInteractive();//wine
         var gloves = this.add.image(700, 550, 'gloves').setInteractive(); //gloves
         var necklace = this.add.image(100, 550, 'necklace').setInteractive(); //necklace
@@ -223,7 +227,8 @@ class hiddenObjects extends Phaser.Scene {
         this.add.image(430, 550, 'flowers'); //flowers
         this.add.image(85, 360, 'timer'); //time
         console.log(this); //audioeffect
-        var fx =this.sound.add("sfx");
+        //var fx =this.sound.add("sfx");
+
         
         this.chrono = 180; /*initialise chrono of 300 seconds (3min)*/
         this.textchrono = this.add.text(65, 365, formatTime(this.chrono),{ fontSize : 18 , fontFamily: 'Georgia, Times, serif'});
@@ -565,7 +570,7 @@ class victoryScreenHiddenObjects extends Phaser.Scene {
         * @author Alexis Mariotti
         */
         enterContainer.on("pointerdown", function(){
-            this.scene.scene.start('translateGameRules');  
+            this.scene.scene.start('translateGameRules');
         });
         /*
         * This function makes the button change color when the mouse is pointed over

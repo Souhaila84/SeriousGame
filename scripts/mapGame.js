@@ -12,6 +12,7 @@ export {rulesMap, victoryScreenMap, tryAgainScreenMap, mapGame};
  * @name proposalNumber
  */
 var proposalNumber = 0;
+var music_mapgame;
 
 /**
 * This fuction call with await will sleep the program for a given time
@@ -43,11 +44,11 @@ class rulesMap extends Phaser.Scene {
     create() {
         
         // set the progression lvl from data base
-        $.ajax({
+        /*$.ajax({
             url: '../php/progressLevel.php',
             type : "POST",
             data: {'fuction': "increaseLevel", 'lvl' : 1},
-        });
+        });*/
         
         //Rules Part 
         /**
@@ -181,11 +182,17 @@ class victoryScreenMap extends Phaser.Scene {
 
     preload() {
         this.load.image("victoryScreen","../images/game/background/victoryScreen.jpg");
+        this.load.audio("music","../audio/Music_mapgame.mp3");
     }
 
     create() {
     
         //adding the background
+
+
+        music_mapgame = this.sound.add("music");
+        music_mapgame.play();
+        music_mapgame.setVolume(0.5);
     
         /**
          * adding the background to the victoryScreenMap scene.

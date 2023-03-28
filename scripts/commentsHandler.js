@@ -7,7 +7,7 @@ comment.addEventListener("click", function(){
     const allSelectedStars = document.getElementsByClassName("fa fa-star editable checked");
     const ratingValue = parseInt(allSelectedStars[allSelectedStars.length - 1].id);
 
-    const ajaxData = {
+    /*const ajaxData = {
         "commentValue": commentValue,
         "ratingValue": ratingValue
     };
@@ -20,7 +20,7 @@ comment.addEventListener("click", function(){
         success: function(data){
             $('#comments').prepend(data);
         }
-    });
+    });*/
 
     commentArea.value = "";
     changeStar(0);
