@@ -9,7 +9,7 @@ class DataAccessRead {
     const DEFAULT_SQL_HOST = "mysql-enqueteroquette.alwaysdata.net";
     const DEFAULT_SQL_DTB = "enqueteroquette_db";
 
-    const READ_SQL_USER = '289405_readOnly'; // user with read only perms
+    const READ_SQL_USER = '289405_readonly'; // user with read only perms
     const READ_SQL_PASS = '%read0!%';
 
     private $readGameCommStatement;
@@ -34,7 +34,7 @@ class DataAccessRead {
 
     private function __construct()
     {
-        $this->PDOInstance = new PDO('mysql:dbname=' . self::DEFAULT_SQL_DTB . ';host=' . self::DEFAULT_SQL_HOST, self::READ_SQL_USER, self::READ_SQL_PASS);
+        $this->PDOInstance = new PDO('mysql:host=' . self::DEFAULT_SQL_HOST . ';dbname=' . self::DEFAULT_SQL_DTB, self::READ_SQL_USER, self::READ_SQL_PASS);
 
         //preparing all the queries
         $this->readGameCommStatement = $this->PDOInstance->prepare("SELECT pseudo, libellé FROM user, commentaire WHERE user.id = commentaire.id");
