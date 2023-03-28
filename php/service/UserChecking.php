@@ -2,7 +2,6 @@
 
 namespace service;
 
-include_once ('php/Model/DataAccessWrite.php');
 include_once ('php/Model/DataAccessRead.php');
 
 use DataAccessRead;

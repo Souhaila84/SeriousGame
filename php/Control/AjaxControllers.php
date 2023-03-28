@@ -104,8 +104,13 @@ class AjaxControllers //this controller is used for ajax queries and don't use a
                     }
                     break;
             }
-
         }
+    }
 
+    public function genereCommAction($commentChecking){
+        $comment = $commentChecking->readComment();
+
+        // Affichage du commentaire
+        echo "<div class='comment'> ". $comment->libelle. "</div>" , " <content id='commentPseudo'> ". $comment->pseudo. "</content>";
     }
 }

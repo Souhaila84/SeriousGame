@@ -4,6 +4,7 @@ include_once 'php/Control/Controllers.php';
 include_once 'php/Control/AjaxControllers.php';
 
 include_once 'php/service/UserChecking.php';
+include_once 'php/service/CommentChecking.php';
 include_once 'php/service/UserInsertion.php';
 
 include_once 'php/View/ViewConnexion.php';
@@ -16,13 +17,14 @@ include_once 'php/View/ViewSupport.php';
 
 use Control\AjaxControllers;
 use Control\Controllers;
-use service\{UserChecking,UserInsertion};
+use service\{UserChecking,UserInsertion,CommentChecking};
 use View\{Layout,ViewConnexion, ViewAbout_us, ViewAccueil, ViewGamePage, ViewMentionsLegales, ViewSupport};
 
 
 //initialisation of services
 $userChecking = new UserChecking();
 $userInsertion = new UserInsertion();
+$commentChecking = new CommentChecking();
 
 //Initialisation of controllers
 $controller = new Controllers();
@@ -211,6 +213,9 @@ elseif('/index.php/gameCommentHandler' == $uri){
 
 }elseif('/index.php/progressLevel' == $uri) {
     $ajaxController->progressLevelAction($userChecking, $userInsertion, $_POST);
+
+}elseif('/index.php/genereComm' == $uri) {
+    $ajaxController->genereCommAction($commentChecking);
 
 }elseif ('/' == $uri || '/index.php' == $uri || '/index.php/accueil' == $uri) {
     $layout = new Layout("php/View/layout.html" );
