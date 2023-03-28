@@ -209,7 +209,11 @@ elseif('/index.php/gameCommentHandler' == $uri){
 
 }elseif('/index.php/timeWriter' == $uri){
     $ajaxController->timeWriterAction($userChecking,$userInsertion);
-}if ('/' == $uri || '/index.php' == $uri || '/index.php/accueil' == $uri) {
+
+}elseif('/index.php/progressLevel' == $uri) {
+    $ajaxController->progressLevelAction($userChecking, $userInsertion, $_POST);
+
+}elseif ('/' == $uri || '/index.php' == $uri || '/index.php/accueil' == $uri) {
     $layout = new Layout("php/View/layout.html" );
     $vueAccueil = new ViewAccueil($layout);
 
@@ -247,11 +251,7 @@ elseif ('/index.php/mentionsLegales' == $uri){
 
     $vueMentionsLégales->display();
 }
-
 else {
     header('Status: 404 Not Found');
     echo '<html><body><h1>My Page NotFound</h1></body></html>';
 }
-
-
-echo $uri;

@@ -77,4 +77,14 @@ class UserChecking
 
         return $bestsTimes;
     }
+
+    public function progressLvlFromId($id){
+        $progressLvl = 0;
+        $resultProgressLvl = DataAccessRead::getInstance()->progressLvlFromId($_COOKIE['id_user'] ?? '');
+        if ($resultProgressLvl->rowCount() == 1){
+            $progressLvl = $resultProgressLvl->fetch()->lvl;
+        }
+
+        return $progressLvl;
+    }
 }
