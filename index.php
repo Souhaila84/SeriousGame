@@ -8,7 +8,6 @@ include_once 'php/service/UserInsertion.php';
 
 include_once 'php/View/ViewConnexion.php';
 include_once 'php/View/Layout.php';
-include_once 'php/View/View.php';
 include_once 'php/View/ViewAbout_us.php';
 include_once 'php/View/ViewAccueil.php';
 include_once 'php/View/ViewGamePage.php';
@@ -209,7 +208,9 @@ elseif('/index.php/gameCommentHandler' == $uri){
 
 }elseif('/index.php/timeWriter' == $uri){
     $ajaxController->timeWriterAction($userChecking,$userInsertion);
-}if ('/' == $uri || '/index.php' == $uri || '/index.php/accueil' == $uri) {
+}
+
+elseif ('/' == $uri || '/index.php' == $uri || '/index.php/accueil' == $uri) {
     $layout = new Layout("php/View/layout.html" );
     $vueAccueil = new ViewAccueil($layout);
 

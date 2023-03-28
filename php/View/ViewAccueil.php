@@ -10,7 +10,9 @@ class ViewAccueil extends View
 
         $this->title= 'Accueil';
 
-        $this->content = "<p>Voici la page d'accueil</p>";
+        $this->content = '<div id="content">
+                        <img src="images/The_1884\'s_murder.png" alt="Fond d\'écran d\'accueil class="responsive">
+                         </div>  ';
 
     }
 }
