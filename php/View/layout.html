@@ -3,6 +3,8 @@
 <head>
     <title> %title% </title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <link href="../../css/Home.css" rel="stylesheet">
@@ -16,7 +18,7 @@
                 <li><a id="about_us" href="/index.php/About_us">A propos</a></li>
                 <script>
                     $.ajax({
-                         url: '..\connectButton.php',
+                         url: '/index.php/connectButton',
                          success: function(data){
                             $('#nav').append(data);
                          }

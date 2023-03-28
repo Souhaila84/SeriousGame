@@ -4,7 +4,7 @@ include_once "Layout.php";
 
 abstract class View
 {
-    protected $title = '';
+    protected $title = 'Marcel Roquette';
     protected $content = '';
     protected $layout;
 

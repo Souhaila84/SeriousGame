@@ -39,7 +39,7 @@ rules
             
             // get the progression lvl from data base
             $.ajax({
-                url: '../php/progressLevel.php',
+                url: '/index.php/progressLevel',
                 type : "POST",
                 async: false,
                 data: {'fuction': "readLevel"},

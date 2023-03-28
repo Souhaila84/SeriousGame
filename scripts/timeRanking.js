@@ -34,7 +34,7 @@ class timeRankingPage extends Phaser.Scene {
         
         // the game is finished, so reset the progression lvl in data base
         $.ajax({
-            url: '../php/progressLevel.php',
+            url: '/index.php/progressLevel',
             type : "POST",
             data: {'fuction': "resetLevel"},
         });
@@ -46,7 +46,7 @@ class timeRankingPage extends Phaser.Scene {
 
         $.ajax({
             async: false,
-            url: '../php/timeWriter.php',
+            url: '/index.php/timeWriter',
             type : "POST",
             data : ajaxData,
         });
@@ -62,7 +62,7 @@ class timeRankingPage extends Phaser.Scene {
         var timeRankString = "Il n'y a pas de score"; //init the timeRankString if theire is no raw in DB
         
         $.ajax({
-            url: '../php/timeReader.php',
+            url: '/index.php/timeReader',
             type : "POST",
             async: false,
             success: function(data){
