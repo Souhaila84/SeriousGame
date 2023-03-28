@@ -1,4 +1,5 @@
 <?php
+namespace View;
 include_once "Layout.php";
 
 abstract class View
