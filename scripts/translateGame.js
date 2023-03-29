@@ -292,11 +292,11 @@ class translateGameRules extends Phaser.Scene {
     create() {
         
         // set the progression lvl from data base
-        $.ajax({
+        /*$.ajax({
             url: '../php/progressLevel.php',
             type : "POST",
             data: {'fuction': "increaseLevel", 'lvl' : 3},
-        });
+        });*/
         
         //Rules Part 
         

@@ -38,11 +38,11 @@ class rulesFindTheMurderer extends Phaser.Scene {
     create() {
         
         // set the progression lvl from data base
-        $.ajax({
+        /*$.ajax({
             url: '../php/progressLevel.php',
             type : "POST",
             data: {'fuction': "increaseLevel", 'lvl' : 4},
-        });
+        });*/
         
         //Rules Part 
         //adding the rules background
@@ -524,7 +524,7 @@ class findTheMurdererGame extends Phaser.Scene {
              * @name findMurdererText
              * @name {Phaser.GameObjects.Text}
              */
-            var findMurdererText = this.add.text(-189,-16, "Lets find who is the murderer !",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
+            var findMurdererText = this.add.text(-189,-16, "Let's find who is the murderer !",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
             
             
             /**

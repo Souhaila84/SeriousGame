@@ -33,7 +33,7 @@ class timeRankingPage extends Phaser.Scene {
     create() {
         
         // the game is finished, so reset the progression lvl in data base
-        $.ajax({
+        /*$.ajax({
             url: '../php/progressLevel.php',
             type : "POST",
             data: {'fuction': "resetLevel"},
@@ -49,7 +49,7 @@ class timeRankingPage extends Phaser.Scene {
             url: '../php/timeWriter.php',
             type : "POST",
             data : ajaxData,
-        });
+        });*/
 
         /**
          * here we are creating two variables, seconds and minutes, we are making some maths to have a good and nice looking time at the end, and after that we end up with the playingTimeDisplay that is our final var to see how much time did the user spend on his run.
@@ -61,14 +61,14 @@ class timeRankingPage extends Phaser.Scene {
         
         var timeRankString = "Il n'y a pas de score"; //init the timeRankString if theire is no raw in DB
         
-        $.ajax({
+        /*$.ajax({
             url: '../php/timeReader.php',
             type : "POST",
             async: false,
             success: function(data){
                 timeRankString = data;
             }
-        });
+        });*/
         
         /**
          * adding the background to the timeRankingPage scene.
