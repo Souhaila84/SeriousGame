@@ -2,6 +2,8 @@
 
 namespace service;
 
+include_once ('php/Model/DataAccessWrite.php');
+
 use DataAccessWrite;
 
 class UserInsertion

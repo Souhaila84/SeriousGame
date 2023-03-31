@@ -10,7 +10,9 @@ class ViewAbout_us extends View
 
         $this->title= 'A propos';
 
-        $this->content = "<form>
+        $this->content = "
+<link rel='stylesheet' href='../css/aboutUs.css'>
+<form>
     <div class='encadrement'>
         <p class='mainText'>Ce site a été effectué dans le cadre d'un projet de BUT de 2ème année en informatique.
             L'objectif du projet est de développer un sérious game qui vise à atteindre un objectif(apprentissage, communication,entraînement,...) de manière ludique.

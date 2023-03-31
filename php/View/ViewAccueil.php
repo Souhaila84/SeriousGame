@@ -11,7 +11,7 @@ class ViewAccueil extends View
         $this->title= 'Accueil';
 
         $this->content = '<div id="content">
-                        <img src="images/The_1884\'s_murder.png" alt="Fond d\'écran d\'accueil class="responsive">
+                        <img src="/images/The_1884\'s_murder.png" alt="Fond d\'écran d\'accueil class="responsive">
                          </div>  ;
                         <!--Bot générateur de commentaires-->
                     <div id="commentaire">
@@ -41,7 +41,7 @@ class ViewAccueil extends View
                           <br>du jeune Edward O\'Neill <br> Mais attention, il faudra être très attentif <br>aux instructions du détéctive
                           <br>et être rapide avant que le meurtrier vous échappe !<br>Saurez-vous y parvenir ?<br>
                               <p class="marginBoutonJouer">
-                                  <a href="/index.php/gamePage" class="boutonJouer">JOUER</a>
+                                  <a href="/index.php/jouer" class="boutonJouer">JOUER</a>
                               </p>
                           </div>
                           <div class="slidecontainer">

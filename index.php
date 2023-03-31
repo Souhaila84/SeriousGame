@@ -187,7 +187,6 @@ elseif('/index.php/connexion' == $uri && isset($_GET["reg_err"])){
 
     echo 'registred';
 }elseif('/index.php/disconnect' == $uri && $userChecking->isLogged()){
-
     $userInsertion->deleteSession($_COOKIE["id_user"]); //detruit le token dans la base de donnée
 
     //retire les coockies de connection

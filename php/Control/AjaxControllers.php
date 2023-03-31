@@ -73,10 +73,8 @@ class AjaxControllers //this controller is used for ajax queries and don't use a
     public function timeReaderAction($userChecking){
         $resultBestTime = $userChecking->bestGameTimes();
         if ($resultBestTime){
-            while($row = $resultBestTime->fetch()){
-                $seconds = ($row->bestTime / 1000)% 60;
-                $minutes = floor(($row->bestTime / 1000) / 60);
-                echo "$row->pseudo à fini le jeu en $minutes min et $seconds secondes\n\n";
+            foreach ($resultBestTime as $bestTime){
+                echo "$bestTime[0] à fini le jeu en $bestTime[1] min et $bestTime[2] secondes\n\n";
             }
         }
     }

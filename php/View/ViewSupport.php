@@ -10,7 +10,8 @@ class ViewSupport extends View
 
         $this->title= 'Support';
 
-        $this->content = "<h1 class='title'><strong>Bienvenue sur la page Support !</strong></h1>
+        $this->content = "<link rel='stylesheet' href='../css/Support.css'>
+<h1 class='title'><strong>Bienvenue sur la page Support !</strong></h1>
 <h3 class='title'>Si vous venez à rencontrer un problème, n'hésitez pas à nous en faire part !</h3>
 <form src='../php/Support.php' method='post'>
     <br>
