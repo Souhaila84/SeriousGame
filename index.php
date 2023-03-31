@@ -217,6 +217,9 @@ elseif('/index.php/gameCommentHandler' == $uri){
 }elseif('/index.php/genereComm' == $uri) {
     $ajaxController->genereCommAction($commentChecking);
 
+}elseif('/index.php/gameCommentField' == $uri) {
+    $ajaxController->gameCommentFieldAction($userChecking);
+
 }elseif ('/' == $uri || '/index.php' == $uri || '/index.php/accueil' == $uri) {
     $layout = new Layout("php/View/layout.html" );
     $vueAccueil = new ViewAccueil($layout);

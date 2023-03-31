@@ -1,18 +1,26 @@
 var comment= document.getElementById("submitComment");
 comment.addEventListener("click", function(){
-        
-    var commentValue = document.getElementById("commentInput").value;
-    var ajaxData = {
-        "commentValue" : commentValue
-    }
-    
+
+    const commentArea = document.getElementById("commentInput");
+    const commentValue = commentArea.value;
+
+    const allSelectedStars = document.getElementsByClassName("fa fa-star editable checked");
+    const ratingValue = parseInt(allSelectedStars[allSelectedStars.length - 1].id);
+
+    const ajaxData = {
+        "commentValue": commentValue,
+        "ratingValue": ratingValue
+    };
     $.ajax({
-        url: '../index.php/gameCommentHandler',
+        url: '/index.php/gameCommentHandler',
         type : "POST",
         data : ajaxData,
+        async: false,
         success: function(data){
             $('#comments').prepend(data);
         }
     });
 
+    commentArea.value = "";
+    changeStar(0);
 });

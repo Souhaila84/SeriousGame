@@ -9,6 +9,7 @@ class AjaxControllers //this controller is used for ajax queries and don't use a
         if($userChecking->isLogged()){
 
             $commentText = $post['commentValue'];
+            $commentRate = intval($post['ratingValue']);
             if ($commentText != ""){
 
                 $request_id = isset($_COOKIE['id_user']) ? $_COOKIE['id_user'] : '';  //user id
@@ -16,8 +17,7 @@ class AjaxControllers //this controller is used for ajax queries and don't use a
                 $userPseudo = $userChecking->pseudoFromID($request_id);
 
                 //Inserting new comment in DB
-                $result = $userInsert->writeGameComment($request_id,$commentText);
-
+                $result = $userInsert->writeGameComment($request_id,$commentText,$commentRate);
 
                 if ($result){
                     echo "
@@ -51,7 +51,23 @@ class AjaxControllers //this controller is used for ajax queries and don't use a
     public function gameCommentReaderAction($userChecking){
         $allComments = $userChecking->allGameComments();
 
-        echo $allComments;
+        foreach ($allComments as $comment){
+            echo "
+        <li class='commentArea'>
+            <div class='profile'>
+                <img class='profilePicture' src='../images/avatar-default.png'>
+                <p class='profileName'>$comment[0]</p>
+            </div> ";
+            for ($i=0; $i<=$comment[2]; ++$i){
+                echo '<span id="i" class="fa fa-star checked"></span>';
+            }
+            for ($i=$comment[2]+1; $i < 5; ++$i) {
+                echo '<span id="i" class="fa fa-star"></span>';
+            }
+            echo "<p class = 'commentsTexts'> $comment[1] </p>
+        </li>
+        ";
+        }
     }
 
     public function timeReaderAction($userChecking){
@@ -112,5 +128,44 @@ class AjaxControllers //this controller is used for ajax queries and don't use a
 
         // Affichage du commentaire
         echo "<div class='comment'> ". $comment->libelle. "</div>" , " <content id='commentPseudo'> ". $comment->pseudo. "</content>";
+    }
+
+    public function gameCommentFieldAction($userChecking){
+        if ($userChecking->isLogged()){
+            echo '<div>
+              <script>
+              function changeStar(id){
+                  for (let i = 0; i <= id; i++) {
+                      let star = document.getElementById(i);
+                      star.className = "fa fa-star editable checked";
+                  }
+                  for (let i = id+1; i < 5; i++) {
+                      let star = document.getElementById(i);
+                      star.className = "fa fa-star editable";
+                  }
+              }
+              </script>
+              
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+              <div id="inputCommentArea">
+                    <div>  
+                        <span id="0" class="fa fa-star editable checked" onclick="changeStar(0)"></span>
+                        <span id="1" class="fa fa-star editable" onclick="changeStar(1)"></span>
+                        <span id="2" class="fa fa-star editable" onclick="changeStar(2)"></span>
+                        <span id="3" class="fa fa-star editable" onclick="changeStar(3)"></span>
+                        <span id="4" class="fa fa-star editable" onclick="changeStar(4)"></span>
+                    </div>
+                    <textarea id="commentInput" name="commentField" placeholder="Ajouter un avis..."></textarea>
+                    <button id="submitComment" >Soumettre</button>
+              </div>
+          </div>
+            
+            <script src="../scripts/commentsHandler.js"></script>';
+        }
+        else{
+            echo "<section class='mustBeConnected'>
+        Vous devez etre connecté pour poster un commentaire ! Pour vous connectez utiliser le bouton en haut à droite.
+        </section>";
+        }
     }
 }

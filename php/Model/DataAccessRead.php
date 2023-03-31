@@ -37,7 +37,7 @@ class DataAccessRead {
         $this->PDOInstance = new PDO('mysql:host=' . self::DEFAULT_SQL_HOST . ';dbname=' . self::DEFAULT_SQL_DTB, self::READ_SQL_USER, self::READ_SQL_PASS);
 
         //preparing all the queries
-        $this->readGameCommStatement = $this->PDOInstance->prepare("SELECT pseudo, libellé FROM user, commentaire WHERE user.id = commentaire.id");
+        $this->readGameCommStatement = $this->PDOInstance->prepare("SELECT pseudo, libellé, note FROM user, commentaire WHERE user.id = commentaire.id");
 
         $this->userPseudoFromIdStatement = $this->PDOInstance->prepare("SELECT pseudo FROM user WHERE id = ?");
 

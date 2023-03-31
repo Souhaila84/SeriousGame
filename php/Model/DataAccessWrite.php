@@ -28,7 +28,7 @@ class DataAccessWrite {
     {
         $this->PDOInstance = new PDO('mysql:host=' . self::DEFAULT_SQL_HOST . ';dbname=' . self::DEFAULT_SQL_DTB, self::WRITE_SQL_USER, self::WRITE_SQL_PASS);
 
-        $this->writeGameCommentStatement = $this->getPdo()->prepare("INSERT INTO commentaire(id, libellé) VALUES(?, ?);");
+        $this->writeGameCommentStatement = $this->getPdo()->prepare("INSERT INTO commentaire(id, libellé, note) VALUES(?, ?, ?);");
 
         $this->deleteSessionStatement = $this->getPdo()->prepare("DELETE FROM session WHERE idUser = ?");
 
@@ -54,9 +54,9 @@ class DataAccessWrite {
         return $this->PDOInstance;
     }
 
-    public function writeGameComment($id, $comment){
+    public function writeGameComment($id, $comment, $commentRate){
         $statement = $this->writeGameCommentStatement;
-        $statement->execute(array($id, $comment));
+        $statement->execute(array($id, $comment, $commentRate));
 
         return $statement;
     }

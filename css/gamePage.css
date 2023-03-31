@@ -47,7 +47,7 @@ body {
 
 /* DROPDOWN MENU */
 .support {
-    position: relative; 
+    position: relative;
 }
 
 .dropdown {
@@ -83,7 +83,7 @@ body {
 }
 
 canvas {
-    display : block;   
+    display : block;
     margin : auto;
     margin-top: 5vh;
 }
@@ -91,7 +91,7 @@ canvas {
 .encadrementScenario{
     background: #e3dac3;
     width: 50vw;
-    height: 25vw;   
+    height: 27vw;
     border-radius: 1vw;
     border: 0.3vw solid #5f687c;
     margin: auto;
@@ -114,7 +114,7 @@ canvas {
     color:#fff;
     text-align: center;
     font-size: 0.9vw;
-    width: 7.5vw;  
+    width: 7.5vw;
     height: 1.75vw;
     margin-left: 44%;
     margin-bottom: 1vw;
@@ -137,6 +137,10 @@ canvas {
     margin-bottom: 5vh;
     margin-right: 3vw;
     background: #d4d0c6;
+}
+
+.checked {
+    color: orange;
 }
 
 .profile{
@@ -198,23 +202,38 @@ canvas {
     margin-bottom: 10px;
 }
 
+#entofr{
+    border-radius: 0.3vw;
+    border: 0.2vw solid #5f687c;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#frtoen{
+    border-radius: 0.3vw;
+    border: 0.2vw solid #5f687c;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
 /*Media Query for mobile*/
-@media (max-width: 805px), (max-height: 700px){ 
-    
+@media (max-width: 805px), (max-height: 700px){
+
     #game {
         display: none;
     }
-    
+
     .encadrementErrorMessage {
         margin-top: 5vw;
         margin-bottom: 10vw;
         display: block;
     }
-    
+
     #errorMessage {
         display: block;
     }
-    
+
     .encadrementScenario{
         width: 80vw;
         height: 65vw;
@@ -222,25 +241,13 @@ canvas {
         margin-top: 5vw;
         margin-bottom: 10vw;
     }
-    
+
     .textScenario{
         font-size: 2.8vw;
         padding: 1vw;
     }
-    
+
     #commentsSection {
         display: none;
     }
-}
-
-@media (max-height: 805) {
-    
-}
-
-@media (min-width: 805px) {
-    
-}
-
-@media (min-width: 992px) {
-    
 }

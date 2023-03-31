@@ -57,12 +57,13 @@ class UserChecking
         // Getting comments from database
         $resultGameComments = DataAccessRead::getInstance()->readGameComm();
 
-        $allComments = array(array());
+        $allComments = array();
 
         while ($commentRow = $resultGameComments->fetch()) {
             $pseudo = $commentRow->pseudo;
             $content = $commentRow->libellé;
-            $allComments[] = array($pseudo,$content);
+            $rate = $commentRow->note;
+            $allComments[] = array($pseudo,$content,$rate);
         }
 
         return $allComments;
