@@ -43,6 +43,7 @@ class ViewMentionsLegales extends View
         <br/>
         <br/>
         <br/>
+        <br/>
  ";
 
     }
