@@ -2,7 +2,7 @@
 
 namespace service;
 
-include_once ('php/Model/DataAccessRead.php');
+include_once ('../Model/DataAccessRead.php');
 use DataAccessRead;
 
 class CommentChecking
@@ -15,6 +15,6 @@ class CommentChecking
             $comment = $result->fetch();
         }
 
-        return $comment;
+        return array($comment->libelle, $comment->pseudo);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace PHPUnit\Doctrine\Instantiator\Exception;
 
-include_once ('../service/UserChecking.php');
+include_once('../service/UserChecking.php');
 
 use PHPUnit\Framework\TestCase;
 use service\UserChecking;
