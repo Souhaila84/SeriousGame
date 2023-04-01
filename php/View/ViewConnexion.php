@@ -10,6 +10,8 @@ class ViewConnexion extends View
     {
         parent::__construct($layout);
 
+        $this->title= 'Connexion';
+
         $page = '<link href="../css/connexion.css" rel="stylesheet">'
                 . $error .
                 '<div id="connect">
