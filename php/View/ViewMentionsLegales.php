@@ -25,6 +25,24 @@ class ViewMentionsLegales extends View
             <li>Souhaila MOUMANE : Mail : <a href='mailto:souhaila.moumane@etu.univ-amu.fr'>souhaila.moumane@etu.univ-amu.fr</a> | L'adresse et le numero de telephone ne souhaitent pas etre communiquees par cette personne.</li>
         </ul>
         <p>Hebergement du site : Alwaysdata <a href='https://www.alwaysdata.com/en/'>redirection vers le site de Alwaysdata</a>.<br>Mentions legales de l'hebergeur : La societe ALWAYSDATA, SARL au capital de 200.000 euros immatriculee au RCS de Paris sous le numero 492 893 490 dont le siege social se trouve 91 rue du Faubourg Saint Honore - 75008 Paris.</p>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
  ";
 
     }
