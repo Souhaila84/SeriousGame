@@ -18,6 +18,7 @@ var suspectNumber = 0;
 var proposalNumber = 0;
 
 var timePlayed = null;
+var music;
 
 //Rules screen 
 /**
@@ -38,11 +39,11 @@ class rulesFindTheMurderer extends Phaser.Scene {
     create() {
         
         // set the progression lvl from data base
-        /*$.ajax({
+        $.ajax({
             url: '../php/progressLevel.php',
             type : "POST",
             data: {'fuction': "increaseLevel", 'lvl' : 4},
-        });*/
+        });
         
         //Rules Part 
         //adding the rules background
@@ -646,6 +647,7 @@ class guessTheMurderer extends Phaser.Scene {
         this.load.image("fourthSuspect","../images/game/characters/fourthsuspect.png");
         this.load.image("leftarrow","../images/leftarrow.png");
         this.load.image("rightarrow","../images/rightarrow.png");
+        this.load.audio('music_murderer', '../audio/Last_game.mp3');
     }
 
     create() {
@@ -658,6 +660,11 @@ class guessTheMurderer extends Phaser.Scene {
          * @name {Phaser.GameObjects.Image}
          */
         var guessTheMurdererscreen = this.add.image(400,300, 'guessTheMurdererScreen');
+
+        music = this.sound.add("music_murderer");
+        music.play();
+        music.setLoop(true);
+        music.setVolume(0.3);
         
         
         //adding the victory container
@@ -930,9 +937,11 @@ class guessTheMurderer extends Phaser.Scene {
         if(suspectNumber == 0 && proposalNumber == 0 || suspectNumber == 1 && proposalNumber == 1 || suspectNumber == 2 && proposalNumber == 2 || suspectNumber == 3 && proposalNumber == 3) {
             timePlayed = new Date() - timer;
             this.scene.scene.start('victoryScreenFindTheMurderer');
+            music.stop();
         }
         else 
             this.scene.scene.start('youLooseToFindTheMurderer');
+            music.stop();
         });
     }
 

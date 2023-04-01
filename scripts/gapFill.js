@@ -34,11 +34,11 @@ class rulesGapFill extends Phaser.Scene {
     create() {
         
         // set the progression lvl from data base
-        /*$.ajax({
+        $.ajax({
             url: '../php/progressLevel.php',
             type : "POST",
             data: {'fuction': "increaseLevel", 'lvl' : 0},
-        });*/
+        });
         
         //Rules Part 
         //adding the rules background
@@ -137,15 +137,16 @@ class gapFill extends Phaser.Scene {
         this.load.image('detec', '../images/game/characters/detective1.png');/*Load the detective image */
         this.load.image('sprite', '../images/game/_.png');/*Load the sprite image */
         this.load.image('skipArrow', '../images/game/skipArrow.png');/*Load the skip image */
-        this.load.audio('musique', '../audio/Musique_Gap.mp3');
+        this.load.audio('music_gapfill', '../audio/Musique_Gap.mp3');
     }
     /*This function create the functionality of the scene*/
     create()
     {
 
-        music = this.sound.add("musique");
+        music = this.sound.add("music_gapfill");
         music.play();
-        music.setVolume(0.5);
+        music.setLoop(true);
+        music.setVolume(0.3);
         
         //song.setVolume(0.5);
         var background = this.add.image(400, 300, 'living') //Add the image for the background

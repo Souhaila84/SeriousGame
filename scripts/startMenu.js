@@ -35,7 +35,7 @@ rules
         });
         startButton.on('pointerdown', function() {
             var allScenes = ['rulesGapFill','rulesMap','rulesHiddenObjects','translateGameRules','rulesFindTheMurderer']; // all progression lvl strating scene
-            /*var nextSceneIndex;
+            var nextSceneIndex;
             
             // get the progression lvl from data base
             $.ajax({
@@ -52,7 +52,7 @@ rules
             if (nextSceneIndex > 4){
                 nextSceneIndex = 0;
             }
-            this.scene.scene.start(allScenes[nextSceneIndex]); //change scene whit progression or not*/
+            this.scene.scene.start(allScenes[nextSceneIndex]); //change scene whit progression or not
             this.scene.scene.start(allScenes[0]);
         });
        

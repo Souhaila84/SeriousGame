@@ -12,6 +12,7 @@ export {translateGame, translateGameRules, victoryScreentranslateGame};
 * @author Alexis Mariotti
 */
 var countOfVictory = 0;
+var music;
 /** 
 * Array of all string arrays of differents proposals and the sentence to translate which is in position 0 in the array
 * @type {string[]|Array}
@@ -233,6 +234,8 @@ class translateGame extends Phaser.Scene {
         else
         {
             this.scene.start("victoryScreentranslateGame");
+            music.stop();
+            
         }
     }
 
@@ -249,10 +252,16 @@ class translateGame extends Phaser.Scene {
     
     preload(){
         this.load.image("backgroundTranslateGame","../images/game/background/translateBackground.jpg");
+        this.load.audio("music_translate", "../audio/Traduction.mp3")
     }
     
     create(){
         this.add.image(400, 300, 'backgroundTranslateGame'); //add the backgroud to scene
+
+        music = this.sound.add("music_translate");
+        music.play();
+        music.setLoop(true);
+        music.setVolume(0.3);
         
         //shuffling proposals
         for (let i = allProposals.length - 1; i > 0; i--) {
@@ -292,11 +301,11 @@ class translateGameRules extends Phaser.Scene {
     create() {
         
         // set the progression lvl from data base
-        /*$.ajax({
+        $.ajax({
             url: '../php/progressLevel.php',
             type : "POST",
             data: {'fuction': "increaseLevel", 'lvl' : 3},
-        });*/
+        });
         
         //Rules Part 
         

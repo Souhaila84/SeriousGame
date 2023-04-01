@@ -11,6 +11,7 @@ export {rulesHiddenObjects,hiddenObjects, outOfTime, victoryScreenHiddenObjects}
  * @type {int}
  */
 var count = 0;
+var music;
 
 /**
  * This class creates the "instructions" screen for the hidden objects game
@@ -35,11 +36,11 @@ class rulesHiddenObjects extends Phaser.Scene {
     create() {
         
         // set the progression lvl from data base
-        /*$.ajax({
+        $.ajax({
             url: '../php/progressLevel.php',
             type : "POST",
             data: {'fuction': "increaseLevel", 'lvl' : 2},
-        });*/
+        });
         
         //Rules Part 
         /**
@@ -186,7 +187,7 @@ class hiddenObjects extends Phaser.Scene {
         this.load.audio("theme",  "../audio/hidden_objects.mp3");//theme song
         this.load.image("timer", "../images/game/items/clock.png")//timer
         this.load.audio("sfx", "../audio/soundeffect.mp3")//audioeffect
-        this.load.audio("music", "../audio/Music_hidden_objects")
+        this.load.audio("music_object", "../audio/music_findObject.mp3")
         
     }
 
@@ -227,7 +228,14 @@ class hiddenObjects extends Phaser.Scene {
         this.add.image(430, 550, 'flowers'); //flowers
         this.add.image(85, 360, 'timer'); //time
         console.log(this); //audioeffect
-        //var fx =this.sound.add("sfx");
+        var fx =this.sound.add("sfx");
+
+        music = this.sound.add("music_object");
+        music.play();
+        music.setLoop(true);
+        music.setVolume(0.2);
+
+
 
         
         this.chrono = 180; /*initialise chrono of 300 seconds (3min)*/
@@ -359,6 +367,7 @@ class hiddenObjects extends Phaser.Scene {
     update() {
         if(count == 8){  
             this.scene.start('victoryScreenHiddenObjects');
+            music.stop();
         }
         if(this.chrono <= 60){ /*the chrono numbers become red when there's 30 seconds or less left*/ 
             this.textchrono.setTint(0xff0000);
