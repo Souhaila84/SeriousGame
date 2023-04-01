@@ -78,7 +78,7 @@ body {
 }
 
 .profilePicture {
-    width: 5vw;
+    width: 3vw;
     height: 5vh;
 }
 
@@ -196,7 +196,7 @@ canvas {
 }
 
 .mustBeConnected{
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: red;
     text-align: center;
     margin-bottom: 10px;

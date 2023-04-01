@@ -157,7 +157,7 @@ class AjaxControllers //this controller is used for ajax queries and don't use a
               </div>
           </div>
             
-            <script src="../scripts/commentsHandler.js"></script>';
+            <script src="../../scripts/commentsHandler.js"></script>';
         }
         else{
             echo "<section class='mustBeConnected'>
