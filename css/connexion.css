@@ -12,17 +12,30 @@ body {
     font-family: "Verdana", "Arial", "Tahoma", "Serif";
     font-size: 13px;
     background-color:#fff;
-    
+
     display: flex;
     flex-direction : column;
 }
 
+section {
+    background-color: #ffffff;
+    transition: background 0.5s;
+}
 
+section.dark {
+    background: #3c4044;
+    color: #ffffff;
+}
+
+section.dark input {
+    border-bottom: 1px solid white;
+    color: white;
+}
 
 #connect{
     margin: 50px;
     padding: 0;
-    font-family: sans-serif; 
+    font-family: sans-serif;
     text-align: center;
 }
 
@@ -33,12 +46,12 @@ input[type="email"], input[type="password"], input[type="text"]  {  /*formulaire
     margin: 5px auto;
     font-size: 12px;
     border: none;
-    border-bottom: 1px solid rgb(0, 0, 0); 
+    border-bottom: 1px solid rgb(0, 0, 0);
     background: transparent;
     outline: none;
     height: 40px;
     width: 220px;
-    
+
 }
 
 p {
@@ -62,7 +75,7 @@ p {
 }
 
 
-h3{ /*titre connexion et inscription*/  
+h3{ /*titre connexion et inscription*/
     margin: 0;
     padding: 0;
     font-weight: bold;
@@ -76,7 +89,7 @@ h3{ /*titre connexion et inscription*/
     padding: 1vw;
     font-size: 2vw;
     text-align: center;
-    
+
     display: flex;
     align-self : center;
     flex-direction : row;
@@ -89,7 +102,7 @@ h3{ /*titre connexion et inscription*/
     padding: 1vw;
     font-size: 2vw;
     text-align: center;
-    
+
     display: flex;
     align-self : center;
     flex-direction : row;

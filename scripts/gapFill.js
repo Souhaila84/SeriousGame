@@ -1,4 +1,4 @@
-/** 
+/**
  *  @fileOverview This file contains 2 classes rulesGapFill, gapFill. Theses 2 classes represent the gapFill game.
  *
  *  @author William Goujon
@@ -13,6 +13,7 @@ export {rulesGapFill,gapFill};
 * @author William Goujon
 */
 var score = 0;
+var music;
 /**
  * This class is the rules scene for the gapFill. It contains a text that explains the rules of this game
  * @extends Phaser.Scene
@@ -20,7 +21,7 @@ var score = 0;
  * @author Victor Bouveret
  */
 class rulesGapFill extends Phaser.Scene {
-    
+
     constructor () {
         super('rulesGapFill');
     }
@@ -31,18 +32,18 @@ class rulesGapFill extends Phaser.Scene {
     }
     /*This function create the functionality of the scene*/
     create() {
-        
+
         // set the progression lvl from data base
         $.ajax({
             url: '../index.php/progressLevel',
             type : "POST",
             data: {'fuction': "increaseLevel", 'lvl' : 0},
         });
-        
-        //Rules Part 
+
+        //Rules Part
         //adding the rules background
-        var gapFillRulesBackground = this.add.image(400,300, 'Rulesbackground'); //Add the image 
-        
+        var gapFillRulesBackground = this.add.image(400,300, 'Rulesbackground'); //Add the image
+
         //adding start container to the rules screen
         /*
         *  text start for start button in gapFill start scene
@@ -58,7 +59,7 @@ class rulesGapFill extends Phaser.Scene {
         var gapFillStartRect = this.add.rectangle(0,0,200,50,0x7b6c4f, 0.8);
         gapFillStartText.setTint(0xc2baac);
         gapFillStartRect.setName("gapFillStartRect"); //set the name of the varialbe gapFillStartText
-        
+
         /*
         * This rectangle is used for the outline of start button in gapFIll start scene
         * @type {Phaser.GameObject.Rectangle}
@@ -67,21 +68,21 @@ class rulesGapFill extends Phaser.Scene {
         */
         var gapFillStartRectStyle = this.add.rectangle(0,0,200,50);
         gapFillStartRectStyle.setStrokeStyle(2,0x000000);
-        
+
         var gapFillStartContainer = this.add.container(400,450,[gapFillStartRect ,gapFillStartText,gapFillStartRectStyle]);
         gapFillStartContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
-        gapFillStartContainer.setName("gapFillStartContainer");   
-        
+        gapFillStartContainer.setName("gapFillStartContainer");
+
         //adding the rules in the rules screen
         /*
-        * This variable contains a text which explain the rules of gapFill 
+        * This variable contains a text which explain the rules of gapFill
         * @type {Phaser.GameObject.Text}
         * @author William Goujon
         */
-        var gapFillRulesText = this.add.text(-200,-90, "In this game you have to fill the gaps \nin the discussion that Mr.Roquette heard. \nWhen all the gaps will be filled with \nthe correct answers, you'll be able to \nplay the next game !\n\nGood luck !",{ fontSize : 20, fontFamily: 'Georgia, Times, serif'});
+        var gapFillRulesText = this.add.text(-200,-90, "In this game you have to fill the gaps \nin the discussion that Mr.Roquette heard. \nWhen all the gaps are filled with \nthe correct answers, you'll be able to \nplay the next game !\n\nGood luck !",{ fontSize : 20, fontFamily: 'Georgia, Times, serif'});
         gapFillRulesText.setTint(0xc2baac);
         /*
-        * This variable contains a rectangle which is the background of rules text 
+        * This variable contains a rectangle which is the background of rules text
         * @type {Phaser.GameObject.Rectangle}
         * @author William Goujon
         */
@@ -94,19 +95,19 @@ class rulesGapFill extends Phaser.Scene {
         */
         var gapFillRulesRectStyle = this.add.rectangle(0,0,420,200);
         gapFillRulesRectStyle.setStrokeStyle(2,0x000000);
-        
+
         var gapFillRulesContainer = this.add.container(400,200,[gapFillRulesRect ,gapFillRulesText,gapFillRulesRectStyle]);
         gapFillRulesContainer.setInteractive(new Phaser.Geom.Rectangle(-210,-100,400,200), Phaser.Geom.Rectangle.Contains);
         gapFillRulesContainer.setName("gapFillRulesContainer");
-        
+
         gapFillStartContainer.on("pointerdown", function(){
-            this.scene.scene.start('gapFill');  
+            this.scene.scene.start('gapFill');
         });
-        
+
         gapFillStartContainer.on('pointerover', function() {
             gapFillStartRect.setFillStyle(0xa88c6c,0.8)
         });
-        
+
         gapFillStartContainer.on('pointerout', function() {
             gapFillStartRect.setFillStyle(0x7b6c4f,0.8)
         });
@@ -124,11 +125,11 @@ class rulesGapFill extends Phaser.Scene {
  * @author William Goujon
  */
 class gapFill extends Phaser.Scene {
-    
-    constructor () 
-    
+
+    constructor ()
+
     {
-        super('gapFill'); 
+        super('gapFill');
     }
     /*This function loads the image of the game*/
     preload(){
@@ -136,11 +137,21 @@ class gapFill extends Phaser.Scene {
         this.load.image('detec', '../images/game/characters/detective1.png');/*Load the detective image */
         this.load.image('sprite', '../images/game/_.png');/*Load the sprite image */
         this.load.image('skipArrow', '../images/game/skipArrow.png');/*Load the skip image */
+        this.load.audio('music_gapfill', '../audio/Musique_Gap.mp3');
     }
     /*This function create the functionality of the scene*/
     create()
     {
-        this.add.image(400, 300, 'living') //Add the image for the background
+
+        music = this.sound.add("music_gapfill");
+        music.play();
+        music.setLoop(true);
+        music.setVolume(0.3);
+
+        //song.setVolume(0.5);
+        var background = this.add.image(400, 300, 'living') //Add the image for the background
+        background.alpha = 0.5
+
         this.add.image(300,420, 'detec') //Add the image of the detective
 
         /*
@@ -149,24 +160,24 @@ class gapFill extends Phaser.Scene {
         * @author William Goujon
         */
         var text1 = this.add.text(230,25, "Find out what the inspector heard ",{
-            color: "white",//set the text color in white 
+            color: "white",//set the text color in white
             fontStyle: "bold",
-            
+
         });
         text1.setName("text1"); //set a name of text1
-        
+
         var text2 = this.add.text(325,60, "List of Words : ",{
-            color: "white",  
+            color: "white",
         });
-        /* 
+        /*
         * Add the text with the words list in gapFill game
         * @type {Phaser.GameObject.Text}
         * @author William Goujon
         */
         var text3 = this.add.text(200,90, "ruckus  known  bullet  decided  eyes  flat \n         safety  dead  mess",{
-            color: "white",   
+            color: "white",
         });
-        /* 
+        /*
         * Add the text to make the text paragraph with color white in gapFill game
         * @type {Phaser.GameObject.Text}
         * @author William Goujon
@@ -191,25 +202,25 @@ class gapFill extends Phaser.Scene {
         * @type {Phaser.GameObject.Text}
         * @author William Goujon
         */
-        var textSprite12 
+        var textSprite12
         var isFalse = false
-        
+
         /*
         * event on input plugin for each touched Game object
         * @function gapFillSpritePointerdown
         * @author William Goujon
-        */ 
+        */
         sprite.on('pointerdown', function(pointer){
             /*
             * create a prompt to create a text box in gapFill game
             * @type {String}
             * @author William Goujon
-            */ 
-            let person = prompt("enter a word", ""); 
-            
+            */
+            let person = prompt("enter a word", "");
+
             if (person == "dead") {
-                var textSprite1 = this.scene.add.text(440,175,person,{ 
-                    color: "white", 
+                var textSprite1 = this.scene.add.text(440,175,person,{
+                    color: "white",
                     fontStyle: "bold",
                 });
                 score +=1; //Update the variable score when there is a good answer
@@ -225,20 +236,20 @@ class gapFill extends Phaser.Scene {
                     isFalse = true;
                 }
                 textSprite12 = this.scene.add.text(440,175,person,{ //add a textsprite when the word is not dead
-                color: "red", //color the text on red
-                fontStyle: "bold",
+                    color: "red", //color the text on red
+                    fontStyle: "bold",
                 });
-                textSprite12.setName("textSprite12");//set a name of the textsprite  
+                textSprite12.setName("textSprite12");//set a name of the textsprite
             }
-            
-            
+
+
         });
         /*
         * event on input plugin for each touched Game object
         * @function gapFillSpritePointerout
         * @author William Goujon
         */
-        sprite.on('pointerout', function (pointer) { 
+        sprite.on('pointerout', function (pointer) {
             this.clearTint();
         });
         /*
@@ -246,7 +257,7 @@ class gapFill extends Phaser.Scene {
         * @function gapFillSpritePointerdownSecond
         * @author William Goujon
         */
-        sprite.on('pointerdown', function (pointer) { 
+        sprite.on('pointerdown', function (pointer) {
             this.clearTint();
 
         });
@@ -254,14 +265,14 @@ class gapFill extends Phaser.Scene {
 
         var sprite2 = this.add.sprite(420, 220, 'sprite').setInteractive()
         var textSprite22
-        var isFalse2 = false    
+        var isFalse2 = false
 
         sprite2.on('pointerdown', function(pointer){
             let person = prompt("enter a word", "");
             if (person == "ruckus") {
                 var textSprite2 = this.scene.add.text(390,203,person,{
                     color: "white",
-                    fontStyle: "bold", 
+                    fontStyle: "bold",
                 });
                 score +=1;
                 this.setVisible(false);
@@ -276,11 +287,11 @@ class gapFill extends Phaser.Scene {
                     isFalse2 = true;
                 }
                 textSprite22 = this.scene.add.text(390,203,person,{
-                color: "red",
-                fontStyle: "bold",
+                    color: "red",
+                    fontStyle: "bold",
                 });
                 textSprite22.setName("textSprite22");
-            }         
+            }
         });
         sprite2.on('pointerout', function (pointer) {
             this.clearTint();
@@ -298,7 +309,7 @@ class gapFill extends Phaser.Scene {
             if (person == "bullet") {
                 var textSprite3 = this.scene.add.text(263,228,person,{
                     color: "white",
-                    fontStyle: "bold", 
+                    fontStyle: "bold",
                 });
                 score +=1;
                 this.setVisible(false);
@@ -313,11 +324,11 @@ class gapFill extends Phaser.Scene {
                     isFalse3 = true;
                 }
                 textSprite32 = this.scene.add.text(263,228,person,{
-                color: "red",
-                fontStyle: "bold",
+                    color: "red",
+                    fontStyle: "bold",
                 });
                 textSprite32.setName("textSprite32");
-            }           
+            }
         });
         sprite3.on('pointerout', function (pointer) {
             this.clearTint();
@@ -350,11 +361,11 @@ class gapFill extends Phaser.Scene {
                     isFalse4 = true;
                 }
                 textSprite42 = this.scene.add.text(440,228,person,{
-                color: "red",
-                fontStyle: "bold",
+                    color: "red",
+                    fontStyle: "bold",
                 });
                 textSprite42.setName("textSprite42");
-            }           
+            }
         });
         sprite4.on('pointerout', function (pointer) {
             this.clearTint();
@@ -365,14 +376,14 @@ class gapFill extends Phaser.Scene {
 
         var sprite5 = this.add.sprite(520, 300, 'sprite').setInteractive()
         var textSprite52
-        var isFalse5 = false 
+        var isFalse5 = false
 
         sprite5.on('pointerdown', function(pointer){
             let person = prompt("enter a word", "");
             if (person == "flat") {
                 var textSprite5 = this.scene.add.text(500,285,person,{
                     color: "white",
-                    fontStyle: "bold",                    
+                    fontStyle: "bold",
                 });
                 score +=1;
                 this.setVisible(false);
@@ -387,11 +398,11 @@ class gapFill extends Phaser.Scene {
                     isFalse5 = true;
                 }
                 textSprite52 = this.scene.add.text(500,285,person,{
-                color: "red",
-                fontStyle: "bold",
+                    color: "red",
+                    fontStyle: "bold",
                 });
                 textSprite52.setName("textSprite52");
-            }           
+            }
         });
         sprite5.on('pointerout', function (pointer) {
             this.clearTint();
@@ -409,7 +420,7 @@ class gapFill extends Phaser.Scene {
             if (person == "mess") {
                 var textSprite6 = this.scene.add.text(680,285,person,{
                     color: "white",
-                    fontStyle: "bold",  
+                    fontStyle: "bold",
                 });
                 score +=1;
                 this.setVisible(false);
@@ -424,11 +435,11 @@ class gapFill extends Phaser.Scene {
                     isFalse6 = true;
                 }
                 textSprite62 = this.scene.add.text(680,285,person,{
-                color: "red",
-                fontStyle: "bold",
+                    color: "red",
+                    fontStyle: "bold",
                 });
                 textSprite62.setName("textSprite62");
-            }          
+            }
         });
         sprite6.on('pointerout', function (pointer) {
             this.clearTint();
@@ -461,11 +472,11 @@ class gapFill extends Phaser.Scene {
                     isFalse7 = true;
                 }
                 textSprite72 = this.scene.add.text(440,330,person,{
-                color: "red",
-                fontStyle: "bold",
+                    color: "red",
+                    fontStyle: "bold",
                 });
                 textSprite72.setName("textSprite72");
-            }           
+            }
         });
         sprite7.on('pointerout', function (pointer) {
             this.clearTint();
@@ -475,7 +486,7 @@ class gapFill extends Phaser.Scene {
         });
 
         var sprite8 = this.add.sprite(340, 375, 'sprite').setInteractive()
-        var textSprite82 
+        var textSprite82
         var isFalse8 = false;
 
         sprite8.on('pointerdown', function(pointer){
@@ -483,12 +494,12 @@ class gapFill extends Phaser.Scene {
             if (person == "decided") {
                 var textSprite8 = this.scene.add.text(305,358,person,{
                     color: "white",
-                    fontStyle: "bold",  
+                    fontStyle: "bold",
                 });
                 score +=1;
                 this.setVisible(false);
                 if(isFalse8)
-                textSprite82.setVisible(false);
+                    textSprite82.setVisible(false);
             }
             else {
                 if (isFalse8){
@@ -498,11 +509,11 @@ class gapFill extends Phaser.Scene {
                     isFalse8 = true;
                 }
                 textSprite82 = this.scene.add.text(305,358,person,{
-                color: "red",
-                fontStyle: "bold",
+                    color: "red",
+                    fontStyle: "bold",
                 });
                 textSprite82.setName("textSprite82");
-            }           
+            }
         });
         sprite8.on('pointerout', function (pointer) {
             this.clearTint();
@@ -511,7 +522,7 @@ class gapFill extends Phaser.Scene {
             this.clearTint();
         });
 
-        
+
         var sprite9 = this.add.sprite(550, 375, 'sprite').setInteractive()
         var textSprite92
         var isFalse9 = false
@@ -521,7 +532,7 @@ class gapFill extends Phaser.Scene {
             if (person == "known") {
                 var textSprite9 = this.scene.add.text(530,358,person,{
                     color: "white",
-                    fontStyle: "bold",  
+                    fontStyle: "bold",
                 });
                 score +=1;
                 this.setVisible(false);
@@ -536,11 +547,11 @@ class gapFill extends Phaser.Scene {
                     isFalse9 = true;
                 }
                 textSprite92 = this.scene.add.text(530,358,person,{
-                color: "red",
-                fontStyle: "bold",
+                    color: "red",
+                    fontStyle: "bold",
                 });
                 textSprite92.setName("textSprite92");
-            }           
+            }
         });
         sprite9.on('pointerout', function (pointer) {
             this.clearTint();
@@ -548,40 +559,44 @@ class gapFill extends Phaser.Scene {
         sprite9.on('pointerdown', function (pointer) {
             this.clearTint();
         });
-        
-        
-        
+
+
     }
-    /*This function update the scene*/ 
+
+    /*This function update the scene*/
     update(){
-        //if (score > 8) { 
+        //if (score > 8) {
         if (score > 0) { //for skip
             /*
             * Add text if all answer are correct in GapFill game
             * @type {Phaser.GameObject.text}
             * @author William Goujon
-            */ 
+            */
+
+
             var text = this.add.text(350,550, "Let's go to the crime scene !",{
                 color: "white",
             });
-            this.children.getByName("text1").setVisible(false);//Hide the text instruction of the game 
-            
+            this.children.getByName("text1").setVisible(false);//Hide the text instruction of the game
+
             // skip the game
-        
-            var skipArrow = this.add.image(0,0,'skipArrow');//Add button when all answer are correct 
-        
+
+            var skipArrow = this.add.image(0,0,'skipArrow');//Add button when all answer are correct
+
             var skipRect = this.add.rectangle(0,0,120,120,0x7b6c4f, 0.8);//Create variable skipRect
             skipRect.setName("skipRect");//set name of the variable
             var skipRectStyle = this.add.rectangle(0,0,120,120);
-                skipRectStyle.setStrokeStyle(2,0x000000);
+            skipRectStyle.setStrokeStyle(2,0x000000);
 
-            var skipContainer = this.add.container(700,500,[skipRect, skipArrow ,skipRectStyle]);//create variable skipContainer which includes other variable 
+            var skipContainer = this.add.container(700,500,[skipRect, skipArrow ,skipRectStyle]);//create variable skipContainer which includes other variable
             skipContainer.setInteractive(new Phaser.Geom.Rectangle(-60,-60,120,120), Phaser.Geom.Rectangle.Contains);
             skipContainer.setName("skipContainer");
 
+
             skipContainer.on("pointerdown", function(){
                 this.scene.scene.start('rulesMap');//when the button is activate, change a scene
-            }); 
+                music.stop();
+            });
 
             skipContainer.on('pointerover', function() {
                 skipRect.setFillStyle(0xa88c6c,0.8)
@@ -590,6 +605,6 @@ class gapFill extends Phaser.Scene {
             skipContainer.on('pointerout', function() {
                 skipRect.setFillStyle(0x7b6c4f,0.8)
             });
-        } 
+        }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace service;
 
-include_once ('../Model/DataAccessRead.php');
+include_once ('php/Model/DataAccessRead.php');
 
 use DataAccessRead;
 

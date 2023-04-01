@@ -1,31 +1,32 @@
-/** 
+/**
  *  @fileOverview This file contains 3 classes rulesHiddenObjects, hiddenObjects, victoryScreenHiddenObjects. Theses 3 classes represent the hidden objects game.
  *
  *  @author Souhaila Moumane
-*/
+ */
 
 export {rulesHiddenObjects,hiddenObjects, outOfTime, victoryScreenHiddenObjects};
 
-/** 
+/**
  * The count of objects found
  * @type {int}
  */
 var count = 0;
+var music;
 
 /**
  * This class creates the "instructions" screen for the hidden objects game
  * @extends Phaser.Scene
-*/
+ */
 class rulesHiddenObjects extends Phaser.Scene {
 
-     /* construct with a name to call this scene after*/
+    /* construct with a name to call this scene after*/
     constructor () {
         super('rulesHiddenObjects');
     }
 
-     /*
-    This fuction is overide from Phaser.Scene and now it loads the background image 
-    */
+    /*
+   This fuction is overide from Phaser.Scene and now it loads the background image
+   */
     preload() {
         this.load.image("Rulesbackground","../images/game/background/rulesBackground.jpg");
     }
@@ -33,22 +34,22 @@ class rulesHiddenObjects extends Phaser.Scene {
     This fuction is overide from Phaser.Scene and now it create all the scene
     */
     create() {
-        
+
         // set the progression lvl from data base
         $.ajax({
             url: '../index.php/progressLevel',
             type : "POST",
             data: {'fuction': "increaseLevel", 'lvl' : 2},
         });
-        
-        //Rules Part 
+
+        //Rules Part
         /**
          * This var contains the "rules" background that is added
          * @type {(Phaser.GameObjects.image)}
          *  @author Souhaila Moumane
-        */
+         */
         var rulesBackground = this.add.image(400,300, 'Rulesbackground');
-        
+
         //adding start container to the rules screen
         /**
          * This var contains the "Start" text
@@ -57,7 +58,7 @@ class rulesHiddenObjects extends Phaser.Scene {
          */
         var startText = this.add.text(-38,-18, "Start !",{ fontSize : 28 , fontFamily: 'Georgia, Times, serif'});
 
-         /**
+        /**
          * This var contains the rectangle that contains the "start" text
          * @type {(Phaser.GameObjects.Rectangle)}
          *  @author Souhaila Moumane
@@ -70,10 +71,10 @@ class rulesHiddenObjects extends Phaser.Scene {
          * Adding an outline to the rectangle
          * @type {(Phaser.GameObjects.Rectangle)}
          *  @author Souhaila Moumane
-        */
+         */
         var startRectStyle = this.add.rectangle(0,0,200,50);
         startRectStyle.setStrokeStyle(2,0x000000);
-        
+
         /**
          * Assemble the "start" variables into a container
          * @type {(Phaser.GameObjects.container)}
@@ -81,19 +82,19 @@ class rulesHiddenObjects extends Phaser.Scene {
          */
         var startContainer = this.add.container(400,450,[startRect ,startText,startRectStyle]);
         startContainer.setInteractive(new Phaser.Geom.Rectangle(-100,-25,200,50), Phaser.Geom.Rectangle.Contains);
-        startContainer.setName("startContainer");   
-        
+        startContainer.setName("startContainer");
+
         //adding the rules in the rules screen
 
-         /**
-         * This var contains the "rules" text 
+        /**
+         * This var contains the "rules" text
          * @type {(Phaser.GameObjects.text)}
          *  @author Souhaila Moumane
          */
         var rulesText = this.add.text(-200,-90, "In this game you have to find all \nthe proofs (objects) that will be \ndisplayed in the manuscript on your left\nAfter you found all the proofs, you will\nbe able to play the next game !\n\nGood luck !",{ fontSize : 20 ,fontFamily: 'Georgia, Times, serif'});
         rulesText.setTint(0xc2baac);
 
-         /**
+        /**
          * This var contains a rectangle where the "rules" will be placed on
          * @type {(Phaser.GameObjects.Rectangle)}
          *  @author Souhaila Moumane
@@ -105,10 +106,10 @@ class rulesHiddenObjects extends Phaser.Scene {
          * Adding an outline to the "rules" rectangle
          * @type {(Phaser.GameObjects.Rectangle)}
          *  @author Souhaila Moumane
-        */
+         */
         var rulesRectStyle = this.add.rectangle(0,0,420,200);
         rulesRectStyle.setStrokeStyle(2,0x000000);
-        
+
         /**
          * This var assemble the "rules" variables into a container
          * @type {(Phaser.GameObjects.container)}
@@ -117,7 +118,7 @@ class rulesHiddenObjects extends Phaser.Scene {
         var rulesContainer = this.add.container(400,200,[rulesRect ,rulesText,rulesRectStyle]);
         rulesContainer.setInteractive(new Phaser.Geom.Rectangle(-210,-100,420,200), Phaser.Geom.Rectangle.Contains);
         rulesContainer.setName("rulesContainer");
-        
+
         /*
         * This function starts the "hidden objects" game once clicked on the "start" button
         * @function startContainerPointerDown
@@ -126,27 +127,27 @@ class rulesHiddenObjects extends Phaser.Scene {
         startContainer.on("pointerdown", function(){
             this.scene.scene.start('hiddenObjects');
         });
-        
-         /*
-         * This function makes the button change color when the mouse is pointed over
-         * @function startContainerPointerOver
-         *  @author Souhaila Moumane
-         */
+
+        /*
+        * This function makes the button change color when the mouse is pointed over
+        * @function startContainerPointerOver
+        *  @author Souhaila Moumane
+        */
         startContainer.on('pointerover', function() {
             startRect.setFillStyle(0xa88c6c,0.8)
         });
-        
-         /*
-         * This function makes the button switch back to his original color when the mouse is pointed away from the button
-         * @function startContainerPointerOut
-         *  @author Souhaila Moumane
-         */
+
+        /*
+        * This function makes the button switch back to his original color when the mouse is pointed away from the button
+        * @function startContainerPointerOut
+        *  @author Souhaila Moumane
+        */
         startContainer.on('pointerout', function() {
             startRect.setFillStyle(0x7b6c4f,0.8)
         });
     }
 
-    update() {      
+    update() {
     }
 }
 
@@ -156,12 +157,12 @@ class rulesHiddenObjects extends Phaser.Scene {
  *  @author Souhaila Moumane
  */
 class hiddenObjects extends Phaser.Scene {
-    
+
     /* construct with a name to call this scene after*/
     constructor () {
-        super('hiddenObjects'); 
+        super('hiddenObjects');
     }
-    
+
     preload(){
         this.load.image("backgroundHidenObjects","../images/game/background/scene+.jpg") //scene
         this.load.image("wine", "../images/game/items/wine_2.png") //wine
@@ -185,10 +186,12 @@ class hiddenObjects extends Phaser.Scene {
         this.load.image("flowers", "../images/game/items/flowers2.png") //flowers
         this.load.audio("theme",  "../audio/hidden_objects.mp3");//theme song
         this.load.image("timer", "../images/game/items/clock.png")//timer
+        this.load.audio("sfx", "../audio/soundeffect.mp3")//audioeffect
+        this.load.audio("music_object", "../audio/music_findObject.mp3")
 
     }
 
-    
+
     /*
     This function adds the, previously loaded, images and sets their position on the scene
     */
@@ -200,13 +203,16 @@ class hiddenObjects extends Phaser.Scene {
          * @type {(Phaser.GameObjects.image)}
          * @author Souhaila Moumane
          * @name itemsGameObjectsImages
-        */
+         */
+
+
+
         var wine = this.add.image(400, 300, 'wine').setInteractive();//wine
         var gloves = this.add.image(700, 550, 'gloves').setInteractive(); //gloves
         var necklace = this.add.image(100, 550, 'necklace').setInteractive(); //necklace
         var cuestick = this.add.image(150, 40, 'cuestick').setInteractive(); //cuestick
         var sunglasses = this.add.image(250, 380, 'sunglasses').setInteractive(); //sunglasses
-        this.add.image(570, 390, 'blanket'); //blanket 
+        this.add.image(570, 390, 'blanket'); //blanket
         var rope = this.add.image(570, 370, 'rope').setInteractive(); //rope
         var drink = this.add.image(340, 400, 'drink').setInteractive(); //drink
         this.add.image(655, 400, 'painting'); //painting
@@ -221,7 +227,17 @@ class hiddenObjects extends Phaser.Scene {
         this.add.image(300, 120, 'blood'); //blood
         this.add.image(430, 550, 'flowers'); //flowers
         this.add.image(85, 360, 'timer'); //time
-        
+        console.log(this); //audioeffect
+        var fx =this.sound.add("sfx");
+
+        music = this.sound.add("music_object");
+        music.play();
+        music.setLoop(true);
+        music.setVolume(0.2);
+
+
+
+
         this.chrono = 180; /*initialise chrono of 300 seconds (3min)*/
         this.textchrono = this.add.text(65, 365, formatTime(this.chrono),{ fontSize : 18 , fontFamily: 'Georgia, Times, serif'});
         var timedEvent = this.time.addEvent({
@@ -229,8 +245,8 @@ class hiddenObjects extends Phaser.Scene {
             callback: onEvent,
             callbackScope: this,
             loop: true,
-          });
-          function formatTime(seconds){
+        });
+        function formatTime(seconds){
             // Minutes
             var minutes = Math.floor(seconds/60);
             // Seconds
@@ -240,21 +256,21 @@ class hiddenObjects extends Phaser.Scene {
             // Returns formated time
             return `${minutes}:${partInSeconds}`;
         }
-        
-        
+
+
         function onEvent () /*function that decrements one every second*/
         {
             this.chrono -= 1; // One second
             this.textchrono.setText(formatTime(this.chrono));  /*display the updated chrono every second */
         }
-       
-       /** 
-        * The texts are associated with the variables of the same name and are placed in order to form a list 
-        * @type {(Phaser.GameObjects.text)}
-        * @author Souhaila Moumane
-        * @name itemsGameObjectsTexts
-       */         
-        //objects list to find 
+
+        /**
+         * The texts are associated with the variables of the same name and are placed in order to form a list
+         * @type {(Phaser.GameObjects.text)}
+         * @author Souhaila Moumane
+         * @name itemsGameObjectsTexts
+         */
+            //objects list to find
         var textw = this.add.text(60, 130, 'wine',{ fontSize : 18 , fontFamily: 'Georgia, Times, serif'}).setInteractive(); //liste_wine
         var textg = this.add.text(50, 150, 'gloves', { fontSize : 18 , fontFamily: 'Georgia, Times, serif'}).setInteractive(); //liste_gloves
         var textn = this.add.text(40, 172, 'necklace', { fontSize : 18 , fontFamily: 'Georgia, Times, serif'}).setInteractive(); //liste_necklace
@@ -263,75 +279,85 @@ class hiddenObjects extends Phaser.Scene {
         var textgu = this.add.text(60, 235, 'gun', { fontSize : 18 , fontFamily: 'Georgia, Times, serif'}).setInteractive(); //liste_gun
         var textsc = this.add.text(35, 260, 'spilled cup', { fontSize : 18 , fontFamily: 'Georgia, Times, serif'}).setInteractive(); //liste_knife
         var textr = this.add.text(60, 280, 'rope', { fontSize : 18 , fontFamily: 'Georgia, Times, serif'}).setInteractive(); //liste_rope
-        
+
         /*textw.setTint(0x083B32);*/
-                
-        /* 
+
+        /*
         * The following "var.on" functions makes the objects, and the text associated to them, diseappar once clicked on
         * @name itemsClickHandlers
         * @author Souhaila Moumane
         */
-        wine.on('pointerdown', function (pointer) { 
+        wine.on('pointerdown', function (pointer) {
 
-        this.setVisible(false);
-        textw.setVisible(false);
-        count += 1;
-    });
-        
-         gloves.on('pointerdown', function (pointer) { 
+            this.setVisible(false);
+            textw.setVisible(false);
+            count += 1;
+            fx.play();
 
-         this.setVisible(false);
-         textg.setVisible(false);
-         count += 1;
-    });
-        
-        
-         necklace.on('pointerdown', function (pointer) { 
 
-         this.setVisible(false);
-         textn.setVisible(false);
-         count += 1;
+        });
 
-    });
-        
-            cuestick.on('pointerdown', function (pointer) { 
+        gloves.on('pointerdown', function (pointer) {
+
+            this.setVisible(false);
+            textg.setVisible(false);
+            count += 1;
+            fx.play();
+        });
+
+
+        necklace.on('pointerdown', function (pointer) {
+
+            this.setVisible(false);
+            textn.setVisible(false);
+            count += 1;
+            fx.play();
+
+        });
+
+        cuestick.on('pointerdown', function (pointer) {
 
             this.setVisible(false);
             textc.setVisible(false);
             count += 1;
-    });
-        
-            sunglasses.on('pointerdown', function (pointer) { 
+            fx.play();
+        });
+
+        sunglasses.on('pointerdown', function (pointer) {
 
             this.setVisible(false);
             texts.setVisible(false);
             count += 1;
-    });
-        
-            gun.on('pointerdown', function (pointer) { 
+            fx.play();
+        });
+
+        gun.on('pointerdown', function (pointer) {
 
             this.setVisible(false);
             textgu.setVisible(false);
             count += 1;
-    });
-        
+            fx.play();
+        });
 
-            drink.on('pointerdown', function (pointer) { 
+
+        drink.on('pointerdown', function (pointer) {
 
             this.setVisible(false);
             textsc.setVisible(false);
             count += 1;
-    });
-        
-            rope.on('pointerdown', function (pointer) { 
+            fx.play();
+        });
+
+        rope.on('pointerdown', function (pointer) {
 
             this.setVisible(false);
             textr.setVisible(false);
             count += 1;
-    });    
-        
-                
-        
+            fx.play();
+        });
+
+
+
     }
 
 
@@ -339,10 +365,11 @@ class hiddenObjects extends Phaser.Scene {
      This function is overide from Phaser.Scene and now it makes the "victory screen" scene appear when all the objects are found (count == 8)
     */
     update() {
-        if(count == 8){  
+        if(count == 8){
             this.scene.start('victoryScreenHiddenObjects');
+            music.stop();
         }
-        if(this.chrono <= 60){ /*the chrono numbers become red when there's 30 seconds or less left*/ 
+        if(this.chrono <= 60){ /*the chrono numbers become red when there's 30 seconds or less left*/
             this.textchrono.setTint(0xff0000);
         }
         if(this.chrono == 0){
@@ -351,7 +378,7 @@ class hiddenObjects extends Phaser.Scene {
         }
     }
 
-    
+
 }
 
 
@@ -425,8 +452,8 @@ class outOfTime extends Phaser.Scene {
             recommencerRect.setFillStyle(0x351d0d, 0.85)
         });
 
-    
-        
+
+
     }
 
     update() {
@@ -438,39 +465,39 @@ class outOfTime extends Phaser.Scene {
 
 
 
-/** 
- * This class creates a scene that displays when the player wins the game 
+/**
+ * This class creates a scene that displays when the player wins the game
  * @extends Phaser.Scene
  * @author Souhaila Moumane
  * @author Alexis Mariotti
-*/
-//Victory Screen Scene 
+ */
+//Victory Screen Scene
 class victoryScreenHiddenObjects extends Phaser.Scene {
 
     /**
-    * Construct a new scene with 'victoryScreenHiddenObjects' name to call this scene after
-    */
+     * Construct a new scene with 'victoryScreenHiddenObjects' name to call this scene after
+     */
     constructor () {
-        super('victoryScreenHiddenObjects');     
+        super('victoryScreenHiddenObjects');
     }
 
-     /*
-    This fuction loads the background image of the victory screen
-    */
+    /*
+   This fuction loads the background image of the victory screen
+   */
     preload() {
         this.load.image("victoryScreenHiddenObject","../images/game/background/victoryScreenHiddenObjects.jpg");
     }
 
     create() {
-    
+
         /**
          *  This var contains the "victory" background that is added
          * @type {(Phaser.GameObjects.image)}
          * @author Souhaila Moumane
          * @author Alexis Mariotti
-        */
+         */
         var victoryScreen = this.add.image(400,300, 'victoryScreenHiddenObject');
-        
+
         /**
          * This var contains the victory text
          * @type {(Phaser.GameObjects.text)}
@@ -478,7 +505,7 @@ class victoryScreenHiddenObjects extends Phaser.Scene {
          * @author Alexis Mariotti
          */
         var victoryText = this.add.text(-245,-60, "Incredible ! You found 8 clues, with them the \ninvestigation will be able to move forward !\nBut durring this time, the inspector Marcel \nRoquette found a mistery book, but this book \nis in English and he is not able to translate it,\nhelp him!",{ fontSize : 20 , fontFamily: 'Georgia, Times, serif'});
-       
+
         /**
          * This var contains a rectangle where the victory text will be placed on
          * @type {(Phaser.GameObjects.rectangle)}
@@ -487,7 +514,7 @@ class victoryScreenHiddenObjects extends Phaser.Scene {
          */
         var victoryRect = this.add.rectangle(0,15,520,180,0x273d34, 0.85);
         victoryText.setTint(0xc2baac);
-        
+
         /**
          * This var contains the outline of the rectangle
          * @type {(Phaser.GameObjects.rectangle)}
@@ -498,14 +525,14 @@ class victoryScreenHiddenObjects extends Phaser.Scene {
 
         //Sets the victory rectangle outline's colour and style
         victoryRectStyle.setStrokeStyle(2,0x000000);
-        
+
         /**
          * This var assemble the variables into a container
          * @type {(Phaser.GameObjects.container)}
          * @author Souhaila Moumane
          */
         var victoryContainer = this.add.container(400,100,[victoryRect ,victoryText,victoryRectStyle]);
-        
+
         /**
          * This var contains the 'transition to the next game' text
          * @type {(Phaser.GameObjects.text)}
@@ -523,7 +550,7 @@ class victoryScreenHiddenObjects extends Phaser.Scene {
         var enterRect = this.add.rectangle(0,0,270,50,0x273d34, 0.85);
         enterText.setTint(0xc2baac);
 
-         /**
+        /**
          * This var contains the outline of the rectangle
          * @type {(Phaser.GameObjects.rectangle)}
          * @author Souhaila Moumane
@@ -533,7 +560,7 @@ class victoryScreenHiddenObjects extends Phaser.Scene {
 
 
         enterRectStyle.setStrokeStyle(2,0x000000);
-        
+
         /**
          * This var assemble the variables into a container
          * @type {(Phaser.GameObjects.container)}
@@ -542,7 +569,7 @@ class victoryScreenHiddenObjects extends Phaser.Scene {
          */
         var enterContainer = this.add.container(400,500,[enterRect ,enterText,enterRectStyle]);
 
-        
+
         enterContainer.setInteractive(new Phaser.Geom.Rectangle(-135,-25,270,50), Phaser.Geom.Rectangle.Contains);
 
         /*
@@ -552,7 +579,7 @@ class victoryScreenHiddenObjects extends Phaser.Scene {
         * @author Alexis Mariotti
         */
         enterContainer.on("pointerdown", function(){
-            this.scene.scene.start('translateGameRules');  
+            this.scene.scene.start('translateGameRules');
         });
         /*
         * This function makes the button change color when the mouse is pointed over
@@ -572,12 +599,11 @@ class victoryScreenHiddenObjects extends Phaser.Scene {
         enterContainer.on('pointerout', function() {
             enterRect.setFillStyle(0x273d34,0.85)
         });
-        
+
     }
 
     update() {
     }
-    
+
 }
 
-       

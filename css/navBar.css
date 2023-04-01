@@ -14,19 +14,44 @@ BEGINNING OF NAVBAR STYLING
     list-style: none;
     background-color: #5f687c;
     position: -webkit-sticky;
-	position: sticky;
+    position: sticky;
+    font-family: none;
 }
 
 .managingnavbar {
     display:flex;
     flex-direction: row;
+    background-color: #5f687c;
+}
+
+.toggle {
+    position: relative;
+    margin-top: 1vw;
+    margin-left: 1.25vw;
+    background: white;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.toggle:before {
+    content: '\f186';
+    font-family: fontAwesome;
+    color: #5f687c;
+}
+
+section.dark .toggle:before {
+    content: '\f185';
 }
 
 #logo{
-    width: 3.5vw;
-    height: 3.5vw;
+    width: 3vw;
+    height: 3vw;
     padding: 0.5vw;
-    background: #5f687c;
 }
 
 #nav li {
@@ -56,17 +81,17 @@ BEGINNING OF NAVBAR STYLING
 /*Stickying the navbar*/
 
 .sticky {
-	background-color: #ffffff;
-	position: -webkit-sticky;
-	position: sticky;
-	top: 0;
+    background-color: #ffffff;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
     z-index: 5;
 }
 
 /*
 END OF NAVBAR STYLING 
 */
- 
+
 /*
 BEGINNING OF BUTTONS STYLING
 */

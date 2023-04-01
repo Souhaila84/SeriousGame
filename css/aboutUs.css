@@ -1,4 +1,4 @@
- /* 
+/*
 IMPORTING NAVBAR STYLE
 */
 
@@ -9,8 +9,26 @@ body {
     margin: 0;
     padding: 0;
     text-align: justify;
-    font-size: 0.8vw;
-    background-color:#fff;
+    font-family: "Verdana", "Arial", "Tahoma", "Serif";
+    background-color:#ffffff;
+    transition: background 0.2s linear;
+}
+
+section {
+    background-color: #ffffff;
+    transition: background 0.5s;
+}
+
+section.dark {
+    background: #3c4044;
+    color: #ffffff;
+}
+
+section.dark .encadrement {
+    background: #3c4044;
+    color: #ffffff;
+    border: 1px solid white;
+    transition: background 0.5s;
 }
 
 .encadrement{
@@ -33,13 +51,7 @@ body {
     font-size: 1vw;
 }
 
-.profilG{
-    width: 8vw;
-    border: 1px solid black;
-    border-radius: 5vw;
-}
-
-.profilD{
+.profilpictures{
     width: 8vw;
     border: 1px solid black;
     border-radius: 5vw;
@@ -77,24 +89,133 @@ body {
     flex-direction: row-reverse
 }
 
-.textleftprofiles {
+.textfirstprofile {
     margin-left: 2.5vw;
+    margin-top: 1.3vw;
     height: 100%;
     text-align: left;
 }
 
-.textrightprofiles {
+.textsecondprofile {
     height: 100%;
     margin-right: 2.5vw;
     margin-top: 2vw;
     text-align: right;
 }
 
+.textthirdprofile {
+    margin-left: 2.5vw;
+    margin-top: 2.2vw;
+    height: 100%;
+    text-align: left;
+}
+
+.textfourthprofile {
+    height: 100%;
+    margin-right: 2.5vw;
+    margin-top: 2vw;
+    text-align: right;
+}
+
+
 .titre{
     text-align: center;
-    
-} 
+}
 
 #footer{
     margin-top: 5vh;
+}
+
+@media (max-width: 805px) {
+
+    .encadrement{
+        height: 59vw;
+    }
+
+    .titre {
+        font-size: 5vw;
+    }
+
+    .mainText {
+        font-size: 2.75vw;
+    }
+
+    .allprofiles {
+        margin-left: 2vw;
+        margin-right: 2vw;
+        font-size: 2.26vw;
+    }
+
+    .profilpictures {
+        width: 20vw;
+        border-radius: 10vw;
+    }
+
+    .textfirstprofile {
+        margin-top: 2vw;
+        margin-left: 3.5vw;
+    }
+
+    .textsecondprofile {
+        margin-top: 3.5vw;
+        margin-right: 3.5vw;
+        margin-left: 7vw;
+    }
+
+    .textthirdprofile {
+        margin-top: 3vw;
+        margin-left: 3.5vw;
+        margin-right: 5vw;
+    }
+
+    .textfourthprofile {
+        margin-top: 5vw;
+        margin-right: 3.5vw;
+        margin-left: 5vw;
+    }
+}
+
+@media (min-width:806px) and (max-width:1200px) {
+
+    .encadrement{
+        height: 35vw;
+    }
+
+    .mainText {
+        font-size: 2vw;
+    }
+
+    .allprofiles {
+        margin-left: 4vw;
+        margin-right: 4vw;
+        font-size: 1.8vw;
+    }
+
+    .profilpictures {
+        width: 15vw;
+        border-radius: 7.5vw;
+    }
+
+    .textfirstprofile {
+        margin-top: 1/5vw;
+        margin-left: 3.5vw;
+    }
+
+    .textsecondprofile {
+        margin-top: 3vw;
+        margin-right: 3.5vw;
+        margin-left: 7vw;
+    }
+
+    .textthirdprofile {
+        margin-top: 2.5vw;
+        margin-left: 3.5vw;
+        margin-right: 5vw;
+    }
+
+    .textfourthprofile {
+        margin-top: 4vw;
+        margin-right: 3.5vw;
+        margin-left: 5vw;
+    }
 }
