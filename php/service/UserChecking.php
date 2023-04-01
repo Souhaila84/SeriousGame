@@ -2,7 +2,7 @@
 
 namespace service;
 
-include_once ('php/Model/DataAccessRead.php');
+include_once ('../Model/DataAccessRead.php');
 
 use DataAccessRead;
 
@@ -76,7 +76,7 @@ class UserChecking
         if ($resultBestTime){
             while($row = $resultBestTime->fetch()){
                 $seconds = (intval($row->bestTime / 1000))% 60;
-                $minutes = floor(($row->bestTime / 1000) / 60);
+                $minutes = intval(floor(($row->bestTime / 1000) / 60));
                 $bestsTimes[] = array($row->pseudo, $minutes, $seconds);
             }
         }
@@ -86,7 +86,7 @@ class UserChecking
 
     public function progressLvlFromId($id){
         $progressLvl = 0;
-        $resultProgressLvl = DataAccessRead::getInstance()->progressLvlFromId($_COOKIE['id_user'] ?? '');
+        $resultProgressLvl = DataAccessRead::getInstance()->progressLvlFromId($id);
         if ($resultProgressLvl->rowCount() == 1){
             $progressLvl = $resultProgressLvl->fetch()->lvl;
         }
