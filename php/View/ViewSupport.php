@@ -21,7 +21,11 @@ class ViewSupport extends View
         <textarea name='probleme' rows= 9 cols= 100 style='max-width: 100%;' placeholder ='Expliquez le problème :'></textarea>
     </div>
     <button class='supportButton' type='submit'>Envoyer</button>
-</form>";
+</form>
+<br/>
+<br/>
+<br/>
+";
 
     }
 }
