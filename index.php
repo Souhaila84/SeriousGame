@@ -257,7 +257,9 @@ elseif ('/index.php/mentionsLegales' == $uri){
 
     $vueMentionsLégales->display();
 }
-else {
+elseif ('/index.php/supportMailer' == $uri){
+    $controller->supportMailerAction();
+} else {
     header('Status: 404 Not Found');
     echo '<html><body><h1>My Page NotFound</h1></body></html>';
 }

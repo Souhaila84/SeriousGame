@@ -2,6 +2,10 @@
 
 namespace Control;
 
+require 'phpmailer/includes/PHPMailer.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+
 class Controllers
 {
     public function loginAction($post, $userChecking, $userInsert){
@@ -86,5 +90,40 @@ class Controllers
                 }else{ header('Location: connexion?reg_err=already'); die();} // ATTENTION FAIRE LE HEADER BIEN
         }
         else { header('Location: connexion?err=formNotComplete'); die(); } // ATTENTION FAIRE LE HEADER BIEN
+    }
+
+    public function supportMailerAction(){
+        function envoi_mail($from_name,$from_email,$object,$probleme){
+            $mail = new PHPMailer();
+            $mail->isSMTP();
+            $mail->SMTPDebug = 0;
+            $mail->SMTPSecure = 'ssl';
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth =true;
+
+            $mail->Username='the1884murder@gmail.com';
+            $mail->Password='qmfgazzcotusurur';
+            $mail->SMTPSecure= PHPMailer::ENCRYPTION_SMTPS;
+            $mail->Port = 45;
+
+            $mail->setFrom($from_email,$from_name);
+            $mail->addAddress('the1884murder@gmail.com','AthenaTech');
+            $mail->isHTML(true);
+            $mail->Subject =$object;
+            $mail-> Body =$probleme;
+            $mail->setLanguage('fr','/optional/path/to/language/directory');
+
+            if(!$mail->send()){
+                return false;
+            }else{
+                return true;
+            }
+        }
+
+        if(envoi_mail($_POST['name'],$_POST['email'],$_POST['object'],$_POST['probleme'])){
+            echo'OK';
+        }else{
+            echo"Une erreur s'est produite";
+        }
     }
 }
