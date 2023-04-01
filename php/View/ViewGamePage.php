@@ -11,12 +11,12 @@ class ViewGamePage extends View
         $this->title= 'Jouer';
 
         $this->content = "
-            <script src='../libraries/phaser.js'></script>
-            <script type='module' src='../scripts/startMenu.js'></script>
-            <script type='module' src='../scripts/translateGame.js'></script>
-            <script type='module' src='../scripts/hiddenobjects.js'></script>
-            <script type='module' src='../scripts/mapGame.js'></script>
-            <script type='module' src='../scripts/mainGame.js'></script>
+            <script src='../../libraries/phaser.js'></script>
+            <script type='module' src='../../scripts/startMenu.js'></script>
+            <script type='module' src='../../scripts/translateGame.js'></script>
+            <script type='module' src='../../scripts/hiddenobjects.js'></script>
+            <script type='module' src='../../scripts/mapGame.js'></script>
+            <script type='module' src='../../scripts/mainGame.js'></script>
             <link href='../../css/gamePage.css' rel='stylesheet'>
             <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
             <div id='gameSection'>
@@ -63,7 +63,7 @@ class ViewGamePage extends View
                 <ul id='comments'>
                     <script>
                         $.ajax({
-                            url: '/index.php/gameCommentField',
+                            url: '../../index.php/gameCommentField',
                             success: function(data){
                                 $('#commentsSection').prepend(data);
                             }
@@ -72,7 +72,7 @@ class ViewGamePage extends View
             
                     <script>
                         $.ajax({
-                            url: '/index.php/gameCommentReader',
+                            url: '../../index.php/gameCommentReader',
                             success: function(data){
                                 $('#comments').html(data);
                             }
