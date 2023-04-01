@@ -13,6 +13,7 @@ export {rulesGapFill,gapFill};
 * @author William Goujon
 */
 var score = 0;
+var music;
 /**
  * This class is the rules scene for the gapFill. It contains a text that explains the rules of this game
  * @extends Phaser.Scene
@@ -78,7 +79,7 @@ class rulesGapFill extends Phaser.Scene {
         * @type {Phaser.GameObject.Text}
         * @author William Goujon
         */
-        var gapFillRulesText = this.add.text(-200,-90, "In this game you have to fill the gaps \nin the discussion that Mr.Roquette heard. \nWhen all the gaps will be filled with \nthe correct answers, you'll be able to \nplay the next game !\n\nGood luck !",{ fontSize : 20, fontFamily: 'Georgia, Times, serif'});
+        var gapFillRulesText = this.add.text(-200,-90, "In this game you have to fill the gaps \nin the discussion that Mr.Roquette heard. \nWhen all the gaps are filled with \nthe correct answers, you'll be able to \nplay the next game !\n\nGood luck !",{ fontSize : 20, fontFamily: 'Georgia, Times, serif'});
         gapFillRulesText.setTint(0xc2baac);
         /*
         * This variable contains a rectangle which is the background of rules text 
@@ -136,11 +137,21 @@ class gapFill extends Phaser.Scene {
         this.load.image('detec', '../images/game/characters/detective1.png');/*Load the detective image */
         this.load.image('sprite', '../images/game/_.png');/*Load the sprite image */
         this.load.image('skipArrow', '../images/game/skipArrow.png');/*Load the skip image */
+        this.load.audio('music_gapfill', '../audio/Musique_Gap.mp3');
     }
     /*This function create the functionality of the scene*/
     create()
     {
-        this.add.image(400, 300, 'living') //Add the image for the background
+
+        music = this.sound.add("music_gapfill");
+        music.play();
+        music.setLoop(true);
+        music.setVolume(0.3);
+        
+        //song.setVolume(0.5);
+        var background = this.add.image(400, 300, 'living') //Add the image for the background
+        background.alpha = 0.5
+
         this.add.image(300,420, 'detec') //Add the image of the detective
 
         /*
@@ -547,11 +558,11 @@ class gapFill extends Phaser.Scene {
         });
         sprite9.on('pointerdown', function (pointer) {
             this.clearTint();
-        });
-        
+        });      
         
         
     }
+
     /*This function update the scene*/ 
     update(){
         //if (score > 8) { 
@@ -561,6 +572,8 @@ class gapFill extends Phaser.Scene {
             * @type {Phaser.GameObject.text}
             * @author William Goujon
             */ 
+           
+            
             var text = this.add.text(350,550, "Let's go to the crime scene !",{
                 color: "white",
             });
@@ -578,9 +591,11 @@ class gapFill extends Phaser.Scene {
             var skipContainer = this.add.container(700,500,[skipRect, skipArrow ,skipRectStyle]);//create variable skipContainer which includes other variable 
             skipContainer.setInteractive(new Phaser.Geom.Rectangle(-60,-60,120,120), Phaser.Geom.Rectangle.Contains);
             skipContainer.setName("skipContainer");
+                        
 
             skipContainer.on("pointerdown", function(){
                 this.scene.scene.start('rulesMap');//when the button is activate, change a scene
+                music.stop();
             }); 
 
             skipContainer.on('pointerover', function() {

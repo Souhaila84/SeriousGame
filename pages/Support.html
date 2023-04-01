@@ -35,27 +35,26 @@
                             </ul>   
                         </div>
                     </nav>
-            <h1 class="title"><strong>Bienvenue sur la page Support !</strong></h1>
-            <h3 class="title">Si vous venez à rencontrer un problème, n'hésitez pas à nous en faire part !</h3>
-            <form action="mailto:the1884murder@gmail.com" method="post" enctype="text/plain" >
-                <br>
-                    <p><input type="text" name="adresse mail" placeholder="Adresse mail :"></p>
-                    <p><input type="text" name="nom" placeholder="Nom :"><input type="text" name="prenom" placeholder="Prénom :"></p>
-                    <div id="zone">
-                        <textarea id="textareaproblem" name="probleme" rows= 9 cols= 100 style="max-width: 100%;" placeholder ="Expliquez le problème :"></textarea>
-                    </div>
-                    <button class="supportButton" type="submit">Envoyer</button>
-                </form>
-            <div id="footer">
-                <ul>
-                <li><a id="legal_terms" href="/pages/legalMentions.html">Mentions légales</a></li>
-                <li><p class="pipe"> | </p></li>
-                <li><a id="about_us_bot" href="/pages/About_us.html">A propos</a></li>
-                <li><p class="pipe"> | </p></li>
-                <li><a id="Contact" href="/pages/Support.html">Contact</a></li> 
-                </ul>
-            </div>
-        </section>
+        <h1 class="title"><strong>Bienvenue sur la page Support !</strong></h1>
+        <h3 class="title">Si vous venez à rencontrer un problème, n'hésitez pas à nous en faire part !</h3>
+        <form src="../php/Support.php" method="post">
+            <br>
+                <p><input type="text" name="adresse mail" placeholder="Adresse mail :"></p>
+                <p><input type="text" name="nom" placeholder="Nom :"><input type="text" name="object" placeholder="object :"></p>
+                <div id="zone">
+                    <textarea name="probleme" id="textareaproblem" rows= 9 cols= 100 style="max-width: 100%;" placeholder ="Expliquez le problème :"></textarea>
+                </div>
+                <button class="supportButton" type="submit">Envoyer</button>
+            </form>
+          <div id="footer">
+            <ul>
+              <li><a id="legal_terms" href="/pages/legalMentions.html">Mentions légales</a></li>
+              <li><p class="pipe"> | </p></li>
+              <li><a id="about_us_bot" href="/pages/About_us.html">A propos</a></li>
+              <li><p class="pipe"> | </p></li>
+              <li><a id="Contact" href="/pages/Support.html">Contact</a></li> 
+            </ul>
+        </div>
         <script>
             const sec = document.querySelector('.sec');
             const toggle = document.querySelector('.toggle');
@@ -63,6 +62,7 @@
                 sec.classList.toggle('dark')
             }
         </script>
+    </section>
     </body>
 </html>
 

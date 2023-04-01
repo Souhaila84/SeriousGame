@@ -12,6 +12,7 @@ export {rulesMap, victoryScreenMap, tryAgainScreenMap, mapGame};
  * @name proposalNumber
  */
 var proposalNumber = 0;
+var music;
 
 /**
 * This fuction call with await will sleep the program for a given time
@@ -181,11 +182,15 @@ class victoryScreenMap extends Phaser.Scene {
 
     preload() {
         this.load.image("victoryScreen","../images/game/background/victoryScreen.jpg");
+        
     }
 
     create() {
     
         //adding the background
+
+
+        
     
         /**
          * adding the background to the victoryScreenMap scene.
@@ -518,6 +523,7 @@ class mapGame extends Phaser.Scene
         this.load.image('Start', '../images/mapstart.png')
         this.load.image('Gps user', '../images/usergpsicon.png')
         this.load.image('Rulesbackground', '../images/rulesbackground.jpg')
+        this.load.audio("music_mapgame","../audio/Music_mapgame.mp3");
     }
     
     create()
@@ -531,6 +537,11 @@ class mapGame extends Phaser.Scene
          * @name {Phaser.GameObjects.Image}
          */
         var map = this.add.image(400,300, 'Map');
+
+        music = this.sound.add("music_mapgame");
+        music.play();
+        music.setLoop(true);
+        music.setVolume(0.3);
                 
         //Game Part
         //adding the green pings
@@ -1004,6 +1015,7 @@ class mapGame extends Phaser.Scene
                  this.scene.scene.start('tryAgainScreenMap');
              else 
                  this.scene.scene.start('victoryScreenMap');
+                 music.stop();
         });
         
         

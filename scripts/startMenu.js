@@ -53,6 +53,7 @@ rules
                 nextSceneIndex = 0;
             }
             this.scene.scene.start(allScenes[nextSceneIndex]); //change scene whit progression or not
+            this.scene.scene.start(allScenes[0]);
         });
        
     }

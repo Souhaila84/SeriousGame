@@ -11,6 +11,7 @@ export {rulesHiddenObjects,hiddenObjects, outOfTime, victoryScreenHiddenObjects}
  * @type {int}
  */
 var count = 0;
+var music;
 
 /**
  * This class creates the "instructions" screen for the hidden objects game
@@ -186,7 +187,8 @@ class hiddenObjects extends Phaser.Scene {
         this.load.audio("theme",  "../audio/hidden_objects.mp3");//theme song
         this.load.image("timer", "../images/game/items/clock.png")//timer
         this.load.audio("sfx", "../audio/soundeffect.mp3")//audioeffect
-
+        this.load.audio("music_object", "../audio/music_findObject.mp3")
+        
     }
 
     
@@ -202,6 +204,9 @@ class hiddenObjects extends Phaser.Scene {
          * @author Souhaila Moumane
          * @name itemsGameObjectsImages
         */
+
+
+
         var wine = this.add.image(400, 300, 'wine').setInteractive();//wine
         var gloves = this.add.image(700, 550, 'gloves').setInteractive(); //gloves
         var necklace = this.add.image(100, 550, 'necklace').setInteractive(); //necklace
@@ -224,6 +229,14 @@ class hiddenObjects extends Phaser.Scene {
         this.add.image(85, 360, 'timer'); //time
         console.log(this); //audioeffect
         var fx =this.sound.add("sfx");
+
+        music = this.sound.add("music_object");
+        music.play();
+        music.setLoop(true);
+        music.setVolume(0.2);
+
+
+
         
         this.chrono = 180; /*initialise chrono of 300 seconds (3min)*/
         this.textchrono = this.add.text(65, 365, formatTime(this.chrono),{ fontSize : 18 , fontFamily: 'Georgia, Times, serif'});
@@ -354,6 +367,7 @@ class hiddenObjects extends Phaser.Scene {
     update() {
         if(count == 8){  
             this.scene.start('victoryScreenHiddenObjects');
+            music.stop();
         }
         if(this.chrono <= 60){ /*the chrono numbers become red when there's 30 seconds or less left*/ 
             this.textchrono.setTint(0xff0000);
@@ -565,7 +579,7 @@ class victoryScreenHiddenObjects extends Phaser.Scene {
         * @author Alexis Mariotti
         */
         enterContainer.on("pointerdown", function(){
-            this.scene.scene.start('translateGameRules');  
+            this.scene.scene.start('translateGameRules');
         });
         /*
         * This function makes the button change color when the mouse is pointed over
