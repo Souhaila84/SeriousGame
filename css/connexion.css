@@ -17,7 +17,20 @@ body {
     flex-direction : column;
 }
 
+section {
+    background-color: #ffffff;
+    transition: background 0.5s;
+}
 
+section.dark {
+    background: #3c4044;
+    color: #ffffff;
+}
+
+section.dark input {
+    border-bottom: 1px solid white;
+    color: white;
+}
 
 #connect{
     margin: 50px;

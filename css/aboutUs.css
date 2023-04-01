@@ -9,7 +9,26 @@ body {
     margin: 0;
     padding: 0;
     text-align: justify;
-    background-color:#fff;
+    font-family: "Verdana", "Arial", "Tahoma", "Serif";
+    background-color:#ffffff;
+    transition: background 0.2s linear;
+}
+
+section {
+    background-color: #ffffff;
+    transition: background 0.5s;
+}
+
+section.dark {
+    background: #3c4044;
+    color: #ffffff;
+}
+
+section.dark .encadrement {
+    background: #3c4044;
+    color: #ffffff;
+    border: 1px solid white;
+    transition: background 0.5s;
 }
 
 .encadrement{
@@ -110,7 +129,7 @@ body {
 @media (max-width: 805px) {
     
     .encadrement{
-        height: 50vw;
+        height: 59vw;
     }
     
     .titre {
@@ -159,7 +178,7 @@ body {
 @media (min-width:806px) and (max-width:1200px) {
 
         .encadrement{
-        height: 30vw;
+        height: 35vw;
     }
     
     .mainText {

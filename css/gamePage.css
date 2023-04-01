@@ -15,6 +15,31 @@ body {
     min-height: 100vh;
 }
 
+section {
+    background-color: #D5CABC;
+    transition: background 0.5s;
+}
+
+section.dark body {
+    background-color: #4d4c4b;
+}
+
+section.dark {
+    background: #4d4c4b;
+    color: #acb3c3;
+}
+
+section.dark .encadrementErrorMessage {
+    background: #4d4c4b;
+    transition: background 0.5s;
+    color: #acb3c3;
+}
+
+section.dark .encadrementScenario{
+    background: #4d4c4b;
+    color: #acb3c3;
+}
+
 .managingnavbar {
     display:flex;
     flex-direction: row;
@@ -91,7 +116,7 @@ canvas {
 .encadrementScenario{
     background: #e3dac3;
     width: 50vw;
-    height: 27vw;   
+    height: 30vw;   
     border-radius: 1vw;
     border: 0.3vw solid #5f687c;
     margin: auto;
@@ -236,7 +261,7 @@ canvas {
     
     .encadrementScenario{
         width: 80vw;
-        height: 65vw;
+        height: 67.5vw;
         font-size: 2.5vw;
         margin-top: 5vw;
         margin-bottom: 10vw;
