@@ -18,6 +18,7 @@ class ViewGamePage extends View
             <script type='module' src='../scripts/mapGame.js'></script>
             <script type='module' src='../scripts/mainGame.js'></script>
             <link href='/css/gamePage.css' rel='stylesheet'>
+            <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
             <div id='gameSection'>
                 <div id='game'>
                 </div>

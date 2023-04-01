@@ -144,7 +144,6 @@ class AjaxControllers //this controller is used for ajax queries and don't use a
               }
               </script>
               
-              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
               <div id="inputCommentArea">
                     <div>  
                         <span id="0" class="fa fa-star editable checked" onclick="changeStar(0)"></span>
