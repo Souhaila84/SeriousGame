@@ -17,7 +17,7 @@ class ViewGamePage extends View
             <script type='module' src='../scripts/hiddenobjects.js'></script>
             <script type='module' src='../scripts/mapGame.js'></script>
             <script type='module' src='../scripts/mainGame.js'></script>
-            <link href='/css/gamePage.css' rel='stylesheet'>
+            <link href='../../css/gamePage.css' rel='stylesheet'>
             <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
             <div id='gameSection'>
                 <div id='game'>
@@ -51,9 +51,9 @@ class ViewGamePage extends View
                             on his missions to find who is the murderer.<br><br>
                             Will you find the murderer or will he escape from you ?
                         </p>
-                        <input type='image' id='entofr' hidden src='../images/france.png' width='50' height='35'>
-                        <input type='image' id='frtoen' src='../images/england.png' width='50' height='35'>
-                        <script src='../scripts/scenario.js'></script>
+                        <input type='image' id='entofr' hidden src='../../images/france.png' width='50' height='35'>
+                        <input type='image' id='frtoen' src='../../images/england.png' width='50' height='35'>
+                        <script src='../../scripts/scenario.js'></script>
                     </div>
                 </div>
             </div>

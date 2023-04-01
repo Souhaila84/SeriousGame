@@ -7,8 +7,10 @@
     text-align: center;
     list-style: none;
     background-color: #5f687c;
-    position: relative;
+    position: fixed;
     z-index: 2;
+    bottom: 0;
+    width: 100%;
 }
 
 #footer ul {
