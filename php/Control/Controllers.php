@@ -2,9 +2,12 @@
 
 namespace Control;
 
-require 'phpmailer/includes/PHPMailer.php';
-
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/SMTP.php';
 
 class Controllers
 {
@@ -92,8 +95,13 @@ class Controllers
         else { header('Location: connexion?err=formNotComplete'); die(); } // ATTENTION FAIRE LE HEADER BIEN
     }
 
+    /**
+     * @author william Goujon
+     * @return void
+     */
     public function supportMailerAction(){
-        function envoi_mail($from_name,$from_email,$object,$probleme){
+
+        function envoi_mail($from_nom,$from_mail,$object,$probleme){
             $mail = new PHPMailer();
             $mail->isSMTP();
             $mail->SMTPDebug = 0;
@@ -103,10 +111,9 @@ class Controllers
 
             $mail->Username='the1884murder@gmail.com';
             $mail->Password='qmfgazzcotusurur';
-            $mail->SMTPSecure= PHPMailer::ENCRYPTION_SMTPS;
-            $mail->Port = 45;
+            $mail->Port = 465;
 
-            $mail->setFrom($from_email,$from_name);
+            $mail->setFrom($from_mail,$from_nom);
             $mail->addAddress('the1884murder@gmail.com','AthenaTech');
             $mail->isHTML(true);
             $mail->Subject =$object;
@@ -120,10 +127,13 @@ class Controllers
             }
         }
 
-        if(envoi_mail($_POST['name'],$_POST['email'],$_POST['object'],$_POST['probleme'])){
-            echo'OK';
+        if(envoi_mail($_POST['nom'],$_POST['mail'],$_POST['object'],$_POST['probleme'])){
+            echo'<p>Merci de votre contribution</p>
+                <p>Vous allez être rediriger vers l\'accueil</p>';
+            header("refresh:5;url=/index.php");
         }else{
             echo"Une erreur s'est produite";
         }
+
     }
 }
