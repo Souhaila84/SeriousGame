@@ -4,6 +4,7 @@ IMPORTING NAVBAR STYLE
 
 @import url("navBar.css");
 @import url("footer.css");
+@import url("darkTheme.css");
 
 body {
     margin: 0;
