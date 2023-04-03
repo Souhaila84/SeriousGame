@@ -29,6 +29,10 @@ section.dark {
     color: #acb3c3;
 }
 
+section.dark .commentArea{
+    background: #4d4c4b;
+}
+
 section.dark .encadrementErrorMessage {
     background: #4d4c4b;
     transition: background 0.5s;

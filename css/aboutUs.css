@@ -4,6 +4,7 @@ IMPORTING NAVBAR STYLE
 
 @import url("navBar.css");
 @import url("footer.css");
+@import url("darkTheme.css");
 
 body {
     margin: 0;
@@ -12,16 +13,6 @@ body {
     font-family: "Verdana", "Arial", "Tahoma", "Serif";
     background-color:#ffffff;
     transition: background 0.2s linear;
-}
-
-section {
-    background-color: #ffffff;
-    transition: background 0.5s;
-}
-
-section.dark {
-    background: #3c4044;
-    color: #ffffff;
 }
 
 section.dark .encadrement {

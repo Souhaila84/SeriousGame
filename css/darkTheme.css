@@ -1,0 +1,9 @@
+section {
+    background-color: #ffffff;
+    transition: background 0.5s;
+}
+
+section.dark {
+    background: #3c4044;
+    color: #ffffff;
+}
