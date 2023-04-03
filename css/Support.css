@@ -26,13 +26,11 @@ section.dark input {
     transition: background 0.5s;
 }
 
-section.dark #textareaproblem {
+section.dark textarea {
     background: #3c4044;
     color: #ffffff;
     transition: background 0.5s;
 }
-
-
 input[type="text"]{
     display: block;
     position: inherit;
